@@ -20,7 +20,7 @@
 
 #ifndef _config_gui_h
 #define _config_gui_h
-static char     _config_gui_h_id[] = "$Id: config_gui.h,v 1.1 2004/09/09 13:35:51 rogerms Exp $";
+static char     _config_gui_h_id[] = "$Id: config_gui.h,v 1.1.1.2 2004/11/01 00:22:46 rogerms Exp $";
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -59,8 +59,11 @@ extern          "C" {
 #endif
 /*
 $Log: config_gui.h,v $
-Revision 1.1  2004/09/09 13:35:51  rogerms
-Initial revision
+Revision 1.1.1.2  2004/11/01 00:22:46  rogerms
+*** empty log message ***
+
+Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
+V1.0
 
 Revision 1.2  2004/08/28 09:52:17  RogerSeguin
 Added font selector

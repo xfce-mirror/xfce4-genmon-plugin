@@ -1,5 +1,5 @@
 #!/bin/bash
-#$Id: rebuild,v 1.1 2004/09/09 13:34:49 rogerms Exp $
+#$Id: rebuild,v 1.1.1.2 2004/11/01 00:22:41 rogerms Exp $
 
 # Generic Monitor plugin for the Xfce4 panel
 # Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
@@ -62,8 +62,11 @@ RebuildComponent $*
 exit $?
 
 #$Log: rebuild,v $
-#Revision 1.1  2004/09/09 13:34:49  rogerms
-#Initial revision
+#Revision 1.1.1.2  2004/11/01 00:22:41  rogerms
+#*** empty log message ***
+#
+#Revision 1.1.1.1  2004/09/09 13:34:49  rogerms
+#V1.0
 #
 #Revision 1.2  2004/08/31 21:39:21  RogerSeguin
 #Added autogen opetion

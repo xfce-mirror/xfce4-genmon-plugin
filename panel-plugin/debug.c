@@ -18,7 +18,7 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-static char     RCSid[] = "$Id: debug.c,v 1.1 2004/09/09 13:35:51 rogerms Exp $";
+static char     RCSid[] = "$Id: debug.c,v 1.1.1.2 2004/11/01 00:22:46 rogerms Exp $";
 
 
 #include "debug.h"
@@ -54,8 +54,11 @@ int genmon_Trace (const char *const p_pcFormat, ...)
 
 /*
 $Log: debug.c,v $
-Revision 1.1  2004/09/09 13:35:51  rogerms
-Initial revision
+Revision 1.1.1.2  2004/11/01 00:22:46  rogerms
+*** empty log message ***
+
+Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
+V1.0
 
 Revision 1.1  2004/08/27 23:17:38  RogerSeguin
 Initial revision
