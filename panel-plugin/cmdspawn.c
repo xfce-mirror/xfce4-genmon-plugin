@@ -1,3 +1,4 @@
+
 // Generic Monitor plugin for the Xfce4 panel
 // Spawn - Spawn a process and capture its output
 // Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
@@ -19,7 +20,11 @@
 */
 
 static char     RCSid[] =
-    "$Id: cmdspawn.c,v 1.2 2004/11/01 00:06:17 rogerms Exp $";
+<<<<<<< cmdspawn.c
+    "$Id: cmdspawn.c,v 1.3 2004/11/01 00:45:41 rogerms Exp $";
+=======
+    "$Id: cmdspawn.c,v 1.3 2004/11/01 00:45:41 rogerms Exp $";
+>>>>>>> 1.1.1.2
 
 
 #define DEBUG	0
@@ -275,6 +280,10 @@ int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
 
 /*
 $Log: cmdspawn.c,v $
+Revision 1.3  2004/11/01 00:45:41  rogerms
+*** empty log message ***
+
+<<<<<<< cmdspawn.c
 Revision 1.2  2004/11/01 00:06:17  rogerms
 *** empty log message ***
 
@@ -286,6 +295,22 @@ Moved string-to-array commandline translation code into a separate function
 
 Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
 V1.0
+=======
+Revision 1.1.1.2  2004/11/01 00:22:46  rogerms
+*** empty log message ***
+
+Revision 1.2  2004/11/01 00:06:17  rogerms
+*** empty log message ***
+
+Revision 1.4  2004/10/28 23:39:29  RogerSeguin
+Fixed memory allocation bug
+
+Revision 1.3  2004/10/27 09:57:22  RogerSeguin
+Moved string-to-array commandline translation code into a separate function
+
+Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
+V1.0
+>>>>>>> 1.1.1.2
 
 Revision 1.2  2004/08/28 13:33:27  RogerSeguin
 Better processing
