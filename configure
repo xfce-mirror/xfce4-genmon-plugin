@@ -1757,7 +1757,7 @@ fi
 
 # Define the identity of the package.
  PACKAGE=xfce4-genmon-plugin
- VERSION=1.0
+ VERSION=1.1
 
 
 cat >>confdefs.h <<_ACEOF

@@ -1,10 +1,9 @@
-/*
- *  Generic Monitor plugin for the Xfce4 panel
- *  Spawn - Spawn a process and capture its output
- *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
- *  					<http://rmlx.dyndns.org>
- *  
- *  This library is free software; you can redistribute it and/or
+// Generic Monitor plugin for the Xfce4 panel
+// Spawn - Spawn a process and capture its output
+// Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
+//                                      <http://rmlx.dyndns.org>
+
+/*  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
  *  version 2.1 of the License, or (at your option) any later version.
@@ -17,10 +16,10 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+*/
 
 static char     RCSid[] =
-    "$Id: cmdspawn.c,v 1.1 2004/09/09 13:35:51 rogerms Exp $";
+    "$Id: cmdspawn.c,v 1.2 2004/11/01 00:06:17 rogerms Exp $";
 
 
 #define DEBUG	0
@@ -51,16 +50,109 @@ static char     RCSid[] =
 #include <strings.h>
 #include <string.h>
 #include <poll.h>
+#include <stdarg.h>
 #include <errno.h>
+#include <sys/wait.h>
+
+
+/**********************************************************************/
+static int ParseCmdline (const char *const p_pcCmdLine, char ***p_pppcArgv, ...
+			 /* &argc, */
+			 /* acError, ErrorBufferSize */ )
+/**********************************************************************/
+ /* Split a commandline string into an argv-type dynamically allocated
+    array. The caller shall free this array when not needed any longer */
+ /* If acError is provided, it will host any error. Otherwise errors will
+    be sent to stderr */
+ /* Return 0 on success, -1 on failure */
+{
+    const size_t    M = strlen (p_pcCmdLine),	// 
+	N = M + 1,		// 
+	P = M * sizeof (char *);
+    size_t          BufSafeSize;
+    char            acFormat[16];
+    char           *pcStr, *pcStr1, *pcStr2;
+    char          **argv;
+    int             argc;
+    int             n;
+
+    /* Optional parameters */
+    va_list         ap;
+    int            *piArgc;
+    char           *pcError = 0;
+    size_t          BufferSize = 0;
+
+    /* Get function's optional parameters */
+    va_start (ap, p_pppcArgv);
+    piArgc = va_arg (ap, int *);
+    if (piArgc) {
+	pcError = va_arg (ap, char *);
+	if (pcError)
+	    BufferSize = va_arg (ap, size_t);
+    }
+    va_end (ap);
+
+    BufSafeSize = (BufferSize > 0 ? BufferSize - 1 : 0);
+    pcStr = (char *) malloc (N);
+    pcStr1 = (char *) malloc (N);
+    pcStr2 = (char *) malloc (N);
+    argv = (char **) malloc (P);
+    if (!(pcStr && pcStr1 && pcStr2 && argv)) {
+	if (pcError) {
+	    n = errno;
+	    snprintf (pcError, BufSafeSize, "malloc(%d): %s", n,
+		      strerror (n));
+	}
+	else
+	    perror ("malloc(argv)");
+	return (-1);
+    }
+    memset (argv, 0, P);
+
+    /* Build argv from the command line string */
+    sprintf (acFormat, "%%s %%%dc", N - 1);
+    strcpy (pcStr, p_pcCmdLine);
+    for (argc = 0;;) {
+	memset (pcStr2, 0, N);
+	n = sscanf (pcStr, acFormat, pcStr1, pcStr2);
+	if (n <= 0)
+	    break;
+	argv[argc] = (char *) malloc (strlen (pcStr1) + 1);
+	if (!(argv[argc])) {
+	    if (pcError) {
+		n = errno;
+		snprintf (pcError, BufSafeSize, "malloc(%d): %s", n,
+			  strerror (n));
+	    }
+	    else
+		perror ("malloc(argv[i])");
+	    free (pcStr), free (pcStr1), free (pcStr2);
+	    while (argc-- > 0)
+		free (argv[argc]);
+	    free (argv);
+	    return (-1);
+	}
+	strcpy (argv[argc++], pcStr1);
+	if (n <= 1)
+	    break;
+	strcpy (pcStr, pcStr2);
+    }
+    free (pcStr), free (pcStr1), free (pcStr2);
+
+    *p_pppcArgv = argv;
+    if (piArgc)
+	*piArgc = argc;
+    return (0);
+}				// ParseCmdline()
 
 
 /**********************************************************************/
 int genmon_Spawn (char *const argv[], char *const p_pcOutput,
 		  const size_t p_BufferSize)
 /**********************************************************************/
-	/* Spawn a command and capture its output */
-	/* Return 0 on success, otherwise copy stderr into the output
-	   string and return -1 */
+ /* Spawn a command and capture its output */
+ /* Return 0 on success, otherwise copy stderr into the output string and
+    return -1 */
 {
     enum { OUT, ERR, OUT_ERR };
     enum { RD, WR, RD_WR };
@@ -154,58 +246,23 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
 int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
 		     const size_t p_BufferSize)
 /**********************************************************************/
-	/* Spawn a command and capture its output */
-	/* Return 0 on success, otherwise copy stderr into the output
-	   string and return -1 */
+ /* Spawn a command and capture its output */
+ /* Return 0 on success, otherwise copy stderr into the output string and
+    return -1 */
 {
-    const size_t    N = strlen (p_pcCmdLine) + 1;
-    const size_t    BufSafeSize = p_BufferSize - 1;
-    char            acFormat[16];
-    char           *pcStr, *pcStr1, *pcStr2;
     char          **argv;
     int             argc;
-    int             n;
     int             status;
 
-    pcStr = (char *) malloc (N);
-    pcStr1 = (char *) malloc (N);
-    pcStr2 = (char *) malloc (N);
-    argv = (char **) malloc (N);
-    if (!(pcStr && pcStr1 && pcStr2 && argv)) {
-	n = errno;
-	snprintf (p_pcOutput, BufSafeSize, "malloc(%d): %s", n,
-		  strerror (n));
-	return (-1);
-    }
 
-    /* Build argv from the command line string */
-    sprintf (acFormat, "%%s %%%dc", N - 1);
-    strcpy (pcStr, p_pcCmdLine);
-    for (argc = 0;;) {
-	memset (pcStr2, 0, N);
-	n = sscanf (pcStr, acFormat, pcStr1, pcStr2);
-	if (n <= 0)
-	    break;
-	argv[argc] = (char *) malloc (strlen (pcStr1) + 1);
-	if (!(argv[argc])) {
-	    n = errno;
-	    snprintf (p_pcOutput, BufSafeSize, "malloc(%d): %s", n,
-		      strerror (n));
-	    free (pcStr), free (pcStr1), free (pcStr2);
-	    while (argc-- > 0)
-		free (argv[argc]);
-	    free (argv);
-	    return (-1);
-	}
-	strcpy (argv[argc++], pcStr1);
-	if (n <= 1)
-	    break;
-	strcpy (pcStr, pcStr2);
-    }
-    free (pcStr), free (pcStr1), free (pcStr2);
+    /* Split the commandline into an argv array */
+    status = ParseCmdline (p_pcCmdLine, &argv, &argc,
+			   p_pcOutput, p_BufferSize);
+    if (status == -1)
+	/* Memory allocation problem */
+	return (-1);
 
     /* Spawn the command and free allocated memory */
-    argv[argc] = 0;
     status = genmon_Spawn (argv, p_pcOutput, p_BufferSize);
     while (argc-- > 0)
 	free (argv[argc]);
@@ -218,8 +275,17 @@ int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
 
 /*
 $Log: cmdspawn.c,v $
-Revision 1.1  2004/09/09 13:35:51  rogerms
-Initial revision
+Revision 1.2  2004/11/01 00:06:17  rogerms
+*** empty log message ***
+
+Revision 1.4  2004/10/28 23:39:29  RogerSeguin
+Fixed memory allocation bug
+
+Revision 1.3  2004/10/27 09:57:22  RogerSeguin
+Moved string-to-array commandline translation code into a separate function
+
+Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
+V1.0
 
 Revision 1.2  2004/08/28 13:33:27  RogerSeguin
 Better processing
