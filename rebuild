@@ -1,0 +1,73 @@
+#!/bin/bash
+#$Id: rebuild,v 1.1 2004/09/09 13:34:49 rogerms Exp $
+
+# Generic Monitor plugin for the Xfce4 panel
+# Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
+# 					<http://rmlx.dyndns.org>
+# 
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+topdir=`dirname $0`
+topdir=`(cd $topdir && pwd)`
+
+installDir=/usr/local
+export CFLAGS='-mcpu=pentium4 -march=pentium4 -Wall'
+export CXXFLAGS="$CFLAGS"
+export PKG_CONFIG_PATH=$installDir/lib/pkgconfig:/usr/lib/pkgconfig
+
+RebuildComponent() {
+	if [ "$1" = "autogen" ]; then
+		./autogen.sh	--prefix=$installDir
+		status=$?
+	else
+		./configure	--prefix=$installDir
+		status=$?
+	fi
+	[ $status -eq 0 ] || exit $status
+	
+	make clean
+	
+	make
+	status=$?
+	[ $status -eq 0 ] || exit $status
+	
+	make check
+	status=$?
+	[ $status -eq 0 ] || exit $status
+	
+	sudo make install
+	status=$?
+	[ $status -eq 0 ] || exit $status
+	
+	make clean
+	status=$?
+	[ $status -eq 0 ] || exit $status
+}
+
+cd $topdir
+RebuildComponent $*
+
+exit $?
+
+#$Log: rebuild,v $
+#Revision 1.1  2004/09/09 13:34:49  rogerms
+#Initial revision
+#
+#Revision 1.2  2004/08/31 21:39:21  RogerSeguin
+#Added autogen opetion
+#
+#Revision 1.1  2004/08/27 23:10:57  RogerSeguin
+#Initial revision
+#

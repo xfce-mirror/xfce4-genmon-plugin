@@ -1,0 +1,53 @@
+Generic Monitor XFce4 panel plugin (GenMon)
+===========================================
+
+
+1 -	Description
+	-----------
+The GenMon plugin cyclically spawns the indicated script/program, captures its output and displays it as a string into the panel.
+
+
+2 -	Installation
+	------------
+Do the usual stuff:
+	- gunzip
+	- tar xf
+	- configure --prefix=<XFce4InstallationDir>	(e.g. /usr/local)
+	- make
+	- make install  (as root)
+	
+You should then end up with:
+        libgenmon.a   libgenmon.la  libgenmon.so
+installed in <XFce4InstallationDir>/lib/xfce4/panel-plugins/
+
+
+3 -	Testing
+
+Use GenMon for invoking the provided "datetime" shell script.
+Then the current date/time should be continuously updated in your panel.
+
+
+4 -	Extra
+
+A simple Perl script, disktemp, that retrieves the temperature of a disk
+using the smartmontools is provided.
+To install it, as root you may do:
+	- cp disktemp /usr/local/bin
+	- cd /usr/local/bin
+	- chown root:root	disktemp
+	- chmod a+rx		disktemp
+	- chmod u+s 		disktemp
+Then run (you need to have smartd/smarctl installed on your system)
+	- disktemp <disk>	(e.g. /dev/hda)
+If this works, you should be able to use GenMon for continually monitoring
+your disk temperature.
+
+
+5 -	Bugs
+	----
+If you find a bug, fix it, then tell me how you did it :-)
+
+
+Enjoy!
+Roger Seguin
+roger_seguin@msn.com

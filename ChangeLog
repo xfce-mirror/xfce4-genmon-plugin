@@ -1,0 +1,14 @@
+2004-09-09 1.0 Roger Seguin
+	* Xfce Goodies Release
+
+2004-09-01 0.4 Roger Seguin
+	* Reset font after panel orientation change
+
+2004-08-28 0.3 Roger Seguin
+	* Improved spawning process
+
+2004-08-28 0.2 Roger Seguin
+	* Added font selector for resulting string displayed in panel
+
+2004-08-28 0.1 Roger Seguin
+	* Initial release
