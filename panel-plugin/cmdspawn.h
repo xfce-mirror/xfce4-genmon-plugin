@@ -21,7 +21,7 @@
 
 #ifndef _cmdspawn_h
 #define _cmdspawn_h
-static char     _cmdspawn_h_id[] = "$Id: cmdspawn.h,v 1.1 2004/09/09 13:35:51 rogerms Exp $";
+static char     _cmdspawn_h_id[] = "$Id: cmdspawn.h,v 1.1.1.2 2004/11/01 00:22:46 rogerms Exp $";
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -50,8 +50,11 @@ extern          "C" {
 #endif
 /*
 $Log: cmdspawn.h,v $
-Revision 1.1  2004/09/09 13:35:51  rogerms
-Initial revision
+Revision 1.1.1.2  2004/11/01 00:22:46  rogerms
+*** empty log message ***
+
+Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
+V1.0
 
 Revision 1.1  2004/08/27 23:16:48  RogerSeguin
 Initial revision

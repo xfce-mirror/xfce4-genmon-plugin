@@ -19,7 +19,7 @@
  */
 
 static char     RCSid[] =
-    "$Id: main.c,v 1.1 2004/09/09 13:35:53 rogerms Exp $";
+    "$Id: main.c,v 1.1.1.2 2004/11/01 00:22:48 rogerms Exp $";
 
 
 #define DEBUG	0
@@ -582,8 +582,11 @@ XFCE_PLUGIN_CHECK_INIT
 	/**************************************************************/
 /*
 $Log: main.c,v $
-Revision 1.1  2004/09/09 13:35:53  rogerms
-Initial revision
+Revision 1.1.1.2  2004/11/01 00:22:48  rogerms
+*** empty log message ***
+
+Revision 1.1.1.1  2004/09/09 13:35:53  rogerms
+V1.0
 
 Revision 1.4  2004/09/09 12:58:14  RogerSeguin
 Increased commandline resulting string maximum size from 16 characters to 32

@@ -1,3 +1,7 @@
+2004-11-01 1.0 Roger Seguin
+	* Fixed bug related to memory dynamic allocation
+	* Added contribution scripts
+
 2004-09-09 1.0 Roger Seguin
 	* Xfce Goodies Release
 

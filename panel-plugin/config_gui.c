@@ -19,7 +19,7 @@
  */
 
 static char     RCSid[] =
-    "$Id: config_gui.c,v 1.1 2004/09/09 13:35:51 rogerms Exp $";
+    "$Id: config_gui.c,v 1.1.1.2 2004/11/01 00:22:46 rogerms Exp $";
 
 
 #include "config_gui.h"
@@ -243,8 +243,11 @@ int genmon_CreateConfigGUI (GtkWidget * OptionDialog,
 
 /*
 $Log: config_gui.c,v $
-Revision 1.1  2004/09/09 13:35:51  rogerms
-Initial revision
+Revision 1.1.1.2  2004/11/01 00:22:46  rogerms
+*** empty log message ***
+
+Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
+V1.0
 
 Revision 1.2  2004/08/28 09:53:28  RogerSeguin
 Added font selector

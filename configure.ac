@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/main.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-genmon-plugin], [1.0])
+AM_INIT_AUTOMAKE([xfce4-genmon-plugin], [1.1])
 
 AM_MAINTAINER_MODE
 
