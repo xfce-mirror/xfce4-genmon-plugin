@@ -18,15 +18,8 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-static char     RCSid[] =
-    "$Id: main.c,v 1.1.1.2 2004/11/01 00:22:48 rogerms Exp $";
-
-
-#define DEBUG	0
-
 #include "config_gui.h"
 #include "cmdspawn.h"
-#include "debug.h"
 
 
 #ifdef HAVE_CONFIG_H
@@ -35,10 +28,9 @@ static char     RCSid[] =
 
 #include <gtk/gtk.h>
 
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/dialogs.h>
-#include <panel/plugins.h>
-#include <panel/xfce.h>
+#include <libxfce4panel/xfce-panel-plugin.h>
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -51,6 +43,7 @@ static char     RCSid[] =
 
 
 #define PLUGIN_NAME	"GenMon"
+#define BORDER          8
 
 
 typedef GtkWidget *Widget_t;
@@ -78,18 +71,19 @@ typedef struct monitor_t {
     Widget_t        wValue;
 } monitor_t;
 
-typedef struct plugin_t {
+typedef struct genmon_t {
+    XfcePanelPlugin *plugin;
     unsigned int    iTimerId;	/* Cyclic update */
     struct conf_t   oConf;
     struct monitor_t
                     oMonitor;
     char            acValue[32];	/* Commandline resulting string */
-} plugin_t;
+} genmon_t;
 
 
 	/**************************************************************/
 
-static int DisplayCmdOutput (struct plugin_t *p_poPlugin)
+static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
  /* Launch the command, get its output and display it in the panel-docked
     text field */
 {
@@ -124,35 +118,34 @@ static int DisplayCmdOutput (struct plugin_t *p_poPlugin)
 static gboolean SetTimer (void *p_pvPlugin)
 	/* Recurrently update the panel-docked monitor through a timer */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_pvPlugin;
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
 
-    if (poPlugin->iTimerId) {
-	g_source_remove (poPlugin->iTimerId);
-	poPlugin->iTimerId = 0;
-    }
-    XFCE_PANEL_LOCK ();
     DisplayCmdOutput (poPlugin);
-    XFCE_PANEL_UNLOCK ();
-    poPlugin->iTimerId = g_timeout_add (poConf->iPeriod_ms,
-					(GtkFunction) SetTimer, poPlugin);
-    return (1);
+
+    if (poPlugin->iTimerId == 0)
+        poPlugin->iTimerId = g_timeout_add (poConf->iPeriod_ms,
+	        			    (GSourceFunc) SetTimer, poPlugin);
+    return TRUE;
 }				/* SetTimer() */
 
 	/**************************************************************/
 
-static plugin_t *NewPlugin ()
-	/* New instance of the plugin (constructor) */
+static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
+	/* Plugin API */
+	/* Create the plugin */
 {
-    struct plugin_t *poPlugin;
+    struct genmon_t *poPlugin;
     struct param_t *poConf;
     struct monitor_t *poMonitor;
 
-    poPlugin = g_new (plugin_t, 1);
-    memset (poPlugin, 0, sizeof (plugin_t));
+    poPlugin = g_new (genmon_t, 1);
+    memset (poPlugin, 0, sizeof (genmon_t));
     poConf = &(poPlugin->oConf.oParam);
     poMonitor = &(poPlugin->oMonitor);
 
+    poPlugin->plugin = plugin;
+    
     strcpy (poConf->acCmd, "");
     strcpy (poConf->acTitle, "(genmon)");
 
@@ -166,52 +159,54 @@ static plugin_t *NewPlugin ()
     poMonitor->wEventBox = gtk_event_box_new ();
     gtk_widget_show (poMonitor->wEventBox);
 
-    return (poPlugin);
-}				/* NewPlugin() */
+    xfce_panel_plugin_add_action_widget (plugin, poMonitor->wEventBox);
+    
+    if (xfce_panel_plugin_get_orientation (plugin) == 
+            GTK_ORIENTATION_HORIZONTAL)
+	poMonitor->wBox = gtk_hbox_new (FALSE, 0);
+    else
+	poMonitor->wBox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (poMonitor->wBox);
+    gtk_container_set_border_width (GTK_CONTAINER
+				    (poMonitor->wBox), 4);
+    gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
+		       poMonitor->wBox);
+
+    poMonitor->wTitle = gtk_label_new (poConf->acTitle);
+    if (poConf->fTitleDisplayed)
+	gtk_widget_show (poMonitor->wTitle);
+    gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
+			GTK_WIDGET (poMonitor->wTitle), FALSE, FALSE, 0);
+
+    poMonitor->wValue = gtk_label_new ("");
+    gtk_widget_show (poMonitor->wValue);
+    gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
+			GTK_WIDGET (poMonitor->wValue), FALSE, FALSE, 0);
+
+    return poPlugin;
+}				/* genmon_create_control() */
 
 	/**************************************************************/
 
-static gboolean plugin_create_control (Control * p_poCtrl)
-	/* Plugin API */
-	/* Create the plugin */
-{
-    struct plugin_t *poPlugin;
-
-    TRACE ("plugin_create_control()\n");
-    poPlugin = NewPlugin ();
-    gtk_container_add (GTK_CONTAINER (p_poCtrl->base),
-		       poPlugin->oMonitor.wEventBox);
-    p_poCtrl->data = (gpointer) poPlugin;
-    p_poCtrl->with_popup = FALSE;
-    gtk_widget_set_size_request (p_poCtrl->base, -1, -1);
-    return (TRUE);
-}				/* plugin_create_control() */
-
-	/**************************************************************/
-
-static void plugin_free (Control * ctrl)
+static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 	/* Plugin API */
 {
-    struct plugin_t *poPlugin;
+    TRACE ("genmon_free()\n");
 
-    TRACE ("plugin_free()\n");
-    g_return_if_fail (ctrl != NULL);
-    g_return_if_fail (ctrl->data != NULL);
-    poPlugin = (plugin_t *) ctrl->data;
     if (poPlugin->iTimerId)
 	g_source_remove (poPlugin->iTimerId);
     g_free (poPlugin);
-}				/* plugin_free() */
+}				/* genmon_free() */
 
 	/**************************************************************/
 
 static int SetMonitorFont (void *p_pvPlugin)
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_pvPlugin;
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     const char     *pcFont = poConf->acFont;
-    const PangoFontDescription *poFont;
+    PangoFontDescription *poFont;
 
     if (*pcFont == '(')		/* Default font */
 	return (1);
@@ -234,90 +229,88 @@ static int SetMonitorFont (void *p_pvPlugin)
 
 	/**************************************************************/
 
-static void plugin_read_config (Control * p_poCtrl, xmlNodePtr p_poParent)
+static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 	/* Plugin API */
 	/* Executed when the panel is started - Read the configuration
 	   previously stored in xml file */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_poCtrl->data;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
-    xmlNodePtr      poNode;
-    char           *pc;
+    const char           *pc;
+    char           *file;
+    XfceRc         *rc;
+    
+    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
+        return;
+    
+    rc = xfce_rc_simple_open (file, TRUE);
+    g_free (file);
 
-    TRACE ("plugin_read_config()\n");
-    if (!p_poParent)
-	return;
-    for (poNode = p_poParent->children; poNode; poNode = poNode->next) {
-	if (!(xmlStrEqual (poNode->name, PLUGIN_NAME)))
-	    continue;
-
-	if ((pc = xmlGetProp (poNode, (CONF_CMD)))) {
-	    memset (poConf->acCmd, 0, sizeof (poConf->acCmd));
-	    strncpy (poConf->acCmd, pc, sizeof (poConf->acCmd) - 1);
-	    xmlFree (pc);
-	}
-
-	if ((pc = xmlGetProp (poNode, (CONF_USE_LABEL)))) {
-	    poConf->fTitleDisplayed = atoi (pc);
-	    xmlFree (pc);
-	}
-	if (poConf->fTitleDisplayed)
-	    gtk_widget_show (GTK_WIDGET (poMonitor->wTitle));
-	else
-	    gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
-
-	if ((pc = xmlGetProp (poNode, (CONF_LABEL_TEXT)))) {
-	    memset (poConf->acTitle, 0, sizeof (poConf->acTitle));
-	    strncpy (poConf->acTitle, pc, sizeof (poConf->acTitle) - 1);
-	    xmlFree (pc);
-	    gtk_label_set_text (GTK_LABEL (poMonitor->wTitle),
-				poConf->acTitle);
-	}
-
-	if ((pc = xmlGetProp (poNode, (CONF_UPDATE_PERIOD)))) {
-	    poConf->iPeriod_ms = atoi (pc);
-	    xmlFree (pc);
-	}
-
-	if ((pc = xmlGetProp (poNode, (CONF_FONT)))) {
-	    memset (poConf->acFont, 0, sizeof (poConf->acFont));
-	    strncpy (poConf->acFont, pc, sizeof (poConf->acFont) - 1);
-	    xmlFree (pc);
-	}
-
-	SetMonitorFont (poPlugin);
+    if (!rc)
+        return;
+    
+    if ((pc = xfce_rc_read_entry (rc, (CONF_CMD), NULL))) {
+        memset (poConf->acCmd, 0, sizeof (poConf->acCmd));
+        strncpy (poConf->acCmd, pc, sizeof (poConf->acCmd) - 1);
     }
-    SetTimer (poPlugin);
-}				/* plugin_read_config() */
+
+    poConf->fTitleDisplayed = xfce_rc_read_int_entry (rc, (CONF_USE_LABEL), 1);
+    if (poConf->fTitleDisplayed)
+        gtk_widget_show (GTK_WIDGET (poMonitor->wTitle));
+    else
+        gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
+
+    if ((pc = xfce_rc_read_entry (rc, (CONF_LABEL_TEXT), NULL))) {
+        memset (poConf->acTitle, 0, sizeof (poConf->acTitle));
+        strncpy (poConf->acTitle, pc, sizeof (poConf->acTitle) - 1);
+        gtk_label_set_text (GTK_LABEL (poMonitor->wTitle),
+                            poConf->acTitle);
+    }
+
+    poConf->iPeriod_ms = 
+        xfce_rc_read_int_entry (rc, (CONF_UPDATE_PERIOD), 30 * 1000);
+
+    if ((pc = xfce_rc_read_entry (rc, (CONF_FONT), NULL))) {
+        memset (poConf->acFont, 0, sizeof (poConf->acFont));
+        strncpy (poConf->acFont, pc, sizeof (poConf->acFont) - 1);
+    }
+
+    xfce_rc_close (rc);
+}				/* genmon_read_config() */
 
 	/**************************************************************/
 
-static void plugin_write_config (Control * p_poCtrl, xmlNodePtr p_poParent)
+static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 	/* Plugin API */
 	/* Write plugin configuration into xml file */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_poCtrl->data;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
-    xmlNodePtr      poRoot;
-    char            acBuffer[16];
+    XfceRc *rc;
+    char *file;
 
-    TRACE ("plugin_write_config()\n");
+    if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
+        return;
+    
+    rc = xfce_rc_simple_open (file, FALSE);
+    g_free (file);
 
-    poRoot = xmlNewTextChild (p_poParent, NULL, PLUGIN_NAME, NULL);
+    if (!rc)
+        return;
 
-    xmlSetProp (poRoot, CONF_CMD, poConf->acCmd);
+    TRACE ("genmon_write_config()\n");
 
-    sprintf (acBuffer, "%d", poConf->fTitleDisplayed);
-    xmlSetProp (poRoot, CONF_USE_LABEL, acBuffer);
+    xfce_rc_write_entry (rc, CONF_CMD, poConf->acCmd);
 
-    xmlSetProp (poRoot, CONF_LABEL_TEXT, poConf->acTitle);
+    xfce_rc_write_int_entry (rc, CONF_USE_LABEL, poConf->fTitleDisplayed);
 
-    sprintf (acBuffer, "%d", poConf->iPeriod_ms);
-    xmlSetProp (poRoot, CONF_UPDATE_PERIOD, acBuffer);
+    xfce_rc_write_entry (rc, CONF_LABEL_TEXT, poConf->acTitle);
 
-    xmlSetProp (poRoot, CONF_FONT, poConf->acFont);
-}				/* plugin_write_config() */
+    xfce_rc_write_int_entry (rc, CONF_UPDATE_PERIOD, poConf->iPeriod_ms);
+
+    xfce_rc_write_entry (rc, CONF_FONT, poConf->acFont);
+
+    xfce_rc_close (rc);
+}				/* genmon_write_config() */
 
 	/**************************************************************/
 
@@ -325,7 +318,7 @@ static void SetCmd (Widget_t p_wTF, void *p_pvPlugin)
 	/* GUI callback setting the command to be spawn, whose output will 
 	   be displayed using the panel-docked monitor */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_pvPlugin;
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     const char     *pcCmd = gtk_entry_get_text (GTK_ENTRY (p_wTF));
 
@@ -338,7 +331,7 @@ static void SetCmd (Widget_t p_wTF, void *p_pvPlugin)
 static void ToggleTitle (Widget_t p_w, void *p_pvPlugin)
 	/* GUI callback turning on/off the monitor bar legend */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_pvPlugin;
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
@@ -358,7 +351,7 @@ static void ToggleTitle (Widget_t p_w, void *p_pvPlugin)
 static void SetLabel (Widget_t p_wTF, void *p_pvPlugin)
 	/* GUI callback setting the legend of the monitor */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_pvPlugin;
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     const char     *acTitle = gtk_entry_get_text (GTK_ENTRY (p_wTF));
@@ -373,7 +366,7 @@ static void SetLabel (Widget_t p_wTF, void *p_pvPlugin)
 static void SetPeriod (Widget_t p_wSc, void *p_pvPlugin)
 	/* Set the update period - To be used by the timer */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_pvPlugin;
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     float           r;
 
@@ -384,10 +377,10 @@ static void SetPeriod (Widget_t p_wSc, void *p_pvPlugin)
 
 	/**************************************************************/
 
-static void UpdateConf (Widget_t w, void *p_pvPlugin)
+static void UpdateConf (void *p_pvPlugin)
 	/* Called back when the configuration/options window is closed */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_pvPlugin;
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct conf_t  *poConf = &(poPlugin->oConf);
     struct gui_t   *poGUI = &(poConf->oGUI);
 
@@ -403,10 +396,10 @@ static void UpdateConf (Widget_t w, void *p_pvPlugin)
 static void About (Widget_t w, void *unused)
 	/* Called back when the About button in clicked */
 {
-    xfce_info ("%s %s - Generic Monitor\n"
+    xfce_info (_("%s %s - Generic Monitor\n"
 	       "Cyclically spawns a script/program, captures its output "
 	       "and displays the resulting string in the panel\n\n"
-	       "(c) 2004 Roger Seguin <roger_seguin@msn.com>",
+	       "(c) 2004 Roger Seguin <roger_seguin@msn.com>"),
 	       PACKAGE, VERSION);
 }				/* About() */
 
@@ -414,7 +407,7 @@ static void About (Widget_t w, void *unused)
 
 static void ChooseFont (Widget_t p_wPB, void *p_pvPlugin)
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_pvPlugin;
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     Widget_t        wDialog;
     const char     *pcFont = poConf->acFont;
@@ -440,22 +433,57 @@ static void ChooseFont (Widget_t p_wPB, void *p_pvPlugin)
 
 	/**************************************************************/
 
-static void plugin_create_options (Control * p_poCtrl,
-				   GtkContainer * p_pxContainer,
-				   Widget_t p_wDone)
+static void genmon_dialog_response (GtkWidget *dlg, int response, 
+                                    genmon_t *genmon)
+{
+    UpdateConf (genmon);
+    gtk_widget_destroy (dlg);
+    xfce_panel_plugin_unblock_menu (genmon->plugin);
+    genmon_write_config (genmon->plugin, genmon);
+}
+
+static void genmon_create_options (XfcePanelPlugin *plugin,
+                                   genmon_t *poPlugin)
 	/* Plugin API */
 	/* Create/pop up the configuration/options GUI */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_poCtrl->data;
+    GtkWidget *dlg, *header, *vbox;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
     const char     *pcFont = poConf->acFont;
 
-    TRACE ("plugin_create_options()\n");
+    TRACE ("genmon_create_options()\n");
 
-    poPlugin->oConf.wTopLevel = gtk_widget_get_toplevel (p_wDone);
+    xfce_panel_plugin_block_menu (plugin);
+    
+    dlg = gtk_dialog_new_with_buttons (_("Configuration"), 
+                GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
+                GTK_DIALOG_DESTROY_WITH_PARENT |
+                GTK_DIALOG_NO_SEPARATOR,
+                GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+                NULL);
+    
+    g_signal_connect (dlg, "response", G_CALLBACK (genmon_dialog_response),
+                      poPlugin);
 
-    (void) genmon_CreateConfigGUI (GTK_WIDGET (p_pxContainer), poGUI);
+    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
+    
+    header = xfce_create_header (NULL, _("Generic Monitor"));
+    gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
+    gtk_container_set_border_width (GTK_CONTAINER (header), BORDER - 2);
+    gtk_widget_show (header);
+    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), header,
+                        FALSE, TRUE, 0);
+    
+    vbox = gtk_vbox_new(FALSE, BORDER);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER - 2);
+    gtk_widget_show(vbox);
+    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), vbox,
+                        TRUE, TRUE, 0);
+    
+    poPlugin->oConf.wTopLevel = dlg;
+
+    (void) genmon_CreateConfigGUI (GTK_WIDGET (vbox), poGUI);
 
     g_signal_connect (GTK_WIDGET (poGUI->wPB_About), "clicked",
 		      G_CALLBACK (About), 0);
@@ -486,57 +514,31 @@ static void plugin_create_options (Control * p_poCtrl,
     g_signal_connect (G_OBJECT (poGUI->wPB_Font), "clicked",
 		      G_CALLBACK (ChooseFont), poPlugin);
 
-    g_signal_connect (GTK_WIDGET (p_wDone), "clicked",
-		      G_CALLBACK (UpdateConf), poPlugin);
-
-}				/* plugin_create_options() */
+    gtk_widget_show (dlg);
+}				/* genmon_create_options() */
 
 	/**************************************************************/
 
-static void plugin_attach_callback (Control * ctrl, const gchar * signal,
-				    GCallback cb, gpointer data)
-	/* Plugin API */
-	/* This function has to be defined, even when not being used at
-	   all */
-{
-    TRACE ("plugin_attach_callback()\n");
-}				/* plugin_attach_callback() */
-
-	/**************************************************************/
-
-static void plugin_set_size (Control * p_poCtrl, int p_size)
-	/* Plugin API */
-	/* Set the size of the panel-docked monitor */
-{
-    TRACE ("plugin_set_size()\n");
-}				/* plugin_set_size() */
-
-	/**************************************************************/
-
-static void plugin_set_orientation (Control * p_poCtrl, int p_iOrientation)
+static void genmon_set_orientation (XfcePanelPlugin *plugin, 
+                                    GtkOrientation p_iOrientation,
+                                    genmon_t *poPlugin)
 	/* Plugin API */
 	/* Invoked when the panel changes orientation */
 {
-    struct plugin_t *poPlugin = (plugin_t *) p_poCtrl->data;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
 
-    TRACE ("plugin_set_orientation()\n");
-
-    if (poPlugin->iTimerId) {
-	g_source_remove (poPlugin->iTimerId);
-	poPlugin->iTimerId = 0;
-    }
+    TRACE ("genmon_set_orientation()\n");
 
     gtk_container_remove (GTK_CONTAINER (poMonitor->wEventBox),
 			  GTK_WIDGET (poMonitor->wBox));
-    if (p_iOrientation == HORIZONTAL)
+    if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL)
 	poMonitor->wBox = gtk_hbox_new (FALSE, 0);
     else
 	poMonitor->wBox = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER
-				    (poMonitor->wBox), border_width);
+				    (poMonitor->wBox), 4);
     gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
 		       poMonitor->wBox);
 
@@ -554,31 +556,42 @@ static void plugin_set_orientation (Control * p_poCtrl, int p_iOrientation)
     SetMonitorFont (poPlugin);
 
     SetTimer (poPlugin);
-}				/* plugin_set_orientation() */
+}				/* genmon_set_orientation() */
 
 	/**************************************************************/
 
-G_MODULE_EXPORT void xfce_control_class_init (ControlClass * cc)
-	/* Plugin API */
-	/* Main */
+static void genmon_construct (XfcePanelPlugin *plugin)
 {
-    TRACE ("xfce_control_class_init()\n");
+    genmon_t *genmon;
 
-    cc->name = PLUGIN_NAME;
-    cc->caption = _("Generic Monitor");
-    cc->create_control = (CreateControlFunc) plugin_create_control;
-    cc->free = plugin_free;
-    cc->attach_callback = plugin_attach_callback;
-    cc->read_config = plugin_read_config;
-    cc->write_config = plugin_write_config;
-    cc->create_options = plugin_create_options;
-    cc->set_size = plugin_set_size;
-    cc->set_orientation = plugin_set_orientation;
-    cc->set_theme = 0;
-}				/* xfce_control_class_init() */
+    genmon = genmon_create_control (plugin);
 
-	/* Plugin API */
-XFCE_PLUGIN_CHECK_INIT
+    genmon_read_config (plugin, genmon);
+
+    gtk_container_add (GTK_CONTAINER (plugin), genmon->oMonitor.wEventBox);
+
+    SetMonitorFont (genmon);
+
+    SetTimer (genmon);
+
+    g_signal_connect (plugin, "free-data", G_CALLBACK (genmon_free), genmon);
+
+    g_signal_connect (plugin, "save", G_CALLBACK (genmon_write_config), 
+                      genmon);
+
+    g_signal_connect (plugin, "orientation-changed", 
+                      G_CALLBACK (genmon_set_orientation), genmon);
+
+    xfce_panel_plugin_menu_show_about (plugin);
+    g_signal_connect (plugin, "about", G_CALLBACK (About), genmon);
+
+    xfce_panel_plugin_menu_show_configure (plugin);
+    g_signal_connect (plugin, "configure-plugin", 
+                      G_CALLBACK (genmon_create_options), genmon);
+}
+
+XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (genmon_construct)
+
 	/**************************************************************/
 /*
 $Log: main.c,v $

@@ -20,7 +20,6 @@
 
 #ifndef _config_gui_h
 #define _config_gui_h
-static char     _config_gui_h_id[] = "$Id: config_gui.h,v 1.1.1.2 2004/11/01 00:22:46 rogerms Exp $";
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -28,10 +27,9 @@ static char     _config_gui_h_id[] = "$Id: config_gui.h,v 1.1.1.2 2004/11/01 00:
 
 #include <gtk/gtk.h>
 
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/dialogs.h>
-#include <panel/plugins.h>
-#include <panel/xfce.h>
+#include <libxfce4panel/xfce-panel-plugin.h>
 
 
 typedef struct gui_t {

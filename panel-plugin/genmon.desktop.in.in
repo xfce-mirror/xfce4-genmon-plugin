@@ -1,0 +1,8 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+_Name=Generic Monitor
+_Comment=Show output of a command. 
+Icon=xfce-mouse
+X-XFCE-Exec=@PLUGIN_PATH@/xfce4-genmon-plugin
+

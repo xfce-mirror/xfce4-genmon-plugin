@@ -1,0 +1,4 @@
+panel-plugin/cmdspawn.c
+panel-plugin/config_gui.c
+panel-plugin/main.c
+

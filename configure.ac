@@ -5,11 +5,14 @@ dnl
 dnl 2004 Roger Seguin <roger_seguin@msn.com>
 dnl
 
-AC_INIT([panel-plugin/main.c])
+m4_define([genmon_version],[2.0])
 
+AC_INIT([xfce4-genmon-plugin], [genmon_version()],
+	[xfce-goodies-dev@lists.berlios.de])
+
+GENMON_VERSION=genmon_version()
+AM_INIT_AUTOMAKE([xfce4-genmon-plugin], [$GENMON_VERSION])
 AM_CONFIG_HEADER([config.h])
-
-AM_INIT_AUTOMAKE([xfce4-genmon-plugin], [1.1])
 
 AM_MAINTAINER_MODE
 
@@ -21,18 +24,22 @@ AC_MINIX
 dnl Check for basic programs
 AC_PROG_CC
 AC_PROG_INSTALL
-AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL
 
 dnl Check for standard header files
 AC_HEADER_STDC
 
 dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.22])
+
+dnl Translations
+XDT_I18N([])
 
 dnl Check for debugging support
-BM_DEBUG_SUPPORT
+XDT_FEATURE_DEBUG()
 
 AC_OUTPUT([
 Makefile
 panel-plugin/Makefile
+po/Makefile.in
 ])

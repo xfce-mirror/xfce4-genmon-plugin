@@ -18,10 +18,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-static char     RCSid[] =
-    "$Id: config_gui.c,v 1.1.1.2 2004/11/01 00:22:46 rogerms Exp $";
-
-
 #include "config_gui.h"
 
 #ifdef HAVE_CONFIG_H
@@ -30,10 +26,9 @@ static char     RCSid[] =
 
 #include <gtk/gtk.h>
 
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/dialogs.h>
-#include <panel/plugins.h>
-#include <panel/xfce.h>
+#include <libxfce4panel/xfce-panel-plugin.h>
 
 
 #define COPYVAL(var, field)	((var)->field = field)
@@ -55,17 +50,9 @@ static char     RCSid[] =
 #define GLADE_HOOKUP_OBJECT_NO_REF(component,widget,name) \
   g_object_set_data (G_OBJECT (component), name, widget)
 
-#if 0
-GtkWidget      *create_OptionDialog (void)
-#else
-int genmon_CreateConfigGUI (GtkWidget * OptionDialog,
+int genmon_CreateConfigGUI (GtkWidget *vbox1,
 			    struct gui_t *p_poGUI)
-#endif
 {
-#if 0
-    GtkWidget      *OptionDialog;
-#endif
-    GtkWidget      *vbox1;
     GtkWidget      *wPB_About;
     GtkWidget      *alignment2;
     GtkWidget      *hbox3;
@@ -91,15 +78,6 @@ int genmon_CreateConfigGUI (GtkWidget * OptionDialog,
     GtkTooltips    *tooltips;
 
     tooltips = gtk_tooltips_new ();
-
-#if 0
-    OptionDialog = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title (GTK_WINDOW (OptionDialog), _("OptionDialog"));
-#endif
-
-    vbox1 = gtk_vbox_new (FALSE, 0);
-    gtk_widget_show (vbox1);
-    gtk_container_add (GTK_CONTAINER (OptionDialog), vbox1);
 
     wPB_About = gtk_button_new ();
     gtk_widget_show (wPB_About);

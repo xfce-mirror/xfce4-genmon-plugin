@@ -18,12 +18,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-static char     RCSid[] =
-    "$Id: cmdspawn.c,v 1.4 2004/11/01 00:54:11 rogerms Exp $";
-
-
-#define DEBUG	0
-
 	/* Posix-compliance to make sure that only the calling thread is
 	   duplicated, not the whole process (e.g Solaris) */
 
