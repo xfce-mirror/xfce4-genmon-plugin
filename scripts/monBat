@@ -1,0 +1,61 @@
+#!/bin/bash
+
+pres0=$(cat /proc/acpi/battery/BAT0/info | grep "present" | sed 's/\ \ */ /g' | cut -f2 -d" ")
+if [ $pres0 != "no" ]
+then
+  max0=$(cat /proc/acpi/battery/BAT0/info | grep "last full capacity" | sed 's/\ \ */ /g' | cut -f4 -d" ")
+  cur0=$(cat /proc/acpi/battery/BAT0/state | grep "remaining capacity" | sed 's/\ \ */ /g' | cut -f3 -d" ")
+  pour0=$(echo "${cur0}00/${max0}" | bc)
+fi
+
+pres1=$(cat /proc/acpi/battery/BAT1/info | grep "present" | sed 's/\ \ */ /g' | cut -f2 -d" ")
+if [ $pres1 != "no" ]
+then
+  max1=$(cat /proc/acpi/battery/BAT1/info | grep "last full capacity" | sed 's/\ \ */ /g' | cut -f4 -d" ")
+  cur1=$(cat /proc/acpi/battery/BAT1/state | grep "remaining capacity" | sed 's/\ \ */ /g' | cut -f3 -d" ")
+  pour1=$(echo "${cur1}00/${max1}" | bc)
+fi
+
+if [ $pres0 == "yes" ]
+then
+  echo "<tool>Bat0:$pour0%"
+else
+  echo "<tool>Bat0:-"
+fi
+
+if [ $pres1 == "yes" ]
+then
+  echo "Bat1:$pour1%"
+else
+  echo "Bat1:-"
+fi
+
+echo "AC:$(cat /proc/acpi/ac_adapter/AC/state | grep state | sed 's/\ \ */ /g' | cut -f2 -d" ")</tool>"
+
+if [ $pres0 == "yes" ] && [ $pres1 == "yes" ]
+then
+  echo "<txt>$pour0%-$pour1%</txt>"
+  pour=$(echo "(${cur0}00+${cur1}00)/(${max0}+${max1})" | bc)
+elif [ $pres0 == "yes" ] && [ $pres1 == "no" ]
+then
+  echo "<txt>$pour0%</txt>"
+  pour=$pour0
+elif [ $pres0 == "no" ] && [ $pres1 == "yes" ]
+then
+  echo "<txt>$pour1%</txt>"
+  pour=$pour1
+else
+  echo "<txt>-%</txt>"
+  pour="0"
+fi
+#echo "<bar>$pour</bar>"
+
+if [ $pour -le 10 ]
+then
+  echo "<img>/usr/local/share/icons/Tango/16x16/status/battery-caution.png</img>"
+else
+  echo "<img>/usr/local/share/icons/Tango/16x16/devices/battery.png</img>"
+fi
+
+
+

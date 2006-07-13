@@ -2,6 +2,7 @@
  *  Generic Monitor plugin for the Xfce4 panel
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
  *  					<http://rmlx.dyndns.org>
+ *  Copyright (c) 2006 Julien Devemy <jujucece@gmail.com>
  *  
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -43,7 +44,7 @@
 
 
 #define PLUGIN_NAME	"GenMon"
-#define BORDER          8
+#define BORDER          2
 
 
 typedef GtkWidget *Widget_t;
@@ -67,8 +68,14 @@ typedef struct monitor_t {
     /* Plugin monitor */
     Widget_t        wEventBox;
     Widget_t        wBox;
+    Widget_t        wImgBox;
     Widget_t        wTitle;
     Widget_t        wValue;
+    Widget_t        wImage;
+    Widget_t        wBar;
+    Widget_t        wButton;
+    Widget_t        wImgButton;
+    char            onClickCmd[128];
 } monitor_t;
 
 typedef struct genmon_t {
@@ -77,9 +84,20 @@ typedef struct genmon_t {
     struct conf_t   oConf;
     struct monitor_t
                     oMonitor;
-    char            acValue[32];	/* Commandline resulting string */
+    char            acValue[256];	/* Commandline resulting string */
 } genmon_t;
 
+	/**************************************************************/
+static void ExecOnClickCmd (Widget_t p_wSc, void *p_pvPlugin)
+	/* Execute the onClick Command */
+{
+  struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
+  struct monitor_t *poMonitor = &(poPlugin->oMonitor);
+  char result[256];
+
+  genmon_SpawnCmd (poMonitor->onClickCmd, result,
+      sizeof (poMonitor->onClickCmd), 0);
+}
 
 	/**************************************************************/
 
@@ -93,30 +111,133 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     struct monitor_t *poMonitor = &(p_poPlugin->oMonitor);
     char            acToolTips[128];
     int             status;
-
+    char  *begin;
+    char  *end;
+    int   newVersion=0;
+    
     if (!s_poToolTips)
-	s_poToolTips = gtk_tooltips_new ();
+      s_poToolTips = gtk_tooltips_new ();
     status = genmon_SpawnCmd (poConf->acCmd, p_poPlugin->acValue,
-			      sizeof (p_poPlugin->acValue));
+      sizeof (p_poPlugin->acValue), 1);
     if (status == -1)
-	return (-1);
-    gtk_label_set_text (GTK_LABEL (poMonitor->wValue),
-			p_poPlugin->acValue);
-    sprintf (acToolTips, "%s\n"
-	     "----------------\n"
-	     "%s\n"
-	     "Period (s): %d", poConf->acTitle, poConf->acCmd,
-	     poConf->iPeriod_ms / 1000);
+      return (-1);
+    
+    /* Test if the result is an Image or a Text */
+    begin=strstr(p_poPlugin->acValue, "<img>");
+    end=strstr(p_poPlugin->acValue, "</img>");
+    if ((begin != NULL) && (end != NULL) && (begin < end))
+    {
+      char  buf[256];
+      /* Get the image path */
+      strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
+      buf[end-begin-5*sizeof(char)]='\0';
+
+      gtk_image_set_from_file (GTK_IMAGE (poMonitor->wImage), buf);
+      gtk_image_set_from_file (GTK_IMAGE (poMonitor->wImgButton), buf);
+      
+      /* Test if the result has a clickable Image (button) */
+      begin=strstr(p_poPlugin->acValue, "<click>");
+      end=strstr(p_poPlugin->acValue, "</click>");
+      if ((begin != NULL) && (end != NULL) && (begin < end))
+      {
+        char  buf[256];
+        /* Get the command path */
+        strncpy(buf, begin+7*sizeof(char), end-begin-7*sizeof(char));
+        buf[end-begin-7*sizeof(char)]='\0';
+
+        strcpy(poMonitor->onClickCmd, buf);
+        
+        gtk_widget_show (poMonitor->wButton);
+        gtk_widget_show (poMonitor->wImgButton);
+        gtk_widget_hide (poMonitor->wImage);
+      }
+      else
+      {
+        gtk_widget_hide (poMonitor->wButton);
+        gtk_widget_hide (poMonitor->wImgButton);
+        gtk_widget_show (poMonitor->wImage);
+      }
+
+      newVersion=1;
+
+    }
+    else
+      gtk_widget_hide (poMonitor->wImage);
+
+    
+    /* Test if the result is a Text */
+    begin=strstr(p_poPlugin->acValue, "<txt>");
+    end=strstr(p_poPlugin->acValue, "</txt>");
+    if ((begin != NULL) && (end != NULL) && (begin < end))
+    {
+      char  buf[256];
+      /* Get the text */
+      strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
+      buf[end-begin-5*sizeof(char)]='\0';
+      gtk_label_set_text (GTK_LABEL (poMonitor->wValue), buf);
+      gtk_widget_show (poMonitor->wValue);
+
+      newVersion=1;
+
+    }
+    else
+      gtk_widget_hide (poMonitor->wValue);
+
+    /* Test if the result is a Bar */
+    begin=strstr(p_poPlugin->acValue, "<bar>");
+    end=strstr(p_poPlugin->acValue, "</bar>");
+    if ((begin != NULL) && (end != NULL) && (begin < end))
+    {
+      char  buf[256];
+      int value;
+      /* Get the text */
+      strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
+      buf[end-begin-5*sizeof(char)]='\0';
+      value=atoi(buf);
+      gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(poMonitor->wBar), (float)value/100.0);
+      gtk_widget_show (poMonitor->wBar);
+
+      newVersion=1;
+
+    }
+    else
+      gtk_widget_hide (poMonitor->wBar);
+    
+    if (newVersion == 0)
+    { 
+      gtk_widget_show (poMonitor->wValue);
+      gtk_label_set_text (GTK_LABEL (poMonitor->wValue),
+        p_poPlugin->acValue);
+    }
+    
+    /* Test if a ToolTip is given */
+    begin=strstr(p_poPlugin->acValue, "<tool>");
+    end=strstr(p_poPlugin->acValue, "</tool>");
+    if ((begin != NULL) && (end != NULL) && (begin < end))
+    {
+      strncpy(acToolTips, begin+6, end-begin-6);
+      acToolTips[end-begin-6]='\0';
+    }
+    else
+      sprintf (acToolTips, "%s\n"
+        "----------------\n"
+        "%s\n"
+        "Period (s): %d", poConf->acTitle, poConf->acCmd,
+        poConf->iPeriod_ms / 1000);
+
     gtk_tooltips_set_tip (s_poToolTips, GTK_WIDGET (poMonitor->wEventBox),
-			  acToolTips, 0);
+      acToolTips, 0);
 
     return (0);
+   
 }				/* DisplayCmdOutput() */
 
 	/**************************************************************/
 
 static gboolean SetTimer (void *p_pvPlugin)
 	/* Recurrently update the panel-docked monitor through a timer */
+  /* Warning : should not be called directly (except the 1st time) */
+  /* To avoid multiple timers */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
@@ -124,8 +245,12 @@ static gboolean SetTimer (void *p_pvPlugin)
     DisplayCmdOutput (poPlugin);
 
     if (poPlugin->iTimerId == 0)
+    {
         poPlugin->iTimerId = g_timeout_add (poConf->iPeriod_ms,
 	        			    (GSourceFunc) SetTimer, poPlugin);
+        return FALSE;
+    }
+
     return TRUE;
 }				/* SetTimer() */
 
@@ -168,7 +293,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 	poMonitor->wBox = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER
-				    (poMonitor->wBox), 4);
+				    (poMonitor->wBox), BORDER);
     gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
 		       poMonitor->wBox);
 
@@ -178,10 +303,44 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
 			GTK_WIDGET (poMonitor->wTitle), FALSE, FALSE, 0);
 
+    /* Create a VBox to put image and text */
+    poMonitor->wImgBox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (poMonitor->wImgBox);
+    gtk_container_set_border_width (GTK_CONTAINER
+      (poMonitor->wImgBox), 0);
+    gtk_container_add (GTK_CONTAINER (poMonitor->wBox),
+      poMonitor->wImgBox);
+ 
+    /* Add Image */   
+    poMonitor->wImage = gtk_image_new ();
+    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
+      GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
+
+    /* Add Button */ 
+    poMonitor->wButton = gtk_button_new ();
+    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
+      GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
+
+    /* Add Image Button*/   
+    poMonitor->wImgButton = gtk_image_new ();
+    gtk_container_add (GTK_CONTAINER (poMonitor->wButton), poMonitor->wImgButton);
+    gtk_container_set_border_width (GTK_CONTAINER (poMonitor->wButton), 0);
+
+    /* Add Value */
     poMonitor->wValue = gtk_label_new ("");
     gtk_widget_show (poMonitor->wValue);
+    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
+      GTK_WIDGET (poMonitor->wValue), TRUE, FALSE, 0);
+
+    /* Add Bar */   
+    poMonitor->wBar = gtk_progress_bar_new();
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
-			GTK_WIDGET (poMonitor->wValue), FALSE, FALSE, 0);
+      GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
+    /*gtk_widget_show (poMonitor->wBar);*/
+    if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
+      gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_BOTTOM_TO_TOP);
+    else
+      gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_LEFT_TO_RIGHT);
 
     return poPlugin;
 }				/* genmon_create_control() */
@@ -388,7 +547,8 @@ static void UpdateConf (void *p_pvPlugin)
     SetCmd (poGUI->wTF_Cmd, poPlugin);
     SetLabel (poGUI->wTF_Title, poPlugin);
     SetMonitorFont (poPlugin);
-    SetTimer (poPlugin);
+    /* Force to regenerate a timer */
+    poPlugin->iTimerId = 0;
 }				/* UpdateConf() */
 
 	/**************************************************************/
@@ -399,7 +559,8 @@ static void About (Widget_t w, void *unused)
     xfce_info (_("%s %s - Generic Monitor\n"
 	       "Cyclically spawns a script/program, captures its output "
 	       "and displays the resulting string in the panel\n\n"
-	       "(c) 2004 Roger Seguin <roger_seguin@msn.com>"),
+	       "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+	       "(c) 2006 Julien Devemy <jujucece@gmail.com>"),
 	       PACKAGE, VERSION);
 }				/* About() */
 
@@ -440,6 +601,8 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
     gtk_widget_destroy (dlg);
     xfce_panel_plugin_unblock_menu (genmon->plugin);
     genmon_write_config (genmon->plugin, genmon);
+    /* Do not wait the next timer to update display */
+    DisplayCmdOutput (genmon);
 }
 
 static void genmon_create_options (XfcePanelPlugin *plugin,
@@ -538,7 +701,7 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
 	poMonitor->wBox = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER
-				    (poMonitor->wBox), 4);
+				    (poMonitor->wBox), BORDER);
     gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
 		       poMonitor->wBox);
 
@@ -548,17 +711,75 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
 			GTK_WIDGET (poMonitor->wTitle), FALSE, FALSE, 0);
 
+    /* Create a VBox to put image and text */
+    poMonitor->wImgBox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (poMonitor->wImgBox);
+    gtk_container_set_border_width (GTK_CONTAINER
+      (poMonitor->wImgBox), 0);
+    gtk_container_add (GTK_CONTAINER (poMonitor->wBox),
+      poMonitor->wImgBox);
+ 
+    /* Add Image */   
+    poMonitor->wImage = gtk_image_new ();
+    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
+      GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
+
+    /* Add Button */   
+    poMonitor->wButton = gtk_button_new ();
+    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
+      GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
+
+    /* Add Image Button*/   
+    poMonitor->wImgButton = gtk_image_new ();
+    gtk_container_add (GTK_CONTAINER (poMonitor->wButton), poMonitor->wImgButton);
+    gtk_container_set_border_width (GTK_CONTAINER (poMonitor->wButton), 0);
+
+     /* Add Value */
     poMonitor->wValue = gtk_label_new ("");
     gtk_widget_show (poMonitor->wValue);
-    gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
-			GTK_WIDGET (poMonitor->wValue), FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
+      GTK_WIDGET (poMonitor->wValue), TRUE, FALSE, 0);
 
+    /* Add Bar */   
+    poMonitor->wBar = gtk_progress_bar_new();
+    gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
+      GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
+    /*gtk_widget_show (poMonitor->wBar);*/
+    if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL)
+      gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_BOTTOM_TO_TOP);
+    else
+      gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_LEFT_TO_RIGHT);
+    
     SetMonitorFont (poPlugin);
 
-    SetTimer (poPlugin);
 }				/* genmon_set_orientation() */
 
 	/**************************************************************/
+static gboolean genmon_set_size (XfcePanelPlugin *plugin, int size, genmon_t *poPlugin)
+      /* Plugin API */
+      /* Set the size of the panel-docked monitor */
+{
+
+  struct monitor_t *poMonitor = &(poPlugin->oMonitor);
+
+  if (xfce_panel_plugin_get_orientation (plugin) ==
+    GTK_ORIENTATION_HORIZONTAL)
+  {
+    if (size>BORDER)
+      gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar),
+        8, size-BORDER*2);
+  }
+  else
+  {
+    if (size>BORDER)
+      gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar),
+        size-BORDER*2, 8);
+  }
+
+  return TRUE;
+}                       /* genmon_set_size() */
+
+  /**************************************************************/
 
 static void genmon_construct (XfcePanelPlugin *plugin)
 {
@@ -582,12 +803,17 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "orientation-changed", 
                       G_CALLBACK (genmon_set_orientation), genmon);
 
+    g_signal_connect (plugin, "size-changed", G_CALLBACK (genmon_set_size), genmon);
+  
     xfce_panel_plugin_menu_show_about (plugin);
     g_signal_connect (plugin, "about", G_CALLBACK (About), genmon);
 
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin", 
                       G_CALLBACK (genmon_create_options), genmon);
+
+    g_signal_connect (G_OBJECT (genmon->oMonitor.wButton), "clicked",
+		      G_CALLBACK (ExecOnClickCmd), genmon);
 }
 
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (genmon_construct)

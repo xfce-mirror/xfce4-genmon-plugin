@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "<img>/usr/local/share/icons/Tango/16x16/devices/network-wireless.png</img>"
+
+res1=$(/sbin/ifconfig eth1 | grep inet)
+res2=$(/sbin/iwconfig eth1 | grep unassociated)
+if [ -z "$res2" ] && ! [ -z "$res1" ]
+then
+  echo "<txt>"$(/sbin/iwconfig eth1 | grep "Link Quality" |cut -d "=" -f 2 |cut -d "/" -f 1)"%</txt>"
+  echo "<tool>Essid: "$(/sbin/iwconfig eth1 | grep "ESSID" |cut -d "\"" -f 2)
+  echo "Signal Level: "$(/sbin/iwconfig eth1 | grep "Signal level" |cut -d "=" -f 3)"</tool>"
+  echo "<bar>"$(/sbin/iwconfig eth1 | grep "Link Quality" |cut -d "=" -f 2 |cut -d "/" -f 1)"</bar>"
+else
+  echo "<txt>--%</txt>"
+  echo "<tool>Essid: ???"
+  echo "Signal Level: ???</tool>"
+  echo "<bar>0</bar>"
+fi

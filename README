@@ -17,17 +17,21 @@ Do the usual stuff:
 	- make install  (as root)
 	
 You should then end up with:
-        libgenmon.a   libgenmon.la  libgenmon.so
-installed in <XFce4InstallationDir>/lib/xfce4/panel-plugins/
-
+        xfce4-genmon-plugin
+installed in <XFce4InstallationDir>/libexec/xfce4/panel-plugins/
+and
+        genmon.desktop
+installed in <XFce4InstallationDir>/share/xfce4/panel-plugins/
 
 3 -	Testing
+	-------
 
 Use GenMon for invoking the provided "datetime" shell script.
 Then the current date/time should be continuously updated in your panel.
 
 
 4 -	Extra
+	-----
 
 A simple Perl script, disktemp, that retrieves the temperature of a disk
 using the smartmontools is provided.
@@ -42,8 +46,50 @@ Then run (you need to have smartd/smarctl installed on your system)
 If this works, you should be able to use GenMon for continually monitoring
 your disk temperature.
 
+5 -	New Features
+	-----------
 
-5 -	Bugs
+The new version of genmon plugin can also display an icon (which can be a
+clickable icon), a tooltip, a text and a bar.
+
+To display these items, the script called by genmon should return a simple
+XML string.
+
+The XML tags which can be used are :
+<txt>Text to display</txt>
+<img>Path to the image to display</img>
+<tool>Tooltip text</tool>
+<bar>Pourcentage to display in the bar</img>
+<click>The command to be executed by clicking on the image</click>
+
+If None of the tags are detected in the result of the command, the plugin
+returns to its original behaviour (displaying the result of the command).
+
+No tag is mandatory: for instance, you can display a tooltip without and image...
+
+Here's a simple example of a plugin displaying the Temp of the CPU in the panel
+(with an icon) and the Freq in a Tooltip:
+
+#!/bin/bash
+echo "<img>/usr/share/icons/Bluecurve/16x16/apps/gnome-monitor.png</img>"
+
+declare -i cpuFreq
+cpuFreq=$(cat /proc/cpuinfo | grep "cpu MHz" | sed 's/\ \ */ /g' | cut -f3 -d" " | cut -f1 -d".")
+
+if [ $cpuFreq -ge 1000 ]
+then
+  cpu=$(echo $cpuFreq | cut -c1).$(echo $cpuFreq | cut -c2)GHz
+else
+  cpu=${cpuFreq}MHz
+fi
+echo "<txt>"$(cat /proc/acpi/thermal_zone/THM/temperature | sed 's/\ \ */ /g' | cut -f2 -d" ")" C</txt>"
+echo "<tool>Freq: "$cpu"</tool>"
+
+PS: Depending on your configuration, you should change the image path.
+
+You can find more scripts in scripts/mon*. 
+
+6 -	Bugs
 	----
 If you find a bug, fix it, then tell me how you did it :-)
 
@@ -51,3 +97,5 @@ If you find a bug, fix it, then tell me how you did it :-)
 Enjoy!
 Roger Seguin
 roger_seguin@msn.com
+
+Julien Devemy <jujucece@gmail.com>

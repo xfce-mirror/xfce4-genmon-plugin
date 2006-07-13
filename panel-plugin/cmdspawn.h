@@ -3,6 +3,7 @@
  *  Spawn - Spawn a process and capture its output
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
  *  					<http://rmlx.dyndns.org>
+ *  Copyright (c) 2006 Julien Devemy <jujucece@gmail.com>
  *  
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -37,10 +38,10 @@ extern          "C" {
 #endif
     int             genmon_Spawn (char *const argv[],
 				  char *const StdOutCapture,
-				  const size_t StdOutSize);
+				  const size_t StdOutSize, const int wait);
     int             genmon_SpawnCmd (const char *const cmdline,
 				     char *const StdOutCapture,
-				     const size_t StdOutSize);
+				     const size_t StdOutSize, const int wait);
     /* Spawn the given command and capture its output (stdout) */
     /* Return 0 on success, otherwise copy stderr into the output string
        and return -1 */

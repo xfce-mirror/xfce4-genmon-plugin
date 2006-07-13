@@ -2,6 +2,7 @@
 // Spawn - Spawn a process and capture its output
 // Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
 //                                      <http://rmlx.dyndns.org>
+// Copyright (c) 2006 Julien Devemy <jujucece@gmail.com>
 
 /*  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -142,7 +143,7 @@ static int ParseCmdline (const char *const p_pcCmdLine, char ***p_pppcArgv, ...
 
 /**********************************************************************/
 int genmon_Spawn (char *const argv[], char *const p_pcOutput,
-		  const size_t p_BufferSize)
+		  const size_t p_BufferSize, const int wait)
 /**********************************************************************/
  /* Spawn a command and capture its output */
  /* Return 0 on success, otherwise copy stderr into the output string and
@@ -208,23 +209,26 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
 	goto End;
     }
 
-    /* Read stdout/stderr pipes' read-ends */
-    for (i = 0; i < OUT_ERR; i++) {
-	aoPoll[i].fd = aaiPipe[i][RD];
-	aoPoll[i].events = POLLIN;
-	aoPoll[i].revents = 0;
-    }
-    poll (aoPoll, OUT_ERR, ~0);
-    for (i = 0; i < OUT_ERR; i++)
-	if (aoPoll[i].revents & POLLIN)
-	    break;
-    if (i < OUT_ERR)
-	read (aaiPipe[i][RD], p_pcOutput, BufSafeSize);
-    fError = (i != OUT);
+    if (wait == 1)
+    {
+      /* Read stdout/stderr pipes' read-ends */
+      for (i = 0; i < OUT_ERR; i++) {
+  	aoPoll[i].fd = aaiPipe[i][RD];
+	  aoPoll[i].events = POLLIN;
+	  aoPoll[i].revents = 0;
+      }
+      poll (aoPoll, OUT_ERR, ~0);
+      for (i = 0; i < OUT_ERR; i++)
+	  if (aoPoll[i].revents & POLLIN)
+	      break;
+      if (i < OUT_ERR)
+	  read (aaiPipe[i][RD], p_pcOutput, BufSafeSize);
+      fError = (i != OUT);
 
-    /* Remove trailing carriage return if any */
-    if (p_pcOutput[(i = strlen (p_pcOutput) - 1)] == '\n')
-	p_pcOutput[i] = 0;
+      /* Remove trailing carriage return if any */
+      if (p_pcOutput[(i = strlen (p_pcOutput) - 1)] == '\n')
+  	p_pcOutput[i] = 0;
+    }
 
   End:
     /* Close created pipes */
@@ -238,7 +242,7 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
 
 /**********************************************************************/
 int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
-		     const size_t p_BufferSize)
+		     const size_t p_BufferSize, const int wait)
 /**********************************************************************/
  /* Spawn a command and capture its output */
  /* Return 0 on success, otherwise copy stderr into the output string and
@@ -257,7 +261,7 @@ int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
 	return (-1);
 
     /* Spawn the command and free allocated memory */
-    status = genmon_Spawn (argv, p_pcOutput, p_BufferSize);
+    status = genmon_Spawn (argv, p_pcOutput, p_BufferSize, wait);
     while (argc-- > 0)
 	free (argv[argc]);
     free (argv);
