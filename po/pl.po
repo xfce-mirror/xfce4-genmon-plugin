@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-26 22:30+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-08-26 22:36+0100\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -19,8 +19,7 @@ msgstr ""
 msgid "About..."
 msgstr "O programie..."
 
-#: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:634
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:634
 msgid "Generic Monitor"
 msgstr "Generyczny Monitor"
 
@@ -68,7 +67,8 @@ msgstr "(Domyślna czcionka)"
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
@@ -86,4 +86,3 @@ msgstr "Ustawieni Czcionek"
 #: ../panel-plugin/main.c:622
 msgid "Configuration"
 msgstr "Konfiguracja"
-
