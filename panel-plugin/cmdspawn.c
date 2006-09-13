@@ -252,7 +252,9 @@ int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
     int             argc;
     int             status;
 
-
+    if (strlen(p_pcCmdLine) == 0)
+        return (-1);
+    
     /* Split the commandline into an argv array */
     status = ParseCmdline (p_pcCmdLine, &argv, &argc,
 			   p_pcOutput, p_BufferSize);
