@@ -263,6 +263,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     struct genmon_t *poPlugin;
     struct param_t *poConf;
     struct monitor_t *poMonitor;
+	 int size = xfce_panel_plugin_get_size (plugin);
 
     poPlugin = g_new (genmon_t, 1);
     memset (poPlugin, 0, sizeof (genmon_t));
@@ -303,8 +304,13 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
 			GTK_WIDGET (poMonitor->wTitle), FALSE, FALSE, 0);
 
-    /* Create a VBox to put image and text */
-    poMonitor->wImgBox = gtk_vbox_new (FALSE, 0);
+    /* Create a Box to put image and text 
+	  * If panel size less < 25 place icon near the text
+	  */
+	 if (size < 25)
+	 	poMonitor->wImgBox = gtk_hbox_new (FALSE, 0);
+	 else
+	 	poMonitor->wImgBox = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (poMonitor->wImgBox);
     gtk_container_set_border_width (GTK_CONTAINER
       (poMonitor->wImgBox), 0);
@@ -317,12 +323,18 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
       GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
 
     /* Add Button */ 
-    poMonitor->wButton = gtk_button_new ();
+    /*
+	  * xfce_create_panel_button() look better instead of gtk_button_new ()
+	  * poMonitor->wButton = gtk_button_new ();
+	 */
+	poMonitor->wButton = (Widget_t) xfce_create_panel_button ();
+    gtk_widget_set_size_request (poMonitor->wButton, size, size);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
       GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
 
     /* Add Image Button*/   
     poMonitor->wImgButton = gtk_image_new ();
+	 gtk_widget_set_size_request (poMonitor->wImgButton, size-1, size-1);
     gtk_container_add (GTK_CONTAINER (poMonitor->wButton), poMonitor->wImgButton);
     gtk_container_set_border_width (GTK_CONTAINER (poMonitor->wButton), 0);
 

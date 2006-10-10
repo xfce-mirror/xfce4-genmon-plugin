@@ -200,17 +200,17 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
     }
 
     /* Wait for child completion */
-    status = waitpid (pid, 0, 0);
-    if (status == -1) {
+    if (wait == 1)
+    {
+    	status = waitpid (pid, 0, 0);
+    	if (status == -1) {
 	i = errno;
 	snprintf (p_pcOutput, BufSafeSize, "waitpid(%d): %s", i,
 		  strerror (i));
 	fError = 1;
 	goto End;
-    }
+    	}
 
-    if (wait == 1)
-    {
       /* Read stdout/stderr pipes' read-ends */
       for (i = 0; i < OUT_ERR; i++) {
   	aoPoll[i].fd = aaiPipe[i][RD];
