@@ -1,7 +1,8 @@
 /*
  *  Generic Monitor plugin for the Xfce4 panel
+ *  Construct the configure GUI
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
- *  					<http://rmlx.dyndns.org>
+ *                                  <http://rmlx.dyndns.org>
  *  
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -31,15 +32,15 @@
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 
-#define COPYVAL(var, field)	((var)->field = field)
+#define COPYVAL(var, field)    ((var)->field = field)
 
 
-	/**** GUI initially created using glade-2 ****/
+/**** GUI initially created using glade-2 ****/
 
-	/* Use the gtk_button_new_with_mnemonic() function for text-based
-	   push buttons */
-	/* Use "#define gtk_button_new_with_mnemonic(x) gtk_button_new()"
-	   for color-filled buttons */
+/* Use the gtk_button_new_with_mnemonic() function for text-based
+   push buttons */
+/* Use "#define gtk_button_new_with_mnemonic(x) gtk_button_new()"
+   for color-filled buttons */
 
 #define gtk_button_new_with_mnemonic(x) gtk_button_new()
 
@@ -51,7 +52,7 @@
   g_object_set_data (G_OBJECT (component), name, widget)
 
 int genmon_CreateConfigGUI (GtkWidget *vbox1,
-			    struct gui_t *p_poGUI)
+    struct gui_t *p_poGUI)
 {
     GtkWidget      *wPB_About;
     GtkWidget      *alignment2;
@@ -94,9 +95,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (hbox3);
     gtk_container_add (GTK_CONTAINER (alignment2), hbox3);
 
-    image1 =
-	gtk_image_new_from_stock ("gnome-stock-about",
-				  GTK_ICON_SIZE_BUTTON);
+    image1 = gtk_image_new_from_stock ("gnome-stock-about",
+        GTK_ICON_SIZE_BUTTON);
     gtk_widget_show (image1);
     gtk_box_pack_start (GTK_BOX (hbox3), image1, FALSE, FALSE, 0);
 
@@ -116,66 +116,64 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     label1 = gtk_label_new (_("Command"));
     gtk_widget_show (label1);
     gtk_table_attach (GTK_TABLE (table1), label1, 0, 1, 0, 1,
-		      (GtkAttachOptions) (GTK_FILL),
-		      (GtkAttachOptions) (0), 0, 0);
+        (GtkAttachOptions) (GTK_FILL),
+        (GtkAttachOptions) (0), 0, 0);
     gtk_label_set_justify (GTK_LABEL (label1), GTK_JUSTIFY_LEFT);
     gtk_misc_set_alignment (GTK_MISC (label1), 0, 0.5);
 
     wTF_Cmd = gtk_entry_new ();
     gtk_widget_show (wTF_Cmd);
     gtk_table_attach (GTK_TABLE (table1), wTF_Cmd, 1, 2, 0, 1,
-		      (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-		      (GtkAttachOptions) (0), 0, 0);
+        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+        (GtkAttachOptions) (0), 0, 0);
     gtk_tooltips_set_tip (tooltips, wTF_Cmd,
-			  _
-			  ("Input the shell command to spawn, then press <Enter>"),
-			  NULL);
+        _("Input the shell command to spawn, then press <Enter>"),
+        NULL);
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Cmd), 128);
 
     eventbox1 = gtk_event_box_new ();
     gtk_widget_show (eventbox1);
     gtk_table_attach (GTK_TABLE (table1), eventbox1, 1, 2, 2, 3,
-		      (GtkAttachOptions) (GTK_FILL),
-		      (GtkAttachOptions) (GTK_FILL), 0, 0);
+        (GtkAttachOptions) (GTK_FILL),
+        (GtkAttachOptions) (GTK_FILL), 0, 0);
 
     alignment1 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment1);
     gtk_container_add (GTK_CONTAINER (eventbox1), alignment1);
 
     wSc_Period_adj = gtk_adjustment_new (15, 1, 3600, 1, 1, 10);
-    wSc_Period =
-	gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), 1, 0);
+    wSc_Period = gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), 1, 0);
     gtk_widget_show (wSc_Period);
     gtk_container_add (GTK_CONTAINER (alignment1), wSc_Period);
     gtk_tooltips_set_tip (tooltips, wSc_Period,
-			  _("Interval between 2 consecutive spawns"),
-			  NULL);
+        _("Interval between 2 consecutive spawns"),
+        NULL);
     gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (wSc_Period), TRUE);
 
     label2 = gtk_label_new (_("Period (s) "));
     gtk_widget_show (label2);
     gtk_table_attach (GTK_TABLE (table1), label2, 0, 1, 2, 3,
-		      (GtkAttachOptions) (GTK_FILL),
-		      (GtkAttachOptions) (0), 0, 0);
+        (GtkAttachOptions) (GTK_FILL),
+        (GtkAttachOptions) (0), 0, 0);
     gtk_label_set_justify (GTK_LABEL (label2), GTK_JUSTIFY_LEFT);
     gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
     wTB_Title = gtk_check_button_new_with_mnemonic (_("Label"));
     gtk_widget_show (wTB_Title);
     gtk_table_attach (GTK_TABLE (table1), wTB_Title, 0, 1, 1, 2,
-		      (GtkAttachOptions) (GTK_FILL),
-		      (GtkAttachOptions) (0), 0, 0);
+        (GtkAttachOptions) (GTK_FILL),
+        (GtkAttachOptions) (0), 0, 0);
     gtk_tooltips_set_tip (tooltips, wTB_Title, _("Tick to display label"),
-			  NULL);
+        NULL);
 
     wTF_Title = gtk_entry_new ();
     gtk_widget_show (wTF_Title);
     gtk_table_attach (GTK_TABLE (table1), wTF_Title, 1, 2, 1, 2,
-		      (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-		      (GtkAttachOptions) (0), 0, 0);
+        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+        (GtkAttachOptions) (0), 0, 0);
     gtk_tooltips_set_tip (tooltips, wTF_Title,
-			  _("Input the plugin label, then press <Enter>"),
-			  NULL);
+        _("Input the plugin label, then press <Enter>"),
+        NULL);
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Title), 16);
     gtk_entry_set_text (GTK_ENTRY (wTF_Title), _("(genmon)"));
 
@@ -187,7 +185,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (wPB_Font);
     gtk_box_pack_start (GTK_BOX (vbox1), wPB_Font, FALSE, FALSE, 0);
     gtk_tooltips_set_tip (tooltips, wPB_Font, _("Press to change font"),
-			  NULL);
+        NULL);
 
     alignment3 = gtk_alignment_new (0.5, 0.5, 0, 0);
     gtk_widget_show (alignment3);
@@ -197,8 +195,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (hbox4);
     gtk_container_add (GTK_CONTAINER (alignment3), hbox4);
 
-    image2 =
-	gtk_image_new_from_stock ("gtk-select-font", GTK_ICON_SIZE_BUTTON);
+    image2 = gtk_image_new_from_stock ("gtk-select-font", GTK_ICON_SIZE_BUTTON);
     gtk_widget_show (image2);
     gtk_box_pack_start (GTK_BOX (hbox4), image2, FALSE, FALSE, 0);
 
@@ -208,29 +205,13 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_label_set_justify (GTK_LABEL (label11), GTK_JUSTIFY_LEFT);
 
     if (p_poGUI) {
-	COPYVAL (p_poGUI, wPB_About);
-	COPYVAL (p_poGUI, wTF_Cmd);
-	COPYVAL (p_poGUI, wTB_Title);
-	COPYVAL (p_poGUI, wTF_Title);
-	COPYVAL (p_poGUI, wSc_Period);
-	COPYVAL (p_poGUI, wPB_Font);
+        COPYVAL (p_poGUI, wPB_About);
+        COPYVAL (p_poGUI, wTF_Cmd);
+        COPYVAL (p_poGUI, wTB_Title);
+        COPYVAL (p_poGUI, wTF_Title);
+        COPYVAL (p_poGUI, wSc_Period);
+        COPYVAL (p_poGUI, wPB_Font);
     }
     return (0);
-}				/* CreateConfigGUI() */
+}/* CreateConfigGUI() */
 
-
-/*
-$Log: config_gui.c,v $
-Revision 1.1.1.2  2004/11/01 00:22:46  rogerms
-*** empty log message ***
-
-Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
-V1.0
-
-Revision 1.2  2004/08/28 09:53:28  RogerSeguin
-Added font selector
-
-Revision 1.1  2004/08/27 23:17:29  RogerSeguin
-Initial revision
-
-*/

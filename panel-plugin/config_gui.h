@@ -1,7 +1,8 @@
 /*
  *  Generic Monitor plugin for the Xfce4 panel
+ *  Header file to construct the configure GUI
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
- *  					<http://rmlx.dyndns.org>
+ *                                  <http://rmlx.dyndns.org>
  *  
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -47,27 +48,13 @@ typedef struct gui_t {
 extern          "C" {
 #endif
 
-    int             genmon_CreateConfigGUI (GtkWidget * ParentWindow,
-					    struct gui_t *gui);
+    int genmon_CreateConfigGUI (GtkWidget * ParentWindow,
+        struct gui_t *gui);
     /* Create configuration/Option GUI */
     /* Return 0 on success, -1 otherwise */
 
 #ifdef __cplusplus
-}				/* extern "C" */
+}/* extern "C" */
 #endif
-/*
-$Log: config_gui.h,v $
-Revision 1.1.1.2  2004/11/01 00:22:46  rogerms
-*** empty log message ***
 
-Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
-V1.0
-
-Revision 1.2  2004/08/28 09:52:17  RogerSeguin
-Added font selector
-
-Revision 1.1  2004/08/27 23:16:58  RogerSeguin
-Initial revision
-
-*/
-#endif				/* _config_gui_h */
+#endif/* _config_gui_h */

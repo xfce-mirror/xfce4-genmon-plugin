@@ -1,8 +1,8 @@
 /*
  *  Generic Monitor plugin for the Xfce4 panel
- *  Spawn - Spawn a process and capture its output
+ *  Header file to spawn a process and capture its output
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
- *  					<http://rmlx.dyndns.org>
+ *                                  <http://rmlx.dyndns.org>
  *  Copyright (c) 2006 Julien Devemy <jujucece@gmail.com>
  *  
  *  This library is free software; you can redistribute it and/or
@@ -31,33 +31,20 @@
 #include <unistd.h>
 #include <inttypes.h>
 
-
-
 #ifdef __cplusplus
-extern          "C" {
+extern "C" {
 #endif
-    int             genmon_Spawn (char *const argv[],
-				  char *const StdOutCapture,
-				  const size_t StdOutSize, const int wait);
-    int             genmon_SpawnCmd (const char *const cmdline,
-				     char *const StdOutCapture,
-				     const size_t StdOutSize, const int wait);
+    int genmon_Spawn (char *const argv[],
+        char *const StdOutCapture,
+        const size_t StdOutSize, const int wait);
+    int genmon_SpawnCmd (const char *const cmdline,
+        char *const StdOutCapture,
+        const size_t StdOutSize, const int wait);
     /* Spawn the given command and capture its output (stdout) */
     /* Return 0 on success, otherwise copy stderr into the output string
        and return -1 */
 #ifdef __cplusplus
-}				/* extern "C" */
+}/* extern "C" */
 #endif
-/*
-$Log: cmdspawn.h,v $
-Revision 1.1.1.2  2004/11/01 00:22:46  rogerms
-*** empty log message ***
 
-Revision 1.1.1.1  2004/09/09 13:35:51  rogerms
-V1.0
-
-Revision 1.1  2004/08/27 23:16:48  RogerSeguin
-Initial revision
-
-*/
-#endif				/* _cmdspawn_h */
+#endif/* _cmdspawn_h */
