@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# An example script for the genmon plugin displaying information on the Wireless connection
+
+# Change eth1 to your Wifi interface
+
 echo "<img>/usr/local/share/icons/Tango/16x16/devices/network-wireless.png</img>"
 
 res1=$(/sbin/ifconfig eth1 | grep inet)

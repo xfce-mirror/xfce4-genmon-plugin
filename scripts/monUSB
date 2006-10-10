@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# An example script for the genmon plugin to mount/umount USB disk
+
+# Change sda1 to your USB disk device 
+
 ls -l /dev/sda1 >/dev/null 2>&1
 if [ $? == 0 ]
 then

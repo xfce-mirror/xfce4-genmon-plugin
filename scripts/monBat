@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# An example script for the genmon plugin displaying information on the 2 batteries state
+
 pres0=$(cat /proc/acpi/battery/BAT0/info | grep "present" | sed 's/\ \ */ /g' | cut -f2 -d" ")
 if [ $pres0 != "no" ]
 then
