@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/config_gui.c:86
+#: ../panel-plugin/config_gui.c:87
 msgid "About..."
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:634
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
 msgid "Generic Monitor"
 msgstr ""
 
@@ -28,43 +28,43 @@ msgstr ""
 msgid "Command"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:131
+#: ../panel-plugin/config_gui.c:130
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:151
+#: ../panel-plugin/config_gui.c:149
 msgid "Interval between 2 consecutive spawns"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:155
+#: ../panel-plugin/config_gui.c:153
 msgid "Period (s) "
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:163
+#: ../panel-plugin/config_gui.c:161
 msgid "Label"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:168
+#: ../panel-plugin/config_gui.c:166
 msgid "Tick to display label"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:177
+#: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:180
+#: ../panel-plugin/config_gui.c:178
 msgid "(genmon)"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:189
+#: ../panel-plugin/config_gui.c:187
 msgid "Press to change font"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:205
+#: ../panel-plugin/config_gui.c:202
 msgid "(Default font)"
 msgstr ""
 
-#: ../panel-plugin/main.c:559
+#: ../panel-plugin/main.c:569
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -75,10 +75,10 @@ msgid ""
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 
-#: ../panel-plugin/main.c:577
+#: ../panel-plugin/main.c:587
 msgid "Font Selection"
 msgstr ""
 
-#: ../panel-plugin/main.c:622
+#: ../panel-plugin/main.c:632
 msgid "Configuration"
 msgstr ""
