@@ -792,6 +792,8 @@ static void genmon_construct (XfcePanelPlugin *plugin)
 {
     genmon_t *genmon;
 
+    xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
     genmon = genmon_create_control (plugin);
 
     genmon_read_config (plugin, genmon);
