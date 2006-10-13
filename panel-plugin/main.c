@@ -76,7 +76,7 @@ typedef struct monitor_t {
     Widget_t        wBar;
     Widget_t        wButton;
     Widget_t        wImgButton;
-    char            onClickCmd[128];
+    char            onClickCmd[256];
 } monitor_t;
 
 typedef struct genmon_t {
@@ -109,7 +109,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
     struct param_t *poConf = &(p_poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(p_poPlugin->oMonitor);
-    char            acToolTips[128];
+    char            acToolTips[256];
     int             status;
     char  *begin;
     char  *end;
@@ -122,10 +122,12 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     if (status == -1)
         return (-1);
 
+    /* Normally it's impossible to overflow the buffer because p_poPlugin->acValue is < 256 */ 
+
     /* Test if the result is an Image or a Text */
     begin=strstr(p_poPlugin->acValue, "<img>");
     end=strstr(p_poPlugin->acValue, "</img>");
-    if ((begin != NULL) && (end != NULL) && (begin < end))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
     {
         char  buf[256];
         /* Get the image path */
@@ -138,7 +140,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         /* Test if the result has a clickable Image (button) */
         begin=strstr(p_poPlugin->acValue, "<click>");
         end=strstr(p_poPlugin->acValue, "</click>");
-        if ((begin != NULL) && (end != NULL) && (begin < end))
+        if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
         {
             char  buf[256];
             /* Get the command path */
@@ -167,7 +169,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is a Text */
     begin=strstr(p_poPlugin->acValue, "<txt>");
     end=strstr(p_poPlugin->acValue, "</txt>");
-    if ((begin != NULL) && (end != NULL) && (begin < end))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
     {
         char  buf[256];
         /* Get the text */
@@ -185,7 +187,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is a Bar */
     begin=strstr(p_poPlugin->acValue, "<bar>");
     end=strstr(p_poPlugin->acValue, "</bar>");
-    if ((begin != NULL) && (end != NULL) && (begin < end))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
     {
         char  buf[256];
         int value;
@@ -193,6 +195,8 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
         buf[end-begin-5*sizeof(char)]='\0';
         value=atoi(buf);
+        if (value>100)
+            value=100;
         gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(poMonitor->wBar), (float)value/100.0);
         gtk_widget_show (poMonitor->wBar);
 
@@ -212,7 +216,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if a ToolTip is given */
     begin=strstr(p_poPlugin->acValue, "<tool>");
     end=strstr(p_poPlugin->acValue, "</tool>");
-    if ((begin != NULL) && (end != NULL) && (begin < end))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
     {
         strncpy(acToolTips, begin+6, end-begin-6);
         acToolTips[end-begin-6]='\0';

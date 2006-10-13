@@ -4,7 +4,7 @@ Generic Monitor XFce4 panel plugin (GenMon)
 
 1 -	Description
 	-----------
-The GenMon plugin cyclically spawns the indicated script/program, captures its output and displays it as a string into the panel.
+The GenMon plugin cyclically spawns the indicated script/program, captures its output and displays the result into the panel.
 
 
 2 -	Installation
@@ -12,7 +12,7 @@ The GenMon plugin cyclically spawns the indicated script/program, captures its o
 Do the usual stuff:
 	- gunzip
 	- tar xf
-	- configure --prefix=<XFce4InstallationDir>	(e.g. /usr/local)
+	- ./autogen.sh --prefix=<XFce4InstallationDir>	(e.g. /usr/local)
 	- make
 	- make install  (as root)
 	
@@ -22,6 +22,10 @@ installed in <XFce4InstallationDir>/libexec/xfce4/panel-plugins/
 and
         genmon.desktop
 installed in <XFce4InstallationDir>/share/xfce4/panel-plugins/
+
+        xfce4-genmon-plugin.mo
+installed in <XFce4InstallationDir>/share/locale/XX/LC_MESSAGES/
+where XX represents the languages supported by genmon plugin
 
 3 -	Testing
 	-------
