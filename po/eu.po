@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-genmon-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2006-10-26 12:40+0100\n"
+"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
+"Language-Team: Euskara <librezale@librezale.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "Honi buruz.."
+
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
+msgid "Generic Monitor"
+msgstr "Monitore Arrunta"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Komandoa"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Abiarazteko shell komandoa idatzi eta <Enter> sakatu"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "Jarraian 2 abiarazte arteko tartea"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Tartea (s)"
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Etiketa"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Bistarazteko etiketa kontrola"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Plugin etiketa idatzi eta <Enter> sakatu"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Sakatu letra-tipoa aldatzeko"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(Lehentsiriko letra-tipoa)"
+
+#: ../panel-plugin/main.c:569
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s - Monitore Arrunta\n"
+"Aldiro programa/script bat abiarazi, honen irteera eskuratu eta emaitza "
+"panelean bistarazi\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+
+#: ../panel-plugin/main.c:587
+msgid "Font Selection"
+msgstr "Letra-tipo Hautapena"
+
+#: ../panel-plugin/main.c:632
+msgid "Configuration"
+msgstr "Konfigurazioa"
