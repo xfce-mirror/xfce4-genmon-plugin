@@ -4,7 +4,7 @@
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
  *                                  <http://rmlx.dyndns.org>
  *  Copyright (c) 2006 Julien Devemy <jujucece@gmail.com>
- *  
+ *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
@@ -33,6 +33,7 @@
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/dialogs.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfce4panel/xfce-panel-convenience.h>
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -122,7 +123,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     if (status == -1)
         return (-1);
 
-    /* Normally it's impossible to overflow the buffer because p_poPlugin->acValue is < 256 */ 
+    /* Normally it's impossible to overflow the buffer because p_poPlugin->acValue is < 256 */
 
     /* Test if the result is an Image or a Text */
     begin=strstr(p_poPlugin->acValue, "<img>");
@@ -274,7 +275,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poMonitor = &(poPlugin->oMonitor);
 
     poPlugin->plugin = plugin;
-    
+
     strcpy (poConf->acCmd, "");
     strcpy (poConf->acTitle, "(genmon)");
 
@@ -289,7 +290,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_widget_show (poMonitor->wEventBox);
 
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wEventBox);
-    
+
     if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
         poMonitor->wBox = gtk_hbox_new (FALSE, 0);
     else
@@ -306,7 +307,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wTitle), FALSE, FALSE, 0);
 
-    /* Create a Box to put image and text 
+    /* Create a Box to put image and text
      * If panel size less < 25 place icon near the text
      */
     if (size < 25)
@@ -319,12 +320,12 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_container_add (GTK_CONTAINER (poMonitor->wBox),
         poMonitor->wImgBox);
 
-    /* Add Image */   
+    /* Add Image */
     poMonitor->wImage = gtk_image_new ();
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
 
-    /* Add Button */ 
+    /* Add Button */
     /*
      * xfce_create_panel_button() look better instead of gtk_button_new ()
      * poMonitor->wButton = gtk_button_new ();
@@ -334,7 +335,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
 
-    /* Add Image Button*/   
+    /* Add Image Button*/
     poMonitor->wImgButton = gtk_image_new ();
     gtk_widget_set_size_request (poMonitor->wImgButton, size-1, size-1);
     gtk_container_add (GTK_CONTAINER (poMonitor->wButton), poMonitor->wImgButton);
@@ -346,7 +347,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wValue), TRUE, FALSE, 0);
 
-    /* Add Bar */   
+    /* Add Bar */
     poMonitor->wBar = gtk_progress_bar_new();
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
@@ -440,7 +441,7 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
                             poConf->acTitle);
     }
 
-    poConf->iPeriod_ms = 
+    poConf->iPeriod_ms =
         xfce_rc_read_int_entry (rc, (CONF_UPDATE_PERIOD), 30 * 1000);
 
     if ((pc = xfce_rc_read_entry (rc, (CONF_FONT), NULL))) {
@@ -463,7 +464,7 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
         return;
-    
+
     rc = xfce_rc_simple_open (file, FALSE);
     g_free (file);
 
@@ -488,7 +489,7 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 /**************************************************************/
 
 static void SetCmd (Widget_t p_wTF, void *p_pvPlugin)
-/* GUI callback setting the command to be spawn, whose output will 
+/* GUI callback setting the command to be spawn, whose output will
    be displayed using the panel-docked monitor */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
@@ -608,7 +609,7 @@ static void ChooseFont (Widget_t p_wPB, void *p_pvPlugin)
 
 /**************************************************************/
 
-static void genmon_dialog_response (GtkWidget *dlg, int response, 
+static void genmon_dialog_response (GtkWidget *dlg, int response,
     genmon_t *genmon)
 {
     UpdateConf (genmon);
@@ -632,8 +633,8 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     TRACE ("genmon_create_options()\n");
 
     xfce_panel_plugin_block_menu (plugin);
-    
-    dlg = gtk_dialog_new_with_buttons (_("Configuration"), 
+
+    dlg = gtk_dialog_new_with_buttons (_("Configuration"),
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
         GTK_DIALOG_DESTROY_WITH_PARENT |
         GTK_DIALOG_NO_SEPARATOR,
@@ -696,7 +697,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
 
 /**************************************************************/
 
-static void genmon_set_orientation (XfcePanelPlugin *plugin, 
+static void genmon_set_orientation (XfcePanelPlugin *plugin,
     GtkOrientation p_iOrientation,
     genmon_t *poPlugin)
 /* Plugin API */
@@ -732,18 +733,18 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
         (poMonitor->wImgBox), 0);
     gtk_container_add (GTK_CONTAINER (poMonitor->wBox),
         poMonitor->wImgBox);
- 
-    /* Add Image */   
+
+    /* Add Image */
     poMonitor->wImage = gtk_image_new ();
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
 
-    /* Add Button */   
+    /* Add Button */
     poMonitor->wButton = gtk_button_new ();
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
 
-    /* Add Image Button*/   
+    /* Add Image Button*/
     poMonitor->wImgButton = gtk_image_new ();
     gtk_container_add (GTK_CONTAINER (poMonitor->wButton), poMonitor->wImgButton);
     gtk_container_set_border_width (GTK_CONTAINER (poMonitor->wButton), 0);
@@ -754,7 +755,7 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wValue), TRUE, FALSE, 0);
 
-    /* Add Bar */   
+    /* Add Bar */
     poMonitor->wBar = gtk_progress_bar_new();
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
@@ -810,10 +811,10 @@ static void genmon_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (genmon_free), genmon);
 
-    g_signal_connect (plugin, "save", G_CALLBACK (genmon_write_config), 
+    g_signal_connect (plugin, "save", G_CALLBACK (genmon_write_config),
         genmon);
 
-    g_signal_connect (plugin, "orientation-changed", 
+    g_signal_connect (plugin, "orientation-changed",
         G_CALLBACK (genmon_set_orientation), genmon);
 
     g_signal_connect (plugin, "size-changed", G_CALLBACK (genmon_set_size), genmon);
@@ -822,7 +823,7 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "about", G_CALLBACK (About), genmon);
 
     xfce_panel_plugin_menu_show_configure (plugin);
-    g_signal_connect (plugin, "configure-plugin", 
+    g_signal_connect (plugin, "configure-plugin",
         G_CALLBACK (genmon_create_options), genmon);
 
     g_signal_connect (G_OBJECT (genmon->oMonitor.wButton), "clicked",
