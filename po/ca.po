@@ -1,0 +1,93 @@
+# Catalan translation of xfce4-genmon-plugin.
+# Copyright (C) 2006 xfce4-genmon-plugin's copyright holder.
+# This file is distributed under the same license as the
+# xfce4-genmon-plugin package.
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2006.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-genmon-plugin 2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2006-12-03 11:32+0100\n"
+"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
+"Language-Team: Catalan <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "Quant a…"
+
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
+msgid "Generic Monitor"
+msgstr "Monitor genèric"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Ordre"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Introduïu l'ordre de l'intèrpret a executar, després premeu «enter»"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "Interval entre dos execucions consecutives"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Període (s)"
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Etiqueta"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Comentari a mostrar a l'etiqueta"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Introduïu l'etiqueta del connector, després premeu «retorn»"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Clicar per canviar la font"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(tipus de lletra per defecte)"
+
+#: ../panel-plugin/main.c:569
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s - Monitor genèric\n"
+"executa un fitxer de seqüència («script») o programa de forma cíclica, "
+"captura el text de la seva sortida i el mostra al quadre.\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:587
+msgid "Font Selection"
+msgstr "Selecció del tipus de lletra"
+
+#: ../panel-plugin/main.c:632
+msgid "Configuration"
+msgstr "Configuració"
