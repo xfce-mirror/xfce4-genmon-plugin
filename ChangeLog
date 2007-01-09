@@ -1,10 +1,13 @@
+2007-01-09 Nick Schermer
+	* Fixed build problems with as-needed (Bug 2722)
+
 2006-10-13 3.0 Julien Devemy
-    * Add French translation
-    * Add some patches
-    * Add some test to avoid buffer overflow
+	* Add French translation
+	* Add some patches
+	* Add some test to avoid buffer overflow
 
 2006-07-14 2.0 Julien Devemy
-    * New version managing XML tags for image, bar, tooltip and click
+	* New version managing XML tags for image, bar, tooltip and click
 
 2004-11-01 1.1 Roger Seguin
 	* Fixed bug related to memory dynamic allocation

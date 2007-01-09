@@ -5,7 +5,7 @@ xfce4_genmon_plugin_CFLAGS =					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"			\
 	@LIBXFCE4PANEL_CFLAGS@
 
-xfce4_genmon_plugin_LDFLAGS =					\
+xfce4_genmon_plugin_LDADD =					\
 	@LIBXFCE4PANEL_LIBS@
 
 xfce4_genmon_plugin_SOURCES =	\
