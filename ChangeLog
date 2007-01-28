@@ -1,3 +1,7 @@
+2007-01:28 3.1 Julien Devemy
+	* Release a good tarball
+	* Change the configure.ac genmon version
+
 2007-01-09 Nick Schermer
 	* Fixed build problems with as-needed (Bug 2722)
 
