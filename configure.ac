@@ -3,6 +3,7 @@ dnl
 dnl xfce4-genmon-plugin - Generic Monitor plugin for xfce4-panel
 dnl
 dnl 2004 Roger Seguin <roger_seguin@msn.com>
+dnl 2006 Julien Devemy <jujucece@gmail.com>
 dnl
 
 m4_define([genmon_version],[3.0])

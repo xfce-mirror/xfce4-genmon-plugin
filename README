@@ -12,7 +12,7 @@ The GenMon plugin cyclically spawns the indicated script/program, captures its o
 Do the usual stuff:
 	- gunzip
 	- tar xf
-	- ./autogen.sh --prefix=<XFce4InstallationDir>	(e.g. /usr/local)
+	- ./configure --prefix=<XFce4InstallationDir>	(e.g. /usr/local)
 	- make
 	- make install  (as root)
 	
