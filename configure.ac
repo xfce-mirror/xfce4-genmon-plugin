@@ -6,7 +6,7 @@ dnl 2004 Roger Seguin <roger_seguin@msn.com>
 dnl 2006 Julien Devemy <jujucece@gmail.com>
 dnl
 
-m4_define([genmon_version],[3.0])
+m4_define([genmon_version],[3.1])
 
 AC_INIT([xfce4-genmon-plugin], [genmon_version()],
 	[xfce-goodies-dev@lists.berlios.de])
