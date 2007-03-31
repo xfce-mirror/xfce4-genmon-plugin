@@ -1,0 +1,92 @@
+# English/GB translation of xfce4-genmon-plugin.
+# Copyright (C) 2007 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-genmon-plugin package.
+# Jeff Bailes <thepizzaking@gmail.com>, 2007.
+# , fuzzy
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-genmon-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2007-03-30 22:25+1000\n"
+"Last-Translator: Jeff Bailes <thepizzaking@gmail.com>\n"
+"Language-Team: English/GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "About..."
+
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
+msgid "Generic Monitor"
+msgstr "Generic Monitor"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Command"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Input the shell command to spawn, then press <Enter>"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "Interval between 2 consecutive spawns"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Period (s) "
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Label"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Tick to display label"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Input the plugin label, then press <Enter>"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Press to change font"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(Default font)"
+
+#: ../panel-plugin/main.c:569
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:587
+msgid "Font Selection"
+msgstr "Font Selection"
+
+#: ../panel-plugin/main.c:632
+msgid "Configuration"
+msgstr "Configuration"
+
