@@ -8,7 +8,7 @@ dnl
 
 m4_define([genmon_version],[3.1])
 
-AC_INIT([xfce4-genmon-plugin], [genmon_version()],
+AC_INIT([xfce4-genmon-plugin], [genmon_version],
 	[xfce-goodies-dev@lists.berlios.de])
 
 GENMON_VERSION=genmon_version()
