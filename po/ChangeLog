@@ -1,3 +1,9 @@
+2007-11-04  Og Maciel <ogmaciel@gnome.org>
+
+    * pt_BR.po: Added new Brazilian Portuguese translation
+    by Andrius da Costa Ribas <andriusmao@gmail.com>
+    * LINGUAS: Added new LINGUAS file
+
 2007-10-28	Mike Massonnet <mmassonnet@xfce.org>
 
 	* pk.po: Add new translation by محمد علي المكي <makki.ma@gmail.com>
