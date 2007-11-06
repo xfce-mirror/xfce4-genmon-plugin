@@ -1,15 +1,16 @@
 # Brazilian Portuguese translation of the xfce4-genmon-plugin package.
 # Copyright (C) 2007 Roger Seguin <roger_seguin@msn.com>, Julien Devemy <jujucece@gmail.com>
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
-# Andrius da Costa Ribas <andriusmao@gmail.com>, 2007
+# Andrius da Costa Ribas <andriusmao@gmail.com>, 2007.
+# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2007-09-09 12:32+0200\n"
-"Last-Translator: Andrius da Costa Ribas <andriusmao@gmail.com>\n"
+"PO-Revision-Date: 2007-11-06 12:32-0400\n"
+"Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,7 +77,7 @@ msgid ""
 msgstr ""
 "%s %s - Monitor Genérico\n"
 "Processa ciclicamente um script/programa, captura sua saída e exibe a "
-"string resultante no painel\n"
+"sequência resultante no painel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
