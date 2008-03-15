@@ -43,7 +43,7 @@
 #include <inttypes.h>
 #include <string.h>
 #include <errno.h>
-
+#include <pwd.h>
 
 #define PLUGIN_NAME    "GenMon"
 #define BORDER    2
@@ -110,18 +110,35 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
     struct param_t *poConf = &(p_poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(p_poPlugin->oMonitor);
-    char            acToolTips[256];
-    int             status;
+    char   acToolTips[256];
+    char   acCompleteCmd[256];         
+    int    status;
     char  *begin;
     char  *end;
-    int   newVersion=0;
+    int    newVersion=0;
 
     if (!s_poToolTips)
         s_poToolTips = gtk_tooltips_new ();
-    status = genmon_SpawnCmd (poConf->acCmd, p_poPlugin->acValue,
-        sizeof (p_poPlugin->acValue), 1);
+
+    /* If the command starts with ~ expand it */
+    if (poConf->acCmd[0] == '~')
+    {
+        uid_t uid;
+        struct passwd* spwd;
+
+        uid = getuid();
+        spwd = getpwuid(uid);
+        sprintf(acCompleteCmd, "%s%s", spwd->pw_dir, &poConf->acCmd[1]);
+        status = genmon_SpawnCmd (acCompleteCmd, p_poPlugin->acValue,
+            sizeof (p_poPlugin->acValue), 1);
+    }
+    else
+        status = genmon_SpawnCmd (poConf->acCmd, p_poPlugin->acValue,
+            sizeof (p_poPlugin->acValue), 1);
+
+    /* If the command fails, display XXX */
     if (status == -1)
-        return (-1);
+        strcpy(p_poPlugin->acValue, "XXX");
 
     /* Normally it's impossible to overflow the buffer because p_poPlugin->acValue is < 256 */
 
@@ -162,10 +179,13 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         }
 
         newVersion=1;
-
     }
     else
+    {
+        gtk_widget_hide (poMonitor->wButton);
+        gtk_widget_hide (poMonitor->wImgButton);
         gtk_widget_hide (poMonitor->wImage);
+    }
 
     /* Test if the result is a Text */
     begin=strstr(p_poPlugin->acValue, "<txt>");
@@ -180,7 +200,6 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         gtk_widget_show (poMonitor->wValue);
 
         newVersion=1;
-
     }
     else
         gtk_widget_hide (poMonitor->wValue);
@@ -196,13 +215,14 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
         buf[end-begin-5*sizeof(char)]='\0';
         value=atoi(buf);
+        if (value<0)
+            value=0;
         if (value>100)
             value=100;
         gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(poMonitor->wBar), (float)value/100.0);
         gtk_widget_show (poMonitor->wBar);
 
         newVersion=1;
-
     }
     else
         gtk_widget_hide (poMonitor->wBar);
@@ -326,18 +346,12 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
 
     /* Add Button */
-    /*
-     * xfce_create_panel_button() look better instead of gtk_button_new ()
-     * poMonitor->wButton = gtk_button_new ();
-     */
     poMonitor->wButton = (Widget_t) xfce_create_panel_button ();
-    gtk_widget_set_size_request (poMonitor->wButton, size, size);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
 
     /* Add Image Button*/
     poMonitor->wImgButton = gtk_image_new ();
-    gtk_widget_set_size_request (poMonitor->wImgButton, size-1, size-1);
     gtk_container_add (GTK_CONTAINER (poMonitor->wButton), poMonitor->wImgButton);
     gtk_container_set_border_width (GTK_CONTAINER (poMonitor->wButton), 0);
 
@@ -351,7 +365,6 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poMonitor->wBar = gtk_progress_bar_new();
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
-    /*gtk_widget_show (poMonitor->wBar);*/
     if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
         gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_BOTTOM_TO_TOP);
     else

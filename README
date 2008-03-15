@@ -33,6 +33,7 @@ where XX represents the languages supported by genmon plugin
 Use GenMon for invoking the provided "datetime" shell script.
 Then the current date/time should be continuously updated in your panel.
 
+If the plugin displays XXX it means that the spawn of the command has failed.
 
 4 -	Extra
 	-----

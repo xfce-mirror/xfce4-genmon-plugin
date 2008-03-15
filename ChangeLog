@@ -1,4 +1,9 @@
-2007-01:28 3.1 Julien Devemy
+2008-03-15 3.2 Julien Devemy :
+  * Some bug fixes
+	* Add the feature of using ~/ (instead of /home/user/)
+	* Display XXX if the spawn of the command failed
+
+2007-01-28 3.1 Julien Devemy
 	* Release a good tarball
 	* Change the configure.ac genmon version
 
