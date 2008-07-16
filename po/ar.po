@@ -15,8 +15,7 @@ msgstr ""
 msgid "About..."
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
 msgid "Generic Monitor"
 msgstr ""
 
@@ -64,7 +63,8 @@ msgstr ""
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
@@ -77,4 +77,3 @@ msgstr ""
 #: ../panel-plugin/main.c:632
 msgid "Configuration"
 msgstr ""
-
