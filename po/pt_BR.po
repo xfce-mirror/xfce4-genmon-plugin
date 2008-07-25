@@ -2,14 +2,14 @@
 # Copyright (C) 2007 Roger Seguin <roger_seguin@msn.com>, Julien Devemy <jujucece@gmail.com>
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
 # Andrius da Costa Ribas <andriusmao@gmail.com>, 2007.
-# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2007.
+# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2007-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2007-11-06 12:32-0400\n"
+"PO-Revision-Date: 2008-07-25 13:36-0300\n"
 "Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Sobre..."
 
 #: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
 msgid "Generic Monitor"
-msgstr "Monitor Genérico"
+msgstr "Monitor genérico"
 
 #: ../panel-plugin/config_gui.c:116
 msgid "Command"
@@ -75,7 +75,7 @@ msgid ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
-"%s %s - Monitor Genérico\n"
+"%s %s - Monitor genérico\n"
 "Processa ciclicamente um script/programa, captura sua saída e exibe a "
 "sequência resultante no painel\n"
 "\n"
@@ -84,7 +84,7 @@ msgstr ""
 
 #: ../panel-plugin/main.c:587
 msgid "Font Selection"
-msgstr "Seleção de Fonte"
+msgstr "Seleção de fonte"
 
 #: ../panel-plugin/main.c:632
 msgid "Configuration"
