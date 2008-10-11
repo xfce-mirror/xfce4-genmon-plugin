@@ -1,7 +1,10 @@
+2008-10-11  Maximilian Schleiss <maximilian@xfce.org>
+
+	* ja.po, LINGUAS: Japanese translation added (Masato Hashimoto)
+
 2008-07-25  Og Maciel <ogmaciel@gnome.org>
 
-    * pt_BR.po: Updated Brazilian Portuguese translation
-    by Fábio Nogueira <deb-user-ba@ubuntu.com>
+	* pt_BR.po: Updated Brazilian Portuguese translation (Fábio Nogueira)
 
 2008-07-15 Mohamed Magdy <alnokta@xfce.org>
 
