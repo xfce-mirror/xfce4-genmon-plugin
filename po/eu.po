@@ -80,7 +80,6 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-
 #: ../panel-plugin/main.c:587
 msgid "Font Selection"
 msgstr "Letra-tipo Hautapena"
