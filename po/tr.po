@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4 genmon plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
+"Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: TURKEY\n"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "Hakkında..."
+
+#: ../panel-plugin/config_gui.c:103
+#: ../panel-plugin/main.c:644
+msgid "Generic Monitor"
+msgstr "Genel İzleyici"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Komut"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Komutu girdikten sonra <Enter> tuşuna basınız"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "Ardışık çalıştırılacak 2 komut arasındaki zaman aralığı"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Periyot"
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Etiket"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Etiketi görüntülemek için işaretleyin"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Eklenti etiketini girdikten sonra, <Enter> tuşuna basınız"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Yazı tipini değiştirmek için basınız"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(Öntanımlı yazı tipi)"
+
+#: ../panel-plugin/main.c:569
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s - Genel İzleyici\n"
+"Periyodik olarak bir betik ya da uygulamayı çalıştırıp, onların çıktısını ve sonuçlarını panelde gösterir\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:587
+msgid "Font Selection"
+msgstr "Yazıtipi Seçimi"
+
+#: ../panel-plugin/main.c:632
+msgid "Configuration"
+msgstr "Yapılandırma"
+
