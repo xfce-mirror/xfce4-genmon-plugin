@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2008-06-24 17:45+0100\n"
+"PO-Revision-Date: 2009-02-11 15:15+0100\n"
 "Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +27,11 @@ msgstr "Acerca de..."
 #: ../panel-plugin/config_gui.c:103
 #: ../panel-plugin/main.c:644
 msgid "Generic Monitor"
-msgstr ""
+msgstr "Monitor Xenérico"
 
 #: ../panel-plugin/config_gui.c:116
 msgid "Command"
-msgstr ""
+msgstr "Comando"
 
 #: ../panel-plugin/config_gui.c:130
 msgid "Input the shell command to spawn, then press <Enter>"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: ../panel-plugin/config_gui.c:153
 msgid "Period (s) "
-msgstr ""
+msgstr "Periodo(s)"
 
 #: ../panel-plugin/config_gui.c:161
 msgid "Label"
@@ -55,19 +55,19 @@ msgstr ""
 
 #: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
-msgstr ""
+msgstr "Introduza a etiqueta do engadido, e despois prema <Intro>"
 
 #: ../panel-plugin/config_gui.c:178
 msgid "(genmon)"
-msgstr ""
+msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:187
 msgid "Press to change font"
-msgstr ""
+msgstr "Prema para cambiar o tipo de letra"
 
 #: ../panel-plugin/config_gui.c:202
 msgid "(Default font)"
-msgstr ""
+msgstr "(Tipo de letra predeterminado)"
 
 #: ../panel-plugin/main.c:569
 #, c-format
@@ -81,7 +81,7 @@ msgstr ""
 
 #: ../panel-plugin/main.c:587
 msgid "Font Selection"
-msgstr ""
+msgstr "Selección de tipo de letra"
 
 #: ../panel-plugin/main.c:632
 msgid "Configuration"
