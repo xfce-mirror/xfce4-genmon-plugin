@@ -1,0 +1,90 @@
+# Spanish translations for xfce4-genmon-plugin package
+# Copyright (C) 2009 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-genmon-plugin package.
+#  <abel.martin.ruiz@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-genmon-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2009-02-24 19:44+0100\n"
+"Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "Acerca de..."
+
+#: ../panel-plugin/config_gui.c:103
+#: ../panel-plugin/main.c:644
+msgid "Generic Monitor"
+msgstr "Monitor genérico"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Comando"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Introduzca el comando de shell a iniciar, luego pulse <Enter>"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "Intervalo entre dos inicios consecutivos"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Periodo (s)"
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Etiqueta"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Marcar para mostrar etiqueta"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Introduzca la etiqueta del complemento, entonces pulse <Enter>"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Pulse para cambiar tipo de letra"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(Tipo de letra predeterminado)"
+
+#: ../panel-plugin/main.c:569
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s - Monitor genérico\n"
+"Inicia un script/programa de forma periódica, captura su salida y muestra la cadena resultante en el panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:587
+msgid "Font Selection"
+msgstr "Selección de tipo de letra"
+
+#: ../panel-plugin/main.c:632
+msgid "Configuration"
+msgstr "Configuración"
+
