@@ -1,8 +1,8 @@
 # Galician translation of xfce4-genmon-plugin
-# Copyright (C) 2008 Leandro Regueiro
+# Copyright (C) 2008-2009 Leandro Regueiro
 # This file is distributed under the same license as the xfce package.
 #
-# Leandro Regueiro <leandro.regueiro@gmail.com>, 2008.
+# Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.
 #
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en <http://trasno.net>
@@ -10,9 +10,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: xfce-i18n@xfce.org\n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2009-02-11 15:15+0100\n"
+"PO-Revision-Date: 2009-03-07 12:43+0100\n"
 "Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -38,8 +38,9 @@ msgid "Input the shell command to spawn, then press <Enter>"
 msgstr ""
 
 #: ../panel-plugin/config_gui.c:149
+#, fuzzy
 msgid "Interval between 2 consecutive spawns"
-msgstr ""
+msgstr "A cantidade de espazo entre dúas filas consecutivas"
 
 #: ../panel-plugin/config_gui.c:153
 msgid "Period (s) "
@@ -50,8 +51,9 @@ msgid "Label"
 msgstr "Etiqueta"
 
 #: ../panel-plugin/config_gui.c:166
+#, fuzzy
 msgid "Tick to display label"
-msgstr ""
+msgstr "Conectar con outra pantalla"
 
 #: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
