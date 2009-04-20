@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2009-04-14 21:47+0100\n"
+"PO-Revision-Date: 2009-04-18 12:39+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -35,12 +35,11 @@ msgstr "Comando"
 
 #: ../panel-plugin/config_gui.c:130
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr ""
+msgstr "Introduza o comando de shell a iniciar, despois prema <Intro>"
 
 #: ../panel-plugin/config_gui.c:149
-#, fuzzy
 msgid "Interval between 2 consecutive spawns"
-msgstr "A cantidade de espazo entre dúas filas consecutivas"
+msgstr "Intervalo entre 2 inicios consecutivos"
 
 #: ../panel-plugin/config_gui.c:153
 msgid "Period (s) "
@@ -51,9 +50,8 @@ msgid "Label"
 msgstr "Etiqueta"
 
 #: ../panel-plugin/config_gui.c:166
-#, fuzzy
 msgid "Tick to display label"
-msgstr "Conectar con outra pantalla"
+msgstr "Marque para mostrar a etiqueta"
 
 #: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
@@ -80,6 +78,11 @@ msgid ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
+"%s %s - Monitor xenérico\n"
+"Inicia ciclicamente un script/programa, captura a súa saída e mostra a cadea resultante no panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
 #: ../panel-plugin/main.c:587
 msgid "Font Selection"
