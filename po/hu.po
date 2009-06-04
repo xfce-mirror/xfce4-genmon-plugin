@@ -1,0 +1,91 @@
+# Hungarian translation of xfce4-genmon-plugin
+# Copyright (C) 2009, Free Software Foundation, Inc.
+# This file is distributed under the same license as the xfce4-genmon-plugin package.
+#
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-genmon-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2009-06-03 22:38+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <gnome at gnome dot hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "Névjegy…"
+
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
+msgid "Generic Monitor"
+msgstr "Általános figyelő"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Parancs"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Írja be az elindítandó parancsot és nyomja meg az Enter billentyűt"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "Egymást követő indítások közti időköz"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Időköz (mp)"
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Címke"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Címke megjelenítése"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Adja meg a bővítmény címkéjét és nyomja meg az Enter billentyűt"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Betűtípus módosítása"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(Alapértelmezett betűtípus)"
+
+#: ../panel-plugin/main.c:569
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s – Általános figyelő\n"
+"Rendszeres időközönként elindít egy parancsfájlt/programot, lementi az eredményét és megjeleníti a kapott karakterláncot a panelen\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:587
+msgid "Font Selection"
+msgstr "Betűkészlet-választó"
+
+#: ../panel-plugin/main.c:632
+msgid "Configuration"
+msgstr "Beállítás"
+
