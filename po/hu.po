@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2009-06-03 22:38+0200\n"
+"POT-Creation-Date: 2009-07-25 12:04+0200\n"
+"PO-Revision-Date: 2009-07-25 12:04+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at gnome dot hu>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,8 @@ msgstr ""
 msgid "About..."
 msgstr "Névjegy…"
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:662
+#: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Általános figyelő"
 
@@ -65,7 +66,7 @@ msgstr "Betűtípus módosítása"
 msgid "(Default font)"
 msgstr "(Alapértelmezett betűtípus)"
 
-#: ../panel-plugin/main.c:569
+#: ../panel-plugin/main.c:587
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -76,16 +77,21 @@ msgid ""
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 "%s %s – Általános figyelő\n"
-"Rendszeres időközönként elindít egy parancsfájlt/programot, lementi az eredményét és megjeleníti a kapott karakterláncot a panelen\n"
+"Rendszeres időközönként elindít egy parancsfájlt/programot, lementi az "
+"eredményét és megjeleníti a kapott karakterláncot a panelen\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:605
 msgid "Font Selection"
 msgstr "Betűkészlet-választó"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:650
 msgid "Configuration"
 msgstr "Beállítás"
+
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command. "
+msgstr "Parancs kimenetének megjelenítése."
 
