@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-14 16:01+0100\n"
-"PO-Revision-Date: 2008-12-21 19:22+0100\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2009-12-16 17:31+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -20,10 +20,9 @@ msgid "About..."
 msgstr "Om..."
 
 #: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:662
-#: ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:644
 msgid "Generic Monitor"
-msgstr ""
+msgstr "Allmän övervakare"
 
 #: ../panel-plugin/config_gui.c:116
 msgid "Command"
@@ -43,7 +42,7 @@ msgstr ""
 
 #: ../panel-plugin/config_gui.c:161
 msgid "Label"
-msgstr ""
+msgstr "Etikett"
 
 #: ../panel-plugin/config_gui.c:166
 msgid "Tick to display label"
@@ -55,7 +54,7 @@ msgstr ""
 
 #: ../panel-plugin/config_gui.c:178
 msgid "(genmon)"
-msgstr ""
+msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:187
 msgid "Press to change font"
@@ -63,9 +62,9 @@ msgstr ""
 
 #: ../panel-plugin/config_gui.c:202
 msgid "(Default font)"
-msgstr ""
+msgstr "(Standardtypsnitt)"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:569
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -75,15 +74,11 @@ msgid ""
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 
-#: ../panel-plugin/main.c:605
+#: ../panel-plugin/main.c:587
 msgid "Font Selection"
-msgstr ""
+msgstr "Typsnittsval"
 
-#: ../panel-plugin/main.c:650
+#: ../panel-plugin/main.c:632
 msgid "Configuration"
-msgstr ""
-
-#: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
-msgstr ""
+msgstr "Konfiguration"
 
