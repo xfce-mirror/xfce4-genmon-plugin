@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-genmon-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Andriy Kovtun <kovtunos@yandex.ru>\n"
+"Language-Team: Russian <xfce4-dev@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: Rusian Federation\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "О программе..."
+
+#: ../panel-plugin/config_gui.c:103
+#: ../panel-plugin/main.c:644
+msgid "Generic Monitor"
+msgstr "Общий монитор"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Команда"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Введите команду оболочки, затем нажмите <Ввод>"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "Интервал между двумя запросами"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Период (с)"
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Метка"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Отметьте для отображения метки"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Введите метку плугина, затем нажмите <Ввод>"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(монитор)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Нажмите для изменения шрифта"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(Шрифт по умолчанию)"
+
+#: ../panel-plugin/main.c:569
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s - Общий монитор\n"
+"Програма/скрипт, которая выполняется периодически, отображая вывод данных на панели\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:587
+msgid "Font Selection"
+msgstr "Выбор шрифта"
+
+#: ../panel-plugin/main.c:632
+msgid "Configuration"
+msgstr "Конфигурация"
+
