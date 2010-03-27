@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
@@ -10,15 +11,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Russian\n"
-"X-Poedit-Country: Rusian Federation\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: Rusian Federation\n"
 
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
 msgstr "О программе..."
 
-#: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
 msgid "Generic Monitor"
 msgstr "Общий монитор"
 
@@ -48,7 +48,7 @@ msgstr "Отметьте для отображения метки"
 
 #: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Введите метку плугина, затем нажмите <Ввод>"
+msgstr "Введите метку модуля, затем нажмите <Ввод>"
 
 #: ../panel-plugin/config_gui.c:178
 msgid "(genmon)"
@@ -84,4 +84,3 @@ msgstr "Выбор шрифта"
 #: ../panel-plugin/main.c:632
 msgid "Configuration"
 msgstr "Конфигурация"
-
