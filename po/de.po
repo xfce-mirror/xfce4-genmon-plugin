@@ -3,12 +3,12 @@
 # Copyright (C) 2007 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
 # Fabian Nowak <timystery@arcor.de>, 2007.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2010-03-27 19:06+0100\n"
 "PO-Revision-Date: 2007-12-06 23:44+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German\n"
@@ -21,7 +21,8 @@ msgstr ""
 msgid "About..."
 msgstr "Über..."
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:662
+#: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Allgemeine Überwachung"
 
@@ -65,25 +66,31 @@ msgstr "Drücken Sie hier, um die Schrift zu ändern"
 msgid "(Default font)"
 msgstr "(Standardschrift)"
 
-#: ../panel-plugin/main.c:569
+#: ../panel-plugin/main.c:587
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 "%s %s - Allgemeine Überwachung\n"
-"Ruft in regelmäßigen Abständen ein Skript auf, fängt dessen Ausgabe ein, und zeigt das Ergebnis in der Leiste.\n"
+"Ruft in regelmäßigen Abständen ein Skript auf, fängt dessen Ausgabe ein, und "
+"zeigt das Ergebnis in der Leiste.\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:605
 msgid "Font Selection"
 msgstr "Schriftauswahl"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:650
 msgid "Configuration"
 msgstr "Einstellungen"
+
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command. "
+msgstr "Gibt die Ausgabe eines Befehls aus."
