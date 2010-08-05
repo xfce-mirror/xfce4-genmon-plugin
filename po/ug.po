@@ -22,7 +22,7 @@ msgstr "ھەققىدە…"
 
 #: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
 msgid "Generic Monitor"
-msgstr ""
+msgstr "ئادەتتىكى كۆزەتكۈ"
 
 #: ../panel-plugin/config_gui.c:116
 msgid "Command"
@@ -30,15 +30,15 @@ msgstr "بۇيرۇق"
 
 #: ../panel-plugin/config_gui.c:130
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr ""
+msgstr "ئىجرا قىلىنىدىغان بۇيرۇقنى كىرگۈزۈپ <Enter> نى بېسىڭ"
 
 #: ../panel-plugin/config_gui.c:149
 msgid "Interval between 2 consecutive spawns"
-msgstr ""
+msgstr "ئىجرا قىلىش ئىنتېرۋالىنى كىرگۈزۈڭ"
 
 #: ../panel-plugin/config_gui.c:153
 msgid "Period (s) "
-msgstr ""
+msgstr "ۋاقىت(سېكۇنت) "
 
 #: ../panel-plugin/config_gui.c:161
 msgid "Label"
@@ -46,23 +46,23 @@ msgstr "ئەن"
 
 #: ../panel-plugin/config_gui.c:166
 msgid "Tick to display label"
-msgstr ""
+msgstr "ئەننى كۆرسىتىش ئۈچۈن بەلگە قويۇڭ."
 
 #: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
-msgstr ""
+msgstr "قىستۇرما ئېنىنى كىرگۈزۈپ <Enter> نى بېسىڭ"
 
 #: ../panel-plugin/config_gui.c:178
 msgid "(genmon)"
-msgstr ""
+msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:187
 msgid "Press to change font"
-msgstr ""
+msgstr "فونتنى ئۆزگەرتمەكچى بولسىڭىز بۇ يەرنى بېسىڭ"
 
 #: ../panel-plugin/config_gui.c:202
 msgid "(Default font)"
-msgstr ""
+msgstr "(كۆڭۈلدىكى فونت)"
 
 #: ../panel-plugin/main.c:569
 #, c-format
@@ -73,7 +73,10 @@ msgid ""
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
+msgstr "%s %s - ジェネリックモニタ\n"
+"スクリプト/プログラムを定期的に実行し、その出力結果をパネルに表示します\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
 #: ../panel-plugin/main.c:587
 msgid "Font Selection"
