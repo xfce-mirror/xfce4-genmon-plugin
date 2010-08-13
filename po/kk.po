@@ -1,0 +1,93 @@
+# Kazakh translation for xfce4-genmon-plugin.
+# Copyright (C) 2010 Xfce team
+# This file is distributed under the same license as the Xfce package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2010-08-13 15:54+0600\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Kazakh\n"
+"X-Poedit-Country: KAZAKHSTAN\n"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "Осы туралы..."
+
+#: ../panel-plugin/config_gui.c:103
+#: ../panel-plugin/main.c:644
+msgid "Generic Monitor"
+msgstr "Жалпы бақылаушы"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Команда"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Бақылау үшін қоршам командасын енгізіңіз, одан кейін <Enter> басыңыз"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "2 қатар тексеру арасындағы мерзімі"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Мерзім (с) "
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Белгі"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Белгіні көрсету үшін шертіңіз"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Плагин белгісін көрсетіңіз, одан кейін <Enter> басыңыз"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Қаріпті өзгерту үшін шертіңіз"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(Негізгі қаріп)"
+
+#: ../panel-plugin/main.c:569
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s - Жалпы бақылаушы\n"
+"Скрипт/бағдарламаны қайта-қайта орындайды, оның нәтижесін панельде көрсетеді\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:587
+msgid "Font Selection"
+msgstr "Қаріпті таңдау"
+
+#: ../panel-plugin/main.c:632
+msgid "Configuration"
+msgstr "Баптаулары"
+
