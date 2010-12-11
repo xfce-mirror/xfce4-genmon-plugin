@@ -3,7 +3,7 @@
 # Copyright (C) 2007 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
 # Fabian Nowak <timystery@arcor.de>, 2007.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 3.1\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
-msgstr "Über..."
+msgstr "Über…"
 
 #: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:662
 #: ../panel-plugin/genmon.desktop.in.in.h:1
@@ -36,7 +36,7 @@ msgstr "Geben Sie den auszuführenden Shell-Befehl ein, und drücken Sie <Enter>
 
 #: ../panel-plugin/config_gui.c:149
 msgid "Interval between 2 consecutive spawns"
-msgstr "Abstand zwischen zwei aufeinanderfolgenden Aufrufen"
+msgstr "Abstand zwischen zwei aufeinander folgenden Aufrufen"
 
 #: ../panel-plugin/config_gui.c:153
 msgid "Period (s) "
@@ -70,15 +70,13 @@ msgstr "(Standardschrift)"
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 "%s %s - Allgemeine Überwachung\n"
-"Ruft in regelmäßigen Abständen ein Skript auf, fängt dessen Ausgabe ein, und "
-"zeigt das Ergebnis in der Leiste.\n"
+"Ruft in regelmäßigen Abständen ein Skript auf, zeichnet dessen Ausgabe auf und zeigt das Ergebnis in der Leiste.\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
