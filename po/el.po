@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
@@ -17,8 +18,7 @@ msgstr ""
 msgid "About..."
 msgstr "Περί..."
 
-#: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
 msgid "Generic Monitor"
 msgstr "Γενικός επόπτης"
 
@@ -28,11 +28,11 @@ msgstr "Εντολή"
 
 #: ../panel-plugin/config_gui.c:130
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr ""
+msgstr "Εισάγετε την εντολή προς εκτέλεση και στη συνέχεια πατήστε <Enter>"
 
 #: ../panel-plugin/config_gui.c:149
 msgid "Interval between 2 consecutive spawns"
-msgstr ""
+msgstr "Διάστημα μεταξύ 2 διαδοχικών εκτελέσεων"
 
 #: ../panel-plugin/config_gui.c:153
 msgid "Period (s) "
@@ -44,23 +44,23 @@ msgstr "Ετικέτα"
 
 #: ../panel-plugin/config_gui.c:166
 msgid "Tick to display label"
-msgstr ""
+msgstr "Επιλέξτε για να εμφανιστεί ετικέτα"
 
 #: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
-msgstr ""
+msgstr "Εισάγετε την ετικέτα πρόσθετου, στη συνέχεια πατήστε <Enter>"
 
 #: ../panel-plugin/config_gui.c:178
 msgid "(genmon)"
-msgstr ""
+msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:187
 msgid "Press to change font"
-msgstr ""
+msgstr "Πατήστε για να αλλάξετε γραμματοσειρά"
 
 #: ../panel-plugin/config_gui.c:202
 msgid "(Default font)"
-msgstr ""
+msgstr "(Προεπιλεγμένη γραμματοσειρά)"
 
 #: ../panel-plugin/main.c:569
 #, c-format
@@ -71,6 +71,11 @@ msgid ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
+"%s %s - Γενικός επόπτης\n"
+"Κυκλικά εκτελεί ένα σενάριο/πρόγραμμα, λαμβάνει την έξοδο του και εμφανίζει το αποτέλεσμα στο ταμπλό\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
 #: ../panel-plugin/main.c:587
 msgid "Font Selection"
@@ -78,5 +83,4 @@ msgstr "Επιλογή γραμματοσειράς"
 
 #: ../panel-plugin/main.c:632
 msgid "Configuration"
-msgstr ""
-
+msgstr "Ρύθμιση"
