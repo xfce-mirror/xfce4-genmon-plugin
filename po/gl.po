@@ -1,12 +1,12 @@
 # Galician translation of xfce4-genmon-plugin
 # Copyright (C) 2008-2009 Leandro Regueiro
 # This file is distributed under the same license as the xfce package.
-#
+# 
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.
-#
+# 
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en <http://trasno.net>
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -24,18 +24,17 @@ msgstr ""
 msgid "About..."
 msgstr "Acerca de..."
 
-#: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
 msgid "Generic Monitor"
 msgstr "Monitor xenérico"
 
 #: ../panel-plugin/config_gui.c:116
 msgid "Command"
-msgstr "Comando"
+msgstr "Orde"
 
 #: ../panel-plugin/config_gui.c:130
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Introduza o comando de shell a iniciar, despois prema <Intro>"
+msgstr "Introduza a orde de shell a iniciar, despois prema <Intro>"
 
 #: ../panel-plugin/config_gui.c:149
 msgid "Interval between 2 consecutive spawns"
@@ -91,4 +90,3 @@ msgstr "Selección de tipo de letra"
 #: ../panel-plugin/main.c:632
 msgid "Configuration"
 msgstr "Configuración"
-
