@@ -32,6 +32,7 @@
 
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/dialogs.h>
+#include <libxfcegui4/xfce-exec.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 #include <libxfce4panel/xfce-panel-convenience.h>
 
@@ -94,10 +95,18 @@ static void ExecOnClickCmd (Widget_t p_wSc, void *p_pvPlugin)
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
-    char result[256];
+    GError *error = NULL;
 
-    genmon_SpawnCmd (poMonitor->onClickCmd, result,
-        sizeof (poMonitor->onClickCmd), 0);
+	xfce_exec(poMonitor->onClickCmd, 0, 0, &error);
+    if (error) {
+        char first[256];
+        g_snprintf (first, sizeof(first), _("Could not run \"%s\""), poMonitor->onClickCmd);
+        xfce_message_dialog (NULL, _("Xfce Panel"),
+                             GTK_STOCK_DIALOG_ERROR, first, error->message,
+                             GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
+        g_error_free (error);
+    }
+
 }
 
 /**************************************************************/
