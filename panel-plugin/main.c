@@ -347,6 +347,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     /* Add Button */
     poMonitor->wButton = (Widget_t) xfce_create_panel_button ();
+    xfce_panel_plugin_add_action_widget (plugin, poMonitor->wButton);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
 
