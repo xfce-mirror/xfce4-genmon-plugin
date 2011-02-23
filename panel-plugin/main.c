@@ -585,8 +585,12 @@ static void UpdateConf (void *p_pvPlugin)
     SetCmd (poGUI->wTF_Cmd, poPlugin);
     SetLabel (poGUI->wTF_Title, poPlugin);
     SetMonitorFont (poPlugin);
-    /* Force to regenerate a timer */
-    poPlugin->iTimerId = 0;
+    /* Restart timer */
+    if (poPlugin->iTimerId) {
+        g_source_remove (poPlugin->iTimerId);
+        poPlugin->iTimerId = 0;
+    }
+    SetTimer(p_pvPlugin);
 }/* UpdateConf() */
 
 /**************************************************************/
@@ -829,8 +833,6 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     gtk_container_add (GTK_CONTAINER (plugin), genmon->oMonitor.wEventBox);
 
     SetMonitorFont (genmon);
-
-    SetTimer (genmon);
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (genmon_free), genmon);
 
