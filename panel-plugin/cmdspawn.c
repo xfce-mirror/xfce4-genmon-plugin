@@ -49,97 +49,7 @@
 #include <stdarg.h>
 #include <errno.h>
 #include <sys/wait.h>
-
-
-/**********************************************************************/
-static int ParseCmdline (const char *const p_pcCmdLine, char ***p_pppcArgv, ...
- /* &argc, */
- /* acError, ErrorBufferSize */ )
-/**********************************************************************/
- /* Split a commandline string into an argv-type dynamically allocated
-    array. The caller shall free this array when not needed any longer */
- /* If acError is provided, it will host any error. Otherwise errors will
-    be sent to stderr */
- /* Return 0 on success, -1 on failure */
-{
-    const size_t    M = strlen (p_pcCmdLine),
-        N = M + 1,
-        P = M * sizeof (char *);
-    size_t          BufSafeSize;
-    char            acFormat[16];
-    char           *pcStr, *pcStr1, *pcStr2;
-    char          **argv;
-    int             argc;
-    int             n;
-
-    /* Optional parameters */
-    va_list         ap;
-    int            *piArgc;
-    char           *pcError = 0;
-    size_t          BufferSize = 0;
-
-    /* Get function's optional parameters */
-    va_start (ap, p_pppcArgv);
-    piArgc = va_arg (ap, int *);
-    if (piArgc) {
-        pcError = va_arg (ap, char *);
-        if (pcError)
-            BufferSize = va_arg (ap, size_t);
-    }
-    va_end (ap);
-
-    BufSafeSize = (BufferSize > 0 ? BufferSize - 1 : 0);
-    pcStr = (char *) malloc (N);
-    pcStr1 = (char *) malloc (N);
-    pcStr2 = (char *) malloc (N);
-    argv = (char **) malloc (P);
-    if (!(pcStr && pcStr1 && pcStr2 && argv)) {
-        if (pcError) {
-            n = errno;
-            snprintf (pcError, BufSafeSize, "malloc(%d): %s", n,
-                strerror (n));
-        }
-        else
-            perror ("malloc(argv)");
-        return (-1);
-    }
-    memset (argv, 0, P);
-
-    /* Build argv from the command line string */
-    sprintf (acFormat, "%%s %%%dc", N - 1);
-    strcpy (pcStr, p_pcCmdLine);
-    for (argc = 0;;) {
-        memset (pcStr2, 0, N);
-        n = sscanf (pcStr, acFormat, pcStr1, pcStr2);
-        if (n <= 0)
-            break;
-        argv[argc] = (char *) malloc (strlen (pcStr1) + 1);
-        if (!(argv[argc])) {
-            if (pcError) {
-                n = errno;
-                snprintf (pcError, BufSafeSize, "malloc(%d): %s", n,
-                    strerror (n));
-            }
-            else
-                perror ("malloc(argv[i])");
-            free (pcStr), free (pcStr1), free (pcStr2);
-            while (argc-- > 0)
-                free (argv[argc]);
-            free (argv);
-            return (-1);
-        }
-        strcpy (argv[argc++], pcStr1);
-        if (n <= 1)
-            break;
-        strcpy (pcStr, pcStr2);
-    }
-    free (pcStr), free (pcStr1), free (pcStr2);
-
-    *p_pppcArgv = argv;
-    if (piArgc)
-        *piArgc = argc;
-    return (0);
-}// ParseCmdline()
+#include <libxfcegui4/libxfcegui4.h>
 
 
 /**********************************************************************/
@@ -252,22 +162,30 @@ int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
     char          **argv;
     int             argc;
     int             status;
+    GError         *error = NULL;
 
     if (strlen(p_pcCmdLine) == 0)
         return (-1);
-    
+
     /* Split the commandline into an argv array */
-    status = ParseCmdline (p_pcCmdLine, &argv, &argc,
-        p_pcOutput, p_BufferSize);
-    if (status == -1)
-        /* Memory allocation problem */
+    if (!g_shell_parse_argv (p_pcCmdLine, &argc, &argv, &error)) {
+        char first[256];
+        
+        g_snprintf (first, sizeof(first), _("Error in command \"%s\""), 
+                    p_pcCmdLine);
+
+        xfce_message_dialog (NULL, _("Xfce Panel"), 
+                             GTK_STOCK_DIALOG_ERROR, first, error->message,
+                             GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
+
+        g_error_free (error);
         return (-1);
+    }
 
     /* Spawn the command and free allocated memory */
     status = genmon_Spawn (argv, p_pcOutput, p_BufferSize, wait);
-    while (argc-- > 0)
-        free (argv[argc]);
-    free (argv);
+    g_strfreev (argv);
+
     return (status);
 }// SpawnCmd()
 
