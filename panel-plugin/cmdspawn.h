@@ -40,9 +40,8 @@ extern "C" {
     int genmon_SpawnCmd (const char *const cmdline,
         char *const StdOutCapture,
         const size_t StdOutSize, const int wait);
-    /* Spawn the given command and capture its output (stdout) */
-    /* Return 0 on success, otherwise copy stderr into the output string
-       and return -1 */
+        /* Parse a command line, spawn the command, and capture its output from stdout or stderr */
+        /* Return 0 on success, otherwise -1 */
 #ifdef __cplusplus
 }/* extern "C" */
 #endif

@@ -146,9 +146,8 @@ static int ParseCmdline (const char *const p_pcCmdLine, char ***p_pppcArgv, ...
 int genmon_Spawn (char *const argv[], char *const p_pcOutput,
     const size_t p_BufferSize, const int wait)
 /**********************************************************************/
- /* Spawn a command and capture its output */
- /* Return 0 on success, otherwise copy stderr into the output string and
-    return -1 */
+ /* Spawn a command and capture its output from stdout or stderr */
+ /* Return 0 on success, otherwise -1 */
 {
     enum { OUT, ERR, OUT_ERR };
     enum { RD, WR, RD_WR };
@@ -227,7 +226,7 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
                 break;
         if (i < OUT_ERR)
             read (aaiPipe[i][RD], p_pcOutput, BufSafeSize);
-        fError = (i != OUT);
+        fError = (i == OUT_ERR);
 
         /* Remove trailing carriage return if any */
         if (p_pcOutput[(i = strlen (p_pcOutput) - 1)] == '\n')
@@ -247,9 +246,8 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
 int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
     const size_t p_BufferSize, const int wait)
 /**********************************************************************/
- /* Spawn a command and capture its output */
- /* Return 0 on success, otherwise copy stderr into the output string and
-    return -1 */
+ /* Parse a command line, spawn the command, and capture its output from stdout or stderr */
+ /* Return 0 on success, otherwise -1 */
 {
     char          **argv;
     int             argc;
