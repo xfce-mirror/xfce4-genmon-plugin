@@ -183,6 +183,7 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
                     close (aaiPipe[i][j]);
             return (-1);
         case 0:
+            close(0); /* stdin is not used in child */
             /* Redirect stdout/stderr to associated pipe's write-ends */
             for (i = 0; i < OUT_ERR; i++) {
                 j = i + 1; // stdout/stderr file descriptor
@@ -198,6 +199,9 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
         perror (argv[0]);
         exit (-1);
     }
+
+    for (i = 0; i < OUT_ERR; i++)
+        close (aaiPipe[i][WR]); /* close write end of pipes in parent */
 
     /* Wait for child completion */
     if (wait == 1)
@@ -231,10 +235,9 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
     }
 
     End:
-    /* Close created pipes */
+    /* Close read end of pipes */
     for (i = 0; i < OUT_ERR; i++)
-        for (j = 0; j < RD_WR; j++)
-            close (aaiPipe[i][j]);
+        close (aaiPipe[i][RD]);
 
     return (-fError);
 }// Spawn()
