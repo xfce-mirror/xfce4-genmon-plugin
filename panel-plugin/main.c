@@ -48,6 +48,7 @@
 
 #define PLUGIN_NAME    "GenMon"
 #define BORDER    2
+#define BUFMAX  1024
 
 
 typedef GtkWidget *Widget_t;
@@ -86,7 +87,7 @@ typedef struct genmon_t {
     unsigned int    iTimerId; /* Cyclic update */
     struct conf_t   oConf;
     struct monitor_t    oMonitor;
-    char            acValue[256]; /* Commandline resulting string */
+    char            acValue[BUFMAX]; /* Commandline resulting string */
 } genmon_t;
 
 /**************************************************************/
@@ -149,14 +150,14 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     if (status == -1)
         strcpy(p_poPlugin->acValue, "XXX");
 
-    /* Normally it's impossible to overflow the buffer because p_poPlugin->acValue is < 256 */
+    /* Normally it's impossible to overflow the buffer because p_poPlugin->acValue is < BUFMAX */
 
     /* Test if the result is an Image or a Text */
     begin=strstr(p_poPlugin->acValue, "<img>");
     end=strstr(p_poPlugin->acValue, "</img>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
     {
-        char  buf[256];
+        char  buf[BUFMAX];
         /* Get the image path */
         strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
         buf[end-begin-5*sizeof(char)]='\0';
@@ -167,9 +168,9 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         /* Test if the result has a clickable Image (button) */
         begin=strstr(p_poPlugin->acValue, "<click>");
         end=strstr(p_poPlugin->acValue, "</click>");
-        if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
+        if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
         {
-            char  buf[256];
+            char  buf[BUFMAX];
             /* Get the command path */
             strncpy(buf, begin+7*sizeof(char), end-begin-7*sizeof(char));
             buf[end-begin-7*sizeof(char)]='\0';
@@ -199,13 +200,13 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is a Text */
     begin=strstr(p_poPlugin->acValue, "<txt>");
     end=strstr(p_poPlugin->acValue, "</txt>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
     {
-        char  buf[256];
+        char  buf[BUFMAX];
         /* Get the text */
         strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
         buf[end-begin-5*sizeof(char)]='\0';
-        gtk_label_set_text (GTK_LABEL (poMonitor->wValue), buf);
+        gtk_label_set_markup (GTK_LABEL (poMonitor->wValue), buf);
         gtk_widget_show (poMonitor->wValue);
 
         newVersion=1;
@@ -216,9 +217,9 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is a Bar */
     begin=strstr(p_poPlugin->acValue, "<bar>");
     end=strstr(p_poPlugin->acValue, "</bar>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
     {
-        char  buf[256];
+        char  buf[BUFMAX];
         int value;
         /* Get the text */
         strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
@@ -239,14 +240,14 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     if (newVersion == 0)
     {
         gtk_widget_show (poMonitor->wValue);
-        gtk_label_set_text (GTK_LABEL (poMonitor->wValue),
+        gtk_label_set_markup (GTK_LABEL (poMonitor->wValue),
             p_poPlugin->acValue);
     }
 
     /* Test if a ToolTip is given */
     begin=strstr(p_poPlugin->acValue, "<tool>");
     end=strstr(p_poPlugin->acValue, "</tool>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < 256*sizeof(char)))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
     {
         strncpy(acToolTips, begin+6, end-begin-6);
         acToolTips[end-begin-6]='\0';
