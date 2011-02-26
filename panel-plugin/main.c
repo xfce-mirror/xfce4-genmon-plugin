@@ -747,6 +747,7 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
         (poMonitor->wBox), BORDER);
     gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
         poMonitor->wBox);
+	gtk_event_box_set_visible_window(poMonitor->wEventBox, FALSE);
 
     poMonitor->wTitle = gtk_label_new (poConf->acTitle);
     if (poConf->fTitleDisplayed)
