@@ -104,4 +104,4 @@ msgstr "Konfiguration"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
 msgid "Show output of a command. "
-msgstr "Vis resultat af en kommando "
+msgstr "Vis resultat af en kommando."
