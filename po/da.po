@@ -3,11 +3,12 @@
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007.
 # Claus Futtrup <cfuttrup@stofanet.dk>, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 3.2\n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-03-02 05:06+0000\n"
 "PO-Revision-Date: 2008-10-05 21:36+0100\n"
 "Last-Translator: Claus Futtrup <cfuttrup@stofanet.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -15,12 +16,21 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../panel-plugin/cmdspawn.c:174
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Fejl i kommandoen \"%s\""
+
+#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+msgid "Xfce Panel"
+msgstr "Panelet til Xfce"
+
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
 msgstr "Om..."
 
-#: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Generisk overvågning"
 
@@ -64,7 +74,12 @@ msgstr "Tryk for at ændre skrifttype"
 msgid "(Default font)"
 msgstr "(Standardskrifttype)"
 
-#: ../panel-plugin/main.c:569
+#: ../panel-plugin/main.c:104
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Kunne ikke køre \"%s\""
+
+#: ../panel-plugin/main.c:602
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -79,11 +94,14 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:620
 msgid "Font Selection"
 msgstr "Vælg skrifttype"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:665
 msgid "Configuration"
 msgstr "Konfiguration"
 
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command. "
+msgstr "Vis resultat af en kommando "
