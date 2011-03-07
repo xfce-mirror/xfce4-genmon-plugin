@@ -1,13 +1,13 @@
 # Ukrainian translation of xfce4-genmon-plugin.
 # Copyright (C) 2007 Roger Seguin <roger_seguin@msn.com>
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
-#
+# 
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-31 14:38+0000\n"
+"POT-Creation-Date: 2011-03-07 11:06+0000\n"
 "PO-Revision-Date: 2008-07-14 14:37+0300\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
@@ -16,11 +16,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
+#: ../panel-plugin/cmdspawn.c:174
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Помилка в команді \"%s\""
+
+#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+msgid "Xfce Panel"
+msgstr "Панель Xfce"
+
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
 msgstr "Про програму..."
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:662
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
 #: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Загальне спостереження"
@@ -65,28 +74,31 @@ msgstr "Натисніть щоб вибрати шрифт"
 msgid "(Default font)"
 msgstr "(Типовий шрифт)"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:104
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Не можу запустити \"%s\""
+
+#: ../panel-plugin/main.c:602
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 "%s %s - Загальне спостереження\n"
-"Програма/скрипт, що виконується періодично і отримує вивід запиту даних  і "
-"відображає результат у панелі\n"
+"Програма/скрипт, що виконується періодично і отримує вивід запиту даних  і відображає результат у панелі\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:605
+#: ../panel-plugin/main.c:620
 msgid "Font Selection"
 msgstr "Вибір шрифту"
 
-#: ../panel-plugin/main.c:650
+#: ../panel-plugin/main.c:665
 msgid "Configuration"
 msgstr "Налаштування"
 
