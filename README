@@ -72,6 +72,8 @@ returns to its original behaviour (displaying the result of the command).
 
 No tag is mandatory: for instance, you can display a tooltip without and image...
 
+The text between the <txt> and </txt> tag can use pango markup for style and color.
+
 Here's a simple example of a plugin displaying the Temp of the CPU in the panel
 (with an icon) and the Freq in a Tooltip:
 
