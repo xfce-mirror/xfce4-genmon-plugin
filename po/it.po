@@ -2,12 +2,12 @@
 # Copyright (C) 2006 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
 # Cristian Marchi <cri.penta@gmail.com>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2011-03-17 11:06+0000\n"
 "PO-Revision-Date: 2009-01-28 10:51+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian <xfce-it-translators@googlegroups.com>\n"
@@ -15,16 +15,24 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../panel-plugin/cmdspawn.c:174
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Errore nel comando «%s»"
+
+#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+msgid "Xfce Panel"
+msgstr "Pannello di Xfce"
+
 # GLOSSARIO
 # font = tipo di carattere, carattere
 # monitor = monitor
-
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
 msgstr "Informazioni..."
 
-#: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor generico"
 
@@ -68,7 +76,12 @@ msgstr "Premere per cambiare il tipo di carattere"
 msgid "(Default font)"
 msgstr "(carattere predefinito)"
 
-#: ../panel-plugin/main.c:569
+#: ../panel-plugin/main.c:104
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Impossibile eseguire \"%s\""
+
+#: ../panel-plugin/main.c:602
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -83,11 +96,14 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:620
 msgid "Font Selection"
 msgstr "Scelta del tipo di carattere"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:665
 msgid "Configuration"
 msgstr "Configurazione"
 
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command. "
+msgstr "Mostra l'output di un comando"
