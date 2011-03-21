@@ -1,0 +1,7 @@
+3.3 (2011/03/21)
+================
+- Support for xfce 4.8
+- Translated to 29 languages
+- Introduces new markup for colored and styled text
+- Various small bug fixes
+- Build and package fixes
