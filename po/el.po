@@ -20,8 +20,9 @@ msgid "Error in command \"%s\""
 msgstr "Σφάλμα στην εντολή \"%s\""
 
 #: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+#, fuzzy
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce Panel"
 
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
