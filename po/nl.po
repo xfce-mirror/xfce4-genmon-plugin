@@ -1,0 +1,111 @@
+# Dutch translation of the xfce4-genmon-plugin package.
+# Copyright (C) The Xfce development team.
+# This file is distributed under the same license as the 
+# xfce4-genmon-plugin package.
+# Pjotr, 2011.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-genmon-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-27 04:04+0000\n"
+"PO-Revision-Date: 2011-05-25 11:34+0200\n"
+"Last-Translator: Pjotr\n"
+"Language-Team: Dutch (Flemish)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/cmdspawn.c:174
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Fout in opdracht \"%s\""
+
+#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+msgid "Xfce Panel"
+msgstr "Xfce-werkbalk"
+
+#: ../panel-plugin/config_gui.c:87
+msgid "About..."
+msgstr "Over..."
+
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/genmon.desktop.in.in.h:1
+msgid "Generic Monitor"
+msgstr "Generieke Monitor"
+
+#: ../panel-plugin/config_gui.c:116
+msgid "Command"
+msgstr "Opdracht"
+
+#: ../panel-plugin/config_gui.c:130
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Voer de uit te zaaien opdracht in, en druk dan op <Enter>"
+
+#: ../panel-plugin/config_gui.c:149
+msgid "Interval between 2 consecutive spawns"
+msgstr "Interval tussen twee achtereenvolgende uitzaaiingen"
+
+#: ../panel-plugin/config_gui.c:153
+msgid "Period (s) "
+msgstr "Periode (s) "
+
+#: ../panel-plugin/config_gui.c:161
+msgid "Label"
+msgstr "Etiket"
+
+#: ../panel-plugin/config_gui.c:166
+msgid "Tick to display label"
+msgstr "Vink aan om etiket weer te geven"
+
+#: ../panel-plugin/config_gui.c:175
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Voer het plugin-etiket in, en druk dan op <Enter>"
+
+#: ../panel-plugin/config_gui.c:178
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:187
+msgid "Press to change font"
+msgstr "Druk in om lettertype te veranderen"
+
+#: ../panel-plugin/config_gui.c:202
+msgid "(Default font)"
+msgstr "(Standaardlettertype)"
+
+#: ../panel-plugin/main.c:104
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Kon \"%s\" niet draaien"
+
+#: ../panel-plugin/main.c:602
+#, c-format
+msgid ""
+"%s %s - Generic Monitor\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"%s %s - Generieke Monitor\n"
+"Zaait periodiek een script/programma uit, vangt de uitvoer en vertoont het "
+"resulterende tekstsnoer in de werkbalk\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:620
+msgid "Font Selection"
+msgstr "Lettertype-selectie"
+
+#: ../panel-plugin/main.c:665
+msgid "Configuration"
+msgstr "Configuratie"
+
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command. "
+msgstr "Toon uitvoer van een opdracht. "
