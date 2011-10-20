@@ -2,24 +2,35 @@
 # Copyright (C) 2006 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
 # Julien Devemy <jujucece@gmail.com>, 2006.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2011-10-20 16:04+0000\n"
 "PO-Revision-Date: 2006-08-26 22:36+0100\n"
 "Last-Translator: Julien Devemy <jujucece@gmail.com>\n"
 "Language-Team: French <translation-team-fr@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+
+#: ../panel-plugin/cmdspawn.c:174
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Erreur dans la commande \"%s\""
+
+#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+msgid "Xfce Panel"
+msgstr "Panneau Xfce"
 
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
 msgstr "A propos"
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Moniteur Générique"
 
@@ -63,7 +74,12 @@ msgstr "Presser pour changer la fonte"
 msgid "(Default font)"
 msgstr "(Fonte par defaut)"
 
-#: ../panel-plugin/main.c:569
+#: ../panel-plugin/main.c:104
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Impossible d'exécuter \"%s\""
+
+#: ../panel-plugin/main.c:602
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -80,10 +96,14 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:620
 msgid "Font Selection"
 msgstr "Selection de la fonte"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:665
 msgid "Configuration"
 msgstr "Configuration"
+
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command. "
+msgstr "Afficher la sortie d'une commande"
