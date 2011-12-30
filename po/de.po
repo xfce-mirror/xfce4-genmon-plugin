@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-30 02:33+0000\n"
+"POT-Creation-Date: 2011-12-30 20:51+0000\n"
 "PO-Revision-Date: 2007-12-06 23:44+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German\n"
@@ -19,12 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/cmdspawn.c:174
-#, c-format, fuzzy
+#, c-format
 msgid "Error in command \"%s\""
 msgstr "Fehler im Befehl »%s«"
 
 #: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
-#, fuzzy
 msgid "Xfce Panel"
 msgstr "Xfce Leiste"
 
@@ -78,9 +77,9 @@ msgid "(Default font)"
 msgstr "(Standardschrift)"
 
 #: ../panel-plugin/main.c:104
-#, c-format, fuzzy
+#, c-format
 msgid "Could not run \"%s\""
-msgstr "Konnte »%s« nicht ausführen"
+msgstr "Der Befehl »%s« konnte nicht ausgeführt werden"
 
 #: ../panel-plugin/main.c:602
 #, c-format
