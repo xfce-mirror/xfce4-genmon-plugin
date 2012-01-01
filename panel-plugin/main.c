@@ -121,7 +121,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     struct param_t *poConf = &(p_poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(p_poPlugin->oMonitor);
     char   acToolTips[256];
-    char   acCompleteCmd[256];         
+    char   acCompleteCmd[256];
     int    status;
     char  *begin;
     char  *end;
@@ -747,7 +747,7 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
         (poMonitor->wBox), BORDER);
     gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
         poMonitor->wBox);
-	gtk_event_box_set_visible_window(poMonitor->wEventBox, FALSE);
+    gtk_event_box_set_visible_window (GTK_EVENT_BOX (poMonitor->wEventBox), FALSE);
 
     poMonitor->wTitle = gtk_label_new (poConf->acTitle);
     if (poConf->fTitleDisplayed)
