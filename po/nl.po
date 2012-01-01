@@ -1,6 +1,6 @@
 # Dutch translation of the xfce4-genmon-plugin package.
 # Copyright (C) The Xfce development team.
-# This file is distributed under the same license as the 
+# This file is distributed under the same license as the
 # xfce4-genmon-plugin package.
 # Pjotr, 2011.
 # 
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-09 04:07+0000\n"
+"POT-Creation-Date: 2012-01-01 21:39+0000\n"
 "PO-Revision-Date: 2011-09-09 11:34+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch (Flemish)\n"
@@ -107,5 +107,5 @@ msgid "Configuration"
 msgstr "Configuratie"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
+msgid "Show output of a command."
 msgstr "Toon uitvoer van een opdracht. "
