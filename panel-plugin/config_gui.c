@@ -3,7 +3,7 @@
  *  Construct the configure GUI
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
  *                                  <http://rmlx.dyndns.org>
- *  
+ *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
@@ -141,7 +141,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (alignment1);
     gtk_container_add (GTK_CONTAINER (eventbox1), alignment1);
 
-    wSc_Period_adj = gtk_adjustment_new (15, 1, 60*60*24, 1, 1, 10);
+    wSc_Period_adj = gtk_adjustment_new (15, 1, 60*60*24, 1, 1, 0);
     wSc_Period = gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), 1, 0);
     gtk_widget_show (wSc_Period);
     gtk_container_add (GTK_CONTAINER (alignment1), wSc_Period);
