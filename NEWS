@@ -1,3 +1,7 @@
+3.3.1 (2012/01/02)
+==================
+- Bug fixes, compiler and GTK+ warning fixes
+
 3.3 (2011/03/21)
 ================
 - Support for xfce 4.8
