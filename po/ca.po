@@ -9,30 +9,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-15 11:06+0000\n"
+"POT-Creation-Date: 2012-01-02 09:51+0000\n"
 "PO-Revision-Date: 2006-12-03 11:32+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../panel-plugin/cmdspawn.c:174
 #, c-format
 msgid "Error in command \"%s\""
-msgstr "Error a la comanda \"%s\""
+msgstr "Error en l'rdre «%s»"
 
 #: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
 msgid "Xfce Panel"
-msgstr "Panell Xfce"
+msgstr "Quadre de Xfce"
 
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
 msgstr "Quant a…"
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:670
 #: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor genèric"
@@ -80,31 +81,33 @@ msgstr "(tipus de lletra per defecte)"
 #: ../panel-plugin/main.c:104
 #, c-format
 msgid "Could not run \"%s\""
-msgstr "No s'ha pogut executar \"%s\""
+msgstr "No s'ha pogut executar «%s»"
 
-#: ../panel-plugin/main.c:602
+#: ../panel-plugin/main.c:595
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 "%s %s - Monitor genèric\n"
-"executa un fitxer de seqüència («script») o programa de forma cíclica, captura el text de la seva sortida i el mostra al quadre.\n"
+"executa un fitxer de seqüència («script») o programa de forma cíclica, "
+"captura el text de la seva sortida i el mostra al quadre.\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:620
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "Selecció del tipus de lletra"
 
-#: ../panel-plugin/main.c:665
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "Configuració"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
-msgstr "Mostra la sortida d'una comanda."
+msgid "Show output of a command."
+msgstr "Mostra la sortida d'una ordre."
