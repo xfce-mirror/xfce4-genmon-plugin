@@ -297,6 +297,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     struct genmon_t *poPlugin;
     struct param_t *poConf;
     struct monitor_t *poMonitor;
+    GtkOrientation orientation = xfce_panel_plugin_get_orientation (plugin);
     int size = xfce_panel_plugin_get_size (plugin);
 
     poPlugin = g_new (genmon_t, 1);
@@ -321,10 +322,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wEventBox);
 
-    if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
-        poMonitor->wBox = gtk_hbox_new (FALSE, 0);
-    else
-        poMonitor->wBox = gtk_vbox_new (FALSE, 0);
+    poMonitor->wBox = xfce_hvbox_new (orientation, FALSE, 0);
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER
         (poMonitor->wBox), BORDER);
@@ -337,13 +335,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wTitle), FALSE, FALSE, 0);
 
-    /* Create a Box to put image and text
-     * If panel size less < 25 place icon near the text
-     */
-    if (size < 25)
-        poMonitor->wImgBox = gtk_hbox_new (FALSE, 0);
-    else
-        poMonitor->wImgBox = gtk_vbox_new (FALSE, 0);
+    /* Create a Box to put image and text */
+    poMonitor->wImgBox = xfce_hvbox_new (orientation, FALSE, 0);
     gtk_widget_show (poMonitor->wImgBox);
     gtk_container_set_border_width (GTK_CONTAINER
         (poMonitor->wImgBox), 0);
@@ -376,7 +369,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poMonitor->wBar = gtk_progress_bar_new();
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
-    if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
+    if (orientation == GTK_ORIENTATION_HORIZONTAL)
         gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_BOTTOM_TO_TOP);
     else
         gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_LEFT_TO_RIGHT);
@@ -734,61 +727,9 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
 
-    TRACE ("genmon_set_orientation()\n");
+    xfce_hvbox_set_orientation (XFCE_HVBOX (poMonitor->wBox), p_iOrientation);
+    xfce_hvbox_set_orientation (XFCE_HVBOX (poMonitor->wImgBox), p_iOrientation);
 
-    gtk_container_remove (GTK_CONTAINER (poMonitor->wEventBox),
-        GTK_WIDGET (poMonitor->wBox));
-    if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL)
-        poMonitor->wBox = gtk_hbox_new (FALSE, 0);
-    else
-        poMonitor->wBox = gtk_vbox_new (FALSE, 0);
-    gtk_widget_show (poMonitor->wBox);
-    gtk_container_set_border_width (GTK_CONTAINER
-        (poMonitor->wBox), BORDER);
-    gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
-        poMonitor->wBox);
-    gtk_event_box_set_visible_window (GTK_EVENT_BOX (poMonitor->wEventBox), FALSE);
-
-    poMonitor->wTitle = gtk_label_new (poConf->acTitle);
-    if (poConf->fTitleDisplayed)
-        gtk_widget_show (poMonitor->wTitle);
-    gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
-        GTK_WIDGET (poMonitor->wTitle), FALSE, FALSE, 0);
-
-    /* Create a VBox to put image and text */
-    poMonitor->wImgBox = gtk_vbox_new (FALSE, 0);
-    gtk_widget_show (poMonitor->wImgBox);
-    gtk_container_set_border_width (GTK_CONTAINER
-        (poMonitor->wImgBox), 0);
-    gtk_container_add (GTK_CONTAINER (poMonitor->wBox),
-        poMonitor->wImgBox);
-
-    /* Add Image */
-    poMonitor->wImage = gtk_image_new ();
-    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
-        GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
-
-    /* Add Button */
-    poMonitor->wButton = gtk_button_new ();
-    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
-        GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
-
-    /* Add Image Button*/
-    poMonitor->wImgButton = gtk_image_new ();
-    gtk_container_add (GTK_CONTAINER (poMonitor->wButton), poMonitor->wImgButton);
-    gtk_container_set_border_width (GTK_CONTAINER (poMonitor->wButton), 0);
-
-     /* Add Value */
-    poMonitor->wValue = gtk_label_new ("");
-    gtk_widget_show (poMonitor->wValue);
-    gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
-        GTK_WIDGET (poMonitor->wValue), TRUE, FALSE, 0);
-
-    /* Add Bar */
-    poMonitor->wBar = gtk_progress_bar_new();
-    gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
-        GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
-    /*gtk_widget_show (poMonitor->wBar);*/
     if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL)
         gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_BOTTOM_TO_TOP);
     else
