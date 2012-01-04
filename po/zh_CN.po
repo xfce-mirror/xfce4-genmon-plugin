@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 04:03+0000\n"
+"POT-Creation-Date: 2012-01-04 04:33+0000\n"
 "PO-Revision-Date: 2008-03-19 16:50+0800\n"
 "Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
@@ -31,7 +31,7 @@ msgstr "Xfce 面板"
 msgid "About..."
 msgstr "关于..."
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:670
 #: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "通用监视器"
@@ -81,7 +81,7 @@ msgstr "(默认字体)"
 msgid "Could not run \"%s\""
 msgstr "“%s” 未能运行"
 
-#: ../panel-plugin/main.c:602
+#: ../panel-plugin/main.c:595
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -97,14 +97,14 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:620
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "字体选择"
 
-#: ../panel-plugin/main.c:665
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "配置"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
-msgstr "显示命令的输出。"
+msgid "Show output of a command."
+msgstr "显示命令的结果。"
