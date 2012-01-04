@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-30 20:51+0000\n"
+"POT-Creation-Date: 2012-01-04 04:33+0000\n"
 "PO-Revision-Date: 2007-12-06 23:44+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German\n"
@@ -31,7 +31,7 @@ msgstr "Xfce Leiste"
 msgid "About..."
 msgstr "Über…"
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:670
 #: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Allgemeine Überwachung"
@@ -81,7 +81,7 @@ msgstr "(Standardschrift)"
 msgid "Could not run \"%s\""
 msgstr "Der Befehl »%s« konnte nicht ausgeführt werden"
 
-#: ../panel-plugin/main.c:602
+#: ../panel-plugin/main.c:595
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -98,14 +98,15 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:620
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "Schriftauswahl"
 
-#: ../panel-plugin/main.c:665
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "Einstellungen"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
-msgstr "Gibt die Ausgabe eines Befehls aus."
+#, fuzzy
+msgid "Show output of a command."
+msgstr "Zeigt die Ausgabe eines Befehls an."
