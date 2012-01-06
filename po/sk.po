@@ -2,12 +2,12 @@
 # Copyright (C) 2011 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
 # Tomáš Vadina <kyberdev@gmail.com>, 2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-04 04:07+0000\n"
+"POT-Creation-Date: 2012-01-06 05:21+0000\n"
 "PO-Revision-Date: 2011-08-04 10:30+0200\n"
 "Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -30,7 +30,7 @@ msgstr "Panel Xfce"
 msgid "About..."
 msgstr "O aplikácii..."
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:670
 #: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Všeobecné sledovanie"
@@ -80,7 +80,7 @@ msgstr "(Predvolené písmo)"
 msgid "Could not run \"%s\""
 msgstr "Nie je možné spustiť \"%s\""
 
-#: ../panel-plugin/main.c:602
+#: ../panel-plugin/main.c:595
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -97,14 +97,14 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:620
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "Výber písma"
 
-#: ../panel-plugin/main.c:665
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "Nastavenie"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
+msgid "Show output of a command."
 msgstr "Zobrazuje výstup príkazu."
