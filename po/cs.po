@@ -1,26 +1,39 @@
 # Czech translations for xfce4-genmon-plugin package.
 # Copyright (C) 2006 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
-# Michal Várady  <miko.vaji@gmail.com>, 2006.
+# Michal Várady  <miko.vaji@gmail.com>, 2006-2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-08-26 22:36+0100\n"
+"POT-Creation-Date: 2012-01-08 12:06+0000\n"
+"PO-Revision-Date: 2012-01-08 16:40+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
+#: ../panel-plugin/cmdspawn.c:174
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Chyba v příkazu \"%s\""
+
+#: ../panel-plugin/cmdspawn.c:177
+#: ../panel-plugin/main.c:105
+msgid "Xfce Panel"
+msgstr "Panel Xfce"
+
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
 msgstr "O zásuvném modulu..."
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
+#: ../panel-plugin/config_gui.c:103
+#: ../panel-plugin/main.c:670
+#: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Obecné sledování"
 
@@ -64,27 +77,35 @@ msgstr "Stiskněte pro změnu písma"
 msgid "(Default font)"
 msgstr "(Výchozí písmo)"
 
-#: ../panel-plugin/main.c:569
+#: ../panel-plugin/main.c:104
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Nelze spustit \"%s\""
+
+#: ../panel-plugin/main.c:595
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 "%s %s - Obecné sledování\n"
-"Opakovaně spouští skript nebo program, zachytává jeho výstup a zobrazuje "
-"výsledný výstup v panelu\n"
+"Opakovaně spouští skript nebo program, zachytává jeho výstup a zobrazuje výsledný výstup v panelu\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "Výběr písma"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "Konfigurace"
+
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command."
+msgstr "Zobrazit výstup příkazu."
+
