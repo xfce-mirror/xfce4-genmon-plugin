@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 23:04+0000\n"
+"POT-Creation-Date: 2012-01-14 11:51+0000\n"
 "PO-Revision-Date: 2009-07-25 12:04+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at gnome dot hu>\n"
@@ -31,7 +31,7 @@ msgstr "Xfce Panel"
 msgid "About..."
 msgstr "Névjegy…"
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:670
 #: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Általános figyelő"
@@ -81,7 +81,7 @@ msgstr "(Alapértelmezett betűtípus)"
 msgid "Could not run \"%s\""
 msgstr "A(z) „%s” nem futtatható"
 
-#: ../panel-plugin/main.c:602
+#: ../panel-plugin/main.c:595
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -98,14 +98,14 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:620
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "Betűkészlet-választó"
 
-#: ../panel-plugin/main.c:665
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "Beállítás"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
+msgid "Show output of a command."
 msgstr "Parancs kimenetének megjelenítése."
