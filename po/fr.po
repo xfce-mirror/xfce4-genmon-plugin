@@ -98,7 +98,7 @@ msgstr ""
 
 #: ../panel-plugin/main.c:613
 msgid "Font Selection"
-msgstr "Sélection de la fonte"
+msgstr "Sélection de la police"
 
 #: ../panel-plugin/main.c:658
 msgid "Configuration"
