@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-20 16:04+0000\n"
+"POT-Creation-Date: 2012-01-20 21:24+0000\n"
 "PO-Revision-Date: 2006-08-26 22:36+0100\n"
 "Last-Translator: Julien Devemy <jujucece@gmail.com>\n"
 "Language-Team: French <translation-team-fr@lists.sourceforge.net>\n"
@@ -27,9 +27,9 @@ msgstr "Panneau Xfce"
 
 #: ../panel-plugin/config_gui.c:87
 msgid "About..."
-msgstr "A propos"
+msgstr "À propos"
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
+#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:670
 #: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
 msgstr "Moniteur Générique"
@@ -40,11 +40,11 @@ msgstr "Commande"
 
 #: ../panel-plugin/config_gui.c:130
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Entrez la commande shell puis pressez <Entrée>"
+msgstr "Entrer la commande shell et appuyer sur <Entrée>"
 
 #: ../panel-plugin/config_gui.c:149
 msgid "Interval between 2 consecutive spawns"
-msgstr "Intervalle entre 2 exécution consécutive"
+msgstr "Intervalle entre 2 exécutions consécutives"
 
 #: ../panel-plugin/config_gui.c:153
 msgid "Period (s) "
@@ -52,7 +52,7 @@ msgstr "Période (s)"
 
 #: ../panel-plugin/config_gui.c:161
 msgid "Label"
-msgstr "Etiquette"
+msgstr "Étiquette"
 
 #: ../panel-plugin/config_gui.c:166
 msgid "Tick to display label"
@@ -60,7 +60,7 @@ msgstr "Cocher pour afficher l'étiquette"
 
 #: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Entrez l'étiquette du plugin puis pressez <Entrée>"
+msgstr "Entrer l'étiquette du plugin et appuyer sur <Entrée>"
 
 #: ../panel-plugin/config_gui.c:178
 msgid "(genmon)"
@@ -68,18 +68,18 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:187
 msgid "Press to change font"
-msgstr "Presser pour changer la fonte"
+msgstr "Cliquer pour changer la police"
 
 #: ../panel-plugin/config_gui.c:202
 msgid "(Default font)"
-msgstr "(Fonte par defaut)"
+msgstr "(Police par défaut)"
 
 #: ../panel-plugin/main.c:104
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Impossible d'exécuter \"%s\""
 
-#: ../panel-plugin/main.c:602
+#: ../panel-plugin/main.c:595
 #, c-format
 msgid ""
 "%s %s - Generic Monitor\n"
@@ -96,14 +96,14 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:620
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
-msgstr "Selection de la fonte"
+msgstr "Sélection de la fonte"
 
-#: ../panel-plugin/main.c:665
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "Configuration"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
+msgid "Show output of a command."
 msgstr "Afficher la sortie d'une commande"
