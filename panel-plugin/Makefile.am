@@ -4,11 +4,11 @@ plugin_PROGRAMS = xfce4-genmon-plugin
 xfce4_genmon_plugin_CFLAGS =					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"			\
 	@LIBXFCE4PANEL_CFLAGS@					\
-	@LIBXFCEGUI4_CFLAGS@
+	@LIBXFCE4UI_CFLAGS@
 
 xfce4_genmon_plugin_LDADD =					\
 	@LIBXFCE4PANEL_LIBS@					\
-	@LIBXFCEGUI4_LIBS@
+	@LIBXFCE4UI_LIBS@
 
 xfce4_genmon_plugin_SOURCES =	\
 	main.c			\

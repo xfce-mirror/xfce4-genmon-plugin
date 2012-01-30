@@ -29,7 +29,6 @@
 #include <gtk/gtk.h>
 
 #include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/dialogs.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 

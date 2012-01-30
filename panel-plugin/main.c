@@ -31,8 +31,7 @@
 #include <gtk/gtk.h>
 
 #include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/dialogs.h>
-#include <libxfcegui4/xfce-exec.h>
+#include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 #include <libxfce4panel/xfce-panel-convenience.h>
 
@@ -98,7 +97,7 @@ static void ExecOnClickCmd (Widget_t p_wSc, void *p_pvPlugin)
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     GError *error = NULL;
 
-	xfce_exec(poMonitor->onClickCmd, 0, 0, &error);
+    xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onClickCmd, 0, 0, &error );
     if (error) {
         char first[256];
         g_snprintf (first, sizeof(first), _("Could not run \"%s\""), poMonitor->onClickCmd);
@@ -592,7 +591,8 @@ static void UpdateConf (void *p_pvPlugin)
 static void About (Widget_t w, void *unused)
 /* Called back when the About button in clicked */
 {
-    xfce_info (_("%s %s - Generic Monitor\n"
+    xfce_dialog_show_info (NULL, NULL,
+        _("%s %s - Generic Monitor\n"
         "Cyclically spawns a script/program, captures its output "
         "and displays the resulting string in the panel\n\n"
         "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
@@ -646,7 +646,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
 /* Plugin API */
 /* Create/pop up the configuration/options GUI */
 {
-    GtkWidget *dlg, *header, *vbox;
+    GtkWidget *dlg, *vbox;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
     const char     *pcFont = poConf->acFont;
@@ -667,12 +667,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
 
     gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
 
-    header = xfce_create_header (NULL, _("Generic Monitor"));
-    gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
-    gtk_container_set_border_width (GTK_CONTAINER (header), BORDER - 2);
-    gtk_widget_show (header);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), header,
-        FALSE, TRUE, 0);
+    xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dlg), _("Generic Monitor"));
 
     vbox = gtk_vbox_new(FALSE, BORDER);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER - 2);
