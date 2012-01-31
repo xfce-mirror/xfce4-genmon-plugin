@@ -3,7 +3,7 @@
  *  Header file to construct the configure GUI
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
  *                                  <http://rmlx.dyndns.org>
- *  
+ *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
@@ -34,7 +34,6 @@
 
 typedef struct gui_t {
     /* Configuration GUI widgets */
-    GtkWidget      *wPB_About;
     GtkWidget      *wTF_Cmd;
     GtkWidget      *wTB_Title;
     GtkWidget      *wTF_Title;

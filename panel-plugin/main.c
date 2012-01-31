@@ -591,12 +591,12 @@ static void UpdateConf (void *p_pvPlugin)
 static void About (Widget_t w, void *unused)
 /* Called back when the About button in clicked */
 {
-    xfce_dialog_show_info (NULL, NULL,
-        _("%s %s - Generic Monitor\n"
-        "Cyclically spawns a script/program, captures its output "
+    xfce_dialog_show_info (NULL,
+        _("Cyclically spawns a script/program, captures its output "
         "and displays the resulting string in the panel\n\n"
         "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
         "(c) 2006 Julien Devemy <jujucece@gmail.com>"),
+        _("%s %s - Generic Monitor"),
         PACKAGE, VERSION);
 }/* About() */
 
@@ -665,8 +665,6 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     g_signal_connect (dlg, "response", G_CALLBACK (genmon_dialog_response),
         poPlugin);
 
-    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
-
     xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dlg), _("Generic Monitor"));
 
     vbox = gtk_vbox_new(FALSE, BORDER);
@@ -678,9 +676,6 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     poPlugin->oConf.wTopLevel = dlg;
 
     (void) genmon_CreateConfigGUI (GTK_WIDGET (vbox), poGUI);
-
-    g_signal_connect (GTK_WIDGET (poGUI->wPB_About), "clicked",
-        G_CALLBACK (About), 0);
 
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (poGUI->wTB_Title),
         poConf->fTitleDisplayed);

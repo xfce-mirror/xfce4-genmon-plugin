@@ -54,12 +54,6 @@
 int genmon_CreateConfigGUI (GtkWidget *vbox1,
     struct gui_t *p_poGUI)
 {
-    GtkWidget      *wPB_About;
-    GtkWidget      *alignment2;
-    GtkWidget      *hbox3;
-    GtkWidget      *image1;
-    GtkWidget      *label10;
-    GtkWidget      *hseparator9;
     GtkWidget      *table1;
     GtkWidget      *label1;
     GtkWidget      *wTF_Cmd;
@@ -79,35 +73,6 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkTooltips    *tooltips;
 
     tooltips = gtk_tooltips_new ();
-
-    wPB_About = gtk_button_new ();
-    gtk_widget_show (wPB_About);
-    gtk_box_pack_start (GTK_BOX (vbox1), wPB_About, FALSE, FALSE, 0);
-    GTK_WIDGET_UNSET_FLAGS (wPB_About, GTK_CAN_FOCUS);
-    gtk_tooltips_set_tip (tooltips, wPB_About, _("About..."), NULL);
-    gtk_button_set_relief (GTK_BUTTON (wPB_About), GTK_RELIEF_NONE);
-
-    alignment2 = gtk_alignment_new (0.5, 0.5, 0, 0);
-    gtk_widget_show (alignment2);
-    gtk_container_add (GTK_CONTAINER (wPB_About), alignment2);
-
-    hbox3 = gtk_hbox_new (FALSE, 2);
-    gtk_widget_show (hbox3);
-    gtk_container_add (GTK_CONTAINER (alignment2), hbox3);
-
-    image1 = gtk_image_new_from_stock ("gnome-stock-about",
-        GTK_ICON_SIZE_BUTTON);
-    gtk_widget_show (image1);
-    gtk_box_pack_start (GTK_BOX (hbox3), image1, FALSE, FALSE, 0);
-
-    label10 = gtk_label_new_with_mnemonic (_("Generic Monitor"));
-    gtk_widget_show (label10);
-    gtk_box_pack_start (GTK_BOX (hbox3), label10, FALSE, FALSE, 0);
-    gtk_label_set_justify (GTK_LABEL (label10), GTK_JUSTIFY_LEFT);
-
-    hseparator9 = gtk_hseparator_new ();
-    gtk_widget_show (hseparator9);
-    gtk_box_pack_start (GTK_BOX (vbox1), hseparator9, TRUE, TRUE, 0);
 
     table1 = gtk_table_new (3, 2, FALSE);
     gtk_widget_show (table1);
@@ -205,7 +170,6 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_label_set_justify (GTK_LABEL (label11), GTK_JUSTIFY_LEFT);
 
     if (p_poGUI) {
-        COPYVAL (p_poGUI, wPB_About);
         COPYVAL (p_poGUI, wTF_Cmd);
         COPYVAL (p_poGUI, wTB_Title);
         COPYVAL (p_poGUI, wTF_Title);
