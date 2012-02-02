@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-09 16:51+0000\n"
+"POT-Creation-Date: 2012-02-02 04:54+0000\n"
 "PO-Revision-Date: 2009-01-28 10:51+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian <xfce-it-translators@googlegroups.com>\n"
@@ -21,71 +21,57 @@ msgstr ""
 msgid "Error in command \"%s\""
 msgstr "Errore nel comando «%s»"
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
 msgid "Xfce Panel"
 msgstr "Pannello di Xfce"
 
-# GLOSSARIO
-# font = tipo di carattere, carattere
-# monitor = monitor
-#: ../panel-plugin/config_gui.c:87
-msgid "About..."
-msgstr "Informazioni..."
-
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:670
-#: ../panel-plugin/genmon.desktop.in.in.h:1
-msgid "Generic Monitor"
-msgstr "Monitor generico"
-
-#: ../panel-plugin/config_gui.c:116
+#: ../panel-plugin/config_gui.c:81
 msgid "Command"
 msgstr "Comando"
 
-#: ../panel-plugin/config_gui.c:130
+#: ../panel-plugin/config_gui.c:95
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Scrivere il comando, poi premere «Invio»"
 
-#: ../panel-plugin/config_gui.c:149
+#: ../panel-plugin/config_gui.c:114
 msgid "Interval between 2 consecutive spawns"
 msgstr "Intervallo tra due avvii consecutivi"
 
-#: ../panel-plugin/config_gui.c:153
+#: ../panel-plugin/config_gui.c:118
 msgid "Period (s) "
 msgstr "Periodo(i)"
 
-#: ../panel-plugin/config_gui.c:161
+#: ../panel-plugin/config_gui.c:126
 msgid "Label"
 msgstr "Etichetta"
 
-#: ../panel-plugin/config_gui.c:166
+#: ../panel-plugin/config_gui.c:131
 msgid "Tick to display label"
 msgstr "Attivare per visualizzare l'etichetta"
 
-#: ../panel-plugin/config_gui.c:175
+#: ../panel-plugin/config_gui.c:140
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Inserire l'etichetta, poi premere «Invio»"
 
-#: ../panel-plugin/config_gui.c:178
+#: ../panel-plugin/config_gui.c:143
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:187
+#: ../panel-plugin/config_gui.c:152
 msgid "Press to change font"
 msgstr "Premere per cambiare il tipo di carattere"
 
-#: ../panel-plugin/config_gui.c:202
+#: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
 msgstr "(carattere predefinito)"
 
-#: ../panel-plugin/main.c:104
+#: ../panel-plugin/main.c:103
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Impossibile eseguire \"%s\""
 
 #: ../panel-plugin/main.c:595
-#, c-format
 msgid ""
-"%s %s - Generic Monitor\n"
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel\n"
 "\n"
@@ -99,6 +85,11 @@ msgstr ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
+#: ../panel-plugin/main.c:599
+#, c-format
+msgid "%s %s - Generic Monitor"
+msgstr "%s %s - Monitor generico"
+
 #: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "Scelta del tipo di carattere"
@@ -107,6 +98,13 @@ msgstr "Scelta del tipo di carattere"
 msgid "Configuration"
 msgstr "Configurazione"
 
+#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+msgid "Generic Monitor"
+msgstr "Monitor generico"
+
 #: ../panel-plugin/genmon.desktop.in.in.h:2
 msgid "Show output of a command."
 msgstr "Mostra l'output di un comando"
+
+#~ msgid "About..."
+#~ msgstr "Informazioni..."
