@@ -3,13 +3,13 @@
 # This file is distributed under the same license as
 # the xfce4-genmon-plugin package.
 # Vern Sun <s5unty@gmail.com>, 2008.
-# Chipong Luo <chipong_l@yahoo.com>, 2011, 2012.
+# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-03 09:54+0000\n"
+"POT-Creation-Date: 2012-02-08 05:54+0000\n"
 "PO-Revision-Date: 2008-03-19 16:50+0800\n"
 "Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
@@ -80,8 +80,7 @@ msgid ""
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
-"循环反复地执行脚本/程序，捕获它的输出结果"
-"并在面板上显示结果字符串\n"
+"循环反复地执行脚本/程序，捕获它的输出结果并在面板上显示结果字符串\n"
 " \n"
 "版权 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "版权 2006 Julien Devemy <jujucece@gmail.com>"
