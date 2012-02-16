@@ -239,7 +239,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     if (newVersion == 0)
     {
         gtk_widget_show (poMonitor->wValue);
-        gtk_label_set_markup (GTK_LABEL (poMonitor->wValue),
+        gtk_label_set_text (GTK_LABEL (poMonitor->wValue),
             p_poPlugin->acValue);
     }
 
