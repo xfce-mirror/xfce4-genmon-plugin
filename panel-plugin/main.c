@@ -154,12 +154,12 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is an Image or a Text */
     begin=strstr(p_poPlugin->acValue, "<img>");
     end=strstr(p_poPlugin->acValue, "</img>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
     {
         char  buf[BUFMAX];
         /* Get the image path */
-        strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
-        buf[end-begin-5*sizeof(char)]='\0';
+        strncpy(buf, begin+5, end-begin-5);
+        buf[end-begin-5]='\0';
 
         gtk_image_set_from_file (GTK_IMAGE (poMonitor->wImage), buf);
         gtk_image_set_from_file (GTK_IMAGE (poMonitor->wImgButton), buf);
@@ -167,12 +167,12 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         /* Test if the result has a clickable Image (button) */
         begin=strstr(p_poPlugin->acValue, "<click>");
         end=strstr(p_poPlugin->acValue, "</click>");
-        if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
+        if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
         {
             char  buf[BUFMAX];
             /* Get the command path */
-            strncpy(buf, begin+7*sizeof(char), end-begin-7*sizeof(char));
-            buf[end-begin-7*sizeof(char)]='\0';
+            strncpy(buf, begin+7, end-begin-7);
+            buf[end-begin-7]='\0';
 
             strcpy(poMonitor->onClickCmd, buf);
 
@@ -199,12 +199,12 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is a Text */
     begin=strstr(p_poPlugin->acValue, "<txt>");
     end=strstr(p_poPlugin->acValue, "</txt>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
     {
         char  buf[BUFMAX];
         /* Get the text */
-        strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
-        buf[end-begin-5*sizeof(char)]='\0';
+        strncpy(buf, begin+5, end-begin-5);
+        buf[end-begin-5]='\0';
         gtk_label_set_markup (GTK_LABEL (poMonitor->wValue), buf);
         gtk_widget_show (poMonitor->wValue);
 
@@ -216,13 +216,13 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is a Bar */
     begin=strstr(p_poPlugin->acValue, "<bar>");
     end=strstr(p_poPlugin->acValue, "</bar>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
     {
         char  buf[BUFMAX];
         int value;
         /* Get the text */
-        strncpy(buf, begin+5*sizeof(char), end-begin-5*sizeof(char));
-        buf[end-begin-5*sizeof(char)]='\0';
+        strncpy(buf, begin+5, end-begin-5);
+        buf[end-begin-5]='\0';
         value=atoi(buf);
         if (value<0)
             value=0;
@@ -246,7 +246,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if a ToolTip is given */
     begin=strstr(p_poPlugin->acValue, "<tool>");
     end=strstr(p_poPlugin->acValue, "</tool>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX*sizeof(char)))
+    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
     {
         strncpy(acToolTips, begin+6, end-begin-6);
         acToolTips[end-begin-6]='\0';
