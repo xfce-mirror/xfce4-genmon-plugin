@@ -1,0 +1,111 @@
+# Korean translation for the xfce4-genmon-plugin package.
+# Copyright (C) 2004-2012 Roger Seguin et al.
+# This file is distributed under the same license as the xfce4-genmon-plugin package.
+# Seong-ho, Cho <darkcircle.0426@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-genmon-plugin.master\n"
+"Report-Msgid-Bugs-To: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2012-02-28 04:03+0000\n"
+"PO-Revision-Date: 2012-02-28 16:54+0900\n"
+"Last-Translator: Seong-ho, Cho <darkcircle.0426@gmail.com>\n"
+"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.net>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Korean\n"
+"X-Poedit-Country: KOREA, REPUBLIC OF\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../panel-plugin/cmdspawn.c:174
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "명령 \"%s\" 오류"
+
+#: ../panel-plugin/cmdspawn.c:177
+#: ../panel-plugin/main.c:104
+msgid "Xfce Panel"
+msgstr "Xfce 패널"
+
+#: ../panel-plugin/config_gui.c:81
+msgid "Command"
+msgstr "명령"
+
+#: ../panel-plugin/config_gui.c:95
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "실행할 쉘 명령을 입력하고, <Enter>를 누릅니다"
+
+#: ../panel-plugin/config_gui.c:114
+msgid "Interval between 2 consecutive spawns"
+msgstr "2개의 연속 실행간 시간 간격"
+
+#: ../panel-plugin/config_gui.c:118
+msgid "Period (s) "
+msgstr "주기 (초)"
+
+#: ../panel-plugin/config_gui.c:126
+msgid "Label"
+msgstr "레이블"
+
+#: ../panel-plugin/config_gui.c:131
+msgid "Tick to display label"
+msgstr "레이블을 보이려면 선택합니다"
+
+#: ../panel-plugin/config_gui.c:140
+msgid "Input the plugin label, then press <Enter>"
+msgstr "플러그인 레이블을 입력하고, <Enter>를 누릅니다"
+
+#: ../panel-plugin/config_gui.c:143
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:152
+msgid "Press to change font"
+msgstr "글꼴을 바꾸려면 누릅니다"
+
+#: ../panel-plugin/config_gui.c:167
+msgid "(Default font)"
+msgstr "(기본 글꼴)"
+
+#: ../panel-plugin/main.c:103
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "\"%s\"을(를) 실행할 수 없습니다"
+
+#: ../panel-plugin/main.c:595
+msgid ""
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"스크립트/프로그램을 돌아가면서 실행합니다. 출력을 잡아서 패널에 문자열로 보여줍니다\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:599
+#, c-format
+msgid "%s %s - Generic Monitor"
+msgstr "%s %s - 일반 감시기"
+
+#: ../panel-plugin/main.c:613
+msgid "Font Selection"
+msgstr "글꼴 선택"
+
+#: ../panel-plugin/main.c:658
+msgid "Configuration"
+msgstr "설정"
+
+#: ../panel-plugin/main.c:668
+#: ../panel-plugin/genmon.desktop.in.in.h:1
+msgid "Generic Monitor"
+msgstr "일반 감시기"
+
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command."
+msgstr "명령의 출력을 보여줍니다."
+
