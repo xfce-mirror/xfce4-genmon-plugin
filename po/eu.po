@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 1.2.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/cmdspawn.c:174
 #, c-format
@@ -91,7 +91,7 @@ msgstr ""
 #: ../panel-plugin/main.c:599
 #, c-format
 msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Monitore arrunts"
+msgstr "%s %s - Monitore arrunta"
 
 #: ../panel-plugin/main.c:613
 msgid "Font Selection"
