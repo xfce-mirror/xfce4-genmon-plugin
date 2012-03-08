@@ -73,7 +73,6 @@ msgid "Could not run \"%s\""
 msgstr "Ezin da \"%s\" exekutatu"
 
 #: ../panel-plugin/main.c:595
-#, fuzzy
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel\n"
