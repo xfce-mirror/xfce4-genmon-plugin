@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
-"X-Generator: Pootle 1.2.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.2.0\n"
 
 #: ../panel-plugin/cmdspawn.c:174
 #, c-format
@@ -65,7 +65,7 @@ msgstr "Sakatu letra-tipoa aldatzeko"
 
 #: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
-msgstr "(Lehentsiriko letra-tipoa)"
+msgstr "(Lehenetsiriko letra-tipoa)"
 
 #: ../panel-plugin/main.c:103
 #, c-format
@@ -95,7 +95,7 @@ msgstr "%s %s - Monitore arrunta"
 
 #: ../panel-plugin/main.c:613
 msgid "Font Selection"
-msgstr "Letra-tipo Hautapena"
+msgstr "Letra-tipo hautapena"
 
 #: ../panel-plugin/main.c:658
 msgid "Configuration"
@@ -103,7 +103,7 @@ msgstr "Konfigurazioa"
 
 #: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
-msgstr "Monitore Arrunta"
+msgstr "Monitore arrunta"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
 msgid "Show output of a command."
