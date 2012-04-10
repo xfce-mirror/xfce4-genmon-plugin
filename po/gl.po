@@ -11,82 +11,105 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2012-04-10 05:24+0000\n"
 "PO-Revision-Date: 2009-07-15 17:47+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../panel-plugin/config_gui.c:87
-msgid "About..."
-msgstr "Acerca de..."
+#: ../panel-plugin/cmdspawn.c:174
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Erro na orde «%s»"
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
-msgid "Generic Monitor"
-msgstr "Monitor xenérico"
+#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
+msgid "Xfce Panel"
+msgstr "Panel de Xfce"
 
-#: ../panel-plugin/config_gui.c:116
+#: ../panel-plugin/config_gui.c:81
 msgid "Command"
 msgstr "Orde"
 
-#: ../panel-plugin/config_gui.c:130
+#: ../panel-plugin/config_gui.c:95
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Introduza a orde de shell a iniciar, despois prema <Intro>"
 
-#: ../panel-plugin/config_gui.c:149
+#: ../panel-plugin/config_gui.c:114
 msgid "Interval between 2 consecutive spawns"
 msgstr "Intervalo entre 2 inicios consecutivos"
 
-#: ../panel-plugin/config_gui.c:153
+#: ../panel-plugin/config_gui.c:118
 msgid "Period (s) "
 msgstr "Periodo(s)"
 
-#: ../panel-plugin/config_gui.c:161
+#: ../panel-plugin/config_gui.c:126
 msgid "Label"
 msgstr "Etiqueta"
 
-#: ../panel-plugin/config_gui.c:166
+#: ../panel-plugin/config_gui.c:131
 msgid "Tick to display label"
 msgstr "Marque para mostrar a etiqueta"
 
-#: ../panel-plugin/config_gui.c:175
+#: ../panel-plugin/config_gui.c:140
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Introduza a etiqueta do engadido, e despois prema <Intro>"
 
-#: ../panel-plugin/config_gui.c:178
+#: ../panel-plugin/config_gui.c:143
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:187
+#: ../panel-plugin/config_gui.c:152
 msgid "Press to change font"
 msgstr "Prema para cambiar o tipo de letra"
 
-#: ../panel-plugin/config_gui.c:202
+#: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
 msgstr "(Tipo de letra predeterminado)"
 
-#: ../panel-plugin/main.c:569
+#: ../panel-plugin/main.c:103
 #, c-format
+msgid "Could not run \"%s\""
+msgstr "Non foi posíbel executar «%s»"
+
+#: ../panel-plugin/main.c:595
 msgid ""
-"%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 "%s %s - Monitor xenérico\n"
-"Inicia ciclicamente un script/programa, captura a súa saída e mostra a cadea resultante no panel\n"
+"Inicia ciclicamente un script/programa, captura a súa saída e mostra a cadea "
+"resultante no panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:599
+#, c-format
+msgid "%s %s - Generic Monitor"
+msgstr "%s %s - Monitor xenérico"
+
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "Selección de tipo de letra"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "Configuración"
+
+#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+msgid "Generic Monitor"
+msgstr "Monitor xenérico"
+
+#: ../panel-plugin/genmon.desktop.in.in.h:2
+msgid "Show output of a command."
+msgstr "Mostrar a saída dunha orde."
+
+#~ msgid "About..."
+#~ msgstr "Acerca de..."
