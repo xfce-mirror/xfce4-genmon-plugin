@@ -2,91 +2,80 @@
 # Copyright (C) The Xfce development team.
 # This file is distributed under the same license as the xfce4-genmon-plugin package.
 # Ivica Kolić <ikoli@yahoo.com>, 2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-29 22:06+0000\n"
+"POT-Creation-Date: 2012-04-15 11:54+0000\n"
 "PO-Revision-Date: 2011-05-30 00:31+0200\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian <ikoli@yahoo.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Croatian\n"
-"X-Poedit-Country: CROATIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: CROATIA\n"
 
 #: ../panel-plugin/cmdspawn.c:174
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Greška u naredbi \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
 msgid "Xfce Panel"
 msgstr "Xfce ploča"
 
-#: ../panel-plugin/config_gui.c:87
-msgid "About..."
-msgstr "O programu..."
-
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
-#: ../panel-plugin/genmon.desktop.in.in.h:1
-msgid "Generic Monitor"
-msgstr "Generički monitor"
-
-#: ../panel-plugin/config_gui.c:116
+#: ../panel-plugin/config_gui.c:81
 msgid "Command"
 msgstr "Naredba"
 
-#: ../panel-plugin/config_gui.c:130
+#: ../panel-plugin/config_gui.c:95
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:149
+#: ../panel-plugin/config_gui.c:114
 msgid "Interval between 2 consecutive spawns"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:153
+#: ../panel-plugin/config_gui.c:118
 msgid "Period (s) "
 msgstr "Period (i) "
 
-#: ../panel-plugin/config_gui.c:161
+#: ../panel-plugin/config_gui.c:126
 msgid "Label"
 msgstr "Natpis"
 
-#: ../panel-plugin/config_gui.c:166
+#: ../panel-plugin/config_gui.c:131
 msgid "Tick to display label"
 msgstr "Označi za prikaz natpisa"
 
-#: ../panel-plugin/config_gui.c:175
+#: ../panel-plugin/config_gui.c:140
 msgid "Input the plugin label, then press <Enter>"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:178
+#: ../panel-plugin/config_gui.c:143
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:187
+#: ../panel-plugin/config_gui.c:152
 msgid "Press to change font"
 msgstr "Pritisni za promjenu fonta"
 
-#: ../panel-plugin/config_gui.c:202
+#: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
 msgstr "(Zadani font)"
 
-#: ../panel-plugin/main.c:104
+#: ../panel-plugin/main.c:103
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Ne mogu pokrenuti \"%s\""
 
-#: ../panel-plugin/main.c:602
-#, c-format
+#: ../panel-plugin/main.c:595
 msgid ""
-"%s %s - Generic Monitor\n"
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel\n"
 "\n"
@@ -94,14 +83,26 @@ msgid ""
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
 
-#: ../panel-plugin/main.c:620
+#: ../panel-plugin/main.c:599
+#, c-format
+msgid "%s %s - Generic Monitor"
+msgstr "%s %s - Generički monitor"
+
+#: ../panel-plugin/main.c:613
 msgid "Font Selection"
 msgstr "Odabir fonta"
 
-#: ../panel-plugin/main.c:665
+#: ../panel-plugin/main.c:658
 msgid "Configuration"
 msgstr "Konfiguracija"
 
+#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+msgid "Generic Monitor"
+msgstr "Generički monitor"
+
 #: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
-msgstr "Prikaži spis naredbe"
+msgid "Show output of a command."
+msgstr "Prikaži spis naredbe."
+
+#~ msgid "About..."
+#~ msgstr "O programu..."
