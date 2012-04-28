@@ -2,14 +2,14 @@
 # xfce4-genmon-plugin パッケージに対する英訳.
 # Copyright (C) 2008 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce package.
-# HASHIMOTO Masato <cabezon.hashimoto@gmail.com>, 2008.
+# HASHIMOTO Masato <cabezon.hashimoto@gmail.com>, 2008, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-genmon-plugin 3.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-21 21:42+0900\n"
-"PO-Revision-Date: 2012-02-21 21:45+0900\n"
+"PO-Revision-Date: 2012-04-28 22:57+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "Language: ja\n"
@@ -87,7 +87,7 @@ msgstr ""
 #: ../panel-plugin/main.c:599
 #, c-format
 msgid "%s %s - Generic Monitor"
-msgstr "%s %s - ジェネリックモニタ"
+msgstr "%s %s - ジェネリックモニター"
 
 #: ../panel-plugin/main.c:613
 msgid "Font Selection"
@@ -100,7 +100,7 @@ msgstr "設定"
 #: ../panel-plugin/main.c:668
 #: ../panel-plugin/genmon.desktop.in.in.h:1
 msgid "Generic Monitor"
-msgstr "ジェネリックモニタ"
+msgstr "ジェネリックモニター"
 
 #: ../panel-plugin/genmon.desktop.in.in.h:2
 msgid "Show output of a command."
