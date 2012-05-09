@@ -4,4 +4,5 @@ Encoding=UTF-8
 _Name=Generic Monitor
 _Comment=Show output of a command.
 Icon=utilities-system-monitor
-X-XFCE-Exec=@PLUGIN_PATH@/xfce4-genmon-plugin
+X-XFCE-Module=genmon
+X-XFCE-Internal=false

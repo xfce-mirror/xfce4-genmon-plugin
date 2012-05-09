@@ -17,15 +17,18 @@ Do the usual stuff:
 	- make install  (as root)
 	
 You should then end up with:
-        xfce4-genmon-plugin
-installed in <XFce4InstallationDir>/libexec/xfce4/panel-plugins/
+        libgenmon.so
+        libgenmon.la
+installed in <XFce4InstallationDir>/lib/xfce4/panel/plugins/
 and
         genmon.desktop
-installed in <XFce4InstallationDir>/share/xfce4/panel-plugins/
+installed in <XFce4InstallationDir>/share/xfce4/panel/plugins/
 
         xfce4-genmon-plugin.mo
 installed in <XFce4InstallationDir>/share/locale/XX/LC_MESSAGES/
 where XX represents the languages supported by genmon plugin
+
+You are encouraged to delete the installed libgenmon.la
 
 3 -	Testing
 	-------

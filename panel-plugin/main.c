@@ -791,5 +791,5 @@ static void genmon_construct (XfcePanelPlugin *plugin)
         G_CALLBACK (ExecOnClickCmd), genmon);
 }
 
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (genmon_construct)
+XFCE_PANEL_PLUGIN_REGISTER (genmon_construct)
 
