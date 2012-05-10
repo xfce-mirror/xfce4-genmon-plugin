@@ -4,6 +4,7 @@
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
  *                                  <http://rmlx.dyndns.org>
  *  Copyright (c) 2006 Julien Devemy <jujucece@gmail.com>
+ *  Copyright (c) 2012 John Lindgren <john.lindgren@aol.com>
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -35,50 +36,40 @@
 #include <libxfce4panel/xfce-panel-plugin.h>
 #include <libxfce4panel/xfce-panel-convenience.h>
 
+#include <stdint.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <memory.h>
 #include <string.h>
-#include <inttypes.h>
-#include <string.h>
-#include <errno.h>
-#include <pwd.h>
 
 #define PLUGIN_NAME    "GenMon"
 #define BORDER    2
-#define BUFMAX  1024
-
-
-typedef GtkWidget *Widget_t;
 
 typedef struct param_t {
     /* Configurable parameters */
-    char            acCmd[128]; /* Commandline to spawn */
+    char           *acCmd; /* Commandline to spawn */
     int             fTitleDisplayed;
-    char            acTitle[16];
+    char           *acTitle;
     uint32_t        iPeriod_ms;
-    char            acFont[128];
+    char           *acFont;
 } param_t;
 
 typedef struct conf_t {
-    Widget_t        wTopLevel;
+    GtkWidget      *wTopLevel;
     struct gui_t    oGUI; /* Configuration/option dialog */
     struct param_t  oParam;
 } conf_t;
 
 typedef struct monitor_t {
     /* Plugin monitor */
-    Widget_t        wEventBox;
-    Widget_t        wBox;
-    Widget_t        wImgBox;
-    Widget_t        wTitle;
-    Widget_t        wValue;
-    Widget_t        wImage;
-    Widget_t        wBar;
-    Widget_t        wButton;
-    Widget_t        wImgButton;
-    char            onClickCmd[256];
+    GtkWidget      *wEventBox;
+    GtkWidget      *wBox;
+    GtkWidget      *wImgBox;
+    GtkWidget      *wTitle;
+    GtkWidget      *wValue;
+    GtkWidget      *wImage;
+    GtkWidget      *wBar;
+    GtkWidget      *wButton;
+    GtkWidget      *wImgButton;
+    char           *onClickCmd;
 } monitor_t;
 
 typedef struct genmon_t {
@@ -86,11 +77,11 @@ typedef struct genmon_t {
     unsigned int    iTimerId; /* Cyclic update */
     struct conf_t   oConf;
     struct monitor_t    oMonitor;
-    char            acValue[BUFMAX]; /* Commandline resulting string */
+    char            *acValue; /* Commandline resulting string */
 } genmon_t;
 
 /**************************************************************/
-static void ExecOnClickCmd (Widget_t p_wSc, void *p_pvPlugin)
+static void ExecOnClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
 /* Execute the onClick Command */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
@@ -99,12 +90,12 @@ static void ExecOnClickCmd (Widget_t p_wSc, void *p_pvPlugin)
 
     xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onClickCmd, 0, 0, &error );
     if (error) {
-        char first[256];
-        g_snprintf (first, sizeof(first), _("Could not run \"%s\""), poMonitor->onClickCmd);
+        char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onClickCmd);
         xfce_message_dialog (NULL, _("Xfce Panel"),
                              GTK_STOCK_DIALOG_ERROR, first, error->message,
                              GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
         g_error_free (error);
+        g_free (first);
     }
 
 }
@@ -119,9 +110,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
     struct param_t *poConf = &(p_poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(p_poPlugin->oMonitor);
-    char   acToolTips[256];
-    char   acCompleteCmd[256];
-    int    status;
+    char  *acToolTips;
     char  *begin;
     char  *end;
     int    newVersion=0;
@@ -129,52 +118,35 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     if (!s_poToolTips)
         s_poToolTips = gtk_tooltips_new ();
 
-    /* If the command starts with ~ expand it */
-    if (poConf->acCmd[0] == '~')
-    {
-        uid_t uid;
-        struct passwd* spwd;
-
-        uid = getuid();
-        spwd = getpwuid(uid);
-        sprintf(acCompleteCmd, "%s%s", spwd->pw_dir, &poConf->acCmd[1]);
-        status = genmon_SpawnCmd (acCompleteCmd, p_poPlugin->acValue,
-            sizeof (p_poPlugin->acValue), 1);
-    }
+    g_free (p_poPlugin->acValue);
+    if (poConf->acCmd[0])
+        p_poPlugin->acValue = genmon_SpawnCmd (poConf->acCmd, 1);
     else
-        status = genmon_SpawnCmd (poConf->acCmd, p_poPlugin->acValue,
-            sizeof (p_poPlugin->acValue), 1);
+        p_poPlugin->acValue = NULL;
 
     /* If the command fails, display XXX */
-    if (status == -1)
-        strcpy(p_poPlugin->acValue, "XXX");
-
-    /* Normally it's impossible to overflow the buffer because p_poPlugin->acValue is < BUFMAX */
+    if (!p_poPlugin->acValue)
+        p_poPlugin->acValue = g_strdup ("XXX");
 
     /* Test if the result is an Image or a Text */
     begin=strstr(p_poPlugin->acValue, "<img>");
     end=strstr(p_poPlugin->acValue, "</img>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
+    if (begin && end && begin < end)
     {
-        char  buf[BUFMAX];
         /* Get the image path */
-        strncpy(buf, begin+5, end-begin-5);
-        buf[end-begin-5]='\0';
-
+        char *buf = g_strndup (begin + 5, end - begin - 5);
         gtk_image_set_from_file (GTK_IMAGE (poMonitor->wImage), buf);
         gtk_image_set_from_file (GTK_IMAGE (poMonitor->wImgButton), buf);
+        g_free (buf);
 
         /* Test if the result has a clickable Image (button) */
         begin=strstr(p_poPlugin->acValue, "<click>");
         end=strstr(p_poPlugin->acValue, "</click>");
-        if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
+        if (begin && end && begin < end)
         {
-            char  buf[BUFMAX];
             /* Get the command path */
-            strncpy(buf, begin+7, end-begin-7);
-            buf[end-begin-7]='\0';
-
-            strcpy(poMonitor->onClickCmd, buf);
+            g_free (poMonitor->onClickCmd);
+            poMonitor->onClickCmd = g_strndup (begin + 7, end - begin - 7);
 
             gtk_widget_show (poMonitor->wButton);
             gtk_widget_show (poMonitor->wImgButton);
@@ -199,13 +171,13 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is a Text */
     begin=strstr(p_poPlugin->acValue, "<txt>");
     end=strstr(p_poPlugin->acValue, "</txt>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
+    if (begin && end && begin < end)
     {
-        char  buf[BUFMAX];
         /* Get the text */
-        strncpy(buf, begin+5, end-begin-5);
-        buf[end-begin-5]='\0';
+        char *buf = g_strndup (begin + 5, end - begin - 5);
         gtk_label_set_markup (GTK_LABEL (poMonitor->wValue), buf);
+        g_free (buf);
+
         gtk_widget_show (poMonitor->wValue);
 
         newVersion=1;
@@ -216,14 +188,16 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if the result is a Bar */
     begin=strstr(p_poPlugin->acValue, "<bar>");
     end=strstr(p_poPlugin->acValue, "</bar>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
+    if (begin && end && begin < end)
     {
-        char  buf[BUFMAX];
+        char *buf;
         int value;
+
         /* Get the text */
-        strncpy(buf, begin+5, end-begin-5);
-        buf[end-begin-5]='\0';
-        value=atoi(buf);
+        buf = g_strndup (begin + 5, end - begin - 5);
+        value = atoi (buf);
+        g_free (buf);
+
         if (value<0)
             value=0;
         if (value>100)
@@ -246,13 +220,10 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     /* Test if a ToolTip is given */
     begin=strstr(p_poPlugin->acValue, "<tool>");
     end=strstr(p_poPlugin->acValue, "</tool>");
-    if ((begin != NULL) && (end != NULL) && (begin < end) && (end-begin < BUFMAX))
-    {
-        strncpy(acToolTips, begin+6, end-begin-6);
-        acToolTips[end-begin-6]='\0';
-    }
+    if (begin && end && begin < end)
+        acToolTips = g_strndup (begin + 6, end - begin - 6);
     else
-        sprintf (acToolTips, "%s\n"
+        acToolTips = g_strdup_printf (acToolTips, "%s\n"
             "----------------\n"
             "%s\n"
             "Period (s): %d", poConf->acTitle, poConf->acCmd,
@@ -260,6 +231,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
     gtk_tooltips_set_tip (s_poToolTips, GTK_WIDGET (poMonitor->wEventBox),
         acToolTips, 0);
+    g_free (acToolTips);
 
     return (0);
 
@@ -306,15 +278,15 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     poPlugin->plugin = plugin;
 
-    strcpy (poConf->acCmd, "");
-    strcpy (poConf->acTitle, "(genmon)");
+    poConf->acCmd = g_strdup ("");
+    poConf->acTitle = g_strdup ("(genmon)");
 
     poConf->fTitleDisplayed = 1;
 
     poConf->iPeriod_ms = 30 * 1000;
     poPlugin->iTimerId = 0;
 
-    strcpy (poConf->acFont, "(default)");
+    poConf->acFont = g_strdup ("(default)");
 
     poMonitor->wEventBox = gtk_event_box_new ();
     gtk_event_box_set_visible_window (
@@ -350,7 +322,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
 
     /* Add Button */
-    poMonitor->wButton = (Widget_t) xfce_create_panel_button ();
+    poMonitor->wButton = xfce_create_panel_button ();
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wButton);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
@@ -387,6 +359,12 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     if (poPlugin->iTimerId)
         g_source_remove (poPlugin->iTimerId);
+
+    g_free (poPlugin->oConf.oParam.acCmd);
+    g_free (poPlugin->oConf.oParam.acTitle);
+    g_free (poPlugin->oConf.oParam.acFont);
+    g_free (poPlugin->oMonitor.onClickCmd);
+    g_free (poPlugin->acValue);
     g_free (poPlugin);
 }/* genmon_free() */
 
@@ -397,10 +375,9 @@ static int SetMonitorFont (void *p_pvPlugin)
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     struct param_t *poConf = &(poPlugin->oConf.oParam);
-    const char     *pcFont = poConf->acFont;
     PangoFontDescription *poFont;
 
-    if (*pcFont == '(') /* Default font */
+    if (!strcmp (poConf->acFont, "(default)")) /* Default font */
         return (1);
     poFont = pango_font_description_from_string (poConf->acFont);
     if (!poFont)
@@ -428,7 +405,7 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 {
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
-    const char           *pc;
+    const char     *pc;
     char           *file;
     XfceRc         *rc;
 
@@ -442,8 +419,8 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
         return;
 
     if ((pc = xfce_rc_read_entry (rc, (CONF_CMD), NULL))) {
-        memset (poConf->acCmd, 0, sizeof (poConf->acCmd));
-        strncpy (poConf->acCmd, pc, sizeof (poConf->acCmd) - 1);
+        g_free (poConf->acCmd);
+        poConf->acCmd = g_strdup (pc);
     }
 
     poConf->fTitleDisplayed = xfce_rc_read_int_entry (rc, (CONF_USE_LABEL), 1);
@@ -453,8 +430,8 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
         gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
 
     if ((pc = xfce_rc_read_entry (rc, (CONF_LABEL_TEXT), NULL))) {
-        memset (poConf->acTitle, 0, sizeof (poConf->acTitle));
-        strncpy (poConf->acTitle, pc, sizeof (poConf->acTitle) - 1);
+        g_free (poConf->acTitle);
+        poConf->acTitle = g_strdup (pc);
         gtk_label_set_text (GTK_LABEL (poMonitor->wTitle),
                             poConf->acTitle);
     }
@@ -463,8 +440,8 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
         xfce_rc_read_int_entry (rc, (CONF_UPDATE_PERIOD), 30 * 1000);
 
     if ((pc = xfce_rc_read_entry (rc, (CONF_FONT), NULL))) {
-        memset (poConf->acFont, 0, sizeof (poConf->acFont));
-        strncpy (poConf->acFont, pc, sizeof (poConf->acFont) - 1);
+        g_free (poConf->acFont);
+        poConf->acFont = g_strdup (pc);
     }
 
     xfce_rc_close (rc);
@@ -506,7 +483,7 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
 /**************************************************************/
 
-static void SetCmd (Widget_t p_wTF, void *p_pvPlugin)
+static void SetCmd (GtkWidget *p_wTF, void *p_pvPlugin)
 /* GUI callback setting the command to be spawn, whose output will
    be displayed using the panel-docked monitor */
 {
@@ -514,13 +491,13 @@ static void SetCmd (Widget_t p_wTF, void *p_pvPlugin)
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     const char     *pcCmd = gtk_entry_get_text (GTK_ENTRY (p_wTF));
 
-    memset (poConf->acCmd, 0, sizeof (poConf->acCmd));
-    strncpy (poConf->acCmd, pcCmd, sizeof (poConf->acCmd) - 1);
+    g_free (poConf->acCmd);
+    poConf->acCmd = g_strdup (pcCmd);
 }/* SetCmd() */
 
 /**************************************************************/
 
-static void ToggleTitle (Widget_t p_w, void *p_pvPlugin)
+static void ToggleTitle (GtkWidget *p_w, void *p_pvPlugin)
 /* GUI callback turning on/off the monitor bar legend */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
@@ -540,7 +517,7 @@ static void ToggleTitle (Widget_t p_w, void *p_pvPlugin)
 
 /**************************************************************/
 
-static void SetLabel (Widget_t p_wTF, void *p_pvPlugin)
+static void SetLabel (GtkWidget *p_wTF, void *p_pvPlugin)
 /* GUI callback setting the legend of the monitor */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
@@ -548,14 +525,14 @@ static void SetLabel (Widget_t p_wTF, void *p_pvPlugin)
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     const char     *acTitle = gtk_entry_get_text (GTK_ENTRY (p_wTF));
 
-    memset (poConf->acTitle, 0, sizeof (poConf->acTitle));
-    strncpy (poConf->acTitle, acTitle, sizeof (poConf->acTitle) - 1);
+    g_free (poConf->acTitle);
+    poConf->acTitle = g_strdup (acTitle);
     gtk_label_set_text (GTK_LABEL (poMonitor->wTitle), poConf->acTitle);
 }/* SetLabel() */
 
 /**************************************************************/
 
-static void SetPeriod (Widget_t p_wSc, void *p_pvPlugin)
+static void SetPeriod (GtkWidget *p_wSc, void *p_pvPlugin)
 /* Set the update period - To be used by the timer */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
@@ -590,7 +567,7 @@ static void UpdateConf (void *p_pvPlugin)
 
 /**************************************************************/
 
-static void About (Widget_t w, void *unused)
+static void About (GtkWidget *w, void *unused)
 /* Called back when the About button in clicked */
 {
     xfce_dialog_show_info (NULL,
@@ -604,26 +581,27 @@ static void About (Widget_t w, void *unused)
 
 /**************************************************************/
 
-static void ChooseFont (Widget_t p_wPB, void *p_pvPlugin)
+static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
-    Widget_t        wDialog;
-    const char     *pcFont = poConf->acFont;
+    GtkWidget      *wDialog;
+    const char     *pcFont;
     int             iResponse;
 
     wDialog = gtk_font_selection_dialog_new (_("Font Selection"));
     gtk_window_set_transient_for (GTK_WINDOW (wDialog),
         GTK_WINDOW (poPlugin->oConf.wTopLevel));
-    if (*pcFont != '(') /* Default font */
+    if (strcmp (poConf->acFont, "(default)")) /* Default font */
         gtk_font_selection_dialog_set_font_name (GTK_FONT_SELECTION_DIALOG
-            (wDialog), pcFont);
+            (wDialog), poConf->acFont);
     iResponse = gtk_dialog_run (GTK_DIALOG (wDialog));
     if (iResponse == GTK_RESPONSE_OK) {
         pcFont = gtk_font_selection_dialog_get_font_name
             (GTK_FONT_SELECTION_DIALOG (wDialog));
-        if (pcFont && (strlen (pcFont) < sizeof (poConf->acFont) - 1)) {
-            strcpy (poConf->acFont, pcFont);
+        if (pcFont) {
+            g_free (poConf->acFont);
+            poConf->acFont = g_strdup (pcFont);
             gtk_button_set_label (GTK_BUTTON (p_wPB), poConf->acFont);
         }
     }
@@ -651,7 +629,6 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     GtkWidget *dlg, *vbox;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
-    const char     *pcFont = poConf->acFont;
 
     TRACE ("genmon_create_options()\n");
 
@@ -699,7 +676,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     g_signal_connect (GTK_WIDGET (poGUI->wSc_Period), "value_changed",
         G_CALLBACK (SetPeriod), poPlugin);
 
-    if (*pcFont != '(') /* Default font */
+    if (strcmp (poConf->acFont, "(default)")) /* Default font */
         gtk_button_set_label (GTK_BUTTON (poGUI->wPB_Font),
         poConf->acFont);
     g_signal_connect (G_OBJECT (poGUI->wPB_Font), "clicked",
@@ -736,7 +713,6 @@ static gboolean genmon_set_size (XfcePanelPlugin *plugin, int size, genmon_t *po
 /* Plugin API */
 /* Set the size of the panel-docked monitor */
 {
-
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
 
     if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
@@ -792,4 +768,3 @@ static void genmon_construct (XfcePanelPlugin *plugin)
 }
 
 XFCE_PANEL_PLUGIN_REGISTER (genmon_construct)
-

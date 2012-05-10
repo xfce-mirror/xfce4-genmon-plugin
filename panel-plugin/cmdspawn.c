@@ -4,7 +4,8 @@
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
  *                                  <http://rmlx.dyndns.org>
  *  Copyright (c) 2006 Julien Devemy <jujucece@gmail.com>
- *  
+ *  Copyright (c) 2012 John Lindgren <john.lindgren@aol.com>
+ *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
@@ -53,44 +54,34 @@
 
 
 /**********************************************************************/
-int genmon_Spawn (char *const argv[], char *const p_pcOutput,
-    const size_t p_BufferSize, const int wait)
+char *genmon_Spawn (char **argv, int wait)
 /**********************************************************************/
  /* Spawn a command and capture its output from stdout or stderr */
- /* Return 0 on success, otherwise -1 */
+ /* Return allocated string on success, otherwise NULL */
 {
     enum { OUT, ERR, OUT_ERR };
     enum { RD, WR, RD_WR };
-    const size_t    BufSafeSize = p_BufferSize - 1;
-    // Make sure that the output string will be NULL-terminated
+
     int             aaiPipe[OUT_ERR][RD_WR];
     pid_t           pid;
     struct pollfd   aoPoll[OUT_ERR];
-    int             fError;
     int             status;
     int             i, j, k;
+    char           *str = NULL;
 
-    if (p_BufferSize <= 0) {
-        fprintf (stderr, "Spawn() error: Wrong buffer size!\n");
-        return (-1);
-    }
-    memset (p_pcOutput, 0, p_BufferSize);
     if (!(*argv)) {
-        strncpy (p_pcOutput, "Spawn() error: No parameters passed!",
-            BufSafeSize);
-        return (-1);
+        fprintf (stderr, "Spawn() error: No parameters passed!\n");
+        return (NULL);
     }
     for (i = 0; i < OUT_ERR; i++)
         pipe (aaiPipe[i]);
     switch (pid = fork ()) {
         case -1:
-            i = errno;
-            snprintf (p_pcOutput, BufSafeSize, "fork(%d): %s", i,
-                strerror (i));
+            perror ("fork()");
             for (i = 0; i < OUT_ERR; i++)
                 for (j = 0; j < RD_WR; j++)
                     close (aaiPipe[i][j]);
-            return (-1);
+            return (NULL);
         case 0:
             close(0); /* stdin is not used in child */
             /* Redirect stdout/stderr to associated pipe's write-ends */
@@ -117,10 +108,7 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
     {
         status = waitpid (pid, 0, 0);
         if (status == -1) {
-            i = errno;
-            snprintf (p_pcOutput, BufSafeSize, "waitpid(%d): %s", i,
-                strerror (i));
-            fError = 1;
+            perror ("waitpid()");
             goto End;
         }
 
@@ -134,13 +122,23 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
         for (i = 0; i < OUT_ERR; i++)
             if (aoPoll[i].revents & POLLIN)
                 break;
-        if (i < OUT_ERR)
-            read (aaiPipe[i][RD], p_pcOutput, BufSafeSize);
-        fError = (i == OUT_ERR);
+        if (i == OUT_ERR)
+            goto End;
+
+        j = 0;
+        while (1) {
+            str = g_realloc (str, j + 256);
+            if ((k = read (aaiPipe[i][RD], str + j, 255)) > 0)
+                j += k;
+            else
+                break;
+        }
+        str[j] = 0;
 
         /* Remove trailing carriage return if any */
-        if (p_pcOutput[(i = strlen (p_pcOutput) - 1)] == '\n')
-            p_pcOutput[i] = 0;
+        i = strlen (str) - 1;
+        if (i >= 0 && str[i] == '\n')
+            str[i] = 0;
     }
 
     End:
@@ -148,44 +146,37 @@ int genmon_Spawn (char *const argv[], char *const p_pcOutput,
     for (i = 0; i < OUT_ERR; i++)
         close (aaiPipe[i][RD]);
 
-    return (-fError);
+    return (str);
 }// Spawn()
 
 
 /**********************************************************************/
-int genmon_SpawnCmd (const char *const p_pcCmdLine, char *const p_pcOutput,
-    const size_t p_BufferSize, const int wait)
+char *genmon_SpawnCmd (const char *p_pcCmdLine, int wait)
 /**********************************************************************/
  /* Parse a command line, spawn the command, and capture its output from stdout or stderr */
- /* Return 0 on success, otherwise -1 */
+ /* Return allocated string on success, otherwise NULL */
 {
     char          **argv;
     int             argc;
-    int             status;
     GError         *error = NULL;
-
-    if (strlen(p_pcCmdLine) == 0)
-        return (-1);
+    char           *str;
 
     /* Split the commandline into an argv array */
     if (!g_shell_parse_argv (p_pcCmdLine, &argc, &argv, &error)) {
-        char first[256];
-        
-        g_snprintf (first, sizeof(first), _("Error in command \"%s\""), 
-                    p_pcCmdLine);
+        char *first = g_strdup_printf (_("Error in command \"%s\""), p_pcCmdLine);
 
-        xfce_message_dialog (NULL, _("Xfce Panel"), 
+        xfce_message_dialog (NULL, _("Xfce Panel"),
                              GTK_STOCK_DIALOG_ERROR, first, error->message,
                              GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
 
         g_error_free (error);
-        return (-1);
+        g_free (first);
+        return (NULL);
     }
 
     /* Spawn the command and free allocated memory */
-    status = genmon_Spawn (argv, p_pcOutput, p_BufferSize, wait);
+    str = genmon_Spawn (argv, wait);
     g_strfreev (argv);
 
-    return (status);
+    return (str);
 }// SpawnCmd()
-

@@ -4,7 +4,8 @@
  *  Copyright (c) 2004 Roger Seguin <roger_seguin@msn.com>
  *                                  <http://rmlx.dyndns.org>
  *  Copyright (c) 2006 Julien Devemy <jujucece@gmail.com>
- *  
+ *  Copyright (c) 2012 John Lindgren <john.lindgren@aol.com>
+ *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
@@ -23,27 +24,7 @@
 #ifndef _cmdspawn_h
 #define _cmdspawn_h
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+char *genmon_Spawn (char **argv, int wait);
+char *genmon_SpawnCmd (const char *cmdline, int wait);
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <inttypes.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-    int genmon_Spawn (char *const argv[],
-        char *const StdOutCapture,
-        const size_t StdOutSize, const int wait);
-    int genmon_SpawnCmd (const char *const cmdline,
-        char *const StdOutCapture,
-        const size_t StdOutSize, const int wait);
-        /* Parse a command line, spawn the command, and capture its output from stdout or stderr */
-        /* Return 0 on success, otherwise -1 */
-#ifdef __cplusplus
-}/* extern "C" */
-#endif
-
-#endif/* _cmdspawn_h */
+#endif /* _cmdspawn_h */
