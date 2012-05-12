@@ -1,3 +1,10 @@
+3.4 (2012/05/12)
+================
+ - Port from libxfcegui4 to libxfce4ui
+ - Install as a shared library rather than an executable
+ - No longer uses troublesome fixed-length text buffers
+ - Bug fixes
+
 3.3.1 (2012/01/02)
 ==================
 - Bug fixes, compiler and GTK+ warning fixes
