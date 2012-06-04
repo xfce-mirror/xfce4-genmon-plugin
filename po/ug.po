@@ -1,11 +1,11 @@
-# Uyghur translations for xfce4-genmon-plugin package
+# Uyghur translations for xfce4-genmon-plugin
 # Copyright (C) 2008 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce package.
 # Gheyret T.Kenji <gheyret@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce 4-genmon-plugin 3.1\n"
+"Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2008-10-11 15:49+0900\n"
@@ -50,7 +50,7 @@ msgstr "ئەننى كۆرسىتىش ئۈچۈن بەلگە قويۇڭ."
 
 #: ../panel-plugin/config_gui.c:175
 msgid "Input the plugin label, then press <Enter>"
-msgstr "قىستۇرما ئېنىنى كىرگۈزۈپ <Enter> نى بېسىڭ"
+msgstr "قىستۇرما ئەنىنى كىرگۈزۈپ <Enter> نى بېسىڭ"
 
 #: ../panel-plugin/config_gui.c:178
 msgid "(genmon)"
@@ -73,8 +73,9 @@ msgid ""
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr "%s %s - ジェネリックモニタ\n"
-"スクリプト/プログラムを定期的に実行し、その出力結果をパネルに表示します\n"
+msgstr "%s %s - ئادەتتىكى كۆزەتكۈ\n"
+"قوليازما/پروگراممىلارنى قەرەللىك ئىجرا قىلىپ، كۆزنەكتە نەتىجىسىنى كۆرسىتىدۇ\n"
+"\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
@@ -84,4 +85,4 @@ msgstr "خەت نۇسخا تاللاش"
 
 #: ../panel-plugin/main.c:632
 msgid "Configuration"
-msgstr "تەڭشەك"
+msgstr "سەپلىمە"
