@@ -72,7 +72,6 @@ msgid "Could not run \"%s\""
 msgstr "«%s» نى ئىجرا قىلغىلى بولمىدى"
 
 #: ../panel-plugin/main.c:574
-#, fuzzy
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel\n"
@@ -87,9 +86,9 @@ msgstr ""
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
 #: ../panel-plugin/main.c:578
-#, fuzzy, c-format
+#, c-format
 msgid "%s %s - Generic Monitor"
-msgstr "ئادەتتىكى كۆزەتكۈ"
+msgstr "%s %s - ئادەتتىكى كۆزەتچى"
 
 #: ../panel-plugin/main.c:592
 msgid "Font Selection"
