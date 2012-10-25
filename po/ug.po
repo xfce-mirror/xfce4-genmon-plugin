@@ -1,21 +1,20 @@
-# Uyghur translations for xfce4-genmon-plugin
-# Copyright (C) 2008 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce package.
-# Gheyret T.Kenji <gheyret@gmail.com>, 2010.
-# 
+# Uyghur translation for xfce4-genmon-plugin.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji <gheyret@gmail.com>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-genmon-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-20 00:48+0000\n"
-"PO-Revision-Date: 2008-10-11 15:49+0900\n"
-"Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
+"POT-Creation-Date: 2012-10-24 03:00+0000\n"
+"PO-Revision-Date: 2011-11-09 16:10+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/cmdspawn.c:166
 #, c-format
@@ -24,7 +23,7 @@ msgstr "بۇيرۇق «%s» نىڭدىكى خاتالىق"
 
 #: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
-msgstr "ئېكس ف س ئې كۆزنىكى (Xfce Panel)"
+msgstr "Xfce تاختىسى"
 
 #: ../panel-plugin/config_gui.c:81
 msgid "Command"
@@ -64,7 +63,7 @@ msgstr "فونتنى ئۆزگەرتمەكچى بولسىڭىز بۇ يەرنى �
 
 #: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
-msgstr "(كۆڭۈلدىكى فونت)"
+msgstr "(كۆڭۈلدىكى خەت نۇسخىسى)"
 
 #: ../panel-plugin/main.c:93
 #, c-format
@@ -78,9 +77,7 @@ msgid ""
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"%s %s - ئادەتتىكى كۆزەتكۈ\n"
-"قوليازما/پروگراممىلارنى قەرەللىك ئىجرا قىلىپ، كۆزنەكتە نەتىجىسىنى كۆرسىتىدۇ\n"
+msgstr "قوليازما/پروگراممىلارنى قەرەللىك ئىجرا قىلىپ، كۆزنەكتە نەتىجىسىنى كۆرسىتىدۇ\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
@@ -105,6 +102,3 @@ msgstr "ئادەتتىكى كۆزەتكۈ"
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "بۇيرۇقنىڭ ئىجرا نەتىجىسىنى كۆرسىتىدۇ."
-
-#~ msgid "About..."
-#~ msgstr "ھەققىدە…"
