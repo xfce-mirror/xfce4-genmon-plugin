@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Саша Петровић <salepetronije@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-25 18:00+0000\n"
+"PO-Revision-Date: 2013-01-29 13:57+0100\n"
+"Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
+"Language-Team: српски <>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: ../panel-plugin/cmdspawn.c:166
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Грешка у у наредби „%s“"
+
+#: ../panel-plugin/cmdspawn.c:168
+#: ../panel-plugin/main.c:94
+msgid "Xfce Panel"
+msgstr "ИксФЦЕ Панел"
+
+#: ../panel-plugin/config_gui.c:81
+msgid "Command"
+msgstr "Наредба"
+
+#: ../panel-plugin/config_gui.c:95
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Унесите наредбу љуске за извршавање, затим притисните <Врати>"
+
+#: ../panel-plugin/config_gui.c:114
+msgid "Interval between 2 consecutive spawns"
+msgstr "Раздобље између 2 узастопна извршавања"
+
+#: ../panel-plugin/config_gui.c:118
+msgid "Period (s) "
+msgstr "Раздобље (а)"
+
+#: ../panel-plugin/config_gui.c:126
+msgid "Label"
+msgstr "Натпис"
+
+#: ../panel-plugin/config_gui.c:131
+msgid "Tick to display label"
+msgstr "Означи за приказ натписа"
+
+#: ../panel-plugin/config_gui.c:140
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Унесите натпис прикључка, затим притисните <Врати>"
+
+#: ../panel-plugin/config_gui.c:143
+msgid "(genmon)"
+msgstr "(пратилац)"
+
+#: ../panel-plugin/config_gui.c:152
+msgid "Press to change font"
+msgstr "Притисните за измену словног лика"
+
+#: ../panel-plugin/config_gui.c:167
+msgid "(Default font)"
+msgstr "(Подразумевани словни лик)"
+
+#: ../panel-plugin/main.c:93
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Нисам успео да покренем „%s“"
+
+#: ../panel-plugin/main.c:574
+msgid ""
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr ""
+"Повремено извршава скрипте/програм, захвата њихов излаз, и приказује излазну ниску на панелу\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:578
+#, c-format
+msgid "%s %s - Generic Monitor"
+msgstr "%s %s - општи пратилац"
+
+#: ../panel-plugin/main.c:592
+msgid "Font Selection"
+msgstr "Избор словног лика"
+
+#: ../panel-plugin/main.c:637
+msgid "Configuration"
+msgstr "Поставке"
+
+#: ../panel-plugin/main.c:647
+#: ../panel-plugin/genmon.desktop.in.h:1
+msgid "Generic Monitor"
+msgstr "Општи пратиоц"
+
+#: ../panel-plugin/genmon.desktop.in.h:2
+msgid "Show output of a command."
+msgstr "Прикажи излаз извршене наредбе."
+
