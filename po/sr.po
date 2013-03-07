@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Саша Петровић <salepetronije@gmail.com>, 2013.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-06 10:18+0000\n"
-"PO-Revision-Date: 2013-01-29 13:57+0100\n"
+"PO-Revision-Date: 2013-03-07 16:56+0100\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: српски <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2) \n"
 
 #: ../panel-plugin/cmdspawn.c:166
 #, c-format
@@ -101,7 +102,7 @@ msgstr "Поставке"
 
 #: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
-msgstr "Општи пратиоц"
+msgstr "Општи пратилац"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
