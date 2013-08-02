@@ -1,103 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Necdet Yücel <necdetyucel@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4 genmon plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-15 10:07+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
-"Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
+"POT-Creation-Date: 2013-07-03 21:01+0200\n"
+"PO-Revision-Date: 2013-08-02 13:25+0000\n"
+"Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/xfce/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: TURKEY\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "\"%s \" komutunda hata"
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:105
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
 msgstr "Xfce Panel"
 
-#: ../panel-plugin/config_gui.c:87
-msgid "About..."
-msgstr "Hakkında..."
-
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:677
-#: ../panel-plugin/genmon.desktop.in.in.h:1
-msgid "Generic Monitor"
-msgstr "Genel İzleyici"
-
-#: ../panel-plugin/config_gui.c:116
+#: ../panel-plugin/config_gui.c:81
 msgid "Command"
 msgstr "Komut"
 
-#: ../panel-plugin/config_gui.c:130
+#: ../panel-plugin/config_gui.c:95
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Komutu girdikten sonra <Enter> tuşuna basınız"
 
-#: ../panel-plugin/config_gui.c:149
+#: ../panel-plugin/config_gui.c:114
 msgid "Interval between 2 consecutive spawns"
 msgstr "Ardışık çalıştırılacak 2 komut arasındaki zaman aralığı"
 
-#: ../panel-plugin/config_gui.c:153
+#: ../panel-plugin/config_gui.c:118
 msgid "Period (s) "
 msgstr "Periyot"
 
-#: ../panel-plugin/config_gui.c:161
+#: ../panel-plugin/config_gui.c:126
 msgid "Label"
 msgstr "Etiket"
 
-#: ../panel-plugin/config_gui.c:166
+#: ../panel-plugin/config_gui.c:131
 msgid "Tick to display label"
 msgstr "Etiketi görüntülemek için işaretleyin"
 
-#: ../panel-plugin/config_gui.c:175
+#: ../panel-plugin/config_gui.c:140
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Eklenti etiketini girdikten sonra, <Enter> tuşuna basınız"
 
-#: ../panel-plugin/config_gui.c:178
+#: ../panel-plugin/config_gui.c:143
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:187
+#: ../panel-plugin/config_gui.c:152
 msgid "Press to change font"
 msgstr "Yazı tipini değiştirmek için basınız"
 
-#: ../panel-plugin/config_gui.c:202
+#: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
 msgstr "(Öntanımlı yazı tipi)"
 
-#: ../panel-plugin/main.c:104
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "\"%s\" çalıştırılamadı"
 
-#: ../panel-plugin/main.c:602
-#, c-format
+#: ../panel-plugin/main.c:574
 msgid ""
-"%s %s - Generic Monitor\n"
 "Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
 msgstr ""
-"%s %s - Genel İzleyici\n"
-"Periyodik olarak bir betik ya da uygulamayı çalıştırıp, onların çıktısını ve sonuçlarını panelde gösterir\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:620
+#: ../panel-plugin/main.c:578
+#, c-format
+msgid "%s %s - Generic Monitor"
+msgstr ""
+
+#: ../panel-plugin/main.c:592
 msgid "Font Selection"
 msgstr "Yazıtipi Seçimi"
 
-#: ../panel-plugin/main.c:665
+#: ../panel-plugin/main.c:637
 msgid "Configuration"
 msgstr "Yapılandırma"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
-msgid "Show output of a command. "
-msgstr "Bir komutun çıktısını göster."
+#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+msgid "Generic Monitor"
+msgstr "Genel İzleyici"
+
+#: ../panel-plugin/genmon.desktop.in.h:2
+msgid "Show output of a command."
+msgstr "Komutun çıktısını göster."
