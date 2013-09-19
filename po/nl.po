@@ -1,29 +1,28 @@
-# Dutch translation of the xfce4-genmon-plugin package.
-# Copyright (C) The Xfce development team.
-# This file is distributed under the same license as the
-# xfce4-genmon-plugin package.
-# Pjotr <pjotrvertaalt@gmail.com> , 2011 - 2013.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-31 06:30+0000\n"
-"PO-Revision-Date: 2011-09-09 11:34+0200\n"
-"Last-Translator: Pjotr pjotrvertaalt@gmail.com\n"
-"Language-Team: Dutch (Flemish)\n"
+"POT-Creation-Date: 2013-07-03 21:01+0200\n"
+"PO-Revision-Date: 2013-09-19 14:38+0000\n"
+"Last-Translator: Pjotr123 <pjotrvertaalt@gmail.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/xfce/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl (Dutch)\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Fout in opdracht '%s'"
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
 msgstr "Xfce-werkbalk"
 
@@ -37,11 +36,11 @@ msgstr "Voer de uit te zaaien opdracht in, en druk dan op <Enter>"
 
 #: ../panel-plugin/config_gui.c:114
 msgid "Interval between 2 consecutive spawns"
-msgstr "Interval tussen twee achtereenvolgende uitzaaiingen"
+msgstr "Tussenpoze tussen twee achtereenvolgende uitzaaiingen"
 
 #: ../panel-plugin/config_gui.c:118
 msgid "Period (s) "
-msgstr "Periode (s) "
+msgstr "Tijdvak(ken) "
 
 #: ../panel-plugin/config_gui.c:126
 msgid "Label"
@@ -67,46 +66,36 @@ msgstr "Druk in om lettertype te veranderen"
 msgid "(Default font)"
 msgstr "(Standaardlettertype)"
 
-#: ../panel-plugin/main.c:103
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Kon '%s' niet draaien"
 
-#: ../panel-plugin/main.c:595
+#: ../panel-plugin/main.c:574
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"%s %s - Generieke monitor\n"
-"Zaait periodiek een script/programma uit, vangt de uitvoer en toont het "
-"resulterende tekstsnoer in de werkbalk\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr "Zaait periodiek een script/programma uit, vangt de uitvoer en toont het resulterende tekstsnoer in de werkbalk\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:599
+#: ../panel-plugin/main.c:578
 #, c-format
 msgid "%s %s - Generic Monitor"
 msgstr "%s %s - Generieke monitor"
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:592
 msgid "Font Selection"
 msgstr "Lettertype-selectie"
 
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:637
 msgid "Configuration"
 msgstr "Configuratie"
 
-#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Generieke monitor"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
+#: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "Toon uitvoer van een opdracht. "
-
-#~ msgid "About..."
-#~ msgstr "Over..."
