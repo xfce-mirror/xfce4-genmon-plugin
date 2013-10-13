@@ -1,26 +1,29 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# shlyapugin <shlyapugin@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 11:15+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Andriy Kovtun <kovtunos@yandex.ru>\n"
-"Language-Team: Russian <xfce4-dev@xfce.org>\n"
+"POT-Creation-Date: 2013-07-03 21:01+0200\n"
+"PO-Revision-Date: 2013-10-13 19:02+0000\n"
+"Last-Translator: shlyapugin <shlyapugin@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/xfce/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"X-Poedit-Language: Russian\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: Rusian Federation\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Ошибка в команде \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
 msgstr "Панель Xfce"
 
@@ -46,7 +49,7 @@ msgstr "Метка"
 
 #: ../panel-plugin/config_gui.c:131
 msgid "Tick to display label"
-msgstr "Отметьте для отображения метки"
+msgstr "Используйте этот параметр для отображения метки"
 
 #: ../panel-plugin/config_gui.c:140
 msgid "Input the plugin label, then press <Enter>"
@@ -64,46 +67,36 @@ msgstr "Нажмите для изменения шрифта"
 msgid "(Default font)"
 msgstr "(Шрифт по умолчанию)"
 
-#: ../panel-plugin/main.c:103
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Не удалось запустить \"%s\""
 
-#: ../panel-plugin/main.c:595
+#: ../panel-plugin/main.c:574
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"%s %s - Общий монитор\n"
-"Програма/скрипт, которая выполняется периодически, отображая вывод данных на "
-"панели\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr "Циклически выполняет программу/скрипт, захватывает вывод и отображает результирующую строку на панели\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:599
+#: ../panel-plugin/main.c:578
 #, c-format
 msgid "%s %s - Generic Monitor"
 msgstr "%s %s - Общий монитор"
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:592
 msgid "Font Selection"
 msgstr "Выбор шрифта"
 
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:637
 msgid "Configuration"
 msgstr "Конфигурация"
 
-#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Общий монитор"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
+#: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
-msgstr "Отображает результат команды."
-
-#~ msgid "About..."
-#~ msgstr "О программе..."
+msgstr "Отображает результат команды"
