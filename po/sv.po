@@ -1,89 +1,102 @@
-# Swedish translation for xfce4-genmon-plugin.
-# Copyright (C) 2008 Free Software Foundation, Inc.
-# This file is distributed under the same license as the xfce4-genmon-plugin package.
-# Daniel Nylander <po@danielnylander.se>, 2008.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Daniel Nylander <po@danielnylander.se>, 2008
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2009-12-16 18:04+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"POT-Creation-Date: 2013-07-03 21:01+0200\n"
+"PO-Revision-Date: 2014-02-16 08:45+0000\n"
+"Last-Translator: PavelNicklasson <pavelnicklasson@bahnhof.se>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/xfce/language/sv/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/config_gui.c:87
-msgid "About..."
-msgstr "Om..."
+#: ../panel-plugin/cmdspawn.c:166
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Fel i kommando  \"%s\""
 
-#: ../panel-plugin/config_gui.c:103
-#: ../panel-plugin/main.c:644
-msgid "Generic Monitor"
-msgstr "Allmän övervakare"
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+msgid "Xfce Panel"
+msgstr "Xfce Panel"
 
-#: ../panel-plugin/config_gui.c:116
+#: ../panel-plugin/config_gui.c:81
 msgid "Command"
 msgstr "Kommando"
 
-#: ../panel-plugin/config_gui.c:130
+#: ../panel-plugin/config_gui.c:95
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Mata in skalkommandot att köra och tryck på <Enter>"
 
-#: ../panel-plugin/config_gui.c:149
+#: ../panel-plugin/config_gui.c:114
 msgid "Interval between 2 consecutive spawns"
 msgstr "Intervall mellan två efterföljande körningar"
 
-#: ../panel-plugin/config_gui.c:153
+#: ../panel-plugin/config_gui.c:118
 msgid "Period (s) "
 msgstr "Period (s) "
 
-#: ../panel-plugin/config_gui.c:161
+#: ../panel-plugin/config_gui.c:126
 msgid "Label"
 msgstr "Etikett"
 
-#: ../panel-plugin/config_gui.c:166
+#: ../panel-plugin/config_gui.c:131
 msgid "Tick to display label"
 msgstr "Klicka för att visa etikett"
 
-#: ../panel-plugin/config_gui.c:175
+#: ../panel-plugin/config_gui.c:140
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Mata in etikett för insticksmodulen och tryck på <Enter>"
 
-#: ../panel-plugin/config_gui.c:178
+#: ../panel-plugin/config_gui.c:143
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:187
+#: ../panel-plugin/config_gui.c:152
 msgid "Press to change font"
 msgstr "Tryck för att byta typsnitt"
 
-#: ../panel-plugin/config_gui.c:202
+#: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
 msgstr "(Standardtypsnitt)"
 
-#: ../panel-plugin/main.c:569
+#: ../panel-plugin/main.c:93
 #, c-format
+msgid "Could not run \"%s\""
+msgstr "Kunde inte köra \"%s\""
+
+#: ../panel-plugin/main.c:574
 msgid ""
-"%s %s - Generic Monitor\n"
 "Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"%s %s - Allmän övervakare\n"
-"Kör periodvis ett skript/program, fångar dess utdata och visar resultatet i panelen\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr "Genererar cykliskt ett skript/program, fångar dess utmatning och visar den resulterande strängen i panelen\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:578
+#, c-format
+msgid "%s %s - Generic Monitor"
+msgstr "%s %s - Allmän övervakare"
+
+#: ../panel-plugin/main.c:592
 msgid "Font Selection"
 msgstr "Typsnittsval"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:637
 msgid "Configuration"
 msgstr "Konfiguration"
 
+#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+msgid "Generic Monitor"
+msgstr "Allmän övervakare"
+
+#: ../panel-plugin/genmon.desktop.in.h:2
+msgid "Show output of a command."
+msgstr "Visa utmatning av ett kommando"
