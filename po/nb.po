@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# kingu <comradekingu@gmail.com>, 2014
+# haarek <haarektrans@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-03 21:01+0200\n"
+"PO-Revision-Date: 2014-05-18 20:04+0000\n"
+"Last-Translator: kingu <comradekingu@gmail.com>\n"
+"Language-Team: Norwegian Bokmål (http://www.transifex.com/projects/p/xfce-panel-plugins/language/nb/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/cmdspawn.c:166
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Feil i kommando «%s»"
+
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+msgid "Xfce Panel"
+msgstr "Xfce Panel"
+
+#: ../panel-plugin/config_gui.c:81
+msgid "Command"
+msgstr "Kommando"
+
+#: ../panel-plugin/config_gui.c:95
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Mat inn skallkommando som skal yngle, trykk så <Enter>"
+
+#: ../panel-plugin/config_gui.c:114
+msgid "Interval between 2 consecutive spawns"
+msgstr "Intervall mellom 2 påfølgende ynglinger"
+
+#: ../panel-plugin/config_gui.c:118
+msgid "Period (s) "
+msgstr "Periode(r)"
+
+#: ../panel-plugin/config_gui.c:126
+msgid "Label"
+msgstr "Etikett"
+
+#: ../panel-plugin/config_gui.c:131
+msgid "Tick to display label"
+msgstr "Huk av for å vise etikett"
+
+#: ../panel-plugin/config_gui.c:140
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Mat inn tilleggs-etikett, trykk så <Enter>"
+
+#: ../panel-plugin/config_gui.c:143
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:152
+msgid "Press to change font"
+msgstr "Trykk for å endre skrifttype"
+
+#: ../panel-plugin/config_gui.c:167
+msgid "(Default font)"
+msgstr "(Standard skrifttype)"
+
+#: ../panel-plugin/main.c:93
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Klarte ikke å kjøre «%s»"
+
+#: ../panel-plugin/main.c:574
+msgid ""
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
+"\n"
+"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
+"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr "Oversiktsprogram, kjører et skript og viser utdata og viser derfra en streng i panelet\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
+
+#: ../panel-plugin/main.c:578
+#, c-format
+msgid "%s %s - Generic Monitor"
+msgstr "%s %s - Generisk oversiktsprogram"
+
+#: ../panel-plugin/main.c:592
+msgid "Font Selection"
+msgstr "Fontvalg"
+
+#: ../panel-plugin/main.c:637
+msgid "Configuration"
+msgstr "Konfigurasjon"
+
+#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+msgid "Generic Monitor"
+msgstr "Generisk oversiktsprogram"
+
+#: ../panel-plugin/genmon.desktop.in.h:2
+msgid "Show output of a command."
+msgstr "Vis utdata fra en kommando"
