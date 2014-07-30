@@ -1,31 +1,32 @@
-# German translations for xfce4-genmon-plugin package
-# German messages for xfce4-genmon-plugin.
-# Copyright (C) 2007 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-genmon-plugin package.
-# Fabian Nowak <timystery@arcor.de>, 2007.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Fabian Nowak <timystery@arcor.de>, 2007
+# Tobias Bannert, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin 3.1\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 17:06+0000\n"
-"PO-Revision-Date: 2007-12-06 23:44+0100\n"
-"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
-"Language-Team: German\n"
+"POT-Creation-Date: 2013-07-03 21:01+0200\n"
+"PO-Revision-Date: 2014-07-30 13:31+0000\n"
+"Last-Translator: Tobias Bannert\n"
+"Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Fehler im Befehl »%s«"
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
-msgstr "Xfce Leiste"
+msgstr "Xfce-Leiste"
 
 #: ../panel-plugin/config_gui.c:81
 msgid "Command"
@@ -33,7 +34,7 @@ msgstr "Befehl:"
 
 #: ../panel-plugin/config_gui.c:95
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Geben Sie den auszuführenden Shell-Befehl ein, und drücken Sie <Enter>"
+msgstr "Den auszuführenden Shell-Befehl eingeben, und <Eingabe> drücken"
 
 #: ../panel-plugin/config_gui.c:114
 msgid "Interval between 2 consecutive spawns"
@@ -53,7 +54,7 @@ msgstr "Anwählen, um die Beschriftung anzuzeigen"
 
 #: ../panel-plugin/config_gui.c:140
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Geben Sie die Beschriftung für das Plugin ein, und drücken Sie <Enter>"
+msgstr "Die Beschriftung für die Erweiterung eingeben, und <Eingabe> drücken"
 
 #: ../panel-plugin/config_gui.c:143
 msgid "(genmon)"
@@ -61,52 +62,42 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:152
 msgid "Press to change font"
-msgstr "Drücken Sie hier, um die Schrift zu ändern"
+msgstr "Hier klicken, um die Schrift zu ändern"
 
 #: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
 msgstr "(Standardschrift)"
 
-#: ../panel-plugin/main.c:103
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Der Befehl »%s« konnte nicht ausgeführt werden"
 
-#: ../panel-plugin/main.c:595
+#: ../panel-plugin/main.c:574
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"%s %s - Allgemeine Überwachung\n"
-"Ruft in regelmäßigen Abständen ein Skript auf, zeichnet dessen Ausgabe auf "
-"und zeigt das Ergebnis in der Leiste.\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr "%s %s - Allgemeine Überwachung\nRuft in regelmäßigen Abständen ein Skript auf, zeichnet dessen Ausgabe auf und zeigt das Ergebnis in der Leiste an.\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:599
+#: ../panel-plugin/main.c:578
 #, c-format
 msgid "%s %s - Generic Monitor"
 msgstr "%s %s - Allgemeine Überwachung"
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:592
 msgid "Font Selection"
 msgstr "Schriftauswahl"
 
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:637
 msgid "Configuration"
 msgstr "Einstellungen"
 
-#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Allgemeine Überwachung"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
+#: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "Zeigt die Ausgabe eines Befehls an."
-
-#~ msgid "About..."
-#~ msgstr "Über…"
