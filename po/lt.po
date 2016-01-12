@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Moo, 2015
+# Moo, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:01+0200\n"
-"PO-Revision-Date: 2015-08-15 12:01+0000\n"
+"PO-Revision-Date: 2016-01-12 22:46+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -83,11 +83,11 @@ msgstr "Cikliškai vykdo scenarijų/programą, paima jos išvestį ir skydelyje 
 #: ../panel-plugin/main.c:578
 #, c-format
 msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Bendrinis Monitorius"
+msgstr "%s %s - Bendrinis monitorius"
 
 #: ../panel-plugin/main.c:592
 msgid "Font Selection"
-msgstr "Šrifto Pasirinkimas"
+msgstr "Šrifto pasirinkimas"
 
 #: ../panel-plugin/main.c:637
 msgid "Configuration"
@@ -95,7 +95,7 @@ msgstr "Konfigūracija"
 
 #: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
-msgstr "Bendrinis Monitorius"
+msgstr "Bendrinis monitorius"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
