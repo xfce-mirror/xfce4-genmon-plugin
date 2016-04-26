@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:01+0200\n"
-"PO-Revision-Date: 2015-07-19 17:19+0000\n"
+"PO-Revision-Date: 2016-04-26 14:24+0000\n"
 "Last-Translator: Påvel Nicklasson <pavelnicklasson@bahnhof.se>\n"
-"Language-Team: Swedish (http://www.transifex.com/p/xfce-panel-plugins/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,11 +62,11 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:152
 msgid "Press to change font"
-msgstr "Tryck för att byta teckensnitt"
+msgstr "Tryck för att byta typsnitt"
 
 #: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
-msgstr "(Standardteckensnitt)"
+msgstr "(Standardtypsnitt)"
 
 #: ../panel-plugin/main.c:93
 #, c-format
@@ -88,7 +88,7 @@ msgstr "%s %s - Allmän övervakning"
 
 #: ../panel-plugin/main.c:592
 msgid "Font Selection"
-msgstr "Teckensnittsval"
+msgstr "Typsnittsval"
 
 #: ../panel-plugin/main.c:637
 msgid "Configuration"
