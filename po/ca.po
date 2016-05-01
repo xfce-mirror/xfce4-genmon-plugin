@@ -1,31 +1,30 @@
-# Catalan translation of xfce4-genmon-plugin.
-# Copyright (C) 2006 xfce4-genmon-plugin's copyright holder.
-# This file is distributed under the same license as the
-# xfce4-genmon-plugin package.
-# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2006.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# 
+# Translators:
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2006
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin 2.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-31 14:24+0000\n"
-"PO-Revision-Date: 2006-12-03 11:32+0100\n"
-"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
-"Language-Team: Catalan <xfce-i18n@xfce.org>\n"
+"POT-Creation-Date: 2013-07-03 21:01+0200\n"
+"PO-Revision-Date: 2016-05-01 15:27+0000\n"
+"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
+"Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
-msgstr "Error en l'rdre «%s»"
+msgstr "Error a l'ordre «%s»"
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
 msgstr "Quadre de Xfce"
 
@@ -69,46 +68,36 @@ msgstr "Clicar per canviar la font"
 msgid "(Default font)"
 msgstr "(tipus de lletra per defecte)"
 
-#: ../panel-plugin/main.c:103
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "No s'ha pogut executar «%s»"
 
-#: ../panel-plugin/main.c:595
+#: ../panel-plugin/main.c:574
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
+"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"%s %s - Monitor genèric\n"
-"executa un fitxer de seqüència («script») o programa de forma cíclica, "
-"captura el text de la seva sortida i el mostra al quadre.\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr "%s %s - Monitor genèric\nexecuta un fitxer de seqüència («script») o programa de forma cíclica, captura el text de la seva sortida i el mostra al quadre.\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:599
+#: ../panel-plugin/main.c:578
 #, c-format
 msgid "%s %s - Generic Monitor"
 msgstr "%s %s - Monitor genèric"
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:592
 msgid "Font Selection"
 msgstr "Selecció del tipus de lletra"
 
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:637
 msgid "Configuration"
 msgstr "Configuració"
 
-#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor genèric"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
+#: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "Mostra la sortida d'una ordre."
-
-#~ msgid "About..."
-#~ msgstr "Quant a…"
