@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:01+0200\n"
-"PO-Revision-Date: 2016-05-01 15:27+0000\n"
+"PO-Revision-Date: 2016-05-01 18:45+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Error a l'ordre «%s»"
 
 #: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
-msgstr "Quadre de Xfce"
+msgstr "Plafó de Xfce"
 
 #: ../panel-plugin/config_gui.c:81
 msgid "Command"
@@ -79,7 +79,7 @@ msgid ""
 "\n"
 "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
 "(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr "%s %s - Monitor genèric\nexecuta un fitxer de seqüència («script») o programa de forma cíclica, captura el text de la seva sortida i el mostra al quadre.\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
+msgstr "Genera cíclicament un script/programa, captura la seva sortida i mostra la cadena resultant al plafó\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
 #: ../panel-plugin/main.c:578
 #, c-format
