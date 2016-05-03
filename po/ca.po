@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:01+0200\n"
-"PO-Revision-Date: 2016-05-02 19:17+0000\n"
+"PO-Revision-Date: 2016-05-03 16:29+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "Clicar per canviar la font"
 
 #: ../panel-plugin/config_gui.c:167
 msgid "(Default font)"
-msgstr "(tipus de lletra per defecte)"
+msgstr "(tipus de lletra predeterminada)"
 
 #: ../panel-plugin/main.c:93
 #, c-format
