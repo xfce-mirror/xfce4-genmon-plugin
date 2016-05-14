@@ -151,7 +151,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     
     gtk_widget_set_halign(GTK_CONTAINER (wPB_Font), GTK_ALIGN_START);
 
-    hbox4 = gtk_hbox_new (FALSE, 2);
+    hbox4 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
     gtk_widget_show (hbox4);
     gtk_container_add (GTK_CONTAINER (alignment3), hbox4);
 
