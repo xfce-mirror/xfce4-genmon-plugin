@@ -84,7 +84,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
         (GtkAttachOptions) (GTK_FILL),
         (GtkAttachOptions) (0), 0, 0);
     gtk_label_set_justify (GTK_LABEL (label1), GTK_JUSTIFY_LEFT);
-    gtk_misc_set_alignment (GTK_MISC (label1), 0, 0.5);
+    gtk_widget_set_valign (label1, GTK_ALIGN_CENTER);
 
     wTF_Cmd = gtk_entry_new ();
     gtk_widget_show (wTF_Cmd);
@@ -121,7 +121,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
         (GtkAttachOptions) (GTK_FILL),
         (GtkAttachOptions) (0), 0, 0);
     gtk_label_set_justify (GTK_LABEL (label2), GTK_JUSTIFY_LEFT);
-    gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+    gtk_widget_set_valign (label2, GTK_ALIGN_CENTER);
 
     wTB_Title = gtk_check_button_new_with_mnemonic (_("Label"));
     gtk_widget_show (wTB_Title);
