@@ -142,7 +142,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Title), 16);
     gtk_entry_set_text (GTK_ENTRY (wTF_Title), _("(genmon)"));
 
-    hseparator10 = gtk_hseparator_new ();
+    hseparator10 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_widget_show (hseparator10);
     gtk_box_pack_start (GTK_BOX (vbox1), hseparator10, FALSE, FALSE, 0);
 
