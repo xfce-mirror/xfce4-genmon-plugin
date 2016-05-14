@@ -343,9 +343,9 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
     if (orientation == GTK_ORIENTATION_HORIZONTAL)
-        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_BOTTOM_TO_TOP);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_VERTICAL);
     else
-        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_LEFT_TO_RIGHT);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_HORIZONTAL);
 
     return poPlugin;
 }/* genmon_create_control() */
@@ -696,13 +696,13 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
 
-    xfce_hvbox_set_orientation (XFCE_HVBOX (poMonitor->wBox), p_iOrientation);
-    xfce_hvbox_set_orientation (XFCE_HVBOX (poMonitor->wImgBox), p_iOrientation);
+    gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBox), p_iOrientation);
+    gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wImgBox), p_iOrientation);
 
     if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL)
-        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_BOTTOM_TO_TOP);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_VERTICAL);
     else
-        gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(poMonitor->wBar), GTK_PROGRESS_LEFT_TO_RIGHT);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_HORIZONTAL);
 
     SetMonitorFont (poPlugin);
 
