@@ -589,16 +589,15 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
     const char     *pcFont;
     int             iResponse;
 
-    wDialog = gtk_font_selection_dialog_new (_("Font Selection"));
+    wDialog = gtk_font_chooser_dialog_new (_("Font Selection")
+        GTK_WINDOW(gtk_widget_get_toplevel(p_wPB)));
     gtk_window_set_transient_for (GTK_WINDOW (wDialog),
         GTK_WINDOW (poPlugin->oConf.wTopLevel));
     if (strcmp (poConf->acFont, "(default)")) /* Default font */
-        gtk_font_selection_dialog_set_font_name (GTK_FONT_SELECTION_DIALOG
-            (wDialog), poConf->acFont);
+        gtk_font_chooser_set_font (GTK_FONT_CHOOSER (wDialog), poConf->acFont);
     iResponse = gtk_dialog_run (GTK_DIALOG (wDialog));
     if (iResponse == GTK_RESPONSE_OK) {
-        pcFont = gtk_font_selection_dialog_get_font_name
-            (GTK_FONT_SELECTION_DIALOG (wDialog));
+        pcFont = gtk_font_chooser_get_font (GTK_FONT_CHOOSER (wDialog));
         if (pcFont) {
             g_free (poConf->acFont);
             poConf->acFont = g_strdup (pcFont);
