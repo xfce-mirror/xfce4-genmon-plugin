@@ -58,7 +58,6 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *label1;
     GtkWidget      *wTF_Cmd;
     GtkWidget      *eventbox1;
-    GtkWidget      *alignment1;
     GtkObject      *wSc_Period_adj;
     GtkWidget      *wSc_Period;
     GtkWidget      *label2;
@@ -66,7 +65,6 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *wTF_Title;
     GtkWidget      *hseparator10;
     GtkWidget      *wPB_Font;
-    GtkWidget      *alignment3;
     GtkWidget      *hbox4;
     GtkWidget      *image2;
     GtkWidget      *label11;
@@ -102,9 +100,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
         (GtkAttachOptions) (GTK_FILL),
         (GtkAttachOptions) (GTK_FILL), 0, 0);
 
-    alignment1 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment1);
-    gtk_container_add (GTK_CONTAINER (eventbox1), alignment1);
+    gtk_widget_set_halign(GTK_CONTAINER(eventbox1), GTK_ALIGN_START);
+    gtk_widget_set_valign(GTK_CONTAINER(eventbox1), GTK_ALIGN_START);
 
     wSc_Period_adj = gtk_adjustment_new (15, .25, 60*60*24, .25, 1, 0);
     wSc_Period = gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), .25, 2);
@@ -151,10 +148,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_box_pack_start (GTK_BOX (vbox1), wPB_Font, FALSE, FALSE, 0);
     gtk_tooltips_set_tip (tooltips, wPB_Font, _("Press to change font"),
         NULL);
-
-    alignment3 = gtk_alignment_new (0.5, 0.5, 0, 0);
-    gtk_widget_show (alignment3);
-    gtk_container_add (GTK_CONTAINER (wPB_Font), alignment3);
+    
+    gtk_widget_set_halign(GTK_CONTAINER (wPB_Font), GTK_ALIGN_START);
 
     hbox4 = gtk_hbox_new (FALSE, 2);
     gtk_widget_show (hbox4);
