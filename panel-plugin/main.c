@@ -295,7 +295,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wEventBox);
 
-    poMonitor->wBox = xfce_hvbox_new (orientation, FALSE, 0);
+    poMonitor->wBox = gtk_box_new (orientation, 0);
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER
         (poMonitor->wBox), BORDER);
@@ -309,7 +309,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GTK_WIDGET (poMonitor->wTitle), FALSE, FALSE, 0);
 
     /* Create a Box to put image and text */
-    poMonitor->wImgBox = xfce_hvbox_new (orientation, FALSE, 0);
+    poMonitor->wImgBox = gtk_box_new (orientation, 0);
     gtk_widget_show (poMonitor->wImgBox);
     gtk_container_set_border_width (GTK_CONTAINER
         (poMonitor->wImgBox), 0);
