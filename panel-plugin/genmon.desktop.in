@@ -6,3 +6,5 @@ _Comment=Show output of a command.
 Icon=utilities-system-monitor
 X-XFCE-Module=genmon
 X-XFCE-Internal=false
+X-XFCE-API=2.0
+
