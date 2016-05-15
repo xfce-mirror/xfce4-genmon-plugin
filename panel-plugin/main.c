@@ -382,8 +382,8 @@ static int SetMonitorFont (void *p_pvPlugin)
     poFont = pango_font_description_from_string (poConf->acFont);
     if (!poFont)
         return (-1);
-    gtk_widget_modify_font (poMonitor->wTitle, poFont);
-    gtk_widget_modify_font (poMonitor->wValue, poFont);
+    gtk_widget_override_font (poMonitor->wTitle, poFont);
+    gtk_widget_override_font (poMonitor->wValue, poFont);
     return (0);
 }/* SetMonitorFont() */
 
@@ -589,7 +589,7 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
     const char     *pcFont;
     int             iResponse;
 
-    wDialog = gtk_font_chooser_dialog_new (_("Font Selection")
+    wDialog = gtk_font_chooser_dialog_new (_("Font Selection"),
         GTK_WINDOW(gtk_widget_get_toplevel(p_wPB)));
     gtk_window_set_transient_for (GTK_WINDOW (wDialog),
         GTK_WINDOW (poPlugin->oConf.wTopLevel));
