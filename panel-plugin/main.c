@@ -92,8 +92,8 @@ static void ExecOnClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
     if (error) {
         char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onClickCmd);
         xfce_message_dialog (NULL, _("Xfce Panel"),
-                             GTK_STOCK_DIALOG_ERROR, first, error->message,
-                             GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
+                             "dialog-error", first, error->message,
+                             "gtk-close", GTK_RESPONSE_OK, NULL);
         g_error_free (error);
         g_free (first);
     }
