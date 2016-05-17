@@ -58,6 +58,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *label1;
     GtkWidget      *wTF_Cmd;
     GtkWidget      *eventbox1;
+    GtkWidget      *alignment1;
+    GtkWidget      *alignment3;
     GtkAdjustment  *wSc_Period_adj;
     GtkWidget      *wSc_Period;
     GtkWidget      *label2;
