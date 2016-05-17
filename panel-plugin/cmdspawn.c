@@ -166,8 +166,8 @@ char *genmon_SpawnCmd (const char *p_pcCmdLine, int wait)
         char *first = g_strdup_printf (_("Error in command \"%s\""), p_pcCmdLine);
 
         xfce_message_dialog (NULL, _("Xfce Panel"),
-                             GTK_STOCK_DIALOG_ERROR, first, error->message,
-                             GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
+                             "dialog-error", first, error->message,
+                             "gtk-close", GTK_RESPONSE_OK, NULL);
 
         g_error_free (error);
         g_free (first);
