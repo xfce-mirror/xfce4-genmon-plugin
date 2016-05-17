@@ -162,7 +162,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (hbox4);
     gtk_container_add (GTK_CONTAINER (alignment3), hbox4);
 
-    image2 = gtk_image_new_from_stock ("gtk-select-font", GTK_ICON_SIZE_BUTTON);
+    image2 = gtk_image_new_from_icon_name ("gtk-select-font", GTK_ICON_SIZE_BUTTON);
     gtk_widget_show (image2);
     gtk_box_pack_start (GTK_BOX (hbox4), image2, FALSE, FALSE, 0);
 
