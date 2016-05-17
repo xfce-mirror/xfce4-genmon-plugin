@@ -106,7 +106,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
  /* Launch the command, get its output and display it in the panel-docked
     text field */
 {
-    static GtkTooltips *s_poToolTips = 0;
+    //static GtkTooltips *s_poToolTips = 0;
 
     struct param_t *poConf = &(p_poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(p_poPlugin->oMonitor);
@@ -115,8 +115,8 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     char  *end;
     int    newVersion=0;
 
-    if (!s_poToolTips)
-        s_poToolTips = gtk_tooltips_new ();
+    //if (!s_poToolTips)
+    //    s_poToolTips = gtk_tooltips_new ();
 
     g_free (p_poPlugin->acValue);
     if (poConf->acCmd[0])
@@ -229,8 +229,9 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             "Period (s): %d", poConf->acTitle, poConf->acCmd,
             poConf->iPeriod_ms / 1000);
 
-    gtk_tooltips_set_tip (s_poToolTips, GTK_WIDGET (poMonitor->wEventBox),
-        acToolTips, 0);
+    //gtk_tooltips_set_tip (s_poToolTips, GTK_WIDGET (poMonitor->wEventBox),
+    //    acToolTips, 0);
+    gtk_widget_set_tooltip_text (GTK_WIDGET (poMonitor->wEventBox),acToolTips);
     g_free (acToolTips);
 
     return (0);
