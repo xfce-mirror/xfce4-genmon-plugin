@@ -103,8 +103,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
         //(GtkAttachOptions) (GTK_FILL),
         //(GtkAttachOptions) (GTK_FILL), 0, 0);
 
-    gtk_widget_set_halign(GTK_CONTAINER(eventbox1), GTK_ALIGN_START);
-    gtk_widget_set_valign(GTK_CONTAINER(eventbox1), GTK_ALIGN_START);
+    gtk_widget_set_halign(eventbox1, GTK_ALIGN_START);
+    gtk_widget_set_valign(eventbox1, GTK_ALIGN_START);
 
     wSc_Period_adj = gtk_adjustment_new (15, .25, 60*60*24, .25, 1, 0);
     wSc_Period = gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), .25, 2);
@@ -156,7 +156,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     //    NULL);
     gtk_widget_set_tooltip_text (wPB_Font, "Press to change font");
     
-    gtk_widget_set_halign(GTK_CONTAINER (wPB_Font), GTK_ALIGN_START);
+    gtk_widget_set_halign(wPB_Font, GTK_ALIGN_START);
 
     hbox4 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
     gtk_widget_show (hbox4);
