@@ -376,6 +376,39 @@ static int SetMonitorFont (void *p_pvPlugin)
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     struct param_t *poConf = &(poPlugin->oConf.oParam);
+    
+#if GTK_CHECK_VERSION (3, 16, 0)
+    GtkCssProvider *css_provider1;
+    GtkCssProvider *css_provider2;
+    gchar * css1;
+    gchar * css2;
+#if GTK_CHECK_VERSION (3, 20, 0)
+    css1 = g_strdup_printf("label { font: %s; }", poMonitor->wTitle);
+    css2 = g_strdup_printf("label { font: %s; }", poMonitor->wValue);
+#else
+    css1 = g_strdup_printf(".label { font: %s; }", poMonitor->wTitle);
+    css2 = g_strdup_printf(".label { font: %s; }", poMonitor->wValue);
+#endif
+                          
+    /* Setup Gtk style */
+    DBG("css1: %s",css1);
+    DBG("css2: %s",css2);
+    css_provider1 = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (css_provider1, css1, strlen(css1), NULL);
+    gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
+        GTK_STYLE_PROVIDER (css_provider1),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    g_free(css1);
+    css_provider2 = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (css_provider2, css2, strlen(css2), NULL);
+    gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
+        GTK_STYLE_PROVIDER (css_provider2),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    g_free(css2);
+#else
+    
     PangoFontDescription *poFont;
 
     if (!strcmp (poConf->acFont, "(default)")) /* Default font */
@@ -383,9 +416,14 @@ static int SetMonitorFont (void *p_pvPlugin)
     poFont = pango_font_description_from_string (poConf->acFont);
     if (!poFont)
         return (-1);
+        
     gtk_widget_override_font (poMonitor->wTitle, poFont);
     gtk_widget_override_font (poMonitor->wValue, poFont);
+    
+    pango_font_description_free (poFont);
+    
     return (0);
+#endif
 }/* SetMonitorFont() */
 
 /**************************************************************/
