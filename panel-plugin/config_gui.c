@@ -74,23 +74,23 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     //tooltips = gtk_tooltips_new ();
 
-    table1 = gtk_table_new (3, 2, FALSE);
+    table1 = gtk_grid_new ();
     gtk_widget_show (table1);
     gtk_box_pack_start (GTK_BOX (vbox1), table1, FALSE, TRUE, 0);
 
     label1 = gtk_label_new (_("Command"));
     gtk_widget_show (label1);
-    gtk_table_attach (GTK_TABLE (table1), label1, 0, 1, 0, 1,
-        (GtkAttachOptions) (GTK_FILL),
-        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), label1, 0, 1, 0, 1);
+        //(GtkAttachOptions) (GTK_FILL),
+        //(GtkAttachOptions) (0), 0, 0);
     gtk_label_set_justify (GTK_LABEL (label1), GTK_JUSTIFY_LEFT);
     gtk_widget_set_valign (label1, GTK_ALIGN_CENTER);
 
     wTF_Cmd = gtk_entry_new ();
     gtk_widget_show (wTF_Cmd);
-    gtk_table_attach (GTK_TABLE (table1), wTF_Cmd, 1, 2, 0, 1,
-        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), wTF_Cmd, 1, 2, 0, 1);
+        //(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+        //(GtkAttachOptions) (0), 0, 0);
     //gtk_tooltips_set_tip (tooltips, wTF_Cmd,
     //    _("Input the shell command to spawn, then press <Enter>"),
     //    NULL);
@@ -99,9 +99,9 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     eventbox1 = gtk_event_box_new ();
     gtk_widget_show (eventbox1);
-    gtk_table_attach (GTK_TABLE (table1), eventbox1, 1, 2, 2, 3,
-        (GtkAttachOptions) (GTK_FILL),
-        (GtkAttachOptions) (GTK_FILL), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), eventbox1, 1, 2, 2, 3);
+        //(GtkAttachOptions) (GTK_FILL),
+        //(GtkAttachOptions) (GTK_FILL), 0, 0);
 
     gtk_widget_set_halign(GTK_CONTAINER(eventbox1), GTK_ALIGN_START);
     gtk_widget_set_valign(GTK_CONTAINER(eventbox1), GTK_ALIGN_START);
@@ -118,26 +118,26 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     label2 = gtk_label_new (_("Period (s) "));
     gtk_widget_show (label2);
-    gtk_table_attach (GTK_TABLE (table1), label2, 0, 1, 2, 3,
-        (GtkAttachOptions) (GTK_FILL),
-        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), label2, 0, 1, 2, 3);
+        //(GtkAttachOptions) (GTK_FILL),
+        //(GtkAttachOptions) (0), 0, 0);
     gtk_label_set_justify (GTK_LABEL (label2), GTK_JUSTIFY_LEFT);
     gtk_widget_set_valign (label2, GTK_ALIGN_CENTER);
 
     wTB_Title = gtk_check_button_new_with_mnemonic (_("Label"));
     gtk_widget_show (wTB_Title);
-    gtk_table_attach (GTK_TABLE (table1), wTB_Title, 0, 1, 1, 2,
-        (GtkAttachOptions) (GTK_FILL),
-        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), wTB_Title, 0, 1, 1, 2);
+        //(GtkAttachOptions) (GTK_FILL),
+        //(GtkAttachOptions) (0), 0, 0);
     //gtk_tooltips_set_tip (tooltips, wTB_Title, _("Tick to display label"),
     //    NULL);
     gtk_widget_set_tooltip_text (wTB_Title, "Tick to display label");
 
     wTF_Title = gtk_entry_new ();
     gtk_widget_show (wTF_Title);
-    gtk_table_attach (GTK_TABLE (table1), wTF_Title, 1, 2, 1, 2,
-        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 2, 1, 2);
+        //(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+        //(GtkAttachOptions) (0), 0, 0);
     //gtk_tooltips_set_tip (tooltips, wTF_Title,
     //    _("Input the plugin label, then press <Enter>"),
     //    NULL);
