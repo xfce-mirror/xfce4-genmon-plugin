@@ -229,8 +229,6 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             "Period (s): %d", poConf->acTitle, poConf->acCmd,
             poConf->iPeriod_ms / 1000);
 
-    //gtk_tooltips_set_tip (s_poToolTips, GTK_WIDGET (poMonitor->wEventBox),
-    //    acToolTips, 0);
     gtk_widget_set_tooltip_text (GTK_WIDGET (poMonitor->wEventBox),acToolTips);
     g_free (acToolTips);
 

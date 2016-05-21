@@ -57,9 +57,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *table1;
     GtkWidget      *label1;
     GtkWidget      *wTF_Cmd;
-    GtkWidget      *eventbox1;
-    GtkWidget      *alignment1;
-    GtkWidget      *alignment3;
+    GtkWidget      *eventbox1;    
     GtkAdjustment  *wSc_Period_adj;
     GtkWidget      *wSc_Period;
     GtkWidget      *label2;
@@ -70,9 +68,6 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *hbox4;
     GtkWidget      *image2;
     GtkWidget      *label11;
-    //GtkTooltips    *tooltips;
-
-    //tooltips = gtk_tooltips_new ();
 
     table1 = gtk_grid_new ();
     gtk_grid_set_column_spacing(GTK_GRID (table1), 2);
@@ -91,34 +86,21 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     wTF_Cmd = gtk_entry_new ();
     gtk_widget_show (wTF_Cmd);
     gtk_grid_attach (GTK_GRID (table1), wTF_Cmd, 1, 0, 1, 1);
-        //(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-        //(GtkAttachOptions) (0), 0, 0);
-    //gtk_tooltips_set_tip (tooltips, wTF_Cmd,
-    //    _("Input the shell command to spawn, then press <Enter>"),
-    //    NULL);
     gtk_widget_set_tooltip_text (wTF_Cmd, "Input the shell command to spawn, then press <Enter>");
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Cmd), 128);
 
     eventbox1 = gtk_event_box_new ();
     gtk_widget_show (eventbox1);
     gtk_grid_attach (GTK_GRID (table1), eventbox1, 1, 2, 1, 1);
-        //(GtkAttachOptions) (GTK_FILL),
-        //(GtkAttachOptions) (GTK_FILL), 0, 0);
     gtk_widget_set_valign(GTK_WIDGET(eventbox1), GTK_ALIGN_CENTER);
     gtk_widget_set_halign(GTK_WIDGET(eventbox1), GTK_ALIGN_CENTER);
     gtk_widget_set_vexpand(GTK_WIDGET(eventbox1), TRUE);
     gtk_widget_set_hexpand(GTK_WIDGET(eventbox1), TRUE);
 
-    //gtk_widget_set_halign(eventbox1, GTK_ALIGN_START);
-    //gtk_widget_set_valign(eventbox1, GTK_ALIGN_START);
-
     wSc_Period_adj = gtk_adjustment_new (15, .25, 60*60*24, .25, 1, 0);
     wSc_Period = gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), .25, 2);
     gtk_widget_show (wSc_Period);
     gtk_container_add (GTK_CONTAINER (eventbox1), wSc_Period);
-    //gtk_tooltips_set_tip (tooltips, wSc_Period,
-    //    _("Interval between 2 consecutive spawns"),
-    //    NULL);
     gtk_widget_set_tooltip_text (wSc_Period, "Interval between 2 consecutive spawns");
     gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (wSc_Period), TRUE);
 
@@ -133,20 +115,12 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     wTB_Title = gtk_check_button_new_with_mnemonic (_("Label"));
     gtk_widget_show (wTB_Title);
     gtk_grid_attach (GTK_GRID (table1), wTB_Title, 0, 1, 1, 1);
-        //(GtkAttachOptions) (GTK_FILL),
-        //(GtkAttachOptions) (0), 0, 0);
-    //gtk_tooltips_set_tip (tooltips, wTB_Title, _("Tick to display label"),
-    //    NULL);
     gtk_widget_set_tooltip_text (wTB_Title, "Tick to display label");
 
     wTF_Title = gtk_entry_new ();
     gtk_widget_show (wTF_Title);
     gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 1, 1, 1);
-        //(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-        //(GtkAttachOptions) (0), 0, 0);
-    //gtk_tooltips_set_tip (tooltips, wTF_Title,
-    //    _("Input the plugin label, then press <Enter>"),
-    //    NULL);
+ 
     gtk_widget_set_tooltip_text (wTF_Title, "Input the plugin label, then press <Enter>");
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Title), 16);
     gtk_entry_set_text (GTK_ENTRY (wTF_Title), _("(genmon)"));
@@ -158,27 +132,12 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     wPB_Font = gtk_button_new_with_label (_("Select the display font..."));
     gtk_widget_show (wPB_Font);
     gtk_box_pack_start (GTK_BOX (vbox1), wPB_Font, TRUE, TRUE, 0);
-    //gtk_tooltips_set_tip (tooltips, wPB_Font, _("Press to change font"),
-    //    NULL);
     gtk_widget_set_tooltip_text (wPB_Font, "Press to change font...");
-    
-    //gtk_widget_set_halign(wPB_Font, GTK_ALIGN_CENTER);
-    
+            
     hbox4 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
     gtk_widget_show (hbox4);
     gtk_container_add (GTK_CONTAINER (vbox1), hbox4);
     
-/*    
-    image2 = gtk_image_new_from_icon_name ("preferences-desktop-font", GTK_ICON_SIZE_BUTTON);
-    gtk_widget_show (image2);
-    gtk_box_pack_start (GTK_BOX (hbox4), image2, FALSE, FALSE, 0);
-
-    label11 = gtk_label_new_with_mnemonic (_("(Default font)"));
-    gtk_widget_show (label11);
-    gtk_box_pack_start (GTK_BOX (hbox4), label11, FALSE, FALSE, 0);
-    gtk_label_set_justify (GTK_LABEL (label11), GTK_JUSTIFY_LEFT);
-*/
-   
     if (p_poGUI) {
         COPYVAL (p_poGUI, wTF_Cmd);
         COPYVAL (p_poGUI, wTB_Title);
