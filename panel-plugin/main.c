@@ -378,35 +378,28 @@ static int SetMonitorFont (void *p_pvPlugin)
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     
 #if GTK_CHECK_VERSION (3, 16, 0)
-    GtkCssProvider *css_provider1;
-    GtkCssProvider *css_provider2;
-    gchar * css1;
-    gchar * css2;
+    GtkCssProvider *css_provider;
+    gchar * css;
 #if GTK_CHECK_VERSION (3, 20, 0)
-    css1 = g_strdup_printf("label { font: %s; }", poMonitor->wTitle);
-    css2 = g_strdup_printf("label { font: %s; }", poMonitor->wValue);
+    css = g_strdup_printf("label { font: %s; }", 
 #else
-    css1 = g_strdup_printf(".label { font: %s; }", poMonitor->wTitle);
-    css2 = g_strdup_printf(".label { font: %s; }", poMonitor->wValue);
+    css = g_strdup_printf(".label { font: %s; }", 
 #endif
-                          
+                                    poConf->acFont);                        
     /* Setup Gtk style */
-    DBG("css1: %s",css1);
-    DBG("css2: %s",css2);
-    css_provider1 = gtk_css_provider_new ();
-    gtk_css_provider_load_from_data (css_provider1, css1, strlen(css1), NULL);
+    DBG("css: %s",css);
+    
+    css_provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
-        GTK_STYLE_PROVIDER (css_provider1),
+        GTK_STYLE_PROVIDER (css_provider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-    g_free(css1);
-    css_provider2 = gtk_css_provider_new ();
-    gtk_css_provider_load_from_data (css_provider2, css2, strlen(css2), NULL);
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
-        GTK_STYLE_PROVIDER (css_provider2),
+        GTK_STYLE_PROVIDER (css_provider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-    g_free(css2);
+    g_free(css);
 #else
     
     PangoFontDescription *poFont;
