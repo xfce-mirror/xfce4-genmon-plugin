@@ -75,12 +75,14 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     //tooltips = gtk_tooltips_new ();
 
     table1 = gtk_grid_new ();
+    gtk_grid_set_column_spacing(GTK_GRID (table1), 2);
+    gtk_grid_set_row_spacing(GTK_GRID (table1), 2);
     gtk_widget_show (table1);
     gtk_box_pack_start (GTK_BOX (vbox1), table1, FALSE, TRUE, 0);
 
     label1 = gtk_label_new (_("Command"));
     gtk_widget_show (label1);
-    gtk_grid_attach (GTK_GRID (table1), label1, 0, 1, 0, 1);
+    gtk_grid_attach (GTK_GRID (table1), label1, 0, 0, 1, 1);
         //(GtkAttachOptions) (GTK_FILL),
         //(GtkAttachOptions) (0), 0, 0);
     gtk_label_set_justify (GTK_LABEL (label1), GTK_JUSTIFY_LEFT);
@@ -88,7 +90,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     wTF_Cmd = gtk_entry_new ();
     gtk_widget_show (wTF_Cmd);
-    gtk_grid_attach (GTK_GRID (table1), wTF_Cmd, 1, 2, 0, 1);
+    gtk_grid_attach (GTK_GRID (table1), wTF_Cmd, 1, 0, 1, 1);
         //(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
         //(GtkAttachOptions) (0), 0, 0);
     //gtk_tooltips_set_tip (tooltips, wTF_Cmd,
@@ -99,17 +101,21 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     eventbox1 = gtk_event_box_new ();
     gtk_widget_show (eventbox1);
-    gtk_grid_attach (GTK_GRID (table1), eventbox1, 1, 2, 2, 3);
+    gtk_grid_attach (GTK_GRID (table1), eventbox1, 1, 2, 1, 1);
         //(GtkAttachOptions) (GTK_FILL),
         //(GtkAttachOptions) (GTK_FILL), 0, 0);
+    gtk_widget_set_valign(GTK_WIDGET(eventbox1), GTK_ALIGN_CENTER);
+    gtk_widget_set_halign(GTK_WIDGET(eventbox1), GTK_ALIGN_CENTER);
+    gtk_widget_set_vexpand(GTK_WIDGET(eventbox1), TRUE);
+    gtk_widget_set_hexpand(GTK_WIDGET(eventbox1), TRUE);
 
-    gtk_widget_set_halign(eventbox1, GTK_ALIGN_START);
-    gtk_widget_set_valign(eventbox1, GTK_ALIGN_START);
+    //gtk_widget_set_halign(eventbox1, GTK_ALIGN_START);
+    //gtk_widget_set_valign(eventbox1, GTK_ALIGN_START);
 
     wSc_Period_adj = gtk_adjustment_new (15, .25, 60*60*24, .25, 1, 0);
     wSc_Period = gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), .25, 2);
     gtk_widget_show (wSc_Period);
-    gtk_container_add (GTK_CONTAINER (alignment1), wSc_Period);
+    gtk_container_add (GTK_CONTAINER (eventbox1), wSc_Period);
     //gtk_tooltips_set_tip (tooltips, wSc_Period,
     //    _("Interval between 2 consecutive spawns"),
     //    NULL);
@@ -118,7 +124,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     label2 = gtk_label_new (_("Period (s) "));
     gtk_widget_show (label2);
-    gtk_grid_attach (GTK_GRID (table1), label2, 0, 1, 2, 3);
+    gtk_grid_attach (GTK_GRID (table1), label2, 0, 2, 1, 1);
         //(GtkAttachOptions) (GTK_FILL),
         //(GtkAttachOptions) (0), 0, 0);
     gtk_label_set_justify (GTK_LABEL (label2), GTK_JUSTIFY_LEFT);
@@ -126,7 +132,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     wTB_Title = gtk_check_button_new_with_mnemonic (_("Label"));
     gtk_widget_show (wTB_Title);
-    gtk_grid_attach (GTK_GRID (table1), wTB_Title, 0, 1, 1, 2);
+    gtk_grid_attach (GTK_GRID (table1), wTB_Title, 0, 1, 1, 1);
         //(GtkAttachOptions) (GTK_FILL),
         //(GtkAttachOptions) (0), 0, 0);
     //gtk_tooltips_set_tip (tooltips, wTB_Title, _("Tick to display label"),
@@ -135,7 +141,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     wTF_Title = gtk_entry_new ();
     gtk_widget_show (wTF_Title);
-    gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 2, 1, 2);
+    gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 1, 1, 1);
         //(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
         //(GtkAttachOptions) (0), 0, 0);
     //gtk_tooltips_set_tip (tooltips, wTF_Title,
@@ -149,20 +155,21 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (hseparator10);
     gtk_box_pack_start (GTK_BOX (vbox1), hseparator10, FALSE, FALSE, 0);
 
-    wPB_Font = gtk_button_new ();
+    wPB_Font = gtk_button_new_with_label (_("Select the display font..."));
     gtk_widget_show (wPB_Font);
-    gtk_box_pack_start (GTK_BOX (vbox1), wPB_Font, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox1), wPB_Font, TRUE, TRUE, 0);
     //gtk_tooltips_set_tip (tooltips, wPB_Font, _("Press to change font"),
     //    NULL);
-    gtk_widget_set_tooltip_text (wPB_Font, "Press to change font");
+    gtk_widget_set_tooltip_text (wPB_Font, "Press to change font...");
     
-    gtk_widget_set_halign(wPB_Font, GTK_ALIGN_START);
-
+    //gtk_widget_set_halign(wPB_Font, GTK_ALIGN_CENTER);
+    
     hbox4 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
     gtk_widget_show (hbox4);
-    gtk_container_add (GTK_CONTAINER (alignment3), hbox4);
-
-    image2 = gtk_image_new_from_icon_name ("gtk-select-font", GTK_ICON_SIZE_BUTTON);
+    gtk_container_add (GTK_CONTAINER (vbox1), hbox4);
+    
+/*    
+    image2 = gtk_image_new_from_icon_name ("preferences-desktop-font", GTK_ICON_SIZE_BUTTON);
     gtk_widget_show (image2);
     gtk_box_pack_start (GTK_BOX (hbox4), image2, FALSE, FALSE, 0);
 
@@ -170,7 +177,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (label11);
     gtk_box_pack_start (GTK_BOX (hbox4), label11, FALSE, FALSE, 0);
     gtk_label_set_justify (GTK_LABEL (label11), GTK_JUSTIFY_LEFT);
-
+*/
+   
     if (p_poGUI) {
         COPYVAL (p_poGUI, wTF_Cmd);
         COPYVAL (p_poGUI, wTB_Title);
