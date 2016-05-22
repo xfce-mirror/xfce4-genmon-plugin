@@ -597,8 +597,9 @@ static void UpdateConf (void *p_pvPlugin)
 
 /**************************************************************/
 
+/*
 static void About (GtkWidget *w, void *unused)
-/* Called back when the About button in clicked */
+// Called back when the About button in clicked 
 {
     xfce_dialog_show_info (NULL,
         _("Cyclically spawns a script/program, captures its output "
@@ -607,7 +608,37 @@ static void About (GtkWidget *w, void *unused)
         "(c) 2006 Julien Devemy <jujucece@gmail.com>"),
         _("%s %s - Generic Monitor"),
         PACKAGE, VERSION);
-}/* About() */
+}
+*/
+
+static void About (XfcePanelPlugin *plugin)
+{ 
+  GdkPixbuf *icon;
+
+  const gchar *auth[] =
+    {
+      "Roger Seguin <roger_seguin@msn.com>",
+      "Julien Devemy <jujucece@gmail.com>",
+      NULL
+    };
+
+  //g_return_if_fail (IS_PULSEAUDIO_PLUGIN (plugin));
+
+  icon = xfce_panel_pixbuf_from_source ("utilities-system-monitor", NULL, 32);
+  gtk_show_about_dialog (NULL,
+                         "logo",         icon,
+                         "license",      xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
+                         "version",      VERSION,
+                         "program-name", PACKAGE,
+                         "comments",     _("Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"),
+                         "website",      "http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin",
+                         "copyright",    _("Copyright \xc2\xa9 2004 Roger Seguin\nCopyright \xc2\xa9 2006 Julien Devemy\n"),
+                         "authors",      auth,
+                         NULL);
+
+  if (icon)
+    g_object_unref (G_OBJECT (icon));
+}
 
 /**************************************************************/
 
@@ -785,8 +816,9 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "size-changed", G_CALLBACK (genmon_set_size), genmon);
 
     xfce_panel_plugin_menu_show_about (plugin);
-    g_signal_connect (plugin, "about", G_CALLBACK (About), genmon);
-
+    //g_signal_connect (plugin, "about", G_CALLBACK (About), genmon);
+    g_signal_connect (plugin, "about", G_CALLBACK (About), plugin);
+    
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin",
         G_CALLBACK (genmon_create_options), genmon);
