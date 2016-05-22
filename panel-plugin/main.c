@@ -597,20 +597,6 @@ static void UpdateConf (void *p_pvPlugin)
 
 /**************************************************************/
 
-/*
-static void About (GtkWidget *w, void *unused)
-// Called back when the About button in clicked 
-{
-    xfce_dialog_show_info (NULL,
-        _("Cyclically spawns a script/program, captures its output "
-        "and displays the resulting string in the panel\n\n"
-        "(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-        "(c) 2006 Julien Devemy <jujucece@gmail.com>"),
-        _("%s %s - Generic Monitor"),
-        PACKAGE, VERSION);
-}
-*/
-
 static void About (XfcePanelPlugin *plugin)
 { 
   GdkPixbuf *icon;
@@ -621,8 +607,6 @@ static void About (XfcePanelPlugin *plugin)
       "Julien Devemy <jujucece@gmail.com>",
       NULL
     };
-
-  //g_return_if_fail (IS_PULSEAUDIO_PLUGIN (plugin));
 
   icon = xfce_panel_pixbuf_from_source ("utilities-system-monitor", NULL, 32);
   gtk_show_about_dialog (NULL,
