@@ -1,110 +1,81 @@
-# Czech translations for xfce4-genmon-plugin package.
-# Copyright (C) 2006 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-genmon-plugin package.
-# Michal Várady  <miko.vaji@gmail.com>, 2006-2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Michal Várady <miko.vaji@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin 2.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-08 07:24+0000\n"
-"PO-Revision-Date: 2012-04-08 11:38+0100\n"
+"POT-Creation-Date: 2016-06-01 00:31+0200\n"
+"PO-Revision-Date: 2016-06-01 06:21+0000\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
-"Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
-"Language: cs\n"
+"Language-Team: Czech (http://www.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Chyba v příkazu \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:177
-#: ../panel-plugin/main.c:104
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
 msgstr "Panel Xfce"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Příkaz"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Zadejte příkaz pro vygenerování a stiskněte <Enter>"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "Interval mezi dvěma voláními"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Opakovat po (s)"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Popisek"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "Klikněte pro zobrazení popisku"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Zadejte popisek zásuvného modulu a stiskněte <Enter>"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(obecné_sledování)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "Stiskněte pro změnu písma"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr "Vybrat písmo pro zobrazení..."
 
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(Výchozí písmo)"
-
-#: ../panel-plugin/main.c:103
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Nelze spustit \"%s\""
 
-#: ../panel-plugin/main.c:595
+#: ../panel-plugin/main.c:617
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"Opakovaně spouští skript nebo program, zachytává jeho výstup a zobrazuje výsledný výstup na panelu\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr "Opakovaně spouští skript nebo program, zachytává jeho výstup a zobrazuje výsledný výstup na panelu"
 
-#: ../panel-plugin/main.c:599
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Obecné sledování"
+#: ../panel-plugin/main.c:619
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\n"
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:637
 msgid "Font Selection"
 msgstr "Výběr písma"
 
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:681
 msgid "Configuration"
 msgstr "Konfigurace"
 
-#: ../panel-plugin/main.c:668
-#: ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Obecné sledování"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
+#: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "Zobrazit výstup příkazu."
-
-#~ msgid "About..."
-#~ msgstr "O zásuvném modulu..."
