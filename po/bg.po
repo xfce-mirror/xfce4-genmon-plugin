@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# lyubomirv, 2014
+# Georgi Georgiev <georgiev_1994@abv.bg>, 2016
+# Любомир Василев, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:01+0200\n"
-"PO-Revision-Date: 2014-01-13 06:26+0000\n"
-"Last-Translator: lyubomirv\n"
-"Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce/language/bg/)\n"
+"POT-Creation-Date: 2016-06-01 00:31+0200\n"
+"PO-Revision-Date: 2016-06-01 07:17+0000\n"
+"Last-Translator: Georgi Georgiev <georgiev_1994@abv.bg>\n"
+"Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,73 +28,52 @@ msgstr "Грешка в командата „%s“"
 msgid "Xfce Panel"
 msgstr "Xfce панел"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Команда"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Въведете командата, която да се изпълни и натиснете <Enter>"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "Интервал между 2 последователни изпълнения"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Педиод (с)"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Етикет"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "Изберете, за да се показва етикета"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Въведете етикета на добавката и натиснете <Enter>"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "Натиснете за промяна на шрифта"
-
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(Шрифт по подразбиране)"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr "Избиране на шрифт..."
 
 #: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Неуспешно стартиране на „%s“"
 
-#: ../panel-plugin/main.c:574
+#: ../panel-plugin/main.c:617
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr "Периодично стартира скрипт или програма, прихваща изхода от нея и го показва в панела\n\nАвторски права (c) 2004, Roger Seguin <roger_seguin@msn.com>\nАвторски права (c) 2006, Julien Devemy <jujucece@gmail.com>"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr "Периодично стартира скрипт или програма, прихваща изхода от нея и го показва в панела"
 
-#: ../panel-plugin/main.c:578
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s – Универсален наблюдател"
+#: ../panel-plugin/main.c:619
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+msgstr "Авторски права © 2004 Roger Seguin\nАвторски права © 2006 Julien Devemy\n"
 
-#: ../panel-plugin/main.c:592
+#: ../panel-plugin/main.c:637
 msgid "Font Selection"
 msgstr "Избор на шрифт"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:681
 msgid "Configuration"
 msgstr "Настройка"
 
-#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Универсален наблюдател"
 
