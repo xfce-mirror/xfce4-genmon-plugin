@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:01+0200\n"
-"PO-Revision-Date: 2016-05-03 16:29+0000\n"
+"POT-Creation-Date: 2016-06-01 00:31+0200\n"
+"PO-Revision-Date: 2016-06-01 07:01+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -28,73 +28,52 @@ msgstr "Error a l'ordre «%s»"
 msgid "Xfce Panel"
 msgstr "Plafó de Xfce"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Ordre"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Introduïu l'ordre de l'intèrpret a executar, després premeu «enter»"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "Interval entre dues generacions consecutives"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Període (s)"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Etiqueta"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "Comentari a mostrar a l'etiqueta"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Introduïu l'etiqueta del connector, després premeu «retorn»"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "Clicar per canviar la font"
-
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(tipus de lletra predeterminada)"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr ""
 
 #: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "No s'ha pogut executar «%s»"
 
-#: ../panel-plugin/main.c:574
+#: ../panel-plugin/main.c:617
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr "Genera cíclicament un script/programa, captura la seva sortida i mostra la cadena resultant al plafó\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr ""
 
-#: ../panel-plugin/main.c:578
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Monitor genèric"
+#: ../panel-plugin/main.c:619
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\n"
 
-#: ../panel-plugin/main.c:592
+#: ../panel-plugin/main.c:637
 msgid "Font Selection"
 msgstr "Selecció del tipus de lletra"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:681
 msgid "Configuration"
 msgstr "Configuració"
 
-#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor genèric"
 
