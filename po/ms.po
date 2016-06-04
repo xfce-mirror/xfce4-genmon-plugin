@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# abuyop <abuyop@gmail.com>, 2014
+# abuyop <abuyop@gmail.com>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:01+0200\n"
-"PO-Revision-Date: 2014-03-15 03:04+0000\n"
+"POT-Creation-Date: 2016-06-01 00:31+0200\n"
+"PO-Revision-Date: 2016-06-04 15:50+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>\n"
-"Language-Team: Malay (http://www.transifex.com/projects/p/xfce/language/ms/)\n"
+"Language-Team: Malay (http://www.transifex.com/xfce/xfce-panel-plugins/language/ms/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,73 +27,52 @@ msgstr "Ralat dalam perintah \"%s\""
 msgid "Xfce Panel"
 msgstr "Panel Xfce"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Perintah"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Inputkan perintah shell untuk digandakan, kemudian tekan <Enter>"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "Sela diantara 2 benih berturutan"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Kala (s)"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Label"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "Tanda untuk papar label"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Input label pemalam, kemudian tekan <Enter>"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "Tekan untuk ubah fon"
-
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(Fon lalai)"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr "Pilih fon paparan..."
 
 #: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Tidak dapat jalankan \"%s\""
 
-#: ../panel-plugin/main.c:574
+#: ../panel-plugin/main.c:617
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr "Benihkan skrip/program secara berkitar, tangkap outputnya dan papar rentetan yang terhasil di dalam panel\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr "Benihkan skrip/program secara berkitar, tangkap outputnya dan papar rentetan yang terhasil di dalam panel"
 
-#: ../panel-plugin/main.c:578
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Pemantau Generik"
+#: ../panel-plugin/main.c:619
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+msgstr "Hakcipta © 2004 Roger Seguin\nHakcipta © 2006 Julien Devemy\n"
 
-#: ../panel-plugin/main.c:592
+#: ../panel-plugin/main.c:637
 msgid "Font Selection"
 msgstr "Pemilihan Fon"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:681
 msgid "Configuration"
 msgstr "Konfigurasi"
 
-#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Pemantau Generik"
 
