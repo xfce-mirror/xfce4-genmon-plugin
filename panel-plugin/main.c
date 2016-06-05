@@ -773,6 +773,32 @@ static gboolean genmon_set_size (XfcePanelPlugin *plugin, int size, genmon_t *po
 }/* genmon_set_size() */
 
 /**************************************************************/
+// call: xfce4-panel --plugin-event=genmon-X:refresh:bool:true
+//    where genmon-X is the genmon widget id (e.g. genmon-7)
+
+static gboolean genmon_remote_event (XfcePanelPlugin *plugin,
+                                    const gchar *name,
+                                    const GValue *value,
+                                    genmon_t *genmon)
+{
+    g_return_val_if_fail (value == NULL || G_IS_VALUE (value), FALSE);
+    if (strcmp (name, "refresh") == 0)
+        {
+        if (value != NULL
+            && G_VALUE_HOLDS_BOOLEAN (value)
+            && g_value_get_boolean (value))
+            {
+            /* update the display */
+            DisplayCmdOutput (genmon);
+            }
+        return TRUE;
+        }
+
+    return FALSE;
+}/* genmon_remote_event() */
+
+
+/**************************************************************/
 
 static void genmon_construct (XfcePanelPlugin *plugin)
 {
@@ -806,6 +832,8 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin",
         G_CALLBACK (genmon_create_options), genmon);
+
+    g_signal_connect (plugin, "remote-event", G_CALLBACK (genmon_remote_event), genmon);
 
     g_signal_connect (G_OBJECT (genmon->oMonitor.wButton), "clicked",
         G_CALLBACK (ExecOnClickCmd), genmon);
