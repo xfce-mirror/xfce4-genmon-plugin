@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# cri <cri.penta@gmail.com>, 2009,2013
+# Cristian Marchi <cri.penta@gmail.com>, 2009,2013
+# Enrico <allin@infinito.it>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:01+0200\n"
-"PO-Revision-Date: 2013-11-10 15:00+0000\n"
-"Last-Translator: cri <cri.penta@gmail.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/xfce/language/it/)\n"
+"POT-Creation-Date: 2016-06-01 00:31+0200\n"
+"PO-Revision-Date: 2016-06-05 16:47+0000\n"
+"Last-Translator: Enrico <allin@infinito.it>\n"
+"Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,73 +28,52 @@ msgstr "Errore nel comando «%s»"
 msgid "Xfce Panel"
 msgstr "Pannello di Xfce"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Comando"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Scrivere il comando, poi premere «Invio»"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "Intervallo tra due avvii consecutivi"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Periodo(i)"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Etichetta"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "Attivare per visualizzare l'etichetta"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Inserire l'etichetta, poi premere «Invio»"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "Premere per cambiare il tipo di carattere"
-
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(carattere predefinito)"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr "Selezione carattere..."
 
 #: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Impossibile eseguire \"%s\""
 
-#: ../panel-plugin/main.c:574
+#: ../panel-plugin/main.c:617
 msgid ""
-"Cyclically spawns a script/program, captures its output and displays the resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr "Esegue ciclicamente uno script o un programma, ne cattura l'output e visualizza le stringhe risultanti nel pannello\n\n(c) 2004 Roger Seguin <roger_seguin@msn.com>\n(c) 2006 Julien Devemy <jujucece@gmail.com>"
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr "Esegue ciclicamente uno script/programma, ne cattura l'output e visualizza le stringhe risultanti nel pannello"
 
-#: ../panel-plugin/main.c:578
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Monitor generico"
+#: ../panel-plugin/main.c:619
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\n"
 
-#: ../panel-plugin/main.c:592
+#: ../panel-plugin/main.c:637
 msgid "Font Selection"
 msgstr "Scelta del tipo di carattere"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:681
 msgid "Configuration"
 msgstr "Configurazione"
 
-#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor generico"
 
