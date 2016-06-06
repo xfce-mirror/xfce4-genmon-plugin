@@ -1,112 +1,82 @@
-# Brazilian Portuguese translation of the xfce4-genmon-plugin package.
-# Copyright (C) 2007 Roger Seguin <roger_seguin@msn.com>, Julien Devemy <jujucece@gmail.com>
-# This file is distributed under the same license as the xfce4-genmon-plugin package.
-# Andrius da Costa Ribas <andriusmao@gmail.com>, 2007.
-# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2007-2008.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# André Miranda <andre42m@gmail.com>, 2016
+# Andrius da Costa Ribas <andriusmao@gmail.com>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-02 18:36+0000\n"
-"PO-Revision-Date: 2008-07-25 13:36-0300\n"
-"Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
-"Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
+"POT-Creation-Date: 2016-06-01 00:31+0200\n"
+"PO-Revision-Date: 2016-06-06 14:17+0000\n"
+"Last-Translator: André Miranda <andre42m@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Erro no comando \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
 msgstr "Painel do Xfce"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Comando"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Entre o comando de shell a ser processado, e pressione <Enter>"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "Intervalo entre 2 processamentos consecutivos"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Período (s) "
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Rótulo"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "Selecione para mostrar o rótulo"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Entre com o rótulo do plug-in, e pressione <Enter>"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "Pressione para mudar a fonte"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr ""
 
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(Fonte padrão)"
-
-#: ../panel-plugin/main.c:103
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Não foi possível executar \"%s\""
 
-#: ../panel-plugin/main.c:595
+#: ../panel-plugin/main.c:617
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+"resulting string in the panel"
 msgstr ""
-"%s %s - Monitor genérico\n"
-"Processa ciclicamente um script/programa, captura sua saída e exibe a "
-"sequência resultante no painel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:599
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Monitor genérico"
+#: ../panel-plugin/main.c:619
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\n"
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:637
 msgid "Font Selection"
 msgstr "Seleção de fonte"
 
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:681
 msgid "Configuration"
 msgstr "Configuração"
 
-#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor genérico"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
+#: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "Mostrar saída de um comando."
-
-#~ msgid "About..."
-#~ msgstr "Sobre..."
