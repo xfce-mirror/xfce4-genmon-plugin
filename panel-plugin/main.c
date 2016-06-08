@@ -106,17 +106,12 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
  /* Launch the command, get its output and display it in the panel-docked
     text field */
 {
-    //static GtkTooltips *s_poToolTips = 0;
-
     struct param_t *poConf = &(p_poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(p_poPlugin->oMonitor);
     char  *acToolTips;
     char  *begin;
     char  *end;
     int    newVersion=0;
-
-    //if (!s_poToolTips)
-    //    s_poToolTips = gtk_tooltips_new ();
 
     g_free (p_poPlugin->acValue);
     if (poConf->acCmd[0])
@@ -826,7 +821,7 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "size-changed", G_CALLBACK (genmon_set_size), genmon);
 
     xfce_panel_plugin_menu_show_about (plugin);
-    //g_signal_connect (plugin, "about", G_CALLBACK (About), genmon);
+    
     g_signal_connect (plugin, "about", G_CALLBACK (About), plugin);
     
     xfce_panel_plugin_menu_show_configure (plugin);
