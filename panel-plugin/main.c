@@ -223,7 +223,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     if (begin && end && begin < end)
         acToolTips = g_strndup (begin + 6, end - begin - 6);
     else
-        acToolTips = g_strdup_printf (acToolTips, "%s\n"
+        acToolTips = g_strdup_printf ("%s\n"
             "----------------\n"
             "%s\n"
             "Period (s): %d", poConf->acTitle, poConf->acCmd,
