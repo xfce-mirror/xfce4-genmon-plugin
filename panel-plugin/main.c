@@ -297,7 +297,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poMonitor->wBox = gtk_box_new (orientation, 0);
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER
-        (poMonitor->wBox), BORDER);
+        (poMonitor->wBox), 0);
     gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
         poMonitor->wBox);
 
@@ -689,8 +689,8 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
 
     xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dlg), _("Generic Monitor"));
 
-    vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, BORDER);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER - 2);
+    vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, BORDER + 6);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER + 4);
     gtk_widget_show(vbox);
     gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), vbox, 
         TRUE, TRUE, 0);
