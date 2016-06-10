@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-06-01 07:36+0000\n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2016-06-10 11:19+0000\n"
 "Last-Translator: Yannick Le Guen <leguen.yannick@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -54,30 +54,31 @@ msgstr "Sélectionner la police d'affichage..."
 msgid "Could not run \"%s\""
 msgstr "Impossible d'exécuter « %s »"
 
-#: ../panel-plugin/main.c:617
+#: ../panel-plugin/main.c:613
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Exécute de façon cyclique un script ou un programme, capture sa sortie et affiche la chaîne résultante dans le tableau de bord"
 
-#: ../panel-plugin/main.c:619
+#: ../panel-plugin/main.c:615
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
-msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:633
 msgid "Font Selection"
 msgstr "Sélection de la police"
 
-#: ../panel-plugin/main.c:681
+#: ../panel-plugin/main.c:677
 msgid "Configuration"
 msgstr "Configuration"
 
-#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Moniteur générique"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
-msgstr "Afficher la sortie d'une commande"
+msgstr "Afficher la sortie d'une commande."
