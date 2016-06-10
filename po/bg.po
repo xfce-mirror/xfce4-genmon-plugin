@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Georgi Georgiev <georgiev_1994@abv.bg>, 2016
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2016
 # Любомир Василев, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-06-01 07:17+0000\n"
-"Last-Translator: Georgi Georgiev <georgiev_1994@abv.bg>\n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2016-06-10 15:22+0000\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,27 +54,28 @@ msgstr "Избиране на шрифт..."
 msgid "Could not run \"%s\""
 msgstr "Неуспешно стартиране на „%s“"
 
-#: ../panel-plugin/main.c:617
+#: ../panel-plugin/main.c:613
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Периодично стартира скрипт или програма, прихваща изхода от нея и го показва в панела"
 
-#: ../panel-plugin/main.c:619
+#: ../panel-plugin/main.c:615
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
-msgstr "Авторски права © 2004 Roger Seguin\nАвторски права © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr "Авторски права © 2004 Roger Seguin\nАвторски права © 2006 Julien Devemy\nАвторски права © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:633
 msgid "Font Selection"
 msgstr "Избор на шрифт"
 
-#: ../panel-plugin/main.c:681
+#: ../panel-plugin/main.c:677
 msgid "Configuration"
 msgstr "Настройка"
 
-#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Универсален наблюдател"
 
