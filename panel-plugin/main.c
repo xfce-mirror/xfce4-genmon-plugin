@@ -600,6 +600,7 @@ static void About (XfcePanelPlugin *plugin)
     {
       "Roger Seguin <roger_seguin@msn.com>",
       "Julien Devemy <jujucece@gmail.com>",
+      "Tony Paulic <tony.paulic@gmail.com>",
       NULL
     };
 
@@ -611,7 +612,7 @@ static void About (XfcePanelPlugin *plugin)
                          "program-name", PACKAGE,
                          "comments",     _("Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"),
                          "website",      "http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin",
-                         "copyright",    _("Copyright \xc2\xa9 2004 Roger Seguin\nCopyright \xc2\xa9 2006 Julien Devemy\n"),
+                         "copyright",    _("Copyright \xc2\xa9 2004 Roger Seguin\nCopyright \xc2\xa9 2006 Julien Devemy\nCopyright \xc2\xa9 2016 Tony Paulic\n"),
                          "authors",      auth,
                          NULL);
 

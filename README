@@ -99,6 +99,18 @@ PS: Depending on your configuration, you should change the image path.
 
 You can find more scripts in scripts/mon*. 
 
+The xfce4-genmon-plugin now supports xfce4-panel plugin-event functionality. Currently it only supports the 
+"refresh" action which resets the timer and causes the associated command to execute again. You can use this 
+command remotely or at the end of a script to force the panel plugin to refresh.
+
+To refresh the plugin, issue the command:
+
+    xfce4-panel --plugin-event=genmon-X:refresh:bool:true
+    
+where "genmon-X" is the widget name of the particular genmon instance. To get this name, go to the panel 
+properties screen and on the Items tab, hover your mouse over the genmon plugin to get it's internal name.
+
+
 6 -	Bugs
 	----
 If you find a bug, fix it, then tell me how you did it :-)
