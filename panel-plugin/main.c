@@ -263,8 +263,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     struct param_t *poConf;
     struct monitor_t *poMonitor;
     GtkOrientation orientation = xfce_panel_plugin_get_orientation (plugin);
-    //int size = xfce_panel_plugin_get_size (plugin);
-
+    
     poPlugin = g_new (genmon_t, 1);
     memset (poPlugin, 0, sizeof (genmon_t));
     poConf = &(poPlugin->oConf.oParam);
@@ -733,7 +732,6 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
 /* Plugin API */
 /* Invoked when the panel changes orientation */
 {
-    //struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
 
     gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBox), p_iOrientation);
