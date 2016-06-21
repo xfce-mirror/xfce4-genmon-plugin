@@ -292,7 +292,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poMonitor->wBox = gtk_box_new (orientation, 0);
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER
-        (poMonitor->wBox), 0);
+        (poMonitor->wBox), BORDER);
     gtk_container_add (GTK_CONTAINER (poMonitor->wEventBox),
         poMonitor->wBox);
 
