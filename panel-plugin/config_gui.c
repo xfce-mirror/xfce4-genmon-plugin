@@ -66,8 +66,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *hseparator10;
     GtkWidget      *wPB_Font;
     GtkWidget      *hbox4;
-    GtkWidget      *image2;
-    GtkWidget      *label11;
+    //GtkWidget      *image2;
+    //GtkWidget      *label11;
 
     table1 = gtk_grid_new ();
     gtk_grid_set_column_spacing(GTK_GRID (table1), 2);
