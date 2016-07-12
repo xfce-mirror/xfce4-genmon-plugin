@@ -1,110 +1,83 @@
-# Slovak translations for xfce4-genmon-plugin package
-# Copyright (C) 2011 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-genmon-plugin package.
-# Tomáš Vadina <kyberdev@gmail.com>, 2011, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Dušan Kazik <prescott66@gmail.com>, 2016
+# Tomáš Vadina <tomasvadina+transifex@cryptolab.net>, 2011-2012
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-07 06:42+0000\n"
-"PO-Revision-Date: 2012-02-07 10:48+0100\n"
-"Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
-"Language-Team: slovenčina <slovenska-lokalizacia-xfce@googlegroups.com>\n"
-"Language: sk\n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2016-07-12 09:23+0000\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
+"Language-Team: Slovak (http://www.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Chyba v príkaze \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
 msgstr "Panel Xfce"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Príkaz"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Zadajte príkaz interpretera pre vygenerovanie a stlačte <Enter>"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "Interval medzi dvoma volaniami"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Perióda (s) "
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Popis"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "Kliknite pre zobrazenie popisu"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Zadajte popis zásuvného modulu a stlačte <Enter>"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(všeobecné sledovanie)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "Stlačte pre zmenu písma"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr "Vybrať písmo zobrazenia..."
 
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(Predvolené písmo)"
-
-#: ../panel-plugin/main.c:103
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Nie je možné spustiť \"%s\""
 
-#: ../panel-plugin/main.c:595
+#: ../panel-plugin/main.c:613
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"Cyklicky založí skript/program, zachytáva jeho výstup a zobrazí výsledný "
-"reťazec v paneli\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+"resulting string in the panel"
+msgstr "Cyklicky spúšťa skript alebo program, zachytáva jeho výstup a zobrazuje výsledok ako reťazec na paneli"
 
-#: ../panel-plugin/main.c:599
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Všeobecné sledovanie"
+#: ../panel-plugin/main.c:615
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr "Autorské práva © 2004 Roger Seguin\nAutorské práva © 2006 Julien Devemy\nAutorské práva © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:633
 msgid "Font Selection"
 msgstr "Výber písma"
 
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:677
 msgid "Configuration"
 msgstr "Nastavenie"
 
-#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Všeobecné sledovanie"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
+#: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "Zobrazuje výstup príkazu."
-
-#~ msgid "About..."
-#~ msgstr "O aplikácii..."
