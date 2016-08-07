@@ -1,108 +1,84 @@
-# Simplified Chinese translations for
-# the xfce4-genmon-plugin package.
-# This file is distributed under the same license as
-# the xfce4-genmon-plugin package.
-# Vern Sun <s5unty@gmail.com>, 2008.
-# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
+# Mingcong Bai <jeffbai@aosc.xyz>, 2016
+# Vern Sun <s5unty@gmail.com>, 2008
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin\n"
-"Report-Msgid-Bugs-To: <xfce-i18n@xfce.org>\n"
-"POT-Creation-Date: 2012-04-20 06:54+0000\n"
-"PO-Revision-Date: 2008-03-19 16:50+0800\n"
-"Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
-"Language-Team: Chinese (Simplified) <xfce-i18n-cn@xfce.org>\n"
-"Language: zh_CN\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2016-08-07 08:06+0000\n"
+"Last-Translator: Mingcong Bai <jeffbai@aosc.xyz>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "在命令 “%s” 中出错"
 
-#: ../panel-plugin/cmdspawn.c:177 ../panel-plugin/main.c:104
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
 msgstr "Xfce 面板"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "命令"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "输入要运行的 Shell 命令，然后按回车"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "两次循环间的间隔"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "周期(s)"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "标签"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "勾选显示标签"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "输入插件的标签，然后按回车"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(Genmon 面板监视器)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "按下更改字体"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr "选择显示字体…"
 
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(默认字体)"
-
-#: ../panel-plugin/main.c:103
+#: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "“%s” 未能运行"
 
-#: ../panel-plugin/main.c:595
+#: ../panel-plugin/main.c:613
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr ""
-"循环反复地执行脚本/程序，捕获它的输出结果并在面板上显示结果字符串\n"
-" \n"
-"版权 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"版权 2006 Julien Devemy <jujucece@gmail.com>"
+"resulting string in the panel"
+msgstr "循环反复地执行脚本/程序，捕获它的输出结果并在面板上显示结果字符串"
 
-#: ../panel-plugin/main.c:599
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s-一般监视器"
+#: ../panel-plugin/main.c:615
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:633
 msgid "Font Selection"
 msgstr "字体选择"
 
-#: ../panel-plugin/main.c:658
+#: ../panel-plugin/main.c:677
 msgid "Configuration"
 msgstr "配置"
 
-#: ../panel-plugin/main.c:668 ../panel-plugin/genmon.desktop.in.in.h:1
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "一般监视器"
 
-#: ../panel-plugin/genmon.desktop.in.in.h:2
+#: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "显示命令的输出结果。"
