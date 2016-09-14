@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2016-06-10 11:16+0000\n"
+"PO-Revision-Date: 2016-09-14 09:02+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "Konfigūracija"
 
 #: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
-msgstr "Bendrinis monitorius"
+msgstr "Bendrinė prižiūryklė"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
