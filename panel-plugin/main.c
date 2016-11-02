@@ -474,6 +474,19 @@ static int SetMonitorFont (void *p_pvPlugin)
     GtkCssProvider *css_provider;
     gchar * css;
 #if GTK_CHECK_VERSION (3, 20, 0)
+  PangoFontDescription *font;
+  font = pango_font_description_from_string(poConf->acFont);
+  if (G_LIKELY (font))
+  {
+    css = g_strdup_printf("label { font-family: %s; font-size: %dpx; font-style: %s; font-weight: %s }",
+                          pango_font_description_get_family (font),
+                          pango_font_description_get_size (font) / PANGO_SCALE,
+                          (pango_font_description_get_style(font) == PANGO_STYLE_ITALIC ||
+                           pango_font_description_get_style(font) == PANGO_STYLE_OBLIQUE) ? "italic" : "normal",
+                          (pango_font_description_get_weight(font) >= PANGO_WEIGHT_BOLD) ? "bold" : "normal");
+    pango_font_description_free (font);
+  }
+  else
     css = g_strdup_printf("label { font: %s; }", 
 #else
     css = g_strdup_printf(".label { font: %s; }", 
