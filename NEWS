@@ -1,3 +1,11 @@
+3.99 (2016/11/02)
+================
+ - Port to Gtk3
+ - Fix font styling to work with Gtk 3.22
+ - Add support for "genmon" in 'xfce4-panel --plugin-event' (Bug #10734)
+ - Fix default tooltip does not work (bug #11284)
+ - Add <txtclick> functionality (Bug #3437)
+
 3.4 (2012/05/12)
 ================
  - Port from libxfcegui4 to libxfce4ui
