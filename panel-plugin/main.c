@@ -311,6 +311,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     struct param_t *poConf;
     struct monitor_t *poMonitor;
     GtkOrientation orientation = xfce_panel_plugin_get_orientation (plugin);
+    GtkSettings *settings;
+    gchar *default_font;
 
     #if GTK_CHECK_VERSION (3, 16, 0)
         GtkCssProvider *css_provider;
@@ -332,7 +334,16 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poConf->iPeriod_ms = 30 * 1000;
     poPlugin->iTimerId = 0;
 
-    poConf->acFont = g_strdup ("(default)");
+    // PangoFontDescription needs a font and we can't use "(Default)" anymore.
+    // Use GtkSettings to get the current default font and use that, or set default to "Sans 10"
+    settings = gtk_settings_get_default();
+    if (g_object_class_find_property(G_OBJECT_GET_CLASS(settings), "gtk-font-name"))
+    {
+        g_object_get(settings, "gtk-font-name", &default_font, NULL);
+        poConf->acFont = g_strdup (default_font); 
+    }
+    else
+        poConf->acFont = g_strdup ("Sans 10");
 
     poMonitor->wEventBox = gtk_event_box_new ();
     gtk_event_box_set_visible_window (
@@ -440,6 +451,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GTK_STYLE_PROVIDER (css_provider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
     g_free(css);
+    g_free(default_font);
 
     return poPlugin;
 }/* genmon_create_control() */
