@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-01-14 14:26+0000\n"
+"PO-Revision-Date: 2017-01-16 10:56+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Fejl i kommandoen \"%s\""
 
 #: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
-msgstr "Panelet til Xfce"
+msgstr "Xfce-panel"
 
 #: ../panel-plugin/config_gui.c:78
 msgid "Command"
