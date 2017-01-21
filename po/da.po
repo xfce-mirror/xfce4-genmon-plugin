@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-01-16 10:56+0000\n"
+"PO-Revision-Date: 2017-01-21 19:37+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Periode(r) "
 
 #: ../panel-plugin/config_gui.c:115
 msgid "Label"
-msgstr "Mærkat"
+msgstr "Etiket"
 
 #: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
