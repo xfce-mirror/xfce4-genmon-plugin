@@ -410,10 +410,15 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poMonitor->wBar = gtk_progress_bar_new();
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
-    if (orientation == GTK_ORIENTATION_HORIZONTAL)
+    if (orientation == GTK_ORIENTATION_HORIZONTAL) {
         gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_VERTICAL);
-    else
+        gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), TRUE);
+    }
+    else {
         gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_HORIZONTAL);
+        gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), FALSE);
+    }
+
 
     /* make widget padding consistent */
     #if GTK_CHECK_VERSION (3, 16, 0)
@@ -868,10 +873,14 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
     gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBox), p_iOrientation);
     gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wImgBox), p_iOrientation);
 
-    if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL)
+    if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL) {
         gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_VERTICAL);
-    else
+        gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), TRUE);
+    }
+    else {
         gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_HORIZONTAL);
+        gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), FALSE);
+    }
 
     SetMonitorFont (poPlugin);
 
