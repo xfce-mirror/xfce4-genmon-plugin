@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 00:31+0200\n"
-"PO-Revision-Date: 2016-06-05 16:47+0000\n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2016-12-28 19:29+0000\n"
 "Last-Translator: Enrico <allin@infinito.it>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -53,27 +53,28 @@ msgstr "Selezione carattere..."
 msgid "Could not run \"%s\""
 msgstr "Impossibile eseguire \"%s\""
 
-#: ../panel-plugin/main.c:617
+#: ../panel-plugin/main.c:613
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Esegue ciclicamente uno script/programma, ne cattura l'output e visualizza le stringhe risultanti nel pannello"
 
-#: ../panel-plugin/main.c:619
+#: ../panel-plugin/main.c:615
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
-msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:633
 msgid "Font Selection"
 msgstr "Scelta del tipo di carattere"
 
-#: ../panel-plugin/main.c:681
+#: ../panel-plugin/main.c:677
 msgid "Configuration"
 msgstr "Configurazione"
 
-#: ../panel-plugin/main.c:690 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor generico"
 
