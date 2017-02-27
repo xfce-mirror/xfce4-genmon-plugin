@@ -423,9 +423,17 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     /* make widget padding consistent */
     #if GTK_CHECK_VERSION (3, 16, 0)
     #if GTK_CHECK_VERSION (3, 20, 0)
-        css = g_strdup_printf("* {padding: 1; margin: 1; }");
+        css = g_strdup_printf("\
+            progressbar.horizontal trough { min-height: 6px; }\
+            progressbar.horizontal progress { min-height: 6px; }\
+            progressbar.vertical trough { min-width: 6px; }\
+            progressbar.vertical progress { min-width: 6px; }");
     #else
-        css = g_strdup_printf("* {padding: 1; margin: 1; }");
+        css = g_strdup_printf("\
+            .progressbar.horizontal trough { min-height: 6px; }\
+            .progressbar.horizontal progress { min-height: 6px; }\
+            .progressbar.vertical trough { min-width: 6px; }\
+            .progressbar.vertical progress { min-width: 6px; }");
     #endif
     #endif
 
