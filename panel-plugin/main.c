@@ -315,6 +315,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gchar *default_font;
 
     #if GTK_CHECK_VERSION (3, 16, 0)
+        GtkStyleContext *context;
         GtkCssProvider *css_provider;
         gchar * css;
     #endif
@@ -353,6 +354,10 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wEventBox);
 
     poMonitor->wBox = gtk_box_new (orientation, 0);
+    #if GTK_CHECK_VERSION (3, 16, 0)
+         context = gtk_widget_get_style_context(poMonitor->wBox);
+         gtk_style_context_add_class(context,"genmon_plugin");
+    #endif
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER
         (poMonitor->wBox), 0);
@@ -360,6 +365,10 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         poMonitor->wBox);
 
     poMonitor->wTitle = gtk_label_new (poConf->acTitle);
+    #if GTK_CHECK_VERSION (3, 16, 0)
+         context = gtk_widget_get_style_context(poMonitor->wTitle);
+         gtk_style_context_add_class(context,"genmon_label");
+    #endif
     if (poConf->fTitleDisplayed)
         gtk_widget_show (poMonitor->wTitle);
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
@@ -367,6 +376,10 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     /* Create a Box to put image and text */
     poMonitor->wImgBox = gtk_box_new (orientation, 0);
+    #if GTK_CHECK_VERSION (3, 16, 0)
+         context = gtk_widget_get_style_context(poMonitor->wImgBox);
+         gtk_style_context_add_class(context,"genmon_imagebox");
+    #endif
     gtk_widget_show (poMonitor->wImgBox);
     gtk_container_set_border_width (GTK_CONTAINER
         (poMonitor->wImgBox), 0);
@@ -375,11 +388,19 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     /* Add Image */
     poMonitor->wImage = gtk_image_new ();
+    #if GTK_CHECK_VERSION (3, 16, 0)
+         context = gtk_widget_get_style_context(poMonitor->wImage);
+         gtk_style_context_add_class(context,"genmon_image");
+    #endif
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
 
     /* Add Button */
     poMonitor->wButton = xfce_create_panel_button ();
+    #if GTK_CHECK_VERSION (3, 16, 0)
+         context = gtk_widget_get_style_context(poMonitor->wButton);
+         gtk_style_context_add_class(context,"genmon_imagebutton");
+    #endif
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wButton);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wButton), TRUE, FALSE, 0);
@@ -391,12 +412,20 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     /* Add Value */
     poMonitor->wValue = gtk_label_new ("");
+    #if GTK_CHECK_VERSION (3, 16, 0)
+         context = gtk_widget_get_style_context(poMonitor->wValue);
+         gtk_style_context_add_class(context,"genmon_value");
+    #endif
     gtk_widget_show (poMonitor->wValue);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wValue), TRUE, FALSE, 0);
 
     /* Add Value Button */
     poMonitor->wValButton = xfce_create_panel_button ();
+    #if GTK_CHECK_VERSION (3, 16, 0)
+         context = gtk_widget_get_style_context(poMonitor->wValButton);
+         gtk_style_context_add_class(context,"genmon_valuebutton");
+    #endif
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wValButton);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
         GTK_WIDGET (poMonitor->wValButton), TRUE, FALSE, 0);
@@ -408,6 +437,10 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     /* Add Bar */
     poMonitor->wBar = gtk_progress_bar_new();
+    #if GTK_CHECK_VERSION (3, 16, 0)
+         context = gtk_widget_get_style_context(poMonitor->wBar);
+         gtk_style_context_add_class(context,"genmon_progressbar");
+    #endif
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
     if (orientation == GTK_ORIENTATION_HORIZONTAL) {
@@ -419,23 +452,21 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), FALSE);
     }
 
-
     /* make widget padding consistent */
     #if GTK_CHECK_VERSION (3, 16, 0)
-    #if GTK_CHECK_VERSION (3, 20, 0)
+     #if GTK_CHECK_VERSION (3, 20, 0)
         css = g_strdup_printf("\
             progressbar.horizontal trough { min-height: 6px; }\
             progressbar.horizontal progress { min-height: 6px; }\
             progressbar.vertical trough { min-width: 6px; }\
             progressbar.vertical progress { min-width: 6px; }");
-    #else
+     #else
         css = g_strdup_printf("\
             .progressbar.horizontal trough { min-height: 6px; }\
             .progressbar.horizontal progress { min-height: 6px; }\
             .progressbar.vertical trough { min-width: 6px; }\
             .progressbar.vertical progress { min-width: 6px; }");
-    #endif
-    #endif
+     #endif
 
     css_provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
@@ -463,7 +494,10 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
         GTK_STYLE_PROVIDER (css_provider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
-    g_free(css);
+
+        g_free(css);
+    #endif
+
     g_free(default_font);
 
     return poPlugin;

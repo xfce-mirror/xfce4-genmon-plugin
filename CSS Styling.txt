@@ -1,0 +1,75 @@
+xfce4-genmon-plugin CSS Styling
+===============================
+
+The genmon plugin layout is as such:
+[ Component (Gtk widget name) CSS style class (Description) ]
+
++-wEventbox (GtkEventBox) n/a (the main widget to manage events)
+|
+|--wBox (GtkBox) genmon_plugin (the main widget container box - all other widgets within this box)
+|
+|---wTitle (GtkLabel) genmon_label (the optional label from the configuration dialog)
+|
+|---wImgBox (GtkBox) n/a (the container box that contains the optionally clickable image and text outputs)
+|
+|----wImage (GtkImage) genmon_image (the non-clickable output image <img></img>)
+|----wButton (GtkButton) genmon_imagebutton (the clickable output image <click></click>)
+|-----wImageButton (GtkImage) n/a (the image that sits on wButton)
+|    *note: only one of wImage (<img>) or wImgButton (<click>) can exist on the plugin at the same time
+|    
+|----wValue (GtkLabel) genmon_value (the non-clickable output text <txt></txt>)
+|----wValButton (GtkButton) genmon_valuebutton (the clickable output text <txtclick></txtclick>)
+|-----wValButtonLabel (GtkLabel) n/a (the lable that sits on wValButton)
+|    *note: only one of wValue (<txt>) or wValButton (<txtclick>) can exist on the plugin at the same time
+|   
++---wBar (GtkProgressBar) genmon_progressbar (the slider bar (<bar></bar>)
+
+To access each of the genmon-specific css classes use the following format:
+- Gtk 3.16 and Gtk 3.18:
+   style_class_name
+- Gtk 3.20 and Gtk 3.22:
+   .style_class_name
+   
+   
+   
+Examples:
+
+To change the opacity and padding of the clickable image button (<click>):
+
+3.16/3.18:
+genmon_imagebutton {
+   opacity: 0.5;
+   padding: 2px;
+}
+
+3.20/3.22:
+.genmon_imagebutton {
+   opacity: 0.75;
+   padding_left: 2px;
+   padding_top: 2px;
+}
+
+
+To change the text color, font size and centre the font of the value output (<txt>):
+
+3.16/3.18:
+genmon_value {
+	color: rgb(255,0,0);
+	font-size: 8;
+	padding-top: 4;
+}
+
+3.20/3.22:
+.genmon_value {
+	color: rgb(255,0,0);
+	font-size: 8;
+	padding-top: 4;
+}
+
+
+
+References:
+
+To get a list of all available properties, see the Gtk3 Reference Manual at:
+https://developer.gnome.org/gtk3/stable/index.html or configure and use
+the Gtk Inspector: https://wiki.gnome.org/Projects/GTK+/Inspector
