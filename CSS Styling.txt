@@ -24,7 +24,7 @@ The genmon plugin layout is as such:
 |   
 +---wBar (GtkProgressBar) genmon_progressbar (the slider bar (<bar></bar>)
 
-To access each of the genmon-specific css classes use the following format:
+To access each of the genmon-specific css classes use the following format (note the . prefix to the class name):
 - Gtk 3.16 and Gtk 3.18:
    style_class_name
 - Gtk 3.20 and Gtk 3.22:
@@ -45,8 +45,8 @@ genmon_imagebutton {
 3.20/3.22:
 .genmon_imagebutton {
    opacity: 0.75;
-   padding_left: 2px;
-   padding_top: 2px;
+   padding-left: 2px;
+   padding-top: 2px;
 }
 
 
