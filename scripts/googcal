@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# Description: This script connects to your google calendar and notifies 
+#   of upcoming appointments via an icon on the xfce4-panel and a 
+#   listing of the upcoming appointments in the tooltip.
+#
+# Requires: gcalcli xfce4-genmon-plugin
+#
+# Must Do: you must set up gcalcli to work properly by setting up
+#   authorization rights to you calendar. To do so, run "gcalcli"
+#   and follow the steps.
+
+# Parameters: set these to taste
+################################
+    # REMIND_TIME = how far into the future to look for appointments to show
+REMIND_TIME=15
+    # NO_APPTS_ICON = the icon to display if no appointments are found
+NO_APPTS_ICON=/home/toz/.icons/cal-no-appts.png
+    # YES_APPTS_ICON = the icon to display if appointments are found
+YES_APPTS_ICON=/home/toz/.icons/cal-yes-appts.png
+
+#################################
+DO NOT CHANGE ANYTHING BELOW
+#################################
+
+# check to see if anything is there
+RESULT=$(gcalcli remind $REMIND_TIME "echo %s")
+
+# if there is an upcoming appointment.....
+if [ "$RESULT" != "" ]; then
+    ICON=$YES_APPTS_ICON
+else
+    ICON=$NO_APPTS_ICON
+    RESULT="No pending appointments"
+fi
+echo "<img>$ICON</img><tool>$RESULT</tool><click>exo-open "http://calendar.google.com"</click>"
+exit 0
