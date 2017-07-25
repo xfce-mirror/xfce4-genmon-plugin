@@ -1,21 +1,22 @@
-#
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 23:15+0000\n"
-"PO-Revision-Date: 2012-05-20 11:18+0300\n"
-"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
-"Language-Team: Ελληνικά, Σύγχρονα <opensuse-translation-el@opensuse.org>\n"
-"Language: el\n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"Language-Team: Greek (http://www.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Poedit-Language: Greek\n"
-"X-Poedit-Country: GREECE\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/cmdspawn.c:166
 #, c-format
@@ -26,85 +27,56 @@ msgstr "Σφάλμα στην εντολή \"%s\""
 msgid "Xfce Panel"
 msgstr "Πίνακας Xfce"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Εντολή"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Εισάγετε την εντολή προς εκτέλεση και στη συνέχεια πατήστε <Enter>"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "Διάστημα μεταξύ 2 διαδοχικών εκτελέσεων"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Περίοδος"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Ετικέτα"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "Επιλέξτε για να εμφανιστεί ετικέτα"
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Εισάγετε την ετικέτα πρόσθετου, στη συνέχεια πατήστε <Enter>"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "Πατήστε για να αλλάξετε γραμματοσειρά"
-
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(Προεπιλεγμένη γραμματοσειρά)"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr ""
 
 #: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Αδυναμία εκτέλεσης \"%s\""
 
-#: ../panel-plugin/main.c:574
+#: ../panel-plugin/main.c:613
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+"resulting string in the panel"
 msgstr ""
-"Κυκλική εκτέλεση ενός script/προγράμματος, λήψη αποτελέσματος εμφάνισή του "
-"στον πίνακα\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:578
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s - Γενικός επόπτης"
+#: ../panel-plugin/main.c:615
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr ""
 
-#: ../panel-plugin/main.c:592
+#: ../panel-plugin/main.c:633
 msgid "Font Selection"
 msgstr "Επιλογή γραμματοσειράς"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:677
 msgid "Configuration"
 msgstr "Ρύθμιση"
 
-#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Γενικός επόπτης"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
 msgstr "Εμφάνιση αποτελέσματος εντολής."
-
-#~ msgid "About..."
-#~ msgstr "Περί..."
