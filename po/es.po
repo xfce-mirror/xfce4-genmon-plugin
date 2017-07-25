@@ -4,7 +4,7 @@
 # 
 # Translators:
 #  <abel.martin.ruiz@gmail.com>, 2009
-# Fitoschido, 2014
+# Adolfo Jayme-Barrientos, 2014
 # Fitoschido, 2014
 # Pablo Roberto “Jristz” Lezaeta Reyes <prflr88@gmail.com>, 2013-2014
 # Pablo Roberto “Jristz” Lezaeta Reyes <prflr88@gmail.com>, 2016
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2016-06-19 05:23+0000\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
 "Last-Translator: Pablo Roberto “Jristz” Lezaeta Reyes <prflr88@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
