@@ -1,20 +1,21 @@
-# Uyghur translation for xfce4-genmon-plugin.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Gheyret Kenji <gheyret@gmail.com>, YEAR.
-#
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-24 03:00+0000\n"
-"PO-Revision-Date: 2011-11-09 16:10+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
-"Language: \n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"Language-Team: Uighur (http://www.transifex.com/xfce/xfce-panel-plugins/language/ug/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ug\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/cmdspawn.c:166
 #, c-format
@@ -25,77 +26,53 @@ msgstr "بۇيرۇق «%s» نىڭدىكى خاتالىق"
 msgid "Xfce Panel"
 msgstr "Xfce تاختىسى"
 
-#: ../panel-plugin/config_gui.c:81
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "بۇيرۇق"
 
-#: ../panel-plugin/config_gui.c:95
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "ئىجرا قىلىنىدىغان بۇيرۇقنى كىرگۈزۈپ <Enter> نى بېسىڭ"
-
-#: ../panel-plugin/config_gui.c:114
-msgid "Interval between 2 consecutive spawns"
-msgstr "ئىجرا قىلىش ئىنتېرۋالىنى كىرگۈزۈڭ"
-
-#: ../panel-plugin/config_gui.c:118
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "ۋاقىت(سېكۇنت) "
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "ئەن"
 
-#: ../panel-plugin/config_gui.c:131
-msgid "Tick to display label"
-msgstr "ئەننى كۆرسىتىش ئۈچۈن بەلگە قويۇڭ."
-
-#: ../panel-plugin/config_gui.c:140
-msgid "Input the plugin label, then press <Enter>"
-msgstr "قىستۇرما ئەنىنى كىرگۈزۈپ <Enter> نى بېسىڭ"
-
-#: ../panel-plugin/config_gui.c:143
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:152
-msgid "Press to change font"
-msgstr "فونتنى ئۆزگەرتمەكچى بولسىڭىز بۇ يەرنى بېسىڭ"
-
-#: ../panel-plugin/config_gui.c:167
-msgid "(Default font)"
-msgstr "(كۆڭۈلدىكى خەت نۇسخىسى)"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr ""
 
 #: ../panel-plugin/main.c:93
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "«%s» نى ئىجرا قىلغىلى بولمىدى"
 
-#: ../panel-plugin/main.c:574
+#: ../panel-plugin/main.c:613
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
-msgstr "قوليازما/پروگراممىلارنى قەرەللىك ئىجرا قىلىپ، كۆزنەكتە نەتىجىسىنى كۆرسىتىدۇ\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+"resulting string in the panel"
+msgstr ""
 
-#: ../panel-plugin/main.c:578
-#, c-format
-msgid "%s %s - Generic Monitor"
-msgstr "%s %s - ئادەتتىكى كۆزەتچى"
+#: ../panel-plugin/main.c:615
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr ""
 
-#: ../panel-plugin/main.c:592
+#: ../panel-plugin/main.c:633
 msgid "Font Selection"
 msgstr "خەت نۇسخا تاللاش"
 
-#: ../panel-plugin/main.c:637
+#: ../panel-plugin/main.c:677
 msgid "Configuration"
 msgstr "سەپلىمە"
 
-#: ../panel-plugin/main.c:647 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "ئادەتتىكى كۆزەتكۈ"
 
