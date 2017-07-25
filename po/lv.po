@@ -1,94 +1,83 @@
-# Latvian translations for xfce4-genmon-plugin package.
-# Copyright (C) 2006 THE xfce4-genmon-plugin'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
-# Rihards Prieditis <rprieditis@inbox.lv>, 2007.
-# Rihards Prieditis <rprieditis@gmail.com>, 2009.
+# 
+# Translators:
+# Rihards Priedītis <rprieditis@gmail.com>, 2009
+# Rihards Prieditis <rprieditis@inbox.lv>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-genmon-plugin 2.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2009-09-18 22:04+0100\n"
-"Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
-"Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"Language-Team: Latvian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Language: lv\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: ../panel-plugin/config_gui.c:87
-msgid "About..."
-msgstr "Par..."
+#: ../panel-plugin/cmdspawn.c:166
+#, c-format
+msgid "Error in command \"%s\""
+msgstr ""
 
-#: ../panel-plugin/config_gui.c:103 ../panel-plugin/main.c:644
-msgid "Generic Monitor"
-msgstr "Vispārējs Pārraugs"
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+msgid "Xfce Panel"
+msgstr "Xfce panelis"
 
-#: ../panel-plugin/config_gui.c:116
+#: ../panel-plugin/config_gui.c:78
 msgid "Command"
 msgstr "Komanda"
 
-#: ../panel-plugin/config_gui.c:130
-msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Ievadiet čaulas komandu, kuru izpildīt, tad nospiediet <Enter>"
-
-#: ../panel-plugin/config_gui.c:149
-msgid "Interval between 2 consecutive spawns"
-msgstr "Intervāls starp 2 pēc kārtas sekojošiem veidojumiem"
-
-#: ../panel-plugin/config_gui.c:153
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
 msgstr "Periods (s)"
 
-#: ../panel-plugin/config_gui.c:161
+#: ../panel-plugin/config_gui.c:115
 msgid "Label"
 msgstr "Etiķete"
 
-#: ../panel-plugin/config_gui.c:166
-msgid "Tick to display label"
-msgstr "Atzīmējiet, lai radītu etiķeti"
-
-#: ../panel-plugin/config_gui.c:175
-msgid "Input the plugin label, then press <Enter>"
-msgstr "Ievadiet spraudņa etiķeti, tad nospiediet <Enter>"
-
-#: ../panel-plugin/config_gui.c:178
+#: ../panel-plugin/config_gui.c:126
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:187
-msgid "Press to change font"
-msgstr "Nospiediet, lai mainītu fontu"
-
-#: ../panel-plugin/config_gui.c:202
-msgid "(Default font)"
-msgstr "(Noklusētais fonts)"
-
-#: ../panel-plugin/main.c:569
-#, c-format
-msgid ""
-"%s %s - Generic Monitor\n"
-"Cyclically spawns a script/program, captures its output and displays the "
-"resulting string in the panel\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
 msgstr ""
-"%s %s - Vispārējs Pārraugs\n"
-"Cikliski izpilda skriptus/programmas, tver to izvadu un rāda teksta virkni "
-"panelī.\n"
-"\n"
-"(c) 2004 Roger Seguin <roger_seguin@msn.com>\n"
-"(c) 2006 Julien Devemy <jujucece@gmail.com>"
 
-#: ../panel-plugin/main.c:587
+#: ../panel-plugin/main.c:93
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Nevarēja palaist \"%s\""
+
+#: ../panel-plugin/main.c:613
+msgid ""
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr ""
+
+#: ../panel-plugin/main.c:615
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr ""
+
+#: ../panel-plugin/main.c:633
 msgid "Font Selection"
 msgstr "Fontu atlase"
 
-#: ../panel-plugin/main.c:632
+#: ../panel-plugin/main.c:677
 msgid "Configuration"
 msgstr "Konfigurācija"
 
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
+msgid "Generic Monitor"
+msgstr "Vispārējs Pārraugs"
+
+#: ../panel-plugin/genmon.desktop.in.h:2
+msgid "Show output of a command."
+msgstr ""
