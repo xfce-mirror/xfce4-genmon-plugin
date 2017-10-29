@@ -1,3 +1,10 @@
+4.0.1 (2017/10/29)
+==================
+- Allow pango markup in tooltip as well
+- Added some extra sample scripts (twit, google calendar, sysstat)
+- Enhanced CSS styling capabilites (see 'CSS Styling.txt' doc)
+- Fix progressbar wrong direction 
+
 4.0.0 (2017/02/25)
 ==================
 - Fix PangoFontDescription not being able to display initial default string
