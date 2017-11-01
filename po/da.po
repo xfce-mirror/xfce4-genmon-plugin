@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"PO-Revision-Date: 2017-11-01 17:16+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgstr "Kunne ikke køre \"%s\""
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr "Kører rutinemæssigt et script eller program, opsamler dets output og viser resultatet i panelet"
+msgstr "Kører rutinemæssigt et script/program, som opsamler dets output og viser den resulterende streng i panelet"
 
 #: ../panel-plugin/main.c:615
 msgid ""
@@ -70,7 +70,7 @@ msgstr "Ophavsret © 2004 Roger Seguin\nOphavsret © 2006 Julien Devemy\nOphavsr
 
 #: ../panel-plugin/main.c:633
 msgid "Font Selection"
-msgstr "Vælg skrifttype"
+msgstr "Valg af skrifttype"
 
 #: ../panel-plugin/main.c:677
 msgid "Configuration"
@@ -82,4 +82,4 @@ msgstr "Generisk overvågning"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
-msgstr "Vis resultat af en kommando."
+msgstr "Vis outputtet af en kommando."
