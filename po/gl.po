@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
+# Xosé <xosecalvo@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2018-01-15 22:26+0000\n"
+"Last-Translator: Xosé <xosecalvo@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +46,7 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:132
 msgid "Select the display font..."
-msgstr ""
+msgstr "Seleccionar o tipo de letra da pantalla..."
 
 #: ../panel-plugin/main.c:93
 #, c-format
@@ -56,14 +57,14 @@ msgstr "Non foi posíbel executar «%s»"
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr ""
+msgstr "Inicia ciclicamente un script/programa, captura a súa saída e mostra a cadea resultante no panel"
 
 #: ../panel-plugin/main.c:615
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
-msgstr ""
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
 #: ../panel-plugin/main.c:633
 msgid "Font Selection"
