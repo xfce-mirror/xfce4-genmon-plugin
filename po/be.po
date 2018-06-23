@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Sergey Shlyapugin <shlyapugin@gmail.com>, 2013
+# Simple88, 2016
+# Zmicer Turok <zmicerturok@gmail.com >, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-10 06:31+0200\n"
+"PO-Revision-Date: 2018-06-23 18:24+0000\n"
+"Last-Translator: Zmicer Turok <zmicerturok@gmail.com>\n"
+"Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: be\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: ../panel-plugin/cmdspawn.c:166
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Памылка ў загадзе \"%s\""
+
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+msgid "Xfce Panel"
+msgstr "Панэль Xfce"
+
+#: ../panel-plugin/config_gui.c:78
+msgid "Command"
+msgstr "Загад"
+
+#: ../panel-plugin/config_gui.c:107
+msgid "Period (s) "
+msgstr "Перыяд(s) "
+
+#: ../panel-plugin/config_gui.c:115
+msgid "Label"
+msgstr "Адмеціна"
+
+#: ../panel-plugin/config_gui.c:126
+msgid "(genmon)"
+msgstr "(манітор)"
+
+#: ../panel-plugin/config_gui.c:132
+msgid "Select the display font..."
+msgstr "Абраць шрыфт адлюстравання..."
+
+#: ../panel-plugin/main.c:93
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Не атрымалася запусціць \"%s\""
+
+#: ../panel-plugin/main.c:613
+msgid ""
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr "Цыклічна выконвае праграму/скрыпт, захоплівае вывад і адлюстроўвае выніковы радок на панэлі"
+
+#: ../panel-plugin/main.c:615
+msgid ""
+"Copyright © 2004 Roger Seguin\n"
+"Copyright © 2006 Julien Devemy\n"
+"Copyright © 2016 Tony Paulic\n"
+msgstr "Copyright © 2004 Роджар Сегін\nCopyright © 2006 Жульен Дэвэмі\nCopyright © 2016 Тоні Паўлік\n"
+
+#: ../panel-plugin/main.c:633
+msgid "Font Selection"
+msgstr "Абраць шрыфт"
+
+#: ../panel-plugin/main.c:677
+msgid "Configuration"
+msgstr "Канфігурацыя"
+
+#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
+msgid "Generic Monitor"
+msgstr "Агульны манітор"
+
+#: ../panel-plugin/genmon.desktop.in.h:2
+msgid "Show output of a command."
+msgstr "Адлюстроўвае вывад загаду."
