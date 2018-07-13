@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Cristian Marchi <cri.penta@gmail.com>, 2009,2013
+# Emanuele Petriglia <inbox@emanuelepetriglia.me>, 2018
 # Enrico B. <enricobe@hotmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2018-07-11 15:08+0000\n"
+"PO-Revision-Date: 2018-07-13 13:08+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +23,7 @@ msgstr ""
 #: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
-msgstr "Errore nel comando «%s»"
+msgstr "Errore nel comando \"%s\""
 
 #: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
 msgid "Xfce Panel"
@@ -34,7 +35,7 @@ msgstr "Comando"
 
 #: ../panel-plugin/config_gui.c:107
 msgid "Period (s) "
-msgstr "Periodo(i)"
+msgstr "Periodo (secondi)"
 
 #: ../panel-plugin/config_gui.c:115
 msgid "Label"
@@ -46,7 +47,7 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:132
 msgid "Select the display font..."
-msgstr "Selezione carattere..."
+msgstr "Selezione carattere…"
 
 #: ../panel-plugin/main.c:93
 #, c-format
@@ -68,7 +69,7 @@ msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyrig
 
 #: ../panel-plugin/main.c:633
 msgid "Font Selection"
-msgstr "Scelta del tipo di carattere"
+msgstr "Scelta del carattere"
 
 #: ../panel-plugin/main.c:677
 msgid "Configuration"
@@ -80,4 +81,4 @@ msgstr "Monitor generico"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
-msgstr "Mostra l'output di un comando"
+msgstr "Mostra l'output di un comando."
