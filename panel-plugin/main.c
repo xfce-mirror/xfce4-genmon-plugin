@@ -537,7 +537,7 @@ static int SetMonitorFont (void *p_pvPlugin)
   font = pango_font_description_from_string(poConf->acFont);
   if (G_LIKELY (font))
   {
-    css = g_strdup_printf("label { font-family: %s; font-size: %dpx; font-style: %s; font-weight: %s }",
+    css = g_strdup_printf("label { font-family: %s; font-size: %dpt; font-style: %s; font-weight: %s }",
                           pango_font_description_get_family (font),
                           pango_font_description_get_size (font) / PANGO_SCALE,
                           (pango_font_description_get_style(font) == PANGO_STYLE_ITALIC ||
@@ -727,7 +727,7 @@ static void SetLabel (GtkWidget *p_wTF, void *p_pvPlugin)
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     const char     *acTitle = gtk_entry_get_text (GTK_ENTRY (p_wTF));
-
+    
     g_free (poConf->acTitle);
     poConf->acTitle = g_strdup (acTitle);
     gtk_label_set_text (GTK_LABEL (poMonitor->wTitle), poConf->acTitle);
