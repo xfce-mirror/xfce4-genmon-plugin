@@ -3,17 +3,9 @@
 #     - will send notification of all new tweets 
 #     - tooltip will show new and (optionally) recent tweets to a max of NUM_TOOLTIP_TWEETS
 #     - plugin will change icon if new tweets detected
-#     - clicking on plugin will: 
-#        option 1: execute configurable command
-#        option 2: display the saved recent tweets timeline
-#        option 3: compose and send a tweet (untested)
+#     - clicking on plugin will execute configurable command
 #   
-#   Requires:  xfce4-genmon
-#              t (https://github.com/sferik/t/blob/master/README.md)
-#              yad
-#
-#  NOTE: you must set up t (command line twitter client) properly for this script to work. 
-#        Instructions in link above.
+#   Requires: xfce4-genmon, t(https://github.com/sferik/t/blob/master/README.md), yad
 #
 #   xfce4-genmon-plugin properties:
 #       Command = path to and name of this script
@@ -45,22 +37,25 @@ NOTIFICATION_ICON="/home/toz/.icons/twitter.svg"
 
   # On-click action (what to do when plugin icon is clicked)
   #
-  # 1. Run a program (open twitter in browser window)
+  # open twitter in browser window
 #CLICK_ACTION="xdg-open https://www.twitter.com"
 
-  # 2. display list of recent tweets in yad dialog
-cat /tmp/.twit-all | awk '{ printf("%s %- 16s", $4, $5); out=$6; for(i=7;i<=NF;i++){out=out" "$i}; print out}' > /tmp/.twit-all-output
-CLICK_ACTION="yad --title Recent\ Twitter\ Timeline --center --width=1200 --height=500 --text-info --show-uri --filename=/tmp/.twit-all-output"
+  # display list of recent tweets in yad dialog
+CLICK_ACTION="yad --window-icon=$NOTIFICATION_ICON --title Recent\ Twitter\ Timeline --center --width=1200 --height=500 --text-info --show-uri --filename=/tmp/.twit-all-output"
 
-  # 3. compose a new tweet (untested)
+  # compose a new tweet (untested)
 #TWEET=$(yad --title "Compose a new message..." --height=200 --width=300 --text-info --editable --wrap)
 #CLICK_ACTION="t update '$TWEET'"
 
-##############################################
+# length of time to track old tweets (purge) in seconds
+KEEP_TIME=86400
 
 ##############################################
 # don't change anything below
 ##############################################
+
+# check to see if .lastid is valid and if not reset
+[[ $(cat /tmp/.lastid) =~ ^[0-9]+$ ]] || rm /tmp/.lastid
 
 # get last processed ID and timeline
 if [ -s /tmp/.lastid ]
@@ -112,7 +107,14 @@ if [ $num_tweets -gt 0 ]; then
 fi
 
 # append current to the all file
-cat /tmp/.twit /tmp/.twit-all > /tmp/.twit-tmp && mv /tmp/.twit-tmp /tmp/.twit-all
+if [ -s /tmp/.twit-all ]
+then
+	cat /tmp/.twit /tmp/.twit-all > /tmp/.twit-tmp && mv /tmp/.twit-tmp /tmp/.twit-all
+else	
+	cat /tmp/.twit > /tmp/.twit-tmp && mv /tmp/.twit-tmp /tmp/.twit-all
+fi
+# format the output
+cat /tmp/.twit-all | awk '{ printf("%s %- 16s", $4, $5); out=$6; for(i=7;i<=NF;i++){out=out" "$i}; print out}' > /tmp/.twit-all-output
 
 # get last checked time stamp
 last_checked=$(date)
@@ -187,6 +189,17 @@ fi
 fi      
 
                [ $DEBUG -eq 1 ] && echo "13 $(date)" >> /tmp/twit-log
+
+# purge old tweets from list
+KEEPEPOCHLIMIT=$(( $(date +%s) - $KEEP_TIME ))
+while IFS= read -r line
+do
+        if [[ $(date --date="$(echo "$line" | awk '{print $2" "$3" "$4}')" +%s) -gt $KEEPEPOCHLIMIT ]]
+        then
+                echo "$line" >> /tmp/.twit-all.new
+        fi
+done < "/tmp/.twit-all"
+mv /tmp/.twit-all.new /tmp/.twit-all
 
 unset ids from text from2 text2
 exit 0
