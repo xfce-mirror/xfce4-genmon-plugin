@@ -852,19 +852,22 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
 
     xfce_panel_plugin_block_menu (plugin);
 
-    dlg = xfce_titled_dialog_new_with_buttons (_("Configuration"),
+    dlg = xfce_titled_dialog_new_with_buttons (_("Generic Monitor"),
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
         GTK_DIALOG_DESTROY_WITH_PARENT,
         "gtk-close", GTK_RESPONSE_OK,
         NULL);
 
+    gtk_window_set_resizable (GTK_WINDOW (dlg), FALSE);
+    gtk_window_set_icon_name (GTK_WINDOW (dlg), "utilities-system-monitor");
+
     g_signal_connect (dlg, "response", G_CALLBACK (genmon_dialog_response),
         poPlugin);
 
-    xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dlg), _("Generic Monitor"));
+    xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dlg), _("Configuration"));
 
-    vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, BORDER + 6);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox), BORDER + 4);
+    vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
     gtk_widget_show(vbox);
     gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), vbox, 
         TRUE, TRUE, 0);
