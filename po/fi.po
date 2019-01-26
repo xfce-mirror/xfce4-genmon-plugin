@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Ammuu5, 2018
+# Ammuu5, 2018-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2018-01-07 00:33+0000\n"
+"PO-Revision-Date: 2019-01-26 06:31+0000\n"
 "Last-Translator: Ammuu5\n"
 "Language-Team: Finnish (http://www.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -63,7 +63,7 @@ msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
-msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
+msgstr "Tekijänoikeus © 2004 Roger Seguin\nTekijänoikeus © 2006 Julien Devemy\nTekijänoikeus © 2016 Tony Paulic\n"
 
 #: ../panel-plugin/main.c:633
 msgid "Font Selection"
