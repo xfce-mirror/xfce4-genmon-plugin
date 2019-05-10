@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Sveinn í Felli <sv1@fellsnet.is>, 2014
+# Sveinn í Felli <sv1@fellsnet.is>, 2013-2014,2016,2019
 # Sveinn í Felli <sveinki@nett.is>, 2013,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"PO-Revision-Date: 2019-05-10 11:27+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "Stillingar"
 
 #: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
-msgstr "Almennur skjár"
+msgstr "Venjulegur skjár"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
