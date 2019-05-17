@@ -6,13 +6,13 @@
 # Claus Futtrup <cfuttrup@stofanet.dk>, 2008
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2016
-# scootergrisen, 2017
+# scootergrisen, 2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-11-03 11:13+0000\n"
+"PO-Revision-Date: 2019-05-17 11:50+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:132
 msgid "Select the display font..."
-msgstr "Vælg skrifttype..."
+msgstr "Vælg skrifttype ..."
 
 #: ../panel-plugin/main.c:93
 #, c-format
