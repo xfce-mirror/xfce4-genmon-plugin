@@ -396,7 +396,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
 
     /* Add Button */
-    poMonitor->wButton = xfce_create_panel_button ();
+    poMonitor->wButton = xfce_panel_create_button ();
     #if GTK_CHECK_VERSION (3, 16, 0)
          context = gtk_widget_get_style_context(poMonitor->wButton);
          gtk_style_context_add_class(context,"genmon_imagebutton");
@@ -421,7 +421,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GTK_WIDGET (poMonitor->wValue), TRUE, FALSE, 0);
 
     /* Add Value Button */
-    poMonitor->wValButton = xfce_create_panel_button ();
+    poMonitor->wValButton = xfce_panel_create_button ();
     #if GTK_CHECK_VERSION (3, 16, 0)
          context = gtk_widget_get_style_context(poMonitor->wValButton);
          gtk_style_context_add_class(context,"genmon_valuebutton");
