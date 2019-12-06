@@ -10,7 +10,7 @@ dnl
 m4_define([genmon_version],[4.0.2])
 
 AC_INIT([xfce4-genmon-plugin], [genmon_version],
-	[goodies-dev@xfce.org])
+	[xfce-dev@xfce.org])
 
 GENMON_VERSION=genmon_version()
 AM_INIT_AUTOMAKE([xfce4-genmon-plugin], [$GENMON_VERSION])

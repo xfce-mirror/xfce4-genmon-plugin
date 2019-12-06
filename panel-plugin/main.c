@@ -789,7 +789,7 @@ static void About (XfcePanelPlugin *plugin)
                          "version",      VERSION,
                          "program-name", PACKAGE,
                          "comments",     _("Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"),
-                         "website",      "http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin",
+                         "website",      "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin",
                          "copyright",    _("Copyright \xc2\xa9 2004 Roger Seguin\nCopyright \xc2\xa9 2006 Julien Devemy\nCopyright \xc2\xa9 2016 Tony Paulic\n"),
                          "authors",      auth,
                          NULL);
