@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Edin Veskovic <edin.lockedin@gmail.com>, 2019
 # Edin Veskovic <edin.lockedin@gmail.com>, 2014
 # Ivica  Kolić <ikoli@yahoo.com>, 2013
 # Ivica  Kolić <ikoli@yahoo.com>, 2011
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-09-23 19:02+0000\n"
-"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
+"POT-Creation-Date: 2019-12-06 18:32+0100\n"
+"PO-Revision-Date: 2019-12-08 13:46+0000\n"
+"Last-Translator: Edin Veskovic <edin.lockedin@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,59 +27,80 @@ msgstr ""
 msgid "Error in command \"%s\""
 msgstr "Greška u naredbi \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:97
+#: ../panel-plugin/main.c:117
 msgid "Xfce Panel"
 msgstr "Xfce ploča"
 
-#: ../panel-plugin/config_gui.c:78
+#: ../panel-plugin/config_gui.c:76
 msgid "Command"
 msgstr "Naredba"
 
-#: ../panel-plugin/config_gui.c:107
-msgid "Period (s) "
-msgstr "Period (i) "
+#: ../panel-plugin/config_gui.c:86
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Unesite naredbu za pokretanje, zatim pritisnite <Enter>"
 
-#: ../panel-plugin/config_gui.c:115
+#: ../panel-plugin/config_gui.c:89
 msgid "Label"
 msgstr "Natpis"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:92
+msgid "Tick to display label"
+msgstr "Označi za prikaz natpisa"
+
+#: ../panel-plugin/config_gui.c:98
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Unesite natpis priključka, zatim pritisnite <Enter>"
+
+#: ../panel-plugin/config_gui.c:100
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:132
+#: ../panel-plugin/config_gui.c:102
+msgid "Period (s)"
+msgstr "Period (i) "
+
+#: ../panel-plugin/config_gui.c:120
+msgid "Interval between 2 consecutive spawns"
+msgstr "Interval između 2 uzastopna pokretanja"
+
+#: ../panel-plugin/config_gui.c:129
 msgid "Select the display font..."
 msgstr "Odaberi font prikaza..."
 
-#: ../panel-plugin/main.c:93
+#: ../panel-plugin/config_gui.c:132
+msgid "Press to change font..."
+msgstr "Pritisni za promjenu fonta"
+
+#: ../panel-plugin/main.c:96 ../panel-plugin/main.c:116
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Ne mogu pokrenuti \"%s\""
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:791
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Ciklički pokreće skriptu/program, hvata njihov izlaz te prikazuje rezultirajuće podatke na ploči"
 
-#: ../panel-plugin/main.c:615
+#: ../panel-plugin/main.c:793
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr "Autorska prava © 2004 Roger Seguin\nAutorska prava © 2006 Julien Devemy\nAutorska prava © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:633
+#: ../panel-plugin/main.c:811
 msgid "Font Selection"
 msgstr "Odabir fonta"
 
-#: ../panel-plugin/main.c:677
-msgid "Configuration"
-msgstr "Konfiguracija"
-
-#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:855 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Generički monitor"
+
+#: ../panel-plugin/main.c:867
+msgid "Configuration"
+msgstr "Konfiguracija"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
