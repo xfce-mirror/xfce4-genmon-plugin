@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2019-05-17 11:50+0000\n"
+"POT-Creation-Date: 2019-12-06 18:32+0100\n"
+"PO-Revision-Date: 2019-12-08 00:37+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -26,59 +26,80 @@ msgstr ""
 msgid "Error in command \"%s\""
 msgstr "Fejl i kommandoen \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:97
+#: ../panel-plugin/main.c:117
 msgid "Xfce Panel"
 msgstr "Xfce-panel"
 
-#: ../panel-plugin/config_gui.c:78
+#: ../panel-plugin/config_gui.c:76
 msgid "Command"
 msgstr "Kommando"
 
-#: ../panel-plugin/config_gui.c:107
-msgid "Period (s) "
-msgstr "Periode(r) "
+#: ../panel-plugin/config_gui.c:86
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Indtast skalkommandoen der skal køres, og tryk på <Enter>"
 
-#: ../panel-plugin/config_gui.c:115
+#: ../panel-plugin/config_gui.c:89
 msgid "Label"
 msgstr "Etiket"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:92
+msgid "Tick to display label"
+msgstr "Markér for at vise etiket"
+
+#: ../panel-plugin/config_gui.c:98
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Indtast udvidelsesmodul-mærkaten og tryk på <Enter>"
+
+#: ../panel-plugin/config_gui.c:100
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:132
+#: ../panel-plugin/config_gui.c:102
+msgid "Period (s)"
+msgstr "Periode(r)"
+
+#: ../panel-plugin/config_gui.c:120
+msgid "Interval between 2 consecutive spawns"
+msgstr "Interval mellem 2 på hinanden følgende kørsler"
+
+#: ../panel-plugin/config_gui.c:129
 msgid "Select the display font..."
 msgstr "Vælg skrifttype ..."
 
-#: ../panel-plugin/main.c:93
+#: ../panel-plugin/config_gui.c:132
+msgid "Press to change font..."
+msgstr "Tryk for at ændre skrifttype ..."
+
+#: ../panel-plugin/main.c:96 ../panel-plugin/main.c:116
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Kunne ikke køre \"%s\""
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:791
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Kører rutinemæssigt et script/program, som opsamler dets output og viser den resulterende streng i panelet"
 
-#: ../panel-plugin/main.c:615
+#: ../panel-plugin/main.c:793
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr "Ophavsret © 2004 Roger Seguin\nOphavsret © 2006 Julien Devemy\nOphavsret © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:633
+#: ../panel-plugin/main.c:811
 msgid "Font Selection"
 msgstr "Valg af skrifttype"
 
-#: ../panel-plugin/main.c:677
-msgid "Configuration"
-msgstr "Konfiguration"
-
-#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:855 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Generisk overvågning"
+
+#: ../panel-plugin/main.c:867
+msgid "Configuration"
+msgstr "Konfiguration"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
