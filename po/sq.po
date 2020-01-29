@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Besnik <besnik@programeshqip.org>, 2007,2019-2020
 # Besnik <besnik@programeshqip.org>, 2007
+# Besnik <besnik@programeshqip.org>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"POT-Creation-Date: 2019-12-06 18:32+0100\n"
+"PO-Revision-Date: 2020-01-29 10:04+0000\n"
+"Last-Translator: Besnik <besnik@programeshqip.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,62 +23,83 @@ msgstr ""
 #: ../panel-plugin/cmdspawn.c:166
 #, c-format
 msgid "Error in command \"%s\""
-msgstr ""
+msgstr "Gabim në urdhrin \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:97
+#: ../panel-plugin/main.c:117
 msgid "Xfce Panel"
 msgstr "Panel Xfce"
 
-#: ../panel-plugin/config_gui.c:78
+#: ../panel-plugin/config_gui.c:76
 msgid "Command"
 msgstr "Urdhër"
 
-#: ../panel-plugin/config_gui.c:107
-msgid "Period (s) "
-msgstr "Periudhë (s) "
+#: ../panel-plugin/config_gui.c:86
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Jepni urdhër shelli për xhirim, mandej shtypni tastin <Enter>"
 
-#: ../panel-plugin/config_gui.c:115
+#: ../panel-plugin/config_gui.c:89
 msgid "Label"
 msgstr "Etiketë"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:92
+msgid "Tick to display label"
+msgstr "I vini shenjë për shfaqje etikete"
+
+#: ../panel-plugin/config_gui.c:98
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Jepni etiketë shtojce, mandej shtypni tastin <Enter>"
+
+#: ../panel-plugin/config_gui.c:100
 msgid "(genmon)"
-msgstr "(mbik-elem)"
+msgstr "(genmon)"
+
+#: ../panel-plugin/config_gui.c:102
+msgid "Period (s)"
+msgstr "Periodë (s)"
+
+#: ../panel-plugin/config_gui.c:120
+msgid "Interval between 2 consecutive spawns"
+msgstr "Hapësirë ndërmjet 2 xhirimesh të njëpasnjëshëm"
+
+#: ../panel-plugin/config_gui.c:129
+msgid "Select the display font..."
+msgstr "Përzgjidhni shkronja ekrani…"
 
 #: ../panel-plugin/config_gui.c:132
-msgid "Select the display font..."
-msgstr ""
+msgid "Press to change font..."
+msgstr "Shtypeni që të ndryshohen shkronjat…"
 
-#: ../panel-plugin/main.c:93
+#: ../panel-plugin/main.c:96 ../panel-plugin/main.c:116
 #, c-format
 msgid "Could not run \"%s\""
-msgstr "Nuk xhiroi dot \"%s\""
+msgstr "S’u xhirua dot \"%s\""
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:791
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr ""
+msgstr "Vë në mënyrë ciklike në punë një programth/program, regjistron ç’prodhohet prej tij dhe shfaq te paneli vargun përkatës"
 
-#: ../panel-plugin/main.c:615
+#: ../panel-plugin/main.c:793
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
-msgstr ""
+msgstr "Të drejta kopjimi © 2004 Roger Seguin\nTë drejta kopjimi © 2006 Julien Devemy\nTë drejta kopjimi © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:633
+#: ../panel-plugin/main.c:811
 msgid "Font Selection"
-msgstr "Përzgjedhje Gërmash"
+msgstr "Përzgjedhje Shkronjash"
 
-#: ../panel-plugin/main.c:677
-msgid "Configuration"
-msgstr "Formësim"
-
-#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:855 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Mbikëqyrës Elementar"
 
+#: ../panel-plugin/main.c:867
+msgid "Configuration"
+msgstr "Formësim"
+
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
-msgstr ""
+msgstr "Shfaq përfundimin e një urdhri."
