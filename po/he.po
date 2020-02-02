@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Elishai Eliyahu <e1907@mm.st>, 2016
+# Elishai Eliyahu <e1907@mm.st>, 2016,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"POT-Creation-Date: 2019-12-06 18:32+0100\n"
+"PO-Revision-Date: 2020-02-02 18:23+0000\n"
 "Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -23,59 +23,80 @@ msgstr ""
 msgid "Error in command \"%s\""
 msgstr "שגיאה בפקודה \"%s\" "
 
-#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:97
+#: ../panel-plugin/main.c:117
 msgid "Xfce Panel"
 msgstr "פאנל Xfce "
 
-#: ../panel-plugin/config_gui.c:78
+#: ../panel-plugin/config_gui.c:76
 msgid "Command"
 msgstr "פקודה"
 
-#: ../panel-plugin/config_gui.c:107
-msgid "Period (s) "
-msgstr "משך זמן (ים)"
+#: ../panel-plugin/config_gui.c:86
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "הכנס את פקודת השלד להבאה, ולאחר מכן לחץ <Enter> "
 
-#: ../panel-plugin/config_gui.c:115
+#: ../panel-plugin/config_gui.c:89
 msgid "Label"
 msgstr "תווית"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:92
+msgid "Tick to display label"
+msgstr "סמן להצגת תווית"
+
+#: ../panel-plugin/config_gui.c:98
+msgid "Input the plugin label, then press <Enter>"
+msgstr "הכנס את תווית התוסף, לאחר מכן לחץ <Enter> "
+
+#: ../panel-plugin/config_gui.c:100
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:132
+#: ../panel-plugin/config_gui.c:102
+msgid "Period (s)"
+msgstr "פרק זמן (שניות)"
+
+#: ../panel-plugin/config_gui.c:120
+msgid "Interval between 2 consecutive spawns"
+msgstr "פסק הזמן בין 2 הבאות עוקבות"
+
+#: ../panel-plugin/config_gui.c:129
 msgid "Select the display font..."
 msgstr "בחר את גופן התצוגה..."
 
-#: ../panel-plugin/main.c:93
+#: ../panel-plugin/config_gui.c:132
+msgid "Press to change font..."
+msgstr "לחץ כדי לשנות גופן..."
+
+#: ../panel-plugin/main.c:96 ../panel-plugin/main.c:116
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "לא יכול להריץ \"%s\" "
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:791
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "מביא מחזורית תסריט/תוכנית, לוכד את הפלט ומציג את המחרוזת שהתקבלה בלוח"
 
-#: ../panel-plugin/main.c:615
+#: ../panel-plugin/main.c:793
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:633
+#: ../panel-plugin/main.c:811
 msgid "Font Selection"
 msgstr "בחירת גופן"
 
-#: ../panel-plugin/main.c:677
-msgid "Configuration"
-msgstr "הגדרה"
-
-#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:855 ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "מסך גנרי"
+
+#: ../panel-plugin/main.c:867
+msgid "Configuration"
+msgstr "הגדרה"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
