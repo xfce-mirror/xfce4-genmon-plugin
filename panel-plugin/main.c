@@ -831,12 +831,14 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
 static void genmon_dialog_response (GtkWidget *dlg, int response,
     genmon_t *genmon)
 {
-    UpdateConf (genmon);
-    gtk_widget_destroy (dlg);
-    xfce_panel_plugin_unblock_menu (genmon->plugin);
-    genmon_write_config (genmon->plugin, genmon);
-    /* Do not wait the next timer to update display */
-    DisplayCmdOutput (genmon);
+	if (response == GTK_RESPONSE_OK) {
+		UpdateConf (genmon);
+		genmon_write_config (genmon->plugin, genmon);
+		/* Do not wait the next timer to update display */
+		DisplayCmdOutput (genmon);
+	}
+	gtk_widget_destroy (dlg);
+	xfce_panel_plugin_unblock_menu (genmon->plugin);
 }
 
 static void genmon_create_options (XfcePanelPlugin *plugin,
