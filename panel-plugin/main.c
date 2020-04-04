@@ -860,6 +860,12 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 		/* Do not wait the next timer to update display */
 		DisplayCmdOutput (genmon);
 	}
+	else {
+		poConf->acFonttmp = g_strdup (poConf->acFont);
+		poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
+		poConf->iPeriod_mstmp = poConf->iPeriod_ms;
+	}
+	
 	gtk_widget_destroy (dlg);
 	xfce_panel_plugin_unblock_menu (genmon->plugin);
 }
