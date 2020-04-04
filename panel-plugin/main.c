@@ -50,6 +50,7 @@ typedef struct param_t {
     char           *acTitle;
     uint32_t        iPeriod_ms;
     char           *acFont;
+    char		   *acFonttmp;
 } param_t;
 
 typedef struct conf_t {
@@ -516,6 +517,7 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     g_free (poPlugin->oConf.oParam.acCmd);
     g_free (poPlugin->oConf.oParam.acTitle);
     g_free (poPlugin->oConf.oParam.acFont);
+    g_free (poPlugin->oConf.oParam.acFonttmp);
     g_free (poPlugin->oMonitor.onClickCmd);
     g_free (poPlugin->acValue);
     g_free (poPlugin);
@@ -818,9 +820,9 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
     if (iResponse == GTK_RESPONSE_OK) {
         pcFont = gtk_font_chooser_get_font (GTK_FONT_CHOOSER (wDialog));
         if (pcFont) {
-            g_free (poConf->acFont);
-            poConf->acFont = g_strdup (pcFont);
-            gtk_button_set_label (GTK_BUTTON (p_wPB), poConf->acFont);
+            g_free (poConf->acFonttmp);
+            poConf->acFonttmp = g_strdup (pcFont);
+            gtk_button_set_label (GTK_BUTTON (p_wPB), poConf->acFonttmp);
         }
     }
     gtk_widget_destroy (wDialog);
@@ -831,7 +833,14 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
 static void genmon_dialog_response (GtkWidget *dlg, int response,
     genmon_t *genmon)
 {
+	struct param_t *poConf = &(genmon->oConf.oParam);
+	
 	if (response == GTK_RESPONSE_OK) {
+		if (poConf->acFonttmp)
+		{
+			g_free (poConf->acFont);
+		 	poConf->acFont = g_strdup (poConf->acFonttmp);
+		}
 		UpdateConf (genmon);
 		genmon_write_config (genmon->plugin, genmon);
 		/* Do not wait the next timer to update display */
