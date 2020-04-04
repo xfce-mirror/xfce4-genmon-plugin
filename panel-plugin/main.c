@@ -47,12 +47,12 @@ typedef struct param_t {
     /* Configurable parameters */
     char           *acCmd; /* Commandline to spawn */
     int             fTitleDisplayed;
-    int				fTitleDisplayedtmp;
+    int             fTitleDisplayedtmp;
     char           *acTitle;
     uint32_t        iPeriod_ms;
-    uint32_t		iPeriod_mstmp;
+    uint32_t        iPeriod_mstmp;
     char           *acFont;
-    char		   *acFonttmp;
+    char           *acFonttmp;
 } param_t;
 
 typedef struct conf_t {
@@ -79,11 +79,11 @@ typedef struct monitor_t {
 } monitor_t;
 
 typedef struct genmon_t {
-    XfcePanelPlugin *plugin;
-    unsigned int    iTimerId; /* Cyclic update */
-    struct conf_t   oConf;
+    XfcePanelPlugin    *plugin;
+    unsigned int        iTimerId; /* Cyclic update */
+    struct conf_t       oConf;
     struct monitor_t    oMonitor;
-    char            *acValue; /* Commandline resulting string */
+    char               *acValue; /* Commandline resulting string */
 } genmon_t;
 
 /**************************************************************/
