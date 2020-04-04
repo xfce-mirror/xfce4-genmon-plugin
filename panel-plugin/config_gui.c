@@ -120,16 +120,17 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_set_tooltip_text (wSc_Period, _("Interval between 2 consecutive spawns"));
     gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (wSc_Period), TRUE);
 
+    wPB_Font = gtk_button_new_with_label (_("Select the display font..."));
+    gtk_widget_set_margin_top (GTK_WIDGET (wPB_Font), 6);
+    gtk_widget_show (wPB_Font);
+    gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 3, 2, 1);
+    gtk_widget_set_tooltip_text (wPB_Font, _("Press to change font..."));
+    
     hseparator10 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_widget_set_margin_top (GTK_WIDGET (hseparator10), 6);
-    gtk_widget_set_margin_bottom (GTK_WIDGET (hseparator10), 6);
+    gtk_widget_set_margin_bottom (GTK_WIDGET (hseparator10), 0);
     gtk_widget_show (hseparator10);
-    gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 3, 2, 1);
-
-    wPB_Font = gtk_button_new_with_label (_("Select the display font..."));
-    gtk_widget_show (wPB_Font);
-    gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 4, 2, 1);
-    gtk_widget_set_tooltip_text (wPB_Font, _("Press to change font..."));
+    gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 4, 2, 1);
             
     if (p_poGUI) {
         COPYVAL (p_poGUI, wTF_Cmd);
