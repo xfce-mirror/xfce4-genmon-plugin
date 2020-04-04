@@ -857,7 +857,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     dlg = xfce_titled_dialog_new_with_buttons (_("Generic Monitor"),
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
         GTK_DIALOG_DESTROY_WITH_PARENT,
-        "gtk-close", GTK_RESPONSE_OK,
+        "gtk-save", GTK_RESPONSE_OK,
         NULL);
 
     gtk_window_set_resizable (GTK_WINDOW (dlg), FALSE);
