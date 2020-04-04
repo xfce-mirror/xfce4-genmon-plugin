@@ -334,8 +334,10 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poConf->acTitle = g_strdup ("(genmon)");
 
     poConf->fTitleDisplayed = 1;
+    poConf->fTitleDisplayedtmp = 1;
 
     poConf->iPeriod_ms = 30 * 1000;
+    poConf->iPeriod_mstmp = 30 * 1000;
     poPlugin->iTimerId = 0;
 
     // PangoFontDescription needs a font and we can't use "(Default)" anymore.
