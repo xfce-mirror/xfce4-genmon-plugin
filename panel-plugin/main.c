@@ -47,6 +47,7 @@ typedef struct param_t {
     /* Configurable parameters */
     char           *acCmd; /* Commandline to spawn */
     int             fTitleDisplayed;
+    int				fTitleDisplayedtmp;
     char           *acTitle;
     uint32_t        iPeriod_ms;
     char           *acFont;
@@ -710,14 +711,14 @@ static void ToggleTitle (GtkWidget *p_w, void *p_pvPlugin)
     struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
 
-    poConf->fTitleDisplayed =
+    poConf->fTitleDisplayedtmp =
         gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
     gtk_widget_set_sensitive (GTK_WIDGET (poGUI->wTF_Title),
-        poConf->fTitleDisplayed);
-    if (poConf->fTitleDisplayed)
+        poConf->fTitleDisplayedtmp);
+/*    if (poConf->fTitleDisplayedtmp)
         gtk_widget_show (GTK_WIDGET (poMonitor->wTitle));
     else
-        gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
+        gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));*/
 }/* ToggleTitle() */
 
 /**************************************************************/
@@ -834,6 +835,7 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
     genmon_t *genmon)
 {
 	struct param_t *poConf = &(genmon->oConf.oParam);
+    struct monitor_t *poMonitor = &(genmon->oMonitor);
 	
 	if (response == GTK_RESPONSE_OK) {
 		if (poConf->acFonttmp)
@@ -841,6 +843,13 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 			g_free (poConf->acFont);
 		 	poConf->acFont = g_strdup (poConf->acFonttmp);
 		}
+		
+	 	poConf->fTitleDisplayed = poConf->fTitleDisplayedtmp;
+	 	if (poConf->fTitleDisplayed)
+			gtk_widget_show (GTK_WIDGET (poMonitor->wTitle));
+		else
+			gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
+						
 		UpdateConf (genmon);
 		genmon_write_config (genmon->plugin, genmon);
 		/* Do not wait the next timer to update display */
