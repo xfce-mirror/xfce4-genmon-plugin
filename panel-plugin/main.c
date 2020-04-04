@@ -50,6 +50,7 @@ typedef struct param_t {
     int				fTitleDisplayedtmp;
     char           *acTitle;
     uint32_t        iPeriod_ms;
+    uint32_t		iPeriod_mstmp;
     char           *acFont;
     char		   *acFonttmp;
 } param_t;
@@ -747,7 +748,7 @@ static void SetPeriod (GtkWidget *p_wSc, void *p_pvPlugin)
 
     TRACE ("SetPeriod()\n");
     r = gtk_spin_button_get_value (GTK_SPIN_BUTTON (p_wSc));
-    poConf->iPeriod_ms = (r * 1000);
+    poConf->iPeriod_mstmp = (r * 1000);
 }/* SetPeriod() */
 
 /**************************************************************/
@@ -849,6 +850,8 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 			gtk_widget_show (GTK_WIDGET (poMonitor->wTitle));
 		else
 			gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
+			
+		poConf->iPeriod_ms = poConf->iPeriod_mstmp;
 						
 		UpdateConf (genmon);
 		genmon_write_config (genmon->plugin, genmon);
