@@ -854,11 +854,19 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
 
     xfce_panel_plugin_block_menu (plugin);
 
+#if LIBXFCE4UI_CHECK_VERSION (4, 15, 1)
+    dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Generic Monitor"),
+         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
+         GTK_DIALOG_DESTROY_WITH_PARENT,
+         "gtk-save", "_Save", GTK_RESPONSE_OK,
+         NULL);
+#else
     dlg = xfce_titled_dialog_new_with_buttons (_("Generic Monitor"),
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
         GTK_DIALOG_DESTROY_WITH_PARENT,
         "gtk-save", GTK_RESPONSE_OK,
         NULL);
+#endif
 
     gtk_window_set_resizable (GTK_WINDOW (dlg), FALSE);
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "utilities-system-monitor");
