@@ -1055,6 +1055,8 @@ static void genmon_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (G_OBJECT (genmon->oMonitor.wValButton), "clicked",
         G_CALLBACK (ExecOnValClickCmd), genmon);        
+
+    xfce_panel_plugin_set_small (plugin, TRUE);
 }
 
 XFCE_PANEL_PLUGIN_REGISTER (genmon_construct)
