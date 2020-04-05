@@ -712,16 +712,12 @@ static void ToggleTitle (GtkWidget *p_w, void *p_pvPlugin)
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
-    struct monitor_t *poMonitor = &(poPlugin->oMonitor);
-
+    
     poConf->fTitleDisplayedtmp =
         gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
     gtk_widget_set_sensitive (GTK_WIDGET (poGUI->wTF_Title),
         poConf->fTitleDisplayedtmp);
-/*    if (poConf->fTitleDisplayedtmp)
-        gtk_widget_show (GTK_WIDGET (poMonitor->wTitle));
-    else
-        gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));*/
+
 }/* ToggleTitle() */
 
 /**************************************************************/
