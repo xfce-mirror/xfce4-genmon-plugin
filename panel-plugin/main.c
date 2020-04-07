@@ -333,8 +333,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poConf->acCmd = g_strdup ("");
     poConf->acTitle = g_strdup ("(genmon)");
 
-    poConf->fTitleDisplayed = 1;
-    poConf->fTitleDisplayedtmp = 1;
+    poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
 
     poConf->iPeriod_ms = 30 * 1000;
     poConf->iPeriod_mstmp = 30 * 1000;
