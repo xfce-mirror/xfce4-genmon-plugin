@@ -333,7 +333,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poConf->acCmd = g_strdup ("");
     poConf->acTitle = g_strdup ("(genmon)");
 
-    poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
+    poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed = 1;
 
     poConf->iPeriod_ms = 30 * 1000;
     poConf->iPeriod_mstmp = 30 * 1000;
@@ -877,7 +877,9 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     TRACE ("genmon_create_options()\n");
 
     xfce_panel_plugin_block_menu (plugin);
-
+    poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
+    poConf->iPeriod_mstmp = poConf->iPeriod_ms;
+    
 #if LIBXFCE4UI_CHECK_VERSION (4, 15, 1)
     dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Generic Monitor"),
          GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
