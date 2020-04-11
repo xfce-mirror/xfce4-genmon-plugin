@@ -96,6 +96,8 @@ static void ExecOnClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     GError *error = NULL;
 
+    DBG("\n");
+
     xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onClickCmd, 0, 0, &error );
     if (error) {
         char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onClickCmd);
@@ -115,6 +117,8 @@ static void ExecOnValClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     GError *error = NULL;
+
+    DBG("\n");
 
     xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onValClickCmd, 0, 0, &error );
     if (error) {
@@ -141,6 +145,8 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     int    newVersion=0;
 
     poMonitor->iconused=0;
+
+    DBG("\n");
 
     g_free (p_poPlugin->acValue);
     if (poConf->acCmd[0])
@@ -370,6 +376,8 @@ static gboolean SetTimer (void *p_pvPlugin)
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
 
+    DBG("\n");
+
     DisplayCmdOutput (poPlugin);
 
     if (poPlugin->iTimerId == 0)
@@ -407,6 +415,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poMonitor = &(poPlugin->oMonitor);
 
     poPlugin->plugin = plugin;
+
+    DBG("\n");
 
     poConf->acCmd = g_strdup ("");
     poConf->acTitle = g_strdup ("(genmon)");
@@ -591,6 +601,7 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 /* Plugin API */
 {
     TRACE ("genmon_free()\n");
+    DBG("\n");
 
     if (poPlugin->iTimerId)
         g_source_remove (poPlugin->iTimerId);
@@ -634,8 +645,8 @@ static int SetMonitorFont (void *p_pvPlugin)
     css = g_strdup_printf(".label { font: %s; }", 
 #endif
                                     poConf->acFont);                        
-    /* Setup Gtk style */
-    //DBG("css: %s",css);
+
+    DBG("\n");
     
     css_provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
@@ -695,6 +706,8 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     char           *file;
     XfceRc         *rc;
 
+    DBG("\n");
+
     if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
         return;
 
@@ -743,6 +756,8 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     XfceRc *rc;
     char *file;
 
+    DBG("\n");
+
     if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
         return;
 
@@ -777,6 +792,8 @@ static void SetCmd (GtkWidget *p_wTF, void *p_pvPlugin)
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     const char     *pcCmd = gtk_entry_get_text (GTK_ENTRY (p_wTF));
 
+    DBG("\n");
+
     g_free (poConf->acCmd);
     poConf->acCmd = g_strdup (pcCmd);
 }/* SetCmd() */
@@ -789,6 +806,8 @@ static void ToggleTitle (GtkWidget *p_w, void *p_pvPlugin)
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
+
+    DBG("\n");
     
     poConf->fTitleDisplayedtmp =
         gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
@@ -806,6 +825,8 @@ static void SetLabel (GtkWidget *p_wTF, void *p_pvPlugin)
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     const char     *acTitle = gtk_entry_get_text (GTK_ENTRY (p_wTF));
+
+    DBG("\n");
     
     g_free (poConf->acTitle);
     poConf->acTitle = g_strdup (acTitle);
@@ -822,6 +843,8 @@ static void SetPeriod (GtkWidget *p_wSc, void *p_pvPlugin)
     float           r;
 
     TRACE ("SetPeriod()\n");
+    DBG("\n");
+
     r = gtk_spin_button_get_value (GTK_SPIN_BUTTON (p_wSc));
     poConf->iPeriod_mstmp = (r * 1000);
 }/* SetPeriod() */
@@ -836,6 +859,8 @@ static void UpdateConf (void *p_pvPlugin)
     struct gui_t   *poGUI = &(poConf->oGUI);
 
     TRACE ("UpdateConf()\n");
+    DBG("\n");
+
     SetCmd (poGUI->wTF_Cmd, poPlugin);
     SetLabel (poGUI->wTF_Title, poPlugin);
     SetMonitorFont (poPlugin);
@@ -860,6 +885,8 @@ static void About (XfcePanelPlugin *plugin)
       "Tony Paulic <tony.paulic@gmail.com>",
       NULL
     };
+
+  DBG("\n");
 
   icon = xfce_panel_pixbuf_from_source ("utilities-system-monitor", NULL, 32);
   gtk_show_about_dialog (NULL,
@@ -887,6 +914,8 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
     const char     *pcFont;
     int             iResponse;
 
+    DBG("\n");
+
     wDialog = gtk_font_chooser_dialog_new (_("Font Selection"),
         GTK_WINDOW(gtk_widget_get_toplevel(p_wPB)));
     gtk_window_set_transient_for (GTK_WINDOW (wDialog),
@@ -912,6 +941,8 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 {
 	struct param_t *poConf = &(genmon->oConf.oParam);
     struct monitor_t *poMonitor = &(genmon->oMonitor);
+
+    DBG("\n");
 	
 	if (response == GTK_RESPONSE_OK) {
 		if (poConf->acFonttmp)
@@ -955,6 +986,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
 
     TRACE ("genmon_create_options()\n");
+    DBG("\n");
 
     xfce_panel_plugin_block_menu (plugin);
     poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
@@ -1031,6 +1063,8 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
 {
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
 
+    DBG("\n");
+
     gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBox), p_iOrientation);
     gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wImgBox), p_iOrientation);
 
@@ -1093,6 +1127,8 @@ static gboolean genmon_set_size (XfcePanelPlugin *plugin, int size, genmon_t *po
             icon_size = width;
     #endif
 
+    DBG("\n");
+
         gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImage), poMonitor->iconName, icon_size);
         gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImage), icon_size);  
         gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImgButton), poMonitor->iconName, icon_size);
@@ -1125,6 +1161,8 @@ static gboolean genmon_remote_event (XfcePanelPlugin *plugin,
                                     const GValue *value,
                                     genmon_t *genmon)
 {
+    DBG("\n");
+
     g_return_val_if_fail (value == NULL || G_IS_VALUE (value), FALSE);
     if (strcmp (name, "refresh") == 0)
         {
@@ -1147,6 +1185,8 @@ static gboolean genmon_remote_event (XfcePanelPlugin *plugin,
 static void genmon_construct (XfcePanelPlugin *plugin)
 {
     genmon_t *genmon;
+
+    DBG("\n");
 
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
