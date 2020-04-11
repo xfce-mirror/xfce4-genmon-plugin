@@ -76,6 +76,8 @@ typedef struct monitor_t {
     GtkWidget      *wImgButton;
     char           *onClickCmd;
     char           *onValClickCmd;
+    int             iconused;
+    char           *iconName;
 } monitor_t;
 
 typedef struct genmon_t {
@@ -138,6 +140,8 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     char  *end;
     int    newVersion=0;
 
+    poMonitor->iconused=0;
+
     g_free (p_poPlugin->acValue);
     if (poConf->acCmd[0])
         p_poPlugin->acValue = genmon_SpawnCmd (poConf->acCmd, 1);
@@ -186,6 +190,80 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         gtk_widget_hide (poMonitor->wButton);
         gtk_widget_hide (poMonitor->wImgButton);
         gtk_widget_hide (poMonitor->wImage);
+    }
+
+    /* Test if the result is an Icon */
+    begin=strstr(p_poPlugin->acValue, "<icon>");
+    end=strstr(p_poPlugin->acValue, "</icon>");
+    if (begin && end && begin < end)
+    {
+        gint size;
+        gint icon_size;
+        poMonitor->iconused = 1;
+
+        /* Get the icon name */
+        poMonitor->iconName = g_strndup (begin + 6, end - begin - 6);
+
+        #if !LIBXFCE4PANEL_CHECK_VERSION (4, 13, 0)
+          GtkStyleContext *context;
+          GtkBorder padding, border;
+          gint width;
+          gint xthickness;
+          gint ythickness;
+        #endif
+          size = xfce_panel_plugin_get_size (p_poPlugin->plugin) / xfce_panel_plugin_get_nrows (p_poPlugin->plugin);
+          gtk_widget_set_size_request (GTK_WIDGET (poMonitor->wButton), size, size);
+        #if LIBXFCE4PANEL_CHECK_VERSION (4,13,0)
+          icon_size = xfce_panel_plugin_get_icon_size (XFCE_PANEL_PLUGIN (p_poPlugin->plugin));
+        #else
+          /* Calculate the size of the widget because the theme can override it */
+          context = gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton));
+          gtk_style_context_get_padding (context, gtk_widget_get_state_flags (GTK_WIDGET (poMonitor->wButton)), &padding);
+          gtk_style_context_get_border (context, gtk_widget_get_state_flags (GTK_WIDGET (poMonitor->wButton)), &border);
+          xthickness = padding.left + padding.right + border.left + border.right;
+          ythickness = padding.top + padding.bottom + border.top + border.bottom;
+
+          /* Calculate the size of the space left for the icon */
+          width = size - 2 * MAX (xthickness, ythickness);
+
+          /* Since symbolic icons are usually only provided in 16px we
+           * try to be clever and use size steps */
+          if (width <= 21)
+            icon_size = 16;
+          else if (width >=22 && width <= 29)
+            icon_size = 24;
+          else if (width >= 30 && width <= 40)
+            icon_size = 32;
+          else
+            icon_size = width;
+        #endif
+
+          gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImage), poMonitor->iconName, icon_size);
+          gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImage), icon_size);  
+          gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImgButton), poMonitor->iconName, icon_size);
+          gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImgButton), icon_size); 
+
+        /* Test if the result has a clickable Icon (button) */
+        begin=strstr(p_poPlugin->acValue, "<iconclick>");
+        end=strstr(p_poPlugin->acValue, "</iconclick>");
+        if (begin && end && begin < end)
+        {
+            /* Get the command path */
+            g_free (poMonitor->onClickCmd);
+            poMonitor->onClickCmd = g_strndup (begin + 11, end - begin - 11);
+
+            gtk_widget_show (poMonitor->wButton);
+            gtk_widget_show (poMonitor->wImgButton);
+            gtk_widget_hide (poMonitor->wImage);
+        }
+        else
+        {
+            gtk_widget_hide (poMonitor->wButton);
+            gtk_widget_hide (poMonitor->wImgButton);
+            gtk_widget_show (poMonitor->wImage);
+        }
+
+        newVersion=1;
     }
 
     /* Test if the result is a Text */
@@ -557,7 +635,7 @@ static int SetMonitorFont (void *p_pvPlugin)
 #endif
                                     poConf->acFont);                        
     /* Setup Gtk style */
-    DBG("css: %s",css);
+    //DBG("css: %s",css);
     
     css_provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
@@ -865,6 +943,8 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 	xfce_panel_plugin_unblock_menu (genmon->plugin);
 }
 
+/**************************************************************/
+
 static void genmon_create_options (XfcePanelPlugin *plugin,
     genmon_t *poPlugin)
 /* Plugin API */
@@ -974,15 +1054,63 @@ static gboolean genmon_set_size (XfcePanelPlugin *plugin, int size, genmon_t *po
 {
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
 
-    if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
+    if (poMonitor->iconused)
     {
-        if (size>BORDER)
-            gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar),8, size-BORDER*2);
+
+    #if !LIBXFCE4PANEL_CHECK_VERSION (4, 13, 0)
+        GtkStyleContext *context;
+        GtkBorder padding, border;
+        gint width;
+        gint xthickness;
+        gint ythickness;
+    #endif
+        gint icon_size;
+        size /= xfce_panel_plugin_get_nrows (plugin);
+        gtk_widget_set_size_request (GTK_WIDGET (poMonitor->wButton), size, size);
+
+    #if LIBXFCE4PANEL_CHECK_VERSION (4,13,0)
+        icon_size = xfce_panel_plugin_get_icon_size (XFCE_PANEL_PLUGIN (plugin));
+    #else
+        /* Calculate the size of the widget because the theme can override it */
+        context = gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton));
+        gtk_style_context_get_padding (context, gtk_widget_get_state_flags (GTK_WIDGET (poMonitor->wButton)), &padding);
+        gtk_style_context_get_border (context, gtk_widget_get_state_flags (GTK_WIDGET (poMonitor->wButton)), &border);
+        xthickness = padding.left + padding.right + border.left + border.right;
+        ythickness = padding.top + padding.bottom + border.top + border.bottom;
+
+        /* Calculate the size of the space left for the icon */
+        width = size - 2 * MAX (xthickness, ythickness);
+
+        /* Since symbolic icons are usually only provided in 16px we
+        * try to be clever and use size steps */
+        if (width <= 21)
+            icon_size = 16;
+        else if (width >=22 && width <= 29)
+            icon_size = 24;
+        else if (width >= 30 && width <= 40)
+            icon_size = 32;
+        else
+            icon_size = width;
+    #endif
+
+        gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImage), poMonitor->iconName, icon_size);
+        gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImage), icon_size);  
+        gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImgButton), poMonitor->iconName, icon_size);
+        gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImgButton), icon_size);
+
     }
     else
     {
-        if (size>BORDER)
-            gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar), size-BORDER*2, 8);
+       if (xfce_panel_plugin_get_orientation (plugin) == GTK_ORIENTATION_HORIZONTAL)
+       {
+           if (size>BORDER)
+               gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar),8, size-BORDER*2);
+       }
+       else
+       {
+           if (size>BORDER)
+               gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar), size-BORDER*2, 8);
+       }
     }
 
     return TRUE;
