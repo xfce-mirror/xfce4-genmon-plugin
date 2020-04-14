@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 06:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Petr Šimáček <petr.simacek@gmail.com>\n"
+"POT-Creation-Date: 2020-04-10 18:31+0200\n"
+"PO-Revision-Date: 2020-04-10 16:31+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Czech (http://www.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,59 +24,85 @@ msgstr ""
 msgid "Error in command \"%s\""
 msgstr "Chyba v příkazu \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:94
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:100
+#: ../panel-plugin/main.c:120
 msgid "Xfce Panel"
 msgstr "Panel Xfce"
 
-#: ../panel-plugin/config_gui.c:78
+#: ../panel-plugin/config_gui.c:75
 msgid "Command"
 msgstr "Příkaz"
 
-#: ../panel-plugin/config_gui.c:107
-msgid "Period (s) "
-msgstr "Opakovat po (s)"
+#: ../panel-plugin/config_gui.c:85
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Zadejte příkaz pro vygenerování a stiskněte <Enter>"
 
-#: ../panel-plugin/config_gui.c:115
+#: ../panel-plugin/config_gui.c:88
 msgid "Label"
 msgstr "Popisek"
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:91
+msgid "Tick to display label"
+msgstr "Klikněte pro zobrazení popisku"
+
+#: ../panel-plugin/config_gui.c:97
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Zadejte popisek zásuvného modulu a stiskněte <Enter>"
+
+#: ../panel-plugin/config_gui.c:99
 msgid "(genmon)"
 msgstr "(obecné_sledování)"
 
-#: ../panel-plugin/config_gui.c:132
+#: ../panel-plugin/config_gui.c:101
+msgid "Period (s)"
+msgstr ""
+
+#: ../panel-plugin/config_gui.c:119
+msgid "Interval between 2 consecutive spawns"
+msgstr "Interval mezi dvěma voláními"
+
+#: ../panel-plugin/config_gui.c:122
 msgid "Select the display font..."
 msgstr "Vybrat písmo pro zobrazení..."
 
-#: ../panel-plugin/main.c:93
+#: ../panel-plugin/config_gui.c:126
+msgid "Press to change font..."
+msgstr ""
+
+#: ../panel-plugin/main.c:99 ../panel-plugin/main.c:119
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Nelze spustit \"%s\""
 
-#: ../panel-plugin/main.c:613
+#: ../panel-plugin/main.c:792
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Opakovaně spouští skript nebo program, zachytává jeho výstup a zobrazuje výsledný výstup na panelu"
 
-#: ../panel-plugin/main.c:615
+#: ../panel-plugin/main.c:794
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:633
+#: ../panel-plugin/main.c:812
 msgid "Font Selection"
 msgstr "Výběr písma"
 
-#: ../panel-plugin/main.c:677
-msgid "Configuration"
-msgstr "Konfigurace"
-
-#: ../panel-plugin/main.c:686 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:884 ../panel-plugin/main.c:890
+#: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Obecné sledování"
+
+#: ../panel-plugin/main.c:887
+msgid "Save"
+msgstr ""
+
+#: ../panel-plugin/main.c:903
+msgid "Configuration"
+msgstr "Konfigurace"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
