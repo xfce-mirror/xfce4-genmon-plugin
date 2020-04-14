@@ -66,9 +66,11 @@ XML string.
 The XML tags which can be used are :
 <txt>Text to display</txt>
 <img>Path to the image to display</img>
+<click>The command to be executed when clicking on the image</click>
 <tool>Tooltip text</tool>
 <bar>Pourcentage to display in the bar</bar>
-<click>The command to be executed when clicking on the image</click>
+<icon>Name of an icon from your current icon theme to display</icon>
+<iconclick>The command to be executed when clicking on the icon</iconclick>
 
 If None of the tags are detected in the result of the command, the plugin
 returns to its original behaviour (displaying the result of the command).
@@ -78,7 +80,7 @@ No tag is mandatory: for instance, you can display a tooltip without and image..
 The text between the <txt> and </txt>, and the <tool> and </tool> tags can use pango markup for style and color.
 
 Here's a simple example of a plugin displaying the Temp of the CPU in the panel
-(with an icon) and the Freq in a Tooltip:
+(with an image) and the Freq in a Tooltip:
 
 #!/bin/bash
 echo "<img>/usr/share/icons/Bluecurve/16x16/apps/gnome-monitor.png</img>"
@@ -111,6 +113,14 @@ where "genmon-X" is the widget name of the particular genmon instance. To get th
 properties screen and on the Items tab, hover your mouse over the genmon plugin to get it's internal name.
 
 GTK3 CSS styling capabilites have been enhanced. Please refer to the 'CSS Styling.txt' document for more information.
+
+To close the configuration dialog without saving any changes (and not firing off the timer) click on the X in the titlebar window
+
+The <icon></icon> and <iconclick></iconclick> elements are useful for displaying an icon from the current icon theme.
+In addition, it supports the following functionality:
+   - the icon image will change with icon theme changes
+   - it supports xfce4-panel's new Adjust Icon Size Automatically functionality
+   - it supports light/dark symbolic icon auto-colour changes
 
 
 6 -	Bugs
