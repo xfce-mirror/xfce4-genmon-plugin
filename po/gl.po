@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-06 18:32+0100\n"
-"PO-Revision-Date: 2019-12-24 10:16+0000\n"
-"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
+"POT-Creation-Date: 2020-04-10 18:31+0200\n"
+"PO-Revision-Date: 2020-04-10 16:31+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,78 +25,83 @@ msgstr ""
 msgid "Error in command \"%s\""
 msgstr "Erro na orde «%s»"
 
-#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:97
-#: ../panel-plugin/main.c:117
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:100
+#: ../panel-plugin/main.c:120
 msgid "Xfce Panel"
 msgstr "Panel de Xfce"
 
-#: ../panel-plugin/config_gui.c:76
+#: ../panel-plugin/config_gui.c:75
 msgid "Command"
 msgstr "Orde"
 
-#: ../panel-plugin/config_gui.c:86
+#: ../panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Introduza a orde de shell a iniciar, despois prema <Intro>"
 
-#: ../panel-plugin/config_gui.c:89
+#: ../panel-plugin/config_gui.c:88
 msgid "Label"
 msgstr "Etiqueta"
 
-#: ../panel-plugin/config_gui.c:92
+#: ../panel-plugin/config_gui.c:91
 msgid "Tick to display label"
 msgstr "Marque para amosar a etiqueta"
 
-#: ../panel-plugin/config_gui.c:98
+#: ../panel-plugin/config_gui.c:97
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Introduza a etiqueta do engadido, e despois prema <Intro>"
 
-#: ../panel-plugin/config_gui.c:100
+#: ../panel-plugin/config_gui.c:99
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:102
+#: ../panel-plugin/config_gui.c:101
 msgid "Period (s)"
 msgstr "Período(s)"
 
-#: ../panel-plugin/config_gui.c:120
+#: ../panel-plugin/config_gui.c:119
 msgid "Interval between 2 consecutive spawns"
 msgstr "Intervalo entre 2 inicios consecutivos"
 
-#: ../panel-plugin/config_gui.c:129
+#: ../panel-plugin/config_gui.c:122
 msgid "Select the display font..."
 msgstr "Seleccionar o tipo de letra da pantalla..."
 
-#: ../panel-plugin/config_gui.c:132
+#: ../panel-plugin/config_gui.c:126
 msgid "Press to change font..."
 msgstr "Prema para cambiar o tipo de letra..."
 
-#: ../panel-plugin/main.c:96 ../panel-plugin/main.c:116
+#: ../panel-plugin/main.c:99 ../panel-plugin/main.c:119
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Non se puido executar «%s»"
 
-#: ../panel-plugin/main.c:791
+#: ../panel-plugin/main.c:792
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Inicia ciclicamente un script/programa, captura a súa saída e amosa a cadea resultante no panel"
 
-#: ../panel-plugin/main.c:793
+#: ../panel-plugin/main.c:794
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:811
+#: ../panel-plugin/main.c:812
 msgid "Font Selection"
 msgstr "Selección de tipo de letra"
 
-#: ../panel-plugin/main.c:855 ../panel-plugin/genmon.desktop.in.h:1
+#: ../panel-plugin/main.c:884 ../panel-plugin/main.c:890
+#: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor xenérico"
 
-#: ../panel-plugin/main.c:867
+#: ../panel-plugin/main.c:887
+msgid "Save"
+msgstr ""
+
+#: ../panel-plugin/main.c:903
 msgid "Configuration"
 msgstr "Configuración"
 
