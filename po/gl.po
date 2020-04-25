@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Daniel Muñiz Fontoira <dani@damufo.com>, 2019
+# Daniel Muñiz Fontoira <dani@damufo.com>, 2019-2020
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
 # Xosé, 2018
 msgid ""
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-04-10 16:31+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-04-18 23:31+0000\n"
+"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,7 +99,7 @@ msgstr "Monitor xenérico"
 
 #: ../panel-plugin/main.c:887
 msgid "Save"
-msgstr ""
+msgstr "Gardar"
 
 #: ../panel-plugin/main.c:903
 msgid "Configuration"
