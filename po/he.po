@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Elishai Eliyahu <e1907@mm.st>, 2016,2020
+# Omer, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-04-10 16:31+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-04-23 16:25+0000\n"
+"Last-Translator: Omer\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,7 +98,7 @@ msgstr "מסך גנרי"
 
 #: ../panel-plugin/main.c:887
 msgid "Save"
-msgstr ""
+msgstr "שמור"
 
 #: ../panel-plugin/main.c:903
 msgid "Configuration"
