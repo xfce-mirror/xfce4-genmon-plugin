@@ -5,7 +5,7 @@
 # Translators:
 # Marcin Mikołajczak <me@mkljczk.pl>, 2016
 # No Ne, 2020
-# No Ne, 2019
+# No Ne, 2019-2020
 # Piotr Sokół <psokol.l10n@gmail.com>, 2012
 # Piotr Strębski <strebski@gmail.com>, 2016
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-04-10 17:21+0000\n"
+"PO-Revision-Date: 2020-06-26 11:16+0000\n"
 "Last-Translator: No Ne\n"
 "Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "Przełącza wyświetlanie etykiety na panelu"
 
 #: ../panel-plugin/config_gui.c:97
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Wprowadza etykietę apletu"
+msgstr "Wprowadza etykietę apletu, następnie wciśnij <Enter>"
 
 #: ../panel-plugin/config_gui.c:99
 msgid "(genmon)"
@@ -62,7 +62,7 @@ msgstr "Okres (s)"
 
 #: ../panel-plugin/config_gui.c:119
 msgid "Interval between 2 consecutive spawns"
-msgstr "Określa tempo wywoływania polecenia"
+msgstr "Interwał między 2 kolejnymi wywołaniami spawn"
 
 #: ../panel-plugin/config_gui.c:122
 msgid "Select the display font..."
