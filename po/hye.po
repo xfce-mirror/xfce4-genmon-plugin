@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Arman Harutyunyan <arman.harut468@gmail.com>, 2020
 # Real School <localization@ehayq.am>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-05-25 07:45+0000\n"
+"PO-Revision-Date: 2020-08-22 10:50+0000\n"
 "Last-Translator: Arman Harutyunyan <arman.harut468@gmail.com>\n"
 "Language-Team: Eastern Armenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hye/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +35,7 @@ msgstr "Հրաման"
 
 #: ../panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr ""
+msgstr "Մուտքագրէք shell հրամանը spawn- ին, հետոյ սեղմէք <Enter>"
 
 #: ../panel-plugin/config_gui.c:88
 msgid "Label"
@@ -46,7 +47,7 @@ msgstr "Նշեք պիտակը ցուցադրելու համար"
 
 #: ../panel-plugin/config_gui.c:97
 msgid "Input the plugin label, then press <Enter>"
-msgstr ""
+msgstr "Մուտքագրէք ներդրաւնի պիտակը, հետոյ սեղմէք <Enter>"
 
 #: ../panel-plugin/config_gui.c:99
 msgid "(genmon)"
@@ -54,7 +55,7 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:101
 msgid "Period (s)"
-msgstr ""
+msgstr "Ժամանակահատուած (s)"
 
 #: ../panel-plugin/config_gui.c:119
 msgid "Interval between 2 consecutive spawns"
