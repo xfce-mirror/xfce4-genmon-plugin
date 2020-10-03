@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Michal Várady <miko.vaji@gmail.com>, 2016
+# Michal Várady <miko.vaji@gmail.com>, 2016,2020
 # Petr Šimáček <petr.simacek@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-04-10 16:31+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-10-03 17:44+0000\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,7 +55,7 @@ msgstr "(obecné_sledování)"
 
 #: ../panel-plugin/config_gui.c:101
 msgid "Period (s)"
-msgstr ""
+msgstr "Opakovat po (s)"
 
 #: ../panel-plugin/config_gui.c:119
 msgid "Interval between 2 consecutive spawns"
@@ -67,7 +67,7 @@ msgstr "Vybrat písmo pro zobrazení..."
 
 #: ../panel-plugin/config_gui.c:126
 msgid "Press to change font..."
-msgstr ""
+msgstr "Stiskněte pro změnu písma..."
 
 #: ../panel-plugin/main.c:99 ../panel-plugin/main.c:119
 #, c-format
@@ -98,7 +98,7 @@ msgstr "Obecné sledování"
 
 #: ../panel-plugin/main.c:887
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 #: ../panel-plugin/main.c:903
 msgid "Configuration"
