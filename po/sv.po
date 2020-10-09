@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-07-06 16:05+0000\n"
+"PO-Revision-Date: 2020-10-09 10:44+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -56,7 +56,7 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:101
 msgid "Period (s)"
-msgstr ""
+msgstr "Period (er)"
 
 #: ../panel-plugin/config_gui.c:119
 msgid "Interval between 2 consecutive spawns"
@@ -68,7 +68,7 @@ msgstr "Välj visningstypsnitt..."
 
 #: ../panel-plugin/config_gui.c:126
 msgid "Press to change font..."
-msgstr ""
+msgstr "Tryck för att byta typsnitt..."
 
 #: ../panel-plugin/main.c:99 ../panel-plugin/main.c:119
 #, c-format
