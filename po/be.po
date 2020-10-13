@@ -5,14 +5,15 @@
 # Translators:
 # Sergey Shlyapugin <shlyapugin@gmail.com>, 2013
 # Simple88, 2016
+# Zmicer Turok <nashtlumach@gmail.com>, 2020
 # Zmicer Turok <zmicerturok@gmail.com >, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-04-10 16:31+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-10-13 06:53+0000\n"
+"Last-Translator: Zmicer Turok <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,7 +100,7 @@ msgstr "Агульны манітор"
 
 #: ../panel-plugin/main.c:887
 msgid "Save"
-msgstr ""
+msgstr "Захаваць"
 
 #: ../panel-plugin/main.c:903
 msgid "Configuration"
