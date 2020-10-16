@@ -5,14 +5,14 @@
 # Translators:
 # Andre Miranda <andre42m@gmail.com>, 2016
 # Andrius da Costa Ribas <andriusmao@gmail.com>, 2007
-# Michael Martins <michaelfm21@gmail.com>, 2019
+# Michael Martins <michaelfm21@gmail.com>, 2019-2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-04-10 16:31+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-04-15 14:41+0000\n"
+"Last-Translator: Michael Martins <michaelfm21@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,7 +99,7 @@ msgstr "Monitor genérico"
 
 #: ../panel-plugin/main.c:887
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: ../panel-plugin/main.c:903
 msgid "Configuration"
