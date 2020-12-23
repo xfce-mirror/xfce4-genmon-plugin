@@ -1,3 +1,41 @@
+4.1.0 (2020/12/22)
+==================
+- Add basic GitLab pipeline
+- Updated README file
+- Add DBG anchors
+- Add <icon> amd <iconclick> elements
+- Make Save translatable
+- Fix config values sometimes going to default
+- Fix label sometimes re-appearing
+- Enable multi-row support
+- Remove unused variables and code
+- Fix indentation
+- Catch some edge cases
+- Set tmp variable default values
+- Fix period spinner display when cancelled
+- Fix label toggle display when cancelled
+- Fix font display when cancelled
+- Support new libxfce4ui API
+- Change close to save
+- Closing config window cancels changes
+- Change layout of config dialog
+- Make tooltips translatable
+- Update support URLs to docs.xfce.org
+- Allow compilation with panel 4.15
+- Replace deprecated xfce_create_panel_button
+======
+- Translation Updates:
+  Albanian, Amharic, Arabic, Armenian (Armenia), Basque, Belarusian,
+  Bulgarian, Catalan, Chinese (China), Chinese (Taiwan), Croatian,
+  Czech, Danish, Dutch, Eastern Armenian, English (Australia), English
+  (Canada), English (United Kingdom), Estonian, Finnish, French,
+  Galician, German, Greek, Hebrew, Hindi, Hungarian, Icelandic,
+  Indonesian, Interlingue, Italian, Japanese, Kazakh, Korean, Latvian,
+  Lithuanian, Malay, Norwegian Bokmål, Occitan (post 1500), Polish,
+  Portuguese, Portuguese (Brazil), Russian, Serbian, Slovak, Slovenian,
+  Spanish, Swedish, Thai, Turkish, Ukrainian, Urdu, Urdu (Pakistan),
+  Uyghur
+  
 4.0.2 (2019/08/11)
 ==================
 - Change font to use pt instead of px to match system font setting
@@ -42,3 +80,5 @@
 - Introduces new markup for colored and styled text
 - Various small bug fixes
 - Build and package fixes
+
+
