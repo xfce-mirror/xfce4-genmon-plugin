@@ -19,9 +19,7 @@ AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
-AC_AIX
-AC_ISC_POSIX
-AC_MINIX
+AC_USE_SYSTEM_EXTENSIONS
 
 dnl Check for basic programs
 AC_PROG_CC
@@ -45,8 +43,9 @@ XDT_I18N([@LINGUAS@])
 dnl Check for debugging support
 XDT_FEATURE_DEBUG()
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 panel-plugin/Makefile
 po/Makefile.in
 ])
+AC_OUTPUT
