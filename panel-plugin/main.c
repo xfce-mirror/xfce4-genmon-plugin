@@ -941,10 +941,18 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 {
 	struct param_t *poConf = &(genmon->oConf.oParam);
     struct monitor_t *poMonitor = &(genmon->oMonitor);
+    gboolean result;
 
     DBG("\n");
 	
-	if (response == GTK_RESPONSE_OK) {
+    if (response == GTK_RESPONSE_HELP) {
+        result = g_spawn_command_line_async ("exo-open --launch WebBrowser " "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin", NULL);
+        if (G_UNLIKELY (result == FALSE))
+            g_warning (_("Unable to open the following url: %s"), "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin");
+        
+        return;
+    }
+	else if (response == GTK_RESPONSE_OK) {
 		if (poConf->acFonttmp)
 		{
 			g_free (poConf->acFont);
@@ -996,12 +1004,14 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Generic Monitor"),
          GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
          GTK_DIALOG_DESTROY_WITH_PARENT,
+         "help-browser", _("_Help"), GTK_RESPONSE_HELP,
          "gtk-save", _("Save"), GTK_RESPONSE_OK,
          NULL);
 #else
     dlg = xfce_titled_dialog_new_with_buttons (_("Generic Monitor"),
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
         GTK_DIALOG_DESTROY_WITH_PARENT,
+        "help-browser", GTK_RESPONSE_HELP,
         "gtk-save", GTK_RESPONSE_OK,
         NULL);
 #endif
