@@ -46,6 +46,7 @@
 typedef struct param_t {
     /* Configurable parameters */
     char           *acCmd; /* Commandline to spawn */
+    char           *acFiletmp;
     int             fTitleDisplayed;
     int             fTitleDisplayedtmp;
     char           *acTitle;
@@ -607,6 +608,7 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
         g_source_remove (poPlugin->iTimerId);
 
     g_free (poPlugin->oConf.oParam.acCmd);
+    g_free (poPlugin->oConf.oParam.acFiletmp);
     g_free (poPlugin->oConf.oParam.acTitle);
     g_free (poPlugin->oConf.oParam.acFont);
     g_free (poPlugin->oConf.oParam.acFonttmp);
@@ -911,7 +913,7 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     GtkWidget      *wDialog;
-    const char     *pcFont;
+    char           *pcFont;
     int             iResponse;
 
     DBG("\n");
@@ -929,10 +931,46 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
             g_free (poConf->acFonttmp);
             poConf->acFonttmp = g_strdup (pcFont);
             gtk_button_set_label (GTK_BUTTON (p_wPB), poConf->acFonttmp);
+				g_free (pcFont);
         }
     }
     gtk_widget_destroy (wDialog);
 }/* ChooseFont() */
+
+/**************************************************************/
+
+static void ChooseFile (GtkWidget *p_wPB, void *p_pvPlugin)
+{
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
+    struct param_t *poConf = &(poPlugin->oConf.oParam);
+	 struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
+
+    GtkWidget      *wDialog;
+    char           *pcFile;
+	 GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_OPEN;
+    int             iResponse;
+
+    DBG("\n");
+
+    wDialog = gtk_file_chooser_dialog_new (_("File Selection"),
+        GTK_WINDOW(gtk_widget_get_toplevel(p_wPB)), action, 
+		  _("_Cancel"), GTK_RESPONSE_CANCEL,
+        _("_Open"), GTK_RESPONSE_ACCEPT,
+        NULL);
+    gtk_window_set_transient_for (GTK_WINDOW (wDialog),
+        GTK_WINDOW (poPlugin->oConf.wTopLevel));
+    iResponse = gtk_dialog_run (GTK_DIALOG (wDialog));
+    if (iResponse == GTK_RESPONSE_ACCEPT) {
+        pcFile = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (wDialog));
+        if (pcFile) {
+            g_free (poConf->acFiletmp);
+            poConf->acFiletmp = g_strdup (pcFile);
+			   gtk_entry_set_text (GTK_ENTRY (poGUI->wTF_Cmd), poConf->acFiletmp); 
+		  		g_free (pcFile);
+        }
+    }
+    gtk_widget_destroy (wDialog);
+}/* ChooseFile() */
 
 /**************************************************************/
 
@@ -958,6 +996,11 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 			g_free (poConf->acFont);
 		 	poConf->acFont = g_strdup (poConf->acFonttmp);
 		}
+		if (poConf->acFiletmp)
+		{
+			g_free (poConf->acCmd);
+		 	poConf->acCmd = g_strdup (poConf->acFiletmp);
+		}
 		
 	 	poConf->fTitleDisplayed = poConf->fTitleDisplayedtmp;
 	 	if (poConf->fTitleDisplayed)
@@ -974,6 +1017,7 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 	}
 	else {
 		poConf->acFonttmp = g_strdup (poConf->acFont);
+		poConf->acFiletmp = g_strdup (poConf->acCmd);
 		poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
 		poConf->iPeriod_mstmp = poConf->iPeriod_ms;
 	}
@@ -1044,6 +1088,9 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     gtk_entry_set_text (GTK_ENTRY (poGUI->wTF_Cmd), poConf->acCmd);
     g_signal_connect (GTK_WIDGET (poGUI->wTF_Cmd), "activate",
         G_CALLBACK (SetCmd), poPlugin);
+
+    g_signal_connect (G_OBJECT (poGUI->wPB_File), "clicked",
+		  G_CALLBACK (ChooseFile), poPlugin);
 
     gtk_entry_set_text (GTK_ENTRY (poGUI->wTF_Title), poConf->acTitle);
     g_signal_connect (GTK_WIDGET (poGUI->wTF_Title), "activate",

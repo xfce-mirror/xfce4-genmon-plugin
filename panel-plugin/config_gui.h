@@ -35,6 +35,7 @@
 typedef struct gui_t {
     /* Configuration GUI widgets */
     GtkWidget      *wTF_Cmd;
+	 GtkWidget		 *wPB_File;
     GtkWidget      *wTB_Title;
     GtkWidget      *wTF_Title;
     GtkWidget      *wSc_Period;

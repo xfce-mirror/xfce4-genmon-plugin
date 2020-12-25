@@ -57,6 +57,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *table1;
     GtkWidget      *label1;
     GtkWidget      *wTF_Cmd;
+    GtkWidget		 *wPB_File;
     GtkWidget      *eventbox1;    
     GtkAdjustment  *wSc_Period_adj;
     GtkWidget      *wSc_Period;
@@ -85,6 +86,12 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_set_tooltip_text (wTF_Cmd, _("Input the shell command to spawn, then press <Enter>"));
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Cmd), 128);
 
+	 wPB_File = gtk_button_new_with_label ("...");
+	 gtk_widget_set_margin_top (GTK_WIDGET (wPB_File), 6);
+    gtk_widget_show (wPB_File);
+    gtk_grid_attach (GTK_GRID (table1), wPB_File, 2, 0, 1, 1);
+    gtk_widget_set_tooltip_text (wPB_File, _("Press to select file..."));
+
     wTB_Title = gtk_check_button_new_with_mnemonic (_("Label"));
     gtk_widget_show (wTB_Title);
     gtk_grid_attach (GTK_GRID (table1), wTB_Title, 0, 1, 1, 1);
@@ -92,7 +99,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     wTF_Title = gtk_entry_new ();
     gtk_widget_show (wTF_Title);
-    gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 1, 1, 1);
+    gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 1, 2, 1);
  
     gtk_widget_set_tooltip_text (wTF_Title, _("Input the plugin label, then press <Enter>"));
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Title), 16);
@@ -107,7 +114,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
 
     eventbox1 = gtk_event_box_new ();
     gtk_widget_show (eventbox1);
-    gtk_grid_attach (GTK_GRID (table1), eventbox1, 1, 2, 1, 1);
+    gtk_grid_attach (GTK_GRID (table1), eventbox1, 1, 2, 2, 1);
     gtk_widget_set_valign(GTK_WIDGET(eventbox1), GTK_ALIGN_CENTER);
     gtk_widget_set_halign(GTK_WIDGET(eventbox1), GTK_ALIGN_START);
     gtk_widget_set_hexpand(GTK_WIDGET(eventbox1), TRUE);
@@ -122,17 +129,18 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     wPB_Font = gtk_button_new_with_label (_("Select the display font..."));
     gtk_widget_set_margin_top (GTK_WIDGET (wPB_Font), 6);
     gtk_widget_show (wPB_Font);
-    gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 3, 2, 1);
+    gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 3, 3, 1);
     gtk_widget_set_tooltip_text (wPB_Font, _("Press to change font..."));
     
     hseparator10 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_widget_set_margin_top (GTK_WIDGET (hseparator10), 6);
     gtk_widget_set_margin_bottom (GTK_WIDGET (hseparator10), 0);
     gtk_widget_show (hseparator10);
-    gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 4, 2, 1);
+    gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 4, 3, 1);
             
     if (p_poGUI) {
         COPYVAL (p_poGUI, wTF_Cmd);
+		  COPYVAL (p_poGUI, wPB_File);
         COPYVAL (p_poGUI, wTB_Title);
         COPYVAL (p_poGUI, wTF_Title);
         COPYVAL (p_poGUI, wSc_Period);
