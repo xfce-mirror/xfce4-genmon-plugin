@@ -1,6 +1,6 @@
 @SET_MAKE@
 
-SUBDIRS = panel-plugin po
+SUBDIRS = panel-plugin po data
 
 AUTOMAKE_OPTIONS =							\
 	1.8								\
@@ -34,4 +34,3 @@ DISTCLEANFILES =							\
 	intltool-extract						\
 	intltool-merge							\
 	intltool-update
-

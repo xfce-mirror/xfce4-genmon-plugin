@@ -890,7 +890,7 @@ static void About (XfcePanelPlugin *plugin)
 
   DBG("\n");
 
-  icon = xfce_panel_pixbuf_from_source ("utilities-system-monitor", NULL, 32);
+  icon = xfce_panel_pixbuf_from_source ("org.xfce.genmon", NULL, 32);
   gtk_show_about_dialog (NULL,
                          "logo",         icon,
                          "license",      xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
@@ -1061,7 +1061,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
 #endif
 
     gtk_window_set_resizable (GTK_WINDOW (dlg), FALSE);
-    gtk_window_set_icon_name (GTK_WINDOW (dlg), "utilities-system-monitor");
+    gtk_window_set_icon_name (GTK_WINDOW (dlg), "org.xfce.genmon");
 
     g_signal_connect (dlg, "response", G_CALLBACK (genmon_dialog_response),
         poPlugin);
