@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Elishai Eliyahu <elishai@mailfence.com>, 2016,2020
-# Omer I.S., 2020
+# Elishai Eliyahu <elishai@mailfence.com>, 2020
+# Omer I.S. <omeritzicschwartz@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-10 18:31+0200\n"
-"PO-Revision-Date: 2020-05-26 13:30+0000\n"
-"Last-Translator: Omer I.S.\n"
+"POT-Creation-Date: 2020-12-26 00:48+0100\n"
+"PO-Revision-Date: 2020-12-26 11:59+0000\n"
+"Last-Translator: Elishai Eliyahu <elishai@mailfence.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,83 +25,108 @@ msgstr ""
 msgid "Error in command \"%s\""
 msgstr "שגיאה בפקודה \"%s\" "
 
-#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:100
-#: ../panel-plugin/main.c:120
+#: ../panel-plugin/cmdspawn.c:168 ../panel-plugin/main.c:105
+#: ../panel-plugin/main.c:127
 msgid "Xfce Panel"
 msgstr "לוח Xfce "
 
-#: ../panel-plugin/config_gui.c:75
+#: ../panel-plugin/config_gui.c:76
 msgid "Command"
 msgstr "פקודה"
 
-#: ../panel-plugin/config_gui.c:85
+#: ../panel-plugin/config_gui.c:86
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "הכנס את פקודת השלד להבאה, ולאחר מכן לחץ <Enter> "
 
-#: ../panel-plugin/config_gui.c:88
+#: ../panel-plugin/config_gui.c:93
+msgid "Press to select file..."
+msgstr "לחץ לבחירת קובץ..."
+
+#: ../panel-plugin/config_gui.c:95
 msgid "Label"
 msgstr "תווית"
 
-#: ../panel-plugin/config_gui.c:91
+#: ../panel-plugin/config_gui.c:98
 msgid "Tick to display label"
 msgstr "סמן להצגת תווית"
 
-#: ../panel-plugin/config_gui.c:97
+#: ../panel-plugin/config_gui.c:104
 msgid "Input the plugin label, then press <Enter>"
 msgstr "הכנס את תווית התוסף, לאחר מכן לחץ <Enter> "
 
-#: ../panel-plugin/config_gui.c:99
+#: ../panel-plugin/config_gui.c:106
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:101
+#: ../panel-plugin/config_gui.c:108
 msgid "Period (s)"
 msgstr "פרק זמן (שניות)"
 
-#: ../panel-plugin/config_gui.c:119
+#: ../panel-plugin/config_gui.c:126
 msgid "Interval between 2 consecutive spawns"
 msgstr "פסק הזמן בין 2 הבאות עוקבות"
 
-#: ../panel-plugin/config_gui.c:122
+#: ../panel-plugin/config_gui.c:129
 msgid "Select the display font..."
 msgstr "בחר את גופן התצוגה..."
 
-#: ../panel-plugin/config_gui.c:126
+#: ../panel-plugin/config_gui.c:133
 msgid "Press to change font..."
 msgstr "לחץ כדי לשנות גופן..."
 
-#: ../panel-plugin/main.c:99 ../panel-plugin/main.c:119
+#: ../panel-plugin/main.c:104 ../panel-plugin/main.c:126
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "לא יכול להריץ \"%s\" "
 
-#: ../panel-plugin/main.c:792
+#: ../panel-plugin/main.c:899
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "מביא מחזורית תסריט/תוכנית, לוכד את הפלט ומציג את המחרוזת שהתקבלה בלוח"
 
-#: ../panel-plugin/main.c:794
+#: ../panel-plugin/main.c:901
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:812
+#: ../panel-plugin/main.c:921
 msgid "Font Selection"
 msgstr "בחירת גופן"
 
-#: ../panel-plugin/main.c:884 ../panel-plugin/main.c:890
+#: ../panel-plugin/main.c:955
+msgid "File Selection"
+msgstr "בחירת קובץ"
+
+#: ../panel-plugin/main.c:957
+msgid "_Cancel"
+msgstr "_ביטול"
+
+#: ../panel-plugin/main.c:958
+msgid "_Open"
+msgstr "_פתח"
+
+#: ../panel-plugin/main.c:989
+#, c-format
+msgid "Unable to open the following url: %s"
+msgstr "לא יכול לפתוח את הכתובת הבאה: %s "
+
+#: ../panel-plugin/main.c:1048 ../panel-plugin/main.c:1055
 #: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "מסך גנרי"
 
-#: ../panel-plugin/main.c:887
+#: ../panel-plugin/main.c:1051
+msgid "_Help"
+msgstr "_עזרה"
+
+#: ../panel-plugin/main.c:1052
 msgid "Save"
 msgstr "שמור"
 
-#: ../panel-plugin/main.c:903
+#: ../panel-plugin/main.c:1069
 msgid "Configuration"
 msgstr "הגדרה"
 
