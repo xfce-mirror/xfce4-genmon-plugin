@@ -83,7 +83,7 @@ typedef struct monitor_t {
 
 typedef struct genmon_t {
     XfcePanelPlugin    *plugin;
-    unsigned int        iTimerId; /* Cyclic update */
+    guint               iTimerId; /* Cyclic update */
     struct conf_t       oConf;
     struct monitor_t    oMonitor;
     char               *acValue; /* Commandline resulting string */
@@ -369,27 +369,24 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
 /**************************************************************/
 
-static gboolean SetTimer (void *p_pvPlugin)
-/* Recurrently update the panel-docked monitor through a timer */
-/* Warning : should not be called directly (except the 1st time) */
-/* To avoid multiple timers */
+static gboolean Timer (gpointer user_data)
 {
-    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    struct param_t *poConf = &(poPlugin->oConf.oParam);
+    struct genmon_t *poPlugin = user_data;
 
     DBG("\n");
-
     DisplayCmdOutput (poPlugin);
-
-    if (poPlugin->iTimerId == 0)
-    {
-        poPlugin->iTimerId = g_timeout_add (poConf->iPeriod_ms,
-            (GSourceFunc) SetTimer, poPlugin);
-        return FALSE;
-    }
-
     return TRUE;
-}/* SetTimer() */
+}
+
+static void SetTimer (struct genmon_t *poPlugin)
+{
+    struct param_t *poConf = &poPlugin->oConf.oParam;
+
+    if (poPlugin->iTimerId)
+        g_source_remove (poPlugin->iTimerId);
+
+    poPlugin->iTimerId = g_timeout_add (poConf->iPeriod_ms, Timer, poPlugin);
+}
 
 /**************************************************************/
 
@@ -604,8 +601,10 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     TRACE ("genmon_free()\n");
     DBG("\n");
 
-    if (poPlugin->iTimerId)
+    if (poPlugin->iTimerId) {
         g_source_remove (poPlugin->iTimerId);
+        poPlugin->iTimerId = 0;
+    }
 
     g_free (poPlugin->oConf.oParam.acCmd);
     g_free (poPlugin->oConf.oParam.acFiletmp);
@@ -866,11 +865,6 @@ static void UpdateConf (void *p_pvPlugin)
     SetCmd (poGUI->wTF_Cmd, poPlugin);
     SetLabel (poGUI->wTF_Title, poPlugin);
     SetMonitorFont (poPlugin);
-    /* Restart timer */
-    if (poPlugin->iTimerId) {
-        g_source_remove (poPlugin->iTimerId);
-        poPlugin->iTimerId = 0;
-    }
     SetTimer(p_pvPlugin);
 }/* UpdateConf() */
 
