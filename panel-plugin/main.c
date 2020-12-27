@@ -852,10 +852,9 @@ static void SetPeriod (GtkWidget *p_wSc, void *p_pvPlugin)
 
 /**************************************************************/
 
-static void UpdateConf (void *p_pvPlugin)
+static void UpdateConf (struct genmon_t *poPlugin)
 /* Called back when the configuration/options window is closed */
 {
-    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct conf_t  *poConf = &(poPlugin->oConf);
     struct gui_t   *poGUI = &(poConf->oGUI);
 
@@ -865,7 +864,7 @@ static void UpdateConf (void *p_pvPlugin)
     SetCmd (poGUI->wTF_Cmd, poPlugin);
     SetLabel (poGUI->wTF_Title, poPlugin);
     SetMonitorFont (poPlugin);
-    SetTimer(p_pvPlugin);
+    SetTimer(poPlugin);
 }/* UpdateConf() */
 
 /**************************************************************/
