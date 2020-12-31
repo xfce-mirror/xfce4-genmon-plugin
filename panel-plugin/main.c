@@ -281,6 +281,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         /* Get the text */
         char *buf = g_strndup (begin + 5, end - begin - 5);
         gtk_label_set_markup (GTK_LABEL (poMonitor->wValue), buf);
+        gtk_label_set_justify (GTK_LABEL (poMonitor->wValue), GTK_JUSTIFY_CENTER);
         
         /* Test if the result has a clickable Value (button) */
         begin=strstr(p_poPlugin->acValue, "<txtclick>");
@@ -289,6 +290,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         {
             /* Add the text to the button label too*/
             gtk_label_set_markup (GTK_LABEL (poMonitor->wValButtonLabel), buf);
+            gtk_label_set_justify (GTK_LABEL (poMonitor->wValButtonLabel), GTK_JUSTIFY_CENTER);
 
             /* Get the command path */
             g_free (poMonitor->onValClickCmd);
