@@ -378,6 +378,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 /**************************************************************/
 
 static gboolean Timer (gpointer user_data)
+/* on timer event, recreate output */
 {
     struct genmon_t *poPlugin = user_data;
 
@@ -389,6 +390,7 @@ static gboolean Timer (gpointer user_data)
 }
 
 static void SetTimer (struct genmon_t *poPlugin)
+/* create timer, set function to run */
 {
     struct param_t *poConf = &poPlugin->oConf.oParam;
 
@@ -644,6 +646,7 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 /**************************************************************/
 
 static int SetMonitorFont (void *p_pvPlugin)
+/* set the font to use for output */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
@@ -898,6 +901,7 @@ static void UpdateConf (struct genmon_t *poPlugin)
 /**************************************************************/
 
 static void About (XfcePanelPlugin *plugin)
+/* GUI callback to create about dialog */
 { 
     GdkPixbuf *icon;
 
@@ -930,6 +934,7 @@ static void About (XfcePanelPlugin *plugin)
 /**************************************************************/
 
 static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
+/* font selection dialog */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
@@ -963,6 +968,7 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
 /**************************************************************/
 
 static void ChooseFile (GtkWidget *p_wPB, void *p_pvPlugin)
+/* file/command selection dialog */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t  *poConf = &(poPlugin->oConf.oParam);
@@ -1001,6 +1007,7 @@ static void ChooseFile (GtkWidget *p_wPB, void *p_pvPlugin)
 
 static void genmon_dialog_response (GtkWidget *dlg, int response,
     genmon_t *genmon)
+/* handle configuration dialog response */
 {
 	struct param_t *poConf = &(genmon->oConf.oParam);
     struct monitor_t *poMonitor = &(genmon->oMonitor);
@@ -1269,6 +1276,7 @@ static gboolean genmon_remote_event (XfcePanelPlugin *plugin,
 /**************************************************************/
 
 static void genmon_construct (XfcePanelPlugin *plugin)
+/* Plugin API: construct the plugin */
 {
     genmon_t *genmon;
 
