@@ -69,13 +69,16 @@ char *genmon_Spawn (char **argv, int wait)
     int             i, j, k;
     char           *str = NULL;
 
-    if (!(*argv)) {
+    if (!(*argv)) 
+    {
         fprintf (stderr, "Spawn() error: No parameters passed!\n");
         return (NULL);
     }
     for (i = 0; i < OUT_ERR; i++)
         pipe (aaiPipe[i]);
-    switch (pid = fork ()) {
+
+    switch (pid = fork ()) 
+    {
         case -1:
             perror ("fork()");
             for (i = 0; i < OUT_ERR; i++)
@@ -85,11 +88,13 @@ char *genmon_Spawn (char **argv, int wait)
         case 0:
             close(0); /* stdin is not used in child */
             /* Redirect stdout/stderr to associated pipe's write-ends */
-            for (i = 0; i < OUT_ERR; i++) {
+            for (i = 0; i < OUT_ERR; i++) 
+            {
                 j = i + 1; // stdout/stderr file descriptor
                 close (j);
                 k = dup2 (aaiPipe[i][WR], j);
-                if (k != j) {
+                if (k != j) 
+                {
                     perror ("dup2()");
                     exit (-1);
                 }
@@ -107,13 +112,15 @@ char *genmon_Spawn (char **argv, int wait)
     if (wait == 1)
     {
         status = waitpid (pid, 0, 0);
-        if (status == -1) {
+        if (status == -1) 
+        {
             perror ("waitpid()");
             goto End;
         }
 
         /* Read stdout/stderr pipes' read-ends */
-        for (i = 0; i < OUT_ERR; i++) {
+        for (i = 0; i < OUT_ERR; i++) 
+        {
             aoPoll[i].fd = aaiPipe[i][RD];
             aoPoll[i].events = POLLIN;
             aoPoll[i].revents = 0;
@@ -126,7 +133,8 @@ char *genmon_Spawn (char **argv, int wait)
             goto End;
 
         j = 0;
-        while (1) {
+        while (1) 
+        {
             str = g_realloc (str, j + 256);
             if ((k = read (aaiPipe[i][RD], str + j, 255)) > 0)
                 j += k;
