@@ -86,8 +86,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_set_tooltip_text (wTF_Cmd, _("Input the shell command to spawn, then press <Enter>"));
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Cmd), 128);
 
-	 wPB_File = gtk_button_new_with_label ("...");
-	 gtk_widget_set_margin_top (GTK_WIDGET (wPB_File), 6);
+	  wPB_File = gtk_button_new_with_label ("...");
+	  gtk_widget_set_margin_top (GTK_WIDGET (wPB_File), 6);
     gtk_widget_show (wPB_File);
     gtk_grid_attach (GTK_GRID (table1), wPB_File, 2, 0, 1, 1);
     gtk_widget_set_tooltip_text (wPB_File, _("Press to select file..."));
@@ -140,7 +140,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
             
     if (p_poGUI) {
         COPYVAL (p_poGUI, wTF_Cmd);
-		  COPYVAL (p_poGUI, wPB_File);
+		    COPYVAL (p_poGUI, wPB_File);
         COPYVAL (p_poGUI, wTB_Title);
         COPYVAL (p_poGUI, wTF_Title);
         COPYVAL (p_poGUI, wSc_Period);
