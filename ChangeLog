@@ -1,3 +1,604 @@
+commit d9cf6e5978b43cda16bd02b28faf85b945e7a883
+Author: 黃柏諺 <s8321414@gmail.com>
+Date:   Tue Jan 19 10:36:31 2021 +0100
+
+    I18n: Update translation zh_TW (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 5c35754feb91156dc664107e4f642191e3bca6ee
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:31 2021 +0100
+
+    I18n: Update translation ur (50%).
+    
+    13 translated messages, 13 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 74e7e652cb601cd02230480639f2d9a01abce4f3
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:31 2021 +0100
+
+    I18n: Update translation ur_PK (50%).
+    
+    13 translated messages, 13 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 54f5a323a3776dc11e228942ebda23225e63778e
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:31 2021 +0100
+
+    I18n: Update translation uk (84%).
+    
+    22 translated messages, 4 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit e6402ddae308a78fc86f94e89339bd373adf5ff5
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:31 2021 +0100
+
+    I18n: Update translation ug (57%).
+    
+    15 translated messages, 11 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 566a966015ce16f9eeb332512e460b61d5e0978e
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:31 2021 +0100
+
+    I18n: Update translation th (73%).
+    
+    19 translated messages, 7 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit c3a13ab8f4f07da1e3f3330cbcb5657650aafc6f
+Author: Саша Петровић <salepetronije@gmail.com>
+Date:   Tue Jan 19 10:36:30 2021 +0100
+
+    I18n: Update translation sr (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 9eb80e2de2585ee6438ffd086453f017c832d2dc
+Author: Arnold Marko <arnold.marko@gmail.com>
+Date:   Tue Jan 19 10:36:30 2021 +0100
+
+    I18n: Update translation sl (88%).
+    
+    23 translated messages, 3 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit f409bf65f2444e5736c7be8de79bc8c6e1e9fe1b
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:30 2021 +0100
+
+    I18n: Update translation sk (73%).
+    
+    19 translated messages, 7 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 43234d5ef08d6a2cc69a17fba493cbf71ff530f6
+Author: AlexanderFilev <avfill@outlook.com>
+Date:   Tue Jan 19 10:36:30 2021 +0100
+
+    I18n: Update translation ru (88%).
+    
+    23 translated messages, 3 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit ad254e765b315d9fcceb1dc7d29a165f3cd2aec1
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 19 10:36:30 2021 +0100
+
+    I18n: Update translation pl (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit bb1293b7c51cb69ad4f904c8e3a5afac3b1c292f
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:29 2021 +0100
+
+    I18n: Update translation oc (69%).
+    
+    18 translated messages, 8 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 3b3619e3d0c31f2707962a19c4aba6d42a8341df
+Author: Pjotr <pjotrvertaalt@gmail.com>
+Date:   Tue Jan 19 10:36:29 2021 +0100
+
+    I18n: Update translation nl (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 7390213c4d5a102a0fa0468c24ebe8bba017d482
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:29 2021 +0100
+
+    I18n: Update translation ms (80%).
+    
+    21 translated messages, 5 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 93ac80a8c57094abbdf0c37949ef41a245162417
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:29 2021 +0100
+
+    I18n: Update translation lv (50%).
+    
+    13 translated messages, 13 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 93949d153cc431fed16581b567d7a8eff10a9d78
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 19 10:36:29 2021 +0100
+
+    I18n: Update translation lt (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit d5c7139257e377949ea703e9e64025f2acf81a47
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:29 2021 +0100
+
+    I18n: Update translation ko (84%).
+    
+    22 translated messages, 4 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit ebbaaed379f670ca3ee471a03f7d654f062b422e
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:29 2021 +0100
+
+    I18n: Update translation kk (61%).
+    
+    16 translated messages, 10 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit cccbf4e36529796af09cb8c834216ec57825744d
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:28 2021 +0100
+
+    I18n: Update translation is (73%).
+    
+    19 translated messages, 7 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit f8b4e4588c6e22080bae13a213a81012980c882d
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:28 2021 +0100
+
+    I18n: Update translation ie (84%).
+    
+    22 translated messages, 4 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit f36370ed8f64f2a0596190f0432591bca55c4018
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:28 2021 +0100
+
+    I18n: Update translation hye (84%).
+    
+    22 translated messages, 4 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit ca5cf2adc12fce2aa7a9f40551b5e487330cf02f
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:28 2021 +0100
+
+    I18n: Update translation hy_AM (61%).
+    
+    16 translated messages, 10 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 0d8618533d3dbba592d3e9dd3830aa31db6e411a
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:28 2021 +0100
+
+    I18n: Update translation hu (84%).
+    
+    22 translated messages, 4 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit f2b1c386212e208e80642ce3e7eab0369d4494f4
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:28 2021 +0100
+
+    I18n: Update translation hr (80%).
+    
+    21 translated messages, 5 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 53e765d6ac5f828a29ffba4c903d76356ddf3237
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:28 2021 +0100
+
+    I18n: Update translation hi (53%).
+    
+    14 translated messages, 12 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 42bc02ca42dda793c49f227a1b3b6bf92817f92a
+Author: Daniel Muñiz Fontoira <dani@damufo.com>
+Date:   Tue Jan 19 10:36:27 2021 +0100
+
+    I18n: Update translation gl (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit ad80d29262330ae4df8392363ffcb8e5d8db121f
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:27 2021 +0100
+
+    I18n: Update translation fi (57%).
+    
+    15 translated messages, 11 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit e17a95709f26729e6b11350e2f705d86ae2ff32b
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 19 10:36:27 2021 +0100
+
+    I18n: Update translation es (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit c688f2d37de0051f14df5411e6b2c3972dbcf2a5
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:27 2021 +0100
+
+    I18n: Update translation en_GB (57%).
+    
+    15 translated messages, 11 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit c44ff93be56a87129175adb65694ed5003640cbf
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:27 2021 +0100
+
+    I18n: Update translation en_CA (84%).
+    
+    22 translated messages, 4 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit bee3c0b288689ebd8c95e5ab33b98f4e94057d45
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:27 2021 +0100
+
+    I18n: Update translation en_AU (73%).
+    
+    19 translated messages, 7 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit e8a6fcdac3648061634d1f9f9cf9fb1a5788348c
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:27 2021 +0100
+
+    I18n: Update translation el (76%).
+    
+    20 translated messages, 6 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit bc9d226c74758e5f4fa1055169f0e1a4b7148755
+Author: Andreas Eitel <github-aneitel@online.de>
+Date:   Tue Jan 19 10:36:26 2021 +0100
+
+    I18n: Update translation de (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit fd563075ce6b34c503dac63d713c6f1bcbb4bfe9
+Author: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>
+Date:   Tue Jan 19 10:36:26 2021 +0100
+
+    I18n: Update translation ca (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 482b61b53ce319bc4f544faeb34974f0259d7f00
+Author: Kiril Kirilov <cybercop_montana@abv.bg>
+Date:   Tue Jan 19 10:36:26 2021 +0100
+
+    I18n: Update translation bg (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 174d72950724a8441e344c70ae76203072233dc2
+Author: Xfce Bot <transifex@xfce.org>
+Date:   Tue Jan 19 10:36:26 2021 +0100
+
+    I18n: Update translation ar (57%).
+    
+    15 translated messages, 11 untranslated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 39b99ac66af196001042208b38fcb0ac78f42d29
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Jan 12 00:49:08 2021 +0100
+
+    I18n: Update translation da (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 1408bda7e550dfe324e608bf6534fb261b8d4401
+Author: Anonymous <noreply@xfce.org>
+Date:   Sun Jan 10 00:47:52 2021 +0100
+
+    I18n: Update translation eu (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 5c34918b717e2d58f75357995b8efd6ef7af1db6
+Author: Michael Martins <michaelfm21@gmail.com>
+Date:   Mon Jan 4 00:48:33 2021 +0100
+
+    I18n: Update translation pt_BR (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit c5aafb8fa24d1e5d92a1b420a9b74a650891892f
+Author: 玉堂白鹤 <yjwork@qq.com>
+Date:   Sat Jan 2 00:47:11 2021 +0100
+
+    I18n: Update translation zh_CN (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 69efe4e72e1f914f2b6a6d9bd8287b0b2a4d185b
+Author: Triyan W. Nugroho <triyan.wn@gmail.com>
+Date:   Sat Jan 2 00:47:11 2021 +0100
+
+    I18n: Update translation id (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 5625c2f5e5c7f4f2c1953681df5b96301d072508
+Author: ToZ <tony.paulic@gmail.com>
+Date:   Thu Dec 31 14:22:34 2020 -0500
+
+    Set labels to center justify by default
+
+commit 6b8edccd7595df93439e0857d21059fa2c5117e2
+Author: Priit Jõerüüt <transifex@joeruut.com>
+Date:   Tue Dec 29 12:50:45 2020 +0100
+
+    I18n: Update translation et (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit f1bcfb045b505e5f45d9c240f58f9d9fb17809a0
+Author: Źmicier Turok <nashtlumach@gmail.com>
+Date:   Tue Dec 29 12:50:44 2020 +0100
+
+    I18n: Update translation be (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 3b55264b26e0d69c9ce31e0ef3feae22b06c0b2f
+Author: Anonymous <noreply@xfce.org>
+Date:   Tue Dec 29 00:49:21 2020 +0100
+
+    I18n: Update translation pt_BR (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit a34bc0a570a4a5f28d7e32a723eb351675917b86
+Author: jc1 <jc1.quebecos@gmail.com>
+Date:   Tue Dec 29 00:49:21 2020 +0100
+
+    I18n: Update translation fr (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 391679d4f7f1f78e73166d5c252ee50e4270a048
+Author: Kjell Cato Heskjestad <cato@heskjestad.xyz>
+Date:   Mon Dec 28 12:49:07 2020 +0100
+
+    I18n: Update translation nb (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit ac39312b5822974196cb4fa85ab5bec68fb03b65
+Merge: de6485f 34063e3
+Author: Tony Paulic <tony.paulic@gmail.com>
+Date:   Sun Dec 27 19:16:10 2020 -0500
+
+    Merge branch 'olh/xfce4-genmon-plugin-GSourceFunc'
+
+commit 34063e3d4d4378e1cea52227b8af20c621c87f1a
+Author: Olaf Hering <olaf@aepfle.de>
+Date:   Sun Dec 27 13:28:08 2020 +0100
+
+    update prototype of UpdateConf
+    
+    Signed-off-by: Olaf Hering <olaf@aepfle.de>
+
+commit dc83f36f954ab0ba068ee550946c212e9d204efd
+Author: Olaf Hering <olaf@aepfle.de>
+Date:   Sun Dec 27 13:27:49 2020 +0100
+
+    Remove GSourceFunc casts
+    
+    Convert the callback into a real GSourceFunc.
+    
+    Signed-off-by: Olaf Hering <olaf@aepfle.de>
+
+commit de6485fb2609ff7e86e0da776228d0bdcc592163
+Author: Michal Várady <miko.vaji@gmail.com>
+Date:   Sun Dec 27 12:49:30 2020 +0100
+
+    I18n: Update translation cs (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 30cfd92905672a31ea7088edaadcc44d0f6ffd7d
+Author: Emin Tufan Çetin <etcetin@gmail.com>
+Date:   Sun Dec 27 00:48:50 2020 +0100
+
+    I18n: Update translation tr (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 2caf539297a0308d9308d6ee9fc821bf2e668e0a
+Author: Luna Jernberg <bittin@cafe8bitar.se>
+Date:   Sun Dec 27 00:48:50 2020 +0100
+
+    I18n: Update translation sv (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit b6828fcfe31975e52742fd76f234b6dbe97754c7
+Author: Besnik Bleta <besnik@programeshqip.org>
+Date:   Sun Dec 27 00:48:49 2020 +0100
+
+    I18n: Update translation sq (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 730236456a17d871ace22fc08bf01728e578331b
+Author: Hugo Carvalho <hugokarvalho@hotmail.com>
+Date:   Sun Dec 27 00:48:49 2020 +0100
+
+    I18n: Update translation pt (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 094d20f694e7c1d8cbdbc58963c0331e657f096d
+Author: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Date:   Sun Dec 27 00:48:49 2020 +0100
+
+    I18n: Update translation ja (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit a7a798884a8c764cf5a3243e916bee3b7f726906
+Author: Emanuele Petriglia <transifex@emanuelepetriglia.com>
+Date:   Sun Dec 27 00:48:49 2020 +0100
+
+    I18n: Update translation it (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit 532cdcd88d895839f51cd3d40ee14ea9d398eece
+Author: Elishai Eliyahu <elishai@mailfence.com>
+Date:   Sun Dec 27 00:48:49 2020 +0100
+
+    I18n: Update translation he (100%).
+    
+    26 translated messages.
+    
+    Transifex (https://www.transifex.com/xfce/public/).
+
+commit af681d8a71896ac8d435796d61d4236ac38e23b3
+Author: ToZ <tony.paulic@gmail.com>
+Date:   Sat Dec 26 10:00:14 2020 -0500
+
+    Add new genmon icon
+
+commit d69c337e9f9e9cd6890d46832b031e7035a5187f
+Author: ToZ <tony.paulic@gmail.com>
+Date:   Fri Dec 25 17:21:29 2020 -0500
+
+    Add filechooser dialog option to select command
+
+commit 9f1d9fe8ea8d1084da06bd5d5f2a687b0dedad8c
+Author: ToZ <tony.paulic@gmail.com>
+Date:   Thu Dec 24 15:22:32 2020 -0500
+
+    Add help button to configuration dialog
+
+commit bb1271776c4514a7337285b93c6f7741ca9b409b
+Author: ToZ <tony.paulic@gmail.com>
+Date:   Thu Dec 24 12:34:05 2020 -0500
+
+    Update configure.ac.in syntax
+
+commit c37c2fe1ca2c0a76c9be3d9ae1a282b87c6ce51d
+Author: ToZ <tony.paulic@gmail.com>
+Date:   Tue Dec 22 19:05:00 2020 -0500
+
+    Updates for the 4.1.0 release.
+
 commit 552815dcbc6d5f0ce5165d52d9556b7d685ea811
 Author: Emin Tufan <etcetin@gmail.com>
 Date:   Mon Nov 16 12:50:16 2020 +0100
