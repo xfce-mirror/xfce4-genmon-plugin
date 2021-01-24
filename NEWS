@@ -1,3 +1,14 @@
+4.1.1 (2021/01/23)
+==================
+- Update configure.ac.in syntax
+- Add help button to configuration dialog
+- Add filechooser dialog option to select command
+- Add new genmon icon
+- Remove GSourceFunc casts
+- update prototype of UpdateConf
+- Set labels to center justify by default
+- Translation updates
+
 4.1.0 (2020/12/22)
 ==================
 - Add basic GitLab pipeline
