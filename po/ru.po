@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# AlexanderFilev <avfill@outlook.com>, 2021
 # Igor <f2404@yandex.ru>, 2019-2020
 # Sergey Shlyapugin <shlyapugin@gmail.com>, 2013
 # Simple88, 2016
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-26 00:48+0100\n"
-"PO-Revision-Date: 2020-12-25 23:48+0000\n"
+"PO-Revision-Date: 2021-01-25 17:12+0000\n"
 "Last-Translator: AlexanderFilev <avfill@outlook.com>\n"
 "Language-Team: Russian (http://www.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +41,7 @@ msgstr "Введите команду оболочки, затем нажмит�
 
 #: ../panel-plugin/config_gui.c:93
 msgid "Press to select file..."
-msgstr ""
+msgstr "Нажмите для выбора файла..."
 
 #: ../panel-plugin/config_gui.c:95
 msgid "Label"
@@ -98,7 +99,7 @@ msgstr "Выбор шрифта"
 
 #: ../panel-plugin/main.c:955
 msgid "File Selection"
-msgstr ""
+msgstr "Выбор файла"
 
 #: ../panel-plugin/main.c:957
 msgid "_Cancel"
@@ -106,7 +107,7 @@ msgstr "О_тменить"
 
 #: ../panel-plugin/main.c:958
 msgid "_Open"
-msgstr ""
+msgstr "_Открыть"
 
 #: ../panel-plugin/main.c:989
 #, c-format
