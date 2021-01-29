@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-26 00:48+0100\n"
-"PO-Revision-Date: 2021-01-28 14:59+0000\n"
+"PO-Revision-Date: 2021-01-29 12:48+0000\n"
 "Last-Translator: Андрій Мізик <andmizyk@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "Команда"
 
 #: ../panel-plugin/config_gui.c:86
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Введіть команду оболонки для запиту даних, і натисніть <Ввід>"
+msgstr "Уведіть команду shell для запиту даних і натисніть <Enter>"
 
 #: ../panel-plugin/config_gui.c:93
 msgid "Press to select file..."
@@ -49,11 +49,11 @@ msgstr "Мітка"
 
 #: ../panel-plugin/config_gui.c:98
 msgid "Tick to display label"
-msgstr "Відмітьте для відображення мітки"
+msgstr "Відмітьте, щоб відображати мітку"
 
 #: ../panel-plugin/config_gui.c:104
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Введіть мітку плагіна, і натисніть <Ввід>"
+msgstr "Уведіть мітку втулки і натисніть <Enter>"
 
 #: ../panel-plugin/config_gui.c:106
 msgid "(genmon)"
@@ -65,15 +65,15 @@ msgstr "Період (и)"
 
 #: ../panel-plugin/config_gui.c:126
 msgid "Interval between 2 consecutive spawns"
-msgstr "Проміжок часу між двома наступними запитами"
+msgstr "Проміжок часу між 2-ма послідовними запитами"
 
 #: ../panel-plugin/config_gui.c:129
 msgid "Select the display font..."
-msgstr "Вибір екранного шрифту..."
+msgstr "Вибрати шрифт відображення..."
 
 #: ../panel-plugin/config_gui.c:133
 msgid "Press to change font..."
-msgstr "Натисніть для зміни шрифту..."
+msgstr "Натисніть, щоб змінити шрифт..."
 
 #: ../panel-plugin/main.c:104 ../panel-plugin/main.c:126
 #, c-format
@@ -84,7 +84,7 @@ msgstr "Не можу запустити \"%s\""
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr "Програма/скрипт, що виконується періодично і отримує вивід запиту даних  і відображає результат у панелі"
+msgstr "Періодично виконує вказаний скрипт/програму і відображає вивід у рядку на панелі."
 
 #: ../panel-plugin/main.c:901
 msgid ""
@@ -133,4 +133,4 @@ msgstr "Налаштування"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
-msgstr "Показати вивід команди."
+msgstr "Показує вивід команди."
