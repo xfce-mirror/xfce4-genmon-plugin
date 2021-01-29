@@ -14,7 +14,7 @@ AC_INIT([xfce4-genmon-plugin], [genmon_version],
 
 GENMON_VERSION=genmon_version()
 AM_INIT_AUTOMAKE([xfce4-genmon-plugin], [$GENMON_VERSION])
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 
 AM_MAINTAINER_MODE
 
@@ -24,7 +24,7 @@ AC_USE_SYSTEM_EXTENSIONS
 dnl Check for basic programs
 AC_PROG_CC
 AC_PROG_INSTALL
-AC_PROG_INTLTOOL
+IT_PROG_INTLTOOL
 
 dnl Initialize libtool
 LT_PREREQ([2.2.6])
