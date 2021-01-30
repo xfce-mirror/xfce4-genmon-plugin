@@ -20,7 +20,7 @@ ltmain.sh
 missing
 mkinstalldirs
 panel-plugin/*.desktop
-po/.intltool-merge-cache
+po/.intltool-merge-cache*
 po/Makefile.in.in
 po/POTFILES
 stamp-*
@@ -32,4 +32,3 @@ config.status
 config.sub
 configure
 configure.ac
-
