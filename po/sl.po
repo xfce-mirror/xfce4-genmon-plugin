@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Arnold Marko <arnold.marko@gmail.com>, 2019-2020
+# Arnold Marko <arnold.marko@gmail.com>, 2019-2021
 # Kernc, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-26 00:48+0100\n"
-"PO-Revision-Date: 2020-12-25 23:48+0000\n"
+"PO-Revision-Date: 2021-02-22 11:49+0000\n"
 "Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "Vpišite ukaz, ki naj se izvede, in pritisnite <Enter>."
 
 #: ../panel-plugin/config_gui.c:93
 msgid "Press to select file..."
-msgstr ""
+msgstr "Pritsnite za izbor datoteke..."
 
 #: ../panel-plugin/config_gui.c:95
 msgid "Label"
@@ -97,7 +97,7 @@ msgstr "Izbira pisave"
 
 #: ../panel-plugin/main.c:955
 msgid "File Selection"
-msgstr ""
+msgstr "Izbira datoteke"
 
 #: ../panel-plugin/main.c:957
 msgid "_Cancel"
@@ -105,7 +105,7 @@ msgstr "_Prekliči"
 
 #: ../panel-plugin/main.c:958
 msgid "_Open"
-msgstr ""
+msgstr "_Odpri"
 
 #: ../panel-plugin/main.c:989
 #, c-format
