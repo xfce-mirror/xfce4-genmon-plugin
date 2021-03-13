@@ -64,15 +64,15 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *label2;
     GtkWidget      *wTB_Title;
     GtkWidget      *wTF_Title;
-	GtkWidget	   *wTB_SingleRow;
-	GtkWidget	   *label3;
+    GtkWidget	   *wTB_SingleRow;
+    GtkWidget	   *label3;
     GtkWidget      *hseparator10;
     GtkWidget      *wPB_Font;
 
     table1 = gtk_grid_new ();
     gtk_grid_set_column_spacing(GTK_GRID (table1), 12);
     gtk_grid_set_row_spacing(GTK_GRID (table1), 6);
-	gtk_grid_set_row_homogeneous(GTK_GRID (table1), TRUE);
+    gtk_grid_set_row_homogeneous(GTK_GRID (table1), TRUE);
     gtk_widget_show (table1);
     gtk_box_pack_start (GTK_BOX (vbox1), table1, FALSE, TRUE, 0);
 
@@ -89,8 +89,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_set_tooltip_text (wTF_Cmd, _("Input the shell command to spawn, then press <Enter>"));
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Cmd), 128);
 
-	wPB_File = gtk_button_new_with_label ("...");
-	gtk_widget_set_margin_top (GTK_WIDGET (wPB_File), 6);
+    wPB_File = gtk_button_new_with_label ("...");
+    gtk_widget_set_margin_top (GTK_WIDGET (wPB_File), 6);
     gtk_widget_show (wPB_File);
     gtk_grid_attach (GTK_GRID (table1), wPB_File, 2, 0, 1, 1);
     gtk_widget_set_tooltip_text (wPB_File, _("Press to select file..."));
@@ -160,7 +160,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
         COPYVAL (p_poGUI, wTB_Title);
         COPYVAL (p_poGUI, wTF_Title);
         COPYVAL (p_poGUI, wSc_Period);
-		COPYVAL (p_poGUI, wTB_SingleRow);
+        COPYVAL (p_poGUI, wTB_SingleRow);
         COPYVAL (p_poGUI, wPB_Font);
     }
     return (0);

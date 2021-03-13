@@ -52,8 +52,8 @@ typedef struct param_t
         char           *acTitle;
         uint32_t        iPeriod_ms;
         uint32_t        iPeriod_mstmp;
-        int				fSingleRowEnabled;
-        int				fSingleRowEnabledtmp;
+        int             fSingleRowEnabled;
+        int             fSingleRowEnabledtmp;
         char           *acFont;
         char           *acFonttmp;
     } param_t;
@@ -820,7 +820,7 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     xfce_rc_write_int_entry (rc, CONF_UPDATE_PERIOD, poConf->iPeriod_ms);
 
-	xfce_rc_write_int_entry (rc, CONF_ENABLE_SINGLEROW, poConf->fSingleRowEnabled);
+    xfce_rc_write_int_entry (rc, CONF_ENABLE_SINGLEROW, poConf->fSingleRowEnabled);
 
     xfce_rc_write_entry (rc, CONF_FONT, poConf->acFont);
 
@@ -834,8 +834,8 @@ static void SetCmd (GtkWidget *p_wTF, void *p_pvPlugin)
    be displayed using the panel-docked monitor */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    struct param_t *poConf = &(poPlugin->oConf.oParam);
-    const char     *pcCmd = gtk_entry_get_text (GTK_ENTRY (p_wTF));
+    struct param_t  *poConf = &(poPlugin->oConf.oParam);
+    const char      *pcCmd = gtk_entry_get_text (GTK_ENTRY (p_wTF));
 
     DBG("\n");
 
@@ -849,8 +849,8 @@ static void ToggleTitle (GtkWidget *p_w, void *p_pvPlugin)
 /* GUI callback turning on/off the monitor bar legend */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    struct param_t *poConf = &(poPlugin->oConf.oParam);
-    struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
+    struct param_t  *poConf = &(poPlugin->oConf.oParam);
+    struct gui_t    *poGUI = &(poPlugin->oConf.oGUI);
 
     DBG("\n");
     
@@ -867,8 +867,8 @@ static void ToggleSingleRow (GtkWidget *p_w, void *p_pvPlugin)
 /* GUI callback turning on/off single-row support */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    struct param_t *poConf = &(poPlugin->oConf.oParam);
-    struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
+    struct param_t  *poConf = &(poPlugin->oConf.oParam);
+    struct gui_t    *poGUI = &(poPlugin->oConf.oGUI);
 
     DBG("\n");
     
@@ -882,10 +882,10 @@ static void ToggleSingleRow (GtkWidget *p_w, void *p_pvPlugin)
 static void SetLabel (GtkWidget *p_wTF, void *p_pvPlugin)
 /* GUI callback setting the legend of the monitor */
 {
-    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    struct param_t *poConf = &(poPlugin->oConf.oParam);
+    struct genmon_t  *poPlugin = (genmon_t *) p_pvPlugin;
+    struct param_t   *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
-    const char     *acTitle = gtk_entry_get_text (GTK_ENTRY (p_wTF));
+    const char       *acTitle = gtk_entry_get_text (GTK_ENTRY (p_wTF));
 
     DBG("\n");
     
@@ -900,8 +900,8 @@ static void SetPeriod (GtkWidget *p_wSc, void *p_pvPlugin)
 /* Set the update period - To be used by the timer */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    struct param_t *poConf = &(poPlugin->oConf.oParam);
-    float           r;
+    struct param_t  *poConf = &(poPlugin->oConf.oParam);
+    float            r;
 
     TRACE ("SetPeriod()\n");
     DBG("\n");
@@ -966,10 +966,10 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
 /* font selection dialog */
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    struct param_t *poConf = &(poPlugin->oConf.oParam);
-    GtkWidget      *wDialog;
-    char           *pcFont;
-    int             iResponse;
+    struct param_t  *poConf = &(poPlugin->oConf.oParam);
+    GtkWidget       *wDialog;
+    char            *pcFont;
+    int              iResponse;
 
     DBG("\n");
 
