@@ -52,6 +52,8 @@ typedef struct param_t
         char           *acTitle;
         uint32_t        iPeriod_ms;
         uint32_t        iPeriod_mstmp;
+        int				fSingleRowEnabled;
+        int				fSingleRowEnabledtmp;
         char           *acFont;
         char           *acFonttmp;
     } param_t;
@@ -432,6 +434,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poConf->acTitle = g_strdup ("(genmon)");
 
     poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed = 1;
+    poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled = 1;
 
     poConf->iPeriod_ms = 30 * 1000;
     poConf->iPeriod_mstmp = 30 * 1000;
@@ -716,11 +719,13 @@ return (0);
 /**************************************************************/
 
 /* Configuration Keywords */
-#define CONF_USE_LABEL      "UseLabel"
-#define CONF_LABEL_TEXT     "Text"
-#define CONF_CMD            "Command"
-#define CONF_UPDATE_PERIOD  "UpdatePeriod"
-#define CONF_FONT           "Font"
+#define CONF_USE_LABEL          "UseLabel"
+#define CONF_LABEL_TEXT         "Text"
+#define CONF_CMD                "Command"
+#define CONF_UPDATE_PERIOD      "UpdatePeriod"
+#define CONF_ENABLE_SINGLEROW   "EnableSingleRow"
+#define CONF_FONT               "Font"
+
 
 /**************************************************************/
 
@@ -769,6 +774,12 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     poConf->iPeriod_ms =
         xfce_rc_read_int_entry (rc, (CONF_UPDATE_PERIOD), 30 * 1000);
 
+	poConf->fSingleRowEnabled = xfce_rc_read_int_entry (rc, (CONF_ENABLE_SINGLEROW), 1);
+	if (poConf->fSingleRowEnabled)
+		xfce_panel_plugin_set_small (plugin, FALSE);
+	else
+		xfce_panel_plugin_set_small (plugin, TRUE);
+
     if ((pc = xfce_rc_read_entry (rc, (CONF_FONT), NULL))) 
     {
         g_free (poConf->acFont);
@@ -809,6 +820,8 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     xfce_rc_write_int_entry (rc, CONF_UPDATE_PERIOD, poConf->iPeriod_ms);
 
+	xfce_rc_write_int_entry (rc, CONF_ENABLE_SINGLEROW, poConf->fSingleRowEnabled);
+
     xfce_rc_write_entry (rc, CONF_FONT, poConf->acFont);
 
     xfce_rc_close (rc);
@@ -847,6 +860,22 @@ static void ToggleTitle (GtkWidget *p_w, void *p_pvPlugin)
                               poConf->fTitleDisplayedtmp);
 
 }/* ToggleTitle() */
+
+/**************************************************************/
+
+static void ToggleSingleRow (GtkWidget *p_w, void *p_pvPlugin)
+/* GUI callback turning on/off single-row support */
+{
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
+    struct param_t *poConf = &(poPlugin->oConf.oParam);
+    struct gui_t   *poGUI = &(poPlugin->oConf.oGUI);
+
+    DBG("\n");
+    
+    poConf->fSingleRowEnabledtmp =
+        gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
+
+}/* ToggleSingleRow() */
 
 /**************************************************************/
 
@@ -1044,6 +1073,12 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 			gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
 			
 		poConf->iPeriod_ms = poConf->iPeriod_mstmp;
+
+	 	poConf->fSingleRowEnabled = poConf->fSingleRowEnabledtmp;
+	 	if (poConf->fSingleRowEnabled)
+			xfce_panel_plugin_set_small (genmon->plugin, FALSE);
+		else
+			xfce_panel_plugin_set_small (genmon->plugin, TRUE);
 						
 		UpdateConf (genmon);
 		genmon_write_config (genmon->plugin, genmon);
@@ -1056,6 +1091,7 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 		poConf->acFiletmp = g_strdup (poConf->acCmd);
 		poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
 		poConf->iPeriod_mstmp = poConf->iPeriod_ms;
+		poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
 	}
 	
 	gtk_widget_destroy (dlg);
@@ -1079,6 +1115,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     xfce_panel_plugin_block_menu (plugin);
     poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
     poConf->iPeriod_mstmp = poConf->iPeriod_ms;
+	poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
 
 #if LIBXFCE4UI_CHECK_VERSION (4, 15, 1)
     dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Generic Monitor"),
@@ -1135,6 +1172,11 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
         ((double) poConf->iPeriod_ms / 1000));
     g_signal_connect (GTK_WIDGET (poGUI->wSc_Period), "value_changed",
         G_CALLBACK (SetPeriod), poPlugin);
+
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (poGUI->wTB_SingleRow),
+                                  poConf->fSingleRowEnabled);
+    g_signal_connect (GTK_WIDGET (poGUI->wTB_SingleRow), "toggled",
+        G_CALLBACK (ToggleSingleRow), poPlugin);
 
     if (strcmp (poConf->acFont, "(default)")) /* Default font */
         gtk_button_set_label (GTK_BUTTON (poGUI->wPB_Font), poConf->acFont);
@@ -1316,8 +1358,6 @@ static void genmon_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (G_OBJECT (genmon->oMonitor.wValButton), "clicked",
         G_CALLBACK (ExecOnValClickCmd), genmon);        
-
-    xfce_panel_plugin_set_small (plugin, TRUE);
 
     DisplayCmdOutput (genmon);
     SetTimer (genmon);
