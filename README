@@ -71,6 +71,7 @@ The XML tags which can be used are :
 <bar>Pourcentage to display in the bar</bar>
 <icon>Name of an icon from your current icon theme to display</icon>
 <iconclick>The command to be executed when clicking on the icon</iconclick>
+<css>The css tags to be applied to the widget</css>
 
 If None of the tags are detected in the result of the command, the plugin
 returns to its original behaviour (displaying the result of the command).
@@ -122,6 +123,8 @@ In addition, it supports the following functionality:
    - it supports xfce4-panel's new Adjust Icon Size Automatically functionality
    - it supports light/dark symbolic icon auto-colour changes
 
+To change the color of the progress bar you can use the CSS tag like so:
+echo "<css>progressbar.genmon_progressbar progress { background-color: #fc9b0a }</css>"
 
 6 -	Bugs
 	----
