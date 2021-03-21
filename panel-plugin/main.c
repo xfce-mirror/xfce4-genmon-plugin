@@ -79,6 +79,7 @@ typedef struct monitor_t
         GtkWidget      *wBar;
         GtkWidget      *wButton;
         GtkWidget      *wImgButton;
+        GtkCssProvider *cssProvider;
         char           *onClickCmd;
         char           *onValClickCmd;
         int             iconused;
@@ -150,6 +151,10 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     char  *begin;
     char  *end;
     int    newVersion=0;
+    
+    #if GTK_CHECK_VERSION (3, 16, 0)
+        gchar *css;
+    #endif
 
     poMonitor->iconused=0;
 
@@ -352,17 +357,15 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     else
             gtk_widget_hide (poMonitor->wBar);
 
-    if (newVersion == 0)
-        {
-            gtk_widget_show (poMonitor->wValue);
-            gtk_label_set_text (GTK_LABEL (poMonitor->wValue), p_poPlugin->acValue);
-        }
 
     /* Test if a ToolTip is given */
     begin=strstr(p_poPlugin->acValue, "<tool>");
     end=strstr(p_poPlugin->acValue, "</tool>");
     if (begin && end && begin < end)
+    {
         acToolTips = g_strndup (begin + 6, end - begin - 6);
+        newVersion=1;
+    }
     else
         acToolTips = g_strdup_printf ("%s\n"
                                       "----------------\n"
@@ -372,7 +375,104 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
     gtk_widget_set_tooltip_markup (GTK_WIDGET (poMonitor->wEventBox),acToolTips);
     g_free (acToolTips);
+    
+    /* Test if CSS is given */
+    begin=strstr(p_poPlugin->acValue, "<css>");
+    end=strstr(p_poPlugin->acValue, "</css>");
+    if (begin && end && begin < end)
+    {
+        #if GTK_CHECK_VERSION (3, 16, 0)
+            css = g_strndup (begin + 5, end - begin - 5);
+            gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
+		
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImgButton))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+		    gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            g_free(css);
+        #endif
+        newVersion=1;
+	}
+	else
+    {
+        #if GTK_CHECK_VERSION (3, 16, 0)
+            #if GTK_CHECK_VERSION (3, 20, 0)
+                css = g_strdup_printf("\
+                progressbar.horizontal trough { min-height: 4px; }\
+                progressbar.horizontal progress { min-height: 4px; }\
+                progressbar.vertical trough { min-width: 4px; }\
+                progressbar.vertical progress { min-width: 4px; }");
+            #else
+                css = g_strdup_printf("\
+                .progressbar.horizontal trough { min-height: 4px; }\
+                .progressbar.horizontal progress { min-height: 4px; }\
+                .progressbar.vertical trough { min-width: 4px; }\
+                .progressbar.vertical progress { min-width: 4px; }");
+            #endif
+    
+            gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
+        
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImgButton))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);    
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);                
+            gtk_style_context_add_provider (
+            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
+            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
+            g_free(css);
+        #endif
+    }
 
+    if (newVersion == 0)
+    {
+        gtk_widget_show (poMonitor->wValue);
+        gtk_label_set_text (GTK_LABEL (poMonitor->wValue), p_poPlugin->acValue);
+    }
     return (0);
 
 }/* DisplayCmdOutput() */
@@ -417,7 +517,6 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     #if GTK_CHECK_VERSION (3, 16, 0)
         GtkStyleContext *context;
-        GtkCssProvider *css_provider;
         gchar * css;
     #endif
     
@@ -510,6 +609,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     #if GTK_CHECK_VERSION (3, 16, 0)
         context = gtk_widget_get_style_context(poMonitor->wButton);
         gtk_style_context_add_class(context,"genmon_imagebutton");
+        context = gtk_widget_get_style_context(poMonitor->wImgButton);
+        gtk_style_context_add_class(context,"genmon_imagebutton");
     #endif
 
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wButton);
@@ -571,47 +672,52 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), FALSE);
     }
 
-    /* make widget padding consistent */
+    /* make widget padding consistent */  
     #if GTK_CHECK_VERSION (3, 16, 0)
      #if GTK_CHECK_VERSION (3, 20, 0)
         css = g_strdup_printf("\
-            progressbar.horizontal trough { min-height: 6px; }\
-            progressbar.horizontal progress { min-height: 6px; }\
-            progressbar.vertical trough { min-width: 6px; }\
-            progressbar.vertical progress { min-width: 6px; }");
+            progressbar.horizontal trough { min-height: 4px; }\
+            progressbar.horizontal progress { min-height: 4px; }\
+            progressbar.vertical trough { min-width: 4px; }\
+            progressbar.vertical progress { min-width: 4px; }");
      #else
         css = g_strdup_printf("\
-            .progressbar.horizontal trough { min-height: 6px; }\
-            .progressbar.horizontal progress { min-height: 6px; }\
-            .progressbar.vertical trough { min-width: 6px; }\
-            .progressbar.vertical progress { min-width: 6px; }");
+            .progressbar.horizontal trough { min-height: 4px; }\
+            .progressbar.horizontal progress { min-height: 4px; }\
+            .progressbar.vertical trough { min-width: 4px; }\
+            .progressbar.vertical progress { min-width: 4px; }");
      #endif
-
-    css_provider = gtk_css_provider_new ();
-    gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
+    
+    poMonitor->cssProvider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
+    
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
-        GTK_STYLE_PROVIDER (css_provider),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
-        GTK_STYLE_PROVIDER (css_provider),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
-        GTK_STYLE_PROVIDER (css_provider),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImgButton))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
-        GTK_STYLE_PROVIDER (css_provider),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);    
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
-        GTK_STYLE_PROVIDER (css_provider),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);                
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
-        GTK_STYLE_PROVIDER (css_provider),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
 
         g_free(css);
