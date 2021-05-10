@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-04-24 08:10+0000\n"
+"PO-Revision-Date: 2021-05-10 20:23+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -41,11 +41,11 @@ msgstr "Orden"
 
 #: ../panel-plugin/config_gui.c:89
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Introduzca la orden al intérprete a iniciar, luego pulse <Enter>"
+msgstr "Escriba la orden del intérprete de órdenes que se ejecutará y pulse Intro"
 
 #: ../panel-plugin/config_gui.c:96
 msgid "Press to select file..."
-msgstr "Pulse para seleccionar archivo..."
+msgstr "Pulse para seleccionar el archivo..."
 
 #: ../panel-plugin/config_gui.c:98
 msgid "Label"
@@ -53,11 +53,11 @@ msgstr "Etiqueta"
 
 #: ../panel-plugin/config_gui.c:101
 msgid "Tick to display label"
-msgstr "Marcar para mostrar etiqueta"
+msgstr "Marcar para mostrar la etiqueta"
 
 #: ../panel-plugin/config_gui.c:107
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Introduzca la etiqueta del complemento, entonces pulse <Enter>"
+msgstr "Escriba la etiqueta del complemento y pulse Intro"
 
 #: ../panel-plugin/config_gui.c:109
 msgid "(genmon)"
@@ -69,23 +69,23 @@ msgstr "Período (s)"
 
 #: ../panel-plugin/config_gui.c:129
 msgid "Interval between 2 consecutive spawns"
-msgstr "Intervalo entre 2 inicios consecutivos"
+msgstr "Intervalo entre dos inicios consecutivos"
 
 #: ../panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
-msgstr "Marque para forzar que el complemento use solo una fila"
+msgstr "Marcar para forzar al complemento a usar solo una fila"
 
 #: ../panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
-msgstr "Use una sola fila de paneles"
+msgstr "Usar una sola fila del panel"
 
 #: ../panel-plugin/config_gui.c:144
 msgid "Select the display font..."
-msgstr "Elija la tipografía para pantalla…"
+msgstr "Seleccione la tipografía de la pantalla…"
 
 #: ../panel-plugin/config_gui.c:148
 msgid "Press to change font..."
-msgstr "Pulse para cambiar de fuente..."
+msgstr "Pulse para cambiar de tipografía..."
 
 #: ../panel-plugin/main.c:110 ../panel-plugin/main.c:132
 #, c-format
@@ -96,7 +96,7 @@ msgstr "No se ha podido ejecutar «%s»"
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr "Ejecuta periódicamente un programa, captura su salida y la muestra en el panel"
+msgstr "Ejecuta periódicamente un programa, captura su salida y muestra la cadena resultante en el panel"
 
 #: ../panel-plugin/main.c:955
 msgid ""
@@ -107,7 +107,7 @@ msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyrig
 
 #: ../panel-plugin/main.c:976
 msgid "Font Selection"
-msgstr "Selección de tipo de letra"
+msgstr "Selección de tipografías"
 
 #: ../panel-plugin/main.c:1013
 msgid "File Selection"
@@ -124,7 +124,7 @@ msgstr "_Abrir"
 #: ../panel-plugin/main.c:1051
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr "No se puede abrir la siguiente dirrección URL: %s"
+msgstr "No se puede abrir el URL siguiente: %s"
 
 #: ../panel-plugin/main.c:1121 ../panel-plugin/main.c:1128
 #: ../panel-plugin/genmon.desktop.in.h:1
@@ -133,7 +133,7 @@ msgstr "Monitor genérico"
 
 #: ../panel-plugin/main.c:1124
 msgid "_Help"
-msgstr "_Ayuda"
+msgstr "Ay_uda"
 
 #: ../panel-plugin/main.c:1125
 msgid "Save"
