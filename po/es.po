@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-05-10 20:23+0000\n"
+"PO-Revision-Date: 2021-05-15 08:09+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "Orden"
 
 #: ../panel-plugin/config_gui.c:89
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Escriba la orden del intérprete de órdenes que se ejecutará y pulse Intro"
+msgstr "Escriba la orden del terminal que se ejecutará y pulse Intro"
 
 #: ../panel-plugin/config_gui.c:96
 msgid "Press to select file..."
@@ -103,15 +103,15 @@ msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
-msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
+msgstr "Copyright © Roger Seguin, 2004\nCopyright © Julien Devemy, 2006\nCopyright © Tony Paulic, 2016\n"
 
 #: ../panel-plugin/main.c:976
 msgid "Font Selection"
-msgstr "Selección de tipografías"
+msgstr "Selección de la tipografía"
 
 #: ../panel-plugin/main.c:1013
 msgid "File Selection"
-msgstr "Selección de archivos"
+msgstr "Selección del archivo"
 
 #: ../panel-plugin/main.c:1015
 msgid "_Cancel"
@@ -145,4 +145,4 @@ msgstr "Configuración"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
-msgstr "Mostrar la salida de una orden."
+msgstr "Muestra la salida de una orden"
