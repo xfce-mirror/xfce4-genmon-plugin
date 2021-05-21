@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-05-15 08:09+0000\n"
+"PO-Revision-Date: 2021-05-21 19:02+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Escriba la etiqueta del complemento y pulse Intro"
 
 #: ../panel-plugin/config_gui.c:109
 msgid "(genmon)"
-msgstr "(monitor genérico)"
+msgstr "(Monitor genérico)"
 
 #: ../panel-plugin/config_gui.c:111
 msgid "Period (s)"
