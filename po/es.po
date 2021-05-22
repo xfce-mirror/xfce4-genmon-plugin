@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-05-21 19:02+0000\n"
+"PO-Revision-Date: 2021-05-22 18:54+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "Intervalo entre dos inicios consecutivos"
 
 #: ../panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
-msgstr "Marcar para forzar al complemento a usar solo una fila"
+msgstr "Marcar para forzar al complemento a usar una sola fila"
 
 #: ../panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
@@ -103,7 +103,7 @@ msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
-msgstr "Copyright © Roger Seguin, 2004\nCopyright © Julien Devemy, 2006\nCopyright © Tony Paulic, 2016\n"
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
 #: ../panel-plugin/main.c:976
 msgid "Font Selection"
