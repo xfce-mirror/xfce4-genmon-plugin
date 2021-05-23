@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-05-22 18:54+0000\n"
+"PO-Revision-Date: 2021-05-23 13:23+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +81,7 @@ msgstr "Usar una sola fila del panel"
 
 #: ../panel-plugin/config_gui.c:144
 msgid "Select the display font..."
-msgstr "Seleccione la tipografía de la pantalla…"
+msgstr "Seleccione la tipografía de la pantalla..."
 
 #: ../panel-plugin/config_gui.c:148
 msgid "Press to change font..."
