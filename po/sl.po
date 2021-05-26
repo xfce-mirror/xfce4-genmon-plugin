@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-05-24 11:18+0000\n"
+"PO-Revision-Date: 2021-05-26 09:12+0000\n"
 "Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Napaka v ukazu \"%s\""
 #: ../panel-plugin/cmdspawn.c:176 ../panel-plugin/main.c:111
 #: ../panel-plugin/main.c:133
 msgid "Xfce Panel"
-msgstr "Xfce pult"
+msgstr "Xfce pano"
 
 #: ../panel-plugin/config_gui.c:79
 msgid "Command"
@@ -51,7 +51,7 @@ msgstr "Označite za prikaz oznake."
 
 #: ../panel-plugin/config_gui.c:107
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Vnesite oznako vstavka in pritisnite <Enter>."
+msgstr "Vnesite oznako vtičnika in pritisnite <Enter>."
 
 #: ../panel-plugin/config_gui.c:109
 msgid "(genmon)"
@@ -71,7 +71,7 @@ msgstr "Označite, da prisilite vtičnik v rabo le ene vrstice"
 
 #: ../panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
-msgstr "Uporabi le eno vrstico pulta"
+msgstr "Uporabi le eno vrstico panoja"
 
 #: ../panel-plugin/config_gui.c:144
 msgid "Select the display font..."
@@ -90,7 +90,7 @@ msgstr "Ni bilo mogoče zagnati \"%s\""
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr "Ciklično sproži skripto/program, ujame izpis in ga prikaže v pultu"
+msgstr "Na določen interval sproži skripto/program, ujame izpis in ga prikaže na panoju"
 
 #: ../panel-plugin/main.c:955
 msgid ""
