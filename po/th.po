@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2014
+# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2014,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-06-30 04:19+0000\n"
+"PO-Revision-Date: 2021-07-02 05:11+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "ป้อนคำสั่งเชลล์ที่จะเรีย
 
 #: ../panel-plugin/config_gui.c:96
 msgid "Press to select file..."
-msgstr ""
+msgstr "กดเพื่อเลือกแฟ้ม..."
 
 #: ../panel-plugin/config_gui.c:98
 msgid "Label"
@@ -46,7 +46,7 @@ msgstr "ฉลาก"
 
 #: ../panel-plugin/config_gui.c:101
 msgid "Tick to display label"
-msgstr "กาเพื่อแสดงฉลาก"
+msgstr "ติ๊กเพื่อแสดงฉลาก"
 
 #: ../panel-plugin/config_gui.c:107
 msgid "Input the plugin label, then press <Enter>"
@@ -58,7 +58,7 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:111
 msgid "Period (s)"
-msgstr ""
+msgstr "คาบ (วิ)"
 
 #: ../panel-plugin/config_gui.c:129
 msgid "Interval between 2 consecutive spawns"
@@ -66,11 +66,11 @@ msgstr "ระยะเวลาระหว่างการเรียกท
 
 #: ../panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
-msgstr ""
+msgstr "ติ๊กเพื่อบังคับให้ปลั๊กอินใช้เนื้อที่เพียงแถวเดียว"
 
 #: ../panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
-msgstr ""
+msgstr "ใช้พื้นที่พาเนลแถวเดียว"
 
 #: ../panel-plugin/config_gui.c:144
 msgid "Select the display font..."
@@ -78,7 +78,7 @@ msgstr "เลือกแบบอักษรสำหรับแสดงผ
 
 #: ../panel-plugin/config_gui.c:148
 msgid "Press to change font..."
-msgstr ""
+msgstr "กดเพื่อเปลี่ยนแบบอักษร..."
 
 #: ../panel-plugin/main.c:110 ../panel-plugin/main.c:132
 #, c-format
@@ -104,7 +104,7 @@ msgstr "เลือกแบบอักษร"
 
 #: ../panel-plugin/main.c:1013
 msgid "File Selection"
-msgstr ""
+msgstr "เลือกแฟ้ม"
 
 #: ../panel-plugin/main.c:1015
 msgid "_Cancel"
@@ -112,7 +112,7 @@ msgstr "_ยกเลิก"
 
 #: ../panel-plugin/main.c:1016
 msgid "_Open"
-msgstr ""
+msgstr "_เปิด"
 
 #: ../panel-plugin/main.c:1051
 #, c-format
@@ -130,7 +130,7 @@ msgstr "_วิธีใช้"
 
 #: ../panel-plugin/main.c:1125
 msgid "Save"
-msgstr ""
+msgstr "บันทึก"
 
 #: ../panel-plugin/main.c:1141
 msgid "Configuration"
