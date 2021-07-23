@@ -4,7 +4,7 @@
 # 
 # Translators:
 #  <abel.martin.ruiz@gmail.com>, 2009
-# Adolfo Jayme-Barrientos, 2014
+# Adolfo Jayme Barrientos, 2014
 # Casper casper, 2020-2021
 # Fitoschido, 2014
 # Ignacio Poggi <ignaciop.3@gmail.com>, 2019-2020
