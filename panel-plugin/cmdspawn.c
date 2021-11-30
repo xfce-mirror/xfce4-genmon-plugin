@@ -90,7 +90,6 @@ char *genmon_Spawn (char **argv, int wait)
             for (i = 0; i < OUT_ERR; i++) 
             {
                 j = i + 1; // stdout/stderr file descriptor
-                close (j);
                 k = dup2 (aaiPipe[i][WR], j);
                 if (k != j) 
                 {
