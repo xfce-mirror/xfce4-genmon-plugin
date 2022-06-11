@@ -86,12 +86,10 @@ char *genmon_Spawn (char **argv, int wait)
                     close (aaiPipe[i][j]);
             return (NULL);
         case 0:
-            close(0); /* stdin is not used in child */
             /* Redirect stdout/stderr to associated pipe's write-ends */
             for (i = 0; i < OUT_ERR; i++) 
             {
                 j = i + 1; // stdout/stderr file descriptor
-                close (j);
                 k = dup2 (aaiPipe[i][WR], j);
                 if (k != j) 
                 {
