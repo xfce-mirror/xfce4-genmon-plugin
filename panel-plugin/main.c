@@ -974,8 +974,7 @@ static void ToggleSingleRow (GtkWidget *p_w, void *p_pvPlugin)
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t  *poConf = &(poPlugin->oConf.oParam);
-    struct gui_t    *poGUI = &(poPlugin->oConf.oGUI);
-
+    
     DBG("\n");
     
     poConf->fSingleRowEnabledtmp =
