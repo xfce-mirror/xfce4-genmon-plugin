@@ -409,7 +409,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
             GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-		    gtk_style_context_add_provider (
+            gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
             GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -1303,18 +1303,35 @@ static void genmon_set_orientation (XfcePanelPlugin *plugin,
 
     DBG("\n");
 
-    gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBox), p_iOrientation);
-    gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wImgBox), p_iOrientation);
-
-    if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL) 
+    if (p_iOrientation == GTK_ORIENTATION_HORIZONTAL)
     {
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBox), p_iOrientation);
         gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_VERTICAL);
         gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), TRUE);
+        gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar), 8, -1);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wTitle), 0);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wValue), 0);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wValButtonLabel), 0);
     }
-    else 
+    else if (p_iOrientation == GTK_ORIENTATION_VERTICAL)
     {
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBox), p_iOrientation);
         gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_HORIZONTAL);
         gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), FALSE);
+        gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar), -1, 8);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wTitle), -90);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wValue), -90);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wValButtonLabel), -90);
+    }
+    else // XFCE_PANEL_PLUGIN_MODE_DESKBAR
+    {
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBox), GTK_ORIENTATION_VERTICAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_HORIZONTAL);
+        gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), FALSE);
+        gtk_widget_set_size_request(GTK_WIDGET(poMonitor->wBar), -1, 8);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wTitle), 0);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wValue), 0);
+        gtk_label_set_angle(GTK_LABEL(poMonitor->wValButtonLabel), 0);
     }
 
     SetMonitorFont (poPlugin);
@@ -1443,7 +1460,7 @@ static void genmon_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (plugin, "save", G_CALLBACK (genmon_write_config), genmon);
 
-    g_signal_connect (plugin, "orientation-changed",
+    g_signal_connect (plugin, "mode-changed",
         G_CALLBACK (genmon_set_orientation), genmon);
 
     g_signal_connect (plugin, "size-changed", G_CALLBACK (genmon_set_size), genmon);
