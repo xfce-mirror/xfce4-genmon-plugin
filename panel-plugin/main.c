@@ -34,6 +34,7 @@
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/libxfce4panel.h>
 #include <libxfce4panel/xfce-panel-convenience.h>
+#include <xfconf/xfconf.h>
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -89,6 +90,8 @@ typedef struct monitor_t
 typedef struct genmon_t 
     {
         XfcePanelPlugin    *plugin;
+        XfconfChannel      *channel;
+        const gchar        *property_base;
         guint               iTimerId; /* Cyclic update */
         struct conf_t       oConf;
         struct monitor_t    oMonitor;
@@ -750,6 +753,7 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     g_free (poPlugin->oMonitor.onClickCmd);
     g_free (poPlugin->acValue);
     g_free (poPlugin);
+    xfconf_shutdown ();
 }/* genmon_free() */
 
 /**************************************************************/
@@ -825,12 +829,12 @@ return (0);
 /**************************************************************/
 
 /* Configuration Keywords */
-#define CONF_USE_LABEL          "UseLabel"
-#define CONF_LABEL_TEXT         "Text"
-#define CONF_CMD                "Command"
-#define CONF_UPDATE_PERIOD      "UpdatePeriod"
-#define CONF_ENABLE_SINGLEROW   "EnableSingleRow"
-#define CONF_FONT               "Font"
+#define CONF_USE_LABEL          "/use-label"
+#define CONF_LABEL_TEXT         "/text"
+#define CONF_CMD                "/command"
+#define CONF_UPDATE_PERIOD      "/update-period"
+#define CONF_ENABLE_SINGLEROW   "/enable-single-row"
+#define CONF_FONT               "/font"
 
 
 /**************************************************************/
@@ -838,99 +842,96 @@ return (0);
 static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 /* Plugin API */
 /* Executed when the panel is started - Read the configuration
-   previously stored in xml file */
+   previously stored in xfconf */
 {
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
-    const char     *pc;
-    char           *file;
-    XfceRc         *rc;
+    gchar *property;
+    gchar *tmpStr;
 
     DBG("\n");
 
-    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
-        return;
+    g_return_if_fail (XFCONF_IS_CHANNEL (poPlugin->channel));
 
-    rc = xfce_rc_simple_open (file, TRUE);
-    g_free (file);
+    property = g_strconcat (poPlugin->property_base, CONF_CMD, NULL);
+    tmpStr = xfconf_channel_get_string (poPlugin->channel, property, poConf->acCmd);
+    free (poConf->acCmd);
+    poConf->acCmd = tmpStr;
+    g_free (property);
 
-    if (!rc)
-        return;
+    property = g_strconcat (poPlugin->property_base, CONF_USE_LABEL, NULL);
+    poConf->fTitleDisplayed = xfconf_channel_get_int (poPlugin->channel, property, 1);
+    g_free (property);
 
-    if ((pc = xfce_rc_read_entry (rc, (CONF_CMD), NULL))) 
-    {
-        g_free (poConf->acCmd);
-        poConf->acCmd = g_strdup (pc);
-    }
-
-    poConf->fTitleDisplayed = xfce_rc_read_int_entry (rc, (CONF_USE_LABEL), 1);
     if (poConf->fTitleDisplayed)
         gtk_widget_show (GTK_WIDGET (poMonitor->wTitle));
     else
         gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
 
-    if ((pc = xfce_rc_read_entry (rc, (CONF_LABEL_TEXT), NULL))) 
-    {
-        g_free (poConf->acTitle);
-        poConf->acTitle = g_strdup (pc);
-        gtk_label_set_text (GTK_LABEL (poMonitor->wTitle),
-                            poConf->acTitle);
-    }
+    property = g_strconcat (poPlugin->property_base, CONF_LABEL_TEXT, NULL);
+    tmpStr = xfconf_channel_get_string (poPlugin->channel, property, poConf->acTitle);
+    free (poConf->acTitle);
+    poConf->acTitle = tmpStr;
+    g_free (property);
 
-    poConf->iPeriod_ms =
-        xfce_rc_read_int_entry (rc, (CONF_UPDATE_PERIOD), 30 * 1000);
+    gtk_label_set_text (GTK_LABEL (poMonitor->wTitle), poConf->acTitle);
 
-	poConf->fSingleRowEnabled = xfce_rc_read_int_entry (rc, (CONF_ENABLE_SINGLEROW), 1);
-	if (poConf->fSingleRowEnabled)
+    property = g_strconcat (poPlugin->property_base, CONF_UPDATE_PERIOD, NULL);
+    poConf->iPeriod_ms = xfconf_channel_get_int (poPlugin->channel, property, 30 * 1000);
+    g_free (property);
+
+    property = g_strconcat (poPlugin->property_base, CONF_ENABLE_SINGLEROW, NULL);
+    poConf->fSingleRowEnabled = xfconf_channel_get_int (poPlugin->channel, property, 1);
+    g_free (property);
+
+    if (poConf->fSingleRowEnabled)
 		xfce_panel_plugin_set_small (plugin, FALSE);
 	else
 		xfce_panel_plugin_set_small (plugin, TRUE);
 
-    if ((pc = xfce_rc_read_entry (rc, (CONF_FONT), NULL))) 
-    {
-        g_free (poConf->acFont);
-        poConf->acFont = g_strdup (pc);
-    }
-
-    xfce_rc_close (rc);
+    property = g_strconcat (poPlugin->property_base, CONF_FONT, NULL);
+    tmpStr = xfconf_channel_get_string (poPlugin->channel, property, poConf->acFont);
+    free(poConf->acFont);
+    poConf->acFont = tmpStr;
+    g_free (property);
 }/* genmon_read_config() */
 
 /**************************************************************/
 
 static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 /* Plugin API */
-/* Write plugin configuration into xml file */
+/* Write plugin configuration into xfconf */
 {
     struct param_t *poConf = &(poPlugin->oConf.oParam);
-    XfceRc *rc;
-    char *file;
+    gchar *property;
 
     DBG("\n");
 
-    if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
-        return;
+    g_return_if_fail (XFCONF_IS_CHANNEL (poPlugin->channel));
 
-    rc = xfce_rc_simple_open (file, FALSE);
-    g_free (file);
+    property = g_strconcat (poPlugin->property_base, CONF_CMD, NULL);
+    xfconf_channel_set_string (poPlugin->channel, property, poConf->acCmd);
+    g_free (property);
 
-    if (!rc)
-        return;
+    property = g_strconcat (poPlugin->property_base, CONF_USE_LABEL, NULL);
+    xfconf_channel_set_int (poPlugin->channel, property, poConf->fTitleDisplayed);
+    g_free (property);
 
-    TRACE ("genmon_write_config()\n");
+    property = g_strconcat (poPlugin->property_base, CONF_LABEL_TEXT, NULL);
+    xfconf_channel_set_string (poPlugin->channel, property, poConf->acTitle);
+    g_free (property);
 
-    xfce_rc_write_entry (rc, CONF_CMD, poConf->acCmd);
+    property = g_strconcat (poPlugin->property_base, CONF_UPDATE_PERIOD, NULL);
+    xfconf_channel_set_int (poPlugin->channel, property, poConf->iPeriod_ms);
+    g_free (property);
 
-    xfce_rc_write_int_entry (rc, CONF_USE_LABEL, poConf->fTitleDisplayed);
+    property = g_strconcat (poPlugin->property_base, CONF_ENABLE_SINGLEROW, NULL);
+    xfconf_channel_set_int (poPlugin->channel, property, poConf->fSingleRowEnabled);
+    g_free (property);
 
-    xfce_rc_write_entry (rc, CONF_LABEL_TEXT, poConf->acTitle);
-
-    xfce_rc_write_int_entry (rc, CONF_UPDATE_PERIOD, poConf->iPeriod_ms);
-
-    xfce_rc_write_int_entry (rc, CONF_ENABLE_SINGLEROW, poConf->fSingleRowEnabled);
-
-    xfce_rc_write_entry (rc, CONF_FONT, poConf->acFont);
-
-    xfce_rc_close (rc);
+    property = g_strconcat (poPlugin->property_base, CONF_FONT, NULL);
+    xfconf_channel_set_string (poPlugin->channel, property, poConf->acFont);
+    g_free (property);
 }/* genmon_write_config() */
 
 /**************************************************************/
@@ -1432,6 +1433,16 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
     genmon = genmon_create_control (plugin);
+
+    if (xfconf_init (NULL))
+        genmon->channel = xfconf_channel_get ("xfce4-panel");
+    else
+    {
+        g_warning ("Could not initialize xfconf.");
+        return;
+    }
+
+    genmon->property_base = xfce_panel_plugin_get_property_base (plugin);
 
     genmon_read_config (plugin, genmon);
 

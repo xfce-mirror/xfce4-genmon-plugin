@@ -4,7 +4,8 @@ plugin_LTLIBRARIES = libgenmon.la
 libgenmon_la_CFLAGS =						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"			\
 	@LIBXFCE4PANEL_CFLAGS@					\
-	@LIBXFCE4UI_CFLAGS@
+	@LIBXFCE4UI_CFLAGS@					\
+	@XFCONF_CFLAGS@
 
 libgenmon_la_LDFLAGS = 						\
 	-avoid-version 						\
@@ -14,7 +15,9 @@ libgenmon_la_LDFLAGS = 						\
 
 libgenmon_la_LIBADD =						\
 	@LIBXFCE4PANEL_LIBS@					\
-	@LIBXFCE4UI_LIBS@
+	@LIBXFCE4UI_LIBS@					\
+	@XFCONF_LIBS@
+
 
 libgenmon_la_SOURCES =		\
 	main.c			\
