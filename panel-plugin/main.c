@@ -855,7 +855,7 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     property = g_strconcat (poPlugin->property_base, CONF_CMD, NULL);
     tmpStr = xfconf_channel_get_string (poPlugin->channel, property, poConf->acCmd);
-    free (poConf->acCmd);
+    g_free (poConf->acCmd);
     poConf->acCmd = tmpStr;
     g_free (property);
 
@@ -870,7 +870,7 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     property = g_strconcat (poPlugin->property_base, CONF_LABEL_TEXT, NULL);
     tmpStr = xfconf_channel_get_string (poPlugin->channel, property, poConf->acTitle);
-    free (poConf->acTitle);
+    g_free (poConf->acTitle);
     poConf->acTitle = tmpStr;
     g_free (property);
 
@@ -891,7 +891,7 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     property = g_strconcat (poPlugin->property_base, CONF_FONT, NULL);
     tmpStr = xfconf_channel_get_string (poPlugin->channel, property, poConf->acFont);
-    free(poConf->acFont);
+    g_free (poConf->acFont);
     poConf->acFont = tmpStr;
     g_free (property);
 }/* genmon_read_config() */
