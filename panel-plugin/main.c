@@ -46,17 +46,17 @@
 typedef struct param_t 
     {
         /* Configurable parameters */
-        char           *acCmd; /* Commandline to spawn */
-        char           *acFiletmp;
-        int             fTitleDisplayed;
-        int             fTitleDisplayedtmp;
-        char           *acTitle;
-        uint32_t        iPeriod_ms;
-        uint32_t        iPeriod_mstmp;
-        int             fSingleRowEnabled;
-        int             fSingleRowEnabledtmp;
-        char           *acFont;
-        char           *acFonttmp;
+        gchar       *acCmd; /* Commandline to spawn */
+        gchar       *acFiletmp;
+        gboolean     fTitleDisplayed;
+        gboolean     fTitleDisplayedtmp;
+        gchar       *acTitle;
+        guint32      iPeriod_ms;
+        guint32      iPeriod_mstmp;
+        gboolean     fSingleRowEnabled;
+        gboolean     fSingleRowEnabledtmp;
+        gchar       *acFont;
+        gchar       *acFonttmp;
     } param_t;
 
 typedef struct conf_t 
@@ -535,8 +535,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poConf->acCmd = g_strdup ("");
     poConf->acTitle = g_strdup ("(genmon)");
 
-    poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed = 1;
-    poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled = 1;
+    poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed = TRUE;
+    poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled = TRUE;
 
     poConf->iPeriod_ms = 30 * 1000;
     poConf->iPeriod_mstmp = 30 * 1000;
@@ -860,7 +860,7 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     g_free (property);
 
     property = g_strconcat (poPlugin->property_base, CONF_USE_LABEL, NULL);
-    poConf->fTitleDisplayed = xfconf_channel_get_int (poPlugin->channel, property, 1);
+    poConf->fTitleDisplayed = xfconf_channel_get_bool (poPlugin->channel, property, TRUE);
     g_free (property);
 
     if (poConf->fTitleDisplayed)
@@ -881,7 +881,7 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     g_free (property);
 
     property = g_strconcat (poPlugin->property_base, CONF_ENABLE_SINGLEROW, NULL);
-    poConf->fSingleRowEnabled = xfconf_channel_get_int (poPlugin->channel, property, 1);
+    poConf->fSingleRowEnabled = xfconf_channel_get_bool (poPlugin->channel, property, TRUE);
     g_free (property);
 
     if (poConf->fSingleRowEnabled)
@@ -914,7 +914,7 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     g_free (property);
 
     property = g_strconcat (poPlugin->property_base, CONF_USE_LABEL, NULL);
-    xfconf_channel_set_int (poPlugin->channel, property, poConf->fTitleDisplayed);
+    xfconf_channel_set_bool (poPlugin->channel, property, poConf->fTitleDisplayed);
     g_free (property);
 
     property = g_strconcat (poPlugin->property_base, CONF_LABEL_TEXT, NULL);
@@ -926,7 +926,7 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     g_free (property);
 
     property = g_strconcat (poPlugin->property_base, CONF_ENABLE_SINGLEROW, NULL);
-    xfconf_channel_set_int (poPlugin->channel, property, poConf->fSingleRowEnabled);
+    xfconf_channel_set_bool (poPlugin->channel, property, poConf->fSingleRowEnabled);
     g_free (property);
 
     property = g_strconcat (poPlugin->property_base, CONF_FONT, NULL);
