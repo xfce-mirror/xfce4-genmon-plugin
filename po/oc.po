@@ -106,7 +106,7 @@ msgstr "Seleccion de la poliça"
 
 #: ../panel-plugin/main.c:1013
 msgid "File Selection"
-msgstr ""
+msgstr "Seleccion de fichièrs"
 
 #: ../panel-plugin/main.c:1015
 msgid "_Cancel"
@@ -114,7 +114,7 @@ msgstr "_Anullar"
 
 #: ../panel-plugin/main.c:1016
 msgid "_Open"
-msgstr ""
+msgstr "_Dobrir"
 
 #: ../panel-plugin/main.c:1051
 #, c-format
