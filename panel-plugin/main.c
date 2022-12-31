@@ -1038,8 +1038,6 @@ static void UpdateConf (struct genmon_t *poPlugin)
 static void About (XfcePanelPlugin *plugin)
 /* GUI callback to create about dialog */
 { 
-    GdkPixbuf *icon;
-
     const gchar *auth[] =
     {
         "Roger Seguin <roger_seguin@msn.com>",
@@ -1050,20 +1048,16 @@ static void About (XfcePanelPlugin *plugin)
 
   DBG("\n");
 
-  icon = xfce_panel_pixbuf_from_source ("org.xfce.genmon", NULL, 32);
   gtk_show_about_dialog (NULL,
-                         "logo",         icon,
-                         "license",      xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
-                         "version",      VERSION,
-                         "program-name", PACKAGE,
-                         "comments",     _("Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"),
-                         "website",      "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin",
-                         "copyright",    _("Copyright \xc2\xa9 2004 Roger Seguin\nCopyright \xc2\xa9 2006 Julien Devemy\nCopyright \xc2\xa9 2016 Tony Paulic\n"),
-                         "authors",      auth,
+                         "logo-icon-name", "org.xfce.genmon",
+                         "license",        xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
+                         "version",        VERSION,
+                         "program-name",   PACKAGE,
+                         "comments",       _("Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"),
+                         "website",        "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin",
+                         "copyright",      _("Copyright \xc2\xa9 2004 Roger Seguin\nCopyright \xc2\xa9 2006 Julien Devemy\nCopyright \xc2\xa9 2016 Tony Paulic\n"),
+                         "authors",        auth,
                          NULL);
-
-  if (icon)
-    g_object_unref (G_OBJECT (icon));
 }
 
 /**************************************************************/
