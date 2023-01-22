@@ -5,15 +5,16 @@
 # Translators:
 # Christos Arvanitis <arvchristos@gmail.com>, 2020
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
-# Stergios Gemelas <sgemelas@protonmail.com>, 2021
+# Στέργιος Γέμελας <sgemelas@protonmail.com>, 2021
 # Πέτρος Σαμαράς <psamaras1@gmail.com>, 2018
+# Στέργιος Γέμελας <sgemelas@protonmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-08-02 21:01+0000\n"
-"Last-Translator: Stergios Gemelas <sgemelas@protonmail.com>\n"
+"POT-Creation-Date: 2022-11-28 15:07+0100\n"
+"PO-Revision-Date: 2013-07-03 19:01+0000\n"
+"Last-Translator: Πέτρος Σαμαράς <psamaras1@gmail.com>, 2018\n"
 "Language-Team: Greek (http://www.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,15 +22,15 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:172
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Σφάλμα στην εντολή \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:176 ../panel-plugin/main.c:111
-#: ../panel-plugin/main.c:133
+#: ../panel-plugin/cmdspawn.c:174 ../panel-plugin/main.c:115
+#: ../panel-plugin/main.c:137
 msgid "Xfce Panel"
-msgstr "Πίνακας Xfce"
+msgstr "Ταμπλό Xfce"
 
 #: ../panel-plugin/config_gui.c:79
 msgid "Command"
@@ -53,7 +54,7 @@ msgstr "Επιλέξτε για να εμφανιστεί ετικέτα"
 
 #: ../panel-plugin/config_gui.c:107
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Εισάγετε την ετικέτα πρόσθετου, στη συνέχεια πατήστε <Enter>"
+msgstr "Εισάγετε την ετικέτα του πρόσθετου, στη συνέχεια πατήστε <Enter>"
 
 #: ../panel-plugin/config_gui.c:109
 msgid "(genmon)"
@@ -83,59 +84,59 @@ msgstr "Επιλογή γραμματοσειράς..."
 msgid "Press to change font..."
 msgstr "Πατήστε για να αλλάξετε γραμματοσειρά"
 
-#: ../panel-plugin/main.c:110 ../panel-plugin/main.c:132
+#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Αδυναμία εκτέλεσης \"%s\""
 
-#: ../panel-plugin/main.c:953
+#: ../panel-plugin/main.c:1059
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr "Εκτελεί κυκλικά μια εντολή/πρόγραμμα και παρουσιάζει το αποτέλεσμα (κείμενο) από την έξοδό του "
+msgstr "Εκτελεί κυκλικά μια εντολή/πρόγραμμα, καταγράφει το αποτέλεσμα και το εμφανίζει στο ταμπλό"
 
-#: ../panel-plugin/main.c:955
+#: ../panel-plugin/main.c:1061
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
-msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
+msgstr "Πνευματικά δικαιώματα © 2004 Roger Seguin\nΠνευματικά δικαιώματα © 2006 Julien Devemy\nΠνευματικά δικαιώματα © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:976
+#: ../panel-plugin/main.c:1082
 msgid "Font Selection"
 msgstr "Επιλογή γραμματοσειράς"
 
-#: ../panel-plugin/main.c:1013
+#: ../panel-plugin/main.c:1119
 msgid "File Selection"
 msgstr "Επιλογή αρχείου"
 
-#: ../panel-plugin/main.c:1015
+#: ../panel-plugin/main.c:1121
 msgid "_Cancel"
-msgstr "Ά_κυρο"
+msgstr "Α_κύρωση"
 
-#: ../panel-plugin/main.c:1016
+#: ../panel-plugin/main.c:1122
 msgid "_Open"
 msgstr "_Άνοιγμα"
 
-#: ../panel-plugin/main.c:1051
+#: ../panel-plugin/main.c:1157
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr "Αδυναμία ανοίγματος της ακόλουθης διεύθυνσης: %s"
+msgstr "Αδύνατη η πρόσβαση στην ακόλουθη διεύθυνση: %s"
 
-#: ../panel-plugin/main.c:1121 ../panel-plugin/main.c:1128
+#: ../panel-plugin/main.c:1227 ../panel-plugin/main.c:1234
 #: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Γενικός επόπτης"
 
-#: ../panel-plugin/main.c:1124
+#: ../panel-plugin/main.c:1230
 msgid "_Help"
 msgstr "_Βοήθεια"
 
-#: ../panel-plugin/main.c:1125
+#: ../panel-plugin/main.c:1231
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: ../panel-plugin/main.c:1141
+#: ../panel-plugin/main.c:1247
 msgid "Configuration"
 msgstr "Ρύθμιση"
 
