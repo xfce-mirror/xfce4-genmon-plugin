@@ -32,12 +32,11 @@
 #define _XOPEN_SOURCE 500
 #endif
 
-#include "cmdspawn.h"
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
+#include "cmdspawn.h"
 
 #include <stdlib.h>
 #include <unistd.h>

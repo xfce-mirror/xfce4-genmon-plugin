@@ -22,10 +22,6 @@
 #ifndef _config_gui_h
 #define _config_gui_h
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <gtk/gtk.h>
 
 #include <libxfce4util/libxfce4util.h>
