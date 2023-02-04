@@ -14,8 +14,8 @@ AC_INIT([xfce4-genmon-plugin], [genmon_version],
 
 AM_INIT_AUTOMAKE([1.8 no-dist-gzip dist-bzip2 tar-ustar foreign])
 AC_CONFIG_HEADERS([config.h])
-
 AM_MAINTAINER_MODE
+AC_CONFIG_MACRO_DIRS([m4])
 
 dnl Check for UNIX variants
 AC_USE_SYSTEM_EXTENSIONS
@@ -23,14 +23,11 @@ AC_USE_SYSTEM_EXTENSIONS
 dnl Check for basic programs
 AC_PROG_CC
 AC_PROG_INSTALL
-IT_PROG_INTLTOOL
+IT_PROG_INTLTOOL([0.35.0])
 
 dnl Initialize libtool
 LT_PREREQ([2.2.6])
 LT_INIT([disable-static])
-
-dnl Check for standard header files
-AC_HEADER_STDC
 
 dnl configure the panel plugin
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])

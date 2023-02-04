@@ -17,6 +17,7 @@ install-sh
 intltool*
 libtool
 ltmain.sh
+m4/
 missing
 mkinstalldirs
 panel-plugin/*.desktop
