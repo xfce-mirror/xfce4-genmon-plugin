@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-03-13 23:47+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"POT-Creation-Date: 2022-11-28 15:07+0100\n"
+"PO-Revision-Date: 2013-07-03 19:01+0000\n"
+"Last-Translator: Jeff Bailes <thepizzaking@gmail.com>, 2007\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/xfce/xfce-panel-plugins/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:172
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Error in command \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:176 ../panel-plugin/main.c:111
-#: ../panel-plugin/main.c:133
+#: ../panel-plugin/cmdspawn.c:174 ../panel-plugin/main.c:115
+#: ../panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Xfce Panel"
 
@@ -80,59 +80,59 @@ msgstr ""
 msgid "Press to change font..."
 msgstr ""
 
-#: ../panel-plugin/main.c:110 ../panel-plugin/main.c:132
+#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Could not run \"%s\""
 
-#: ../panel-plugin/main.c:953
+#: ../panel-plugin/main.c:1059
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr ""
 
-#: ../panel-plugin/main.c:955
+#: ../panel-plugin/main.c:1061
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr ""
 
-#: ../panel-plugin/main.c:976
+#: ../panel-plugin/main.c:1082
 msgid "Font Selection"
 msgstr "Font Selection"
 
-#: ../panel-plugin/main.c:1013
+#: ../panel-plugin/main.c:1119
 msgid "File Selection"
 msgstr ""
 
-#: ../panel-plugin/main.c:1015
+#: ../panel-plugin/main.c:1121
 msgid "_Cancel"
 msgstr ""
 
-#: ../panel-plugin/main.c:1016
+#: ../panel-plugin/main.c:1122
 msgid "_Open"
 msgstr ""
 
-#: ../panel-plugin/main.c:1051
+#: ../panel-plugin/main.c:1157
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Unable to open the following url: %s"
 
-#: ../panel-plugin/main.c:1121 ../panel-plugin/main.c:1128
+#: ../panel-plugin/main.c:1227 ../panel-plugin/main.c:1234
 #: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Generic Monitor"
 
-#: ../panel-plugin/main.c:1124
+#: ../panel-plugin/main.c:1230
 msgid "_Help"
-msgstr ""
+msgstr "_Help"
 
-#: ../panel-plugin/main.c:1125
+#: ../panel-plugin/main.c:1231
 msgid "Save"
 msgstr ""
 
-#: ../panel-plugin/main.c:1141
+#: ../panel-plugin/main.c:1247
 msgid "Configuration"
 msgstr "Configuration"
 
