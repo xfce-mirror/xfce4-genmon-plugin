@@ -1414,6 +1414,28 @@ static gboolean genmon_remote_event (XfcePanelPlugin *plugin,
     return FALSE;
 }/* genmon_remote_event() */
 
+/**************************************************************/
+static void
+genmon_add_menu_item(XfcePanelPlugin *plugin,
+                     const gchar     *label,
+                     GCallback        callback,
+                     gpointer         user_data)
+{
+    GtkWidget *menu_item;
+
+    menu_item = gtk_menu_item_new_with_label(label);
+    gtk_widget_show(menu_item);
+    g_signal_connect(G_OBJECT(menu_item), "activate", callback, user_data);
+    xfce_panel_plugin_menu_insert_item(plugin, GTK_MENU_ITEM(menu_item));
+}/* genmon_add_menu_item() */
+
+/**************************************************************/
+static void
+genmon_update_now_clicked_cb(GtkMenuItem *mi,
+                             genmon_t    *genmon)
+{
+    DisplayCmdOutput (genmon);
+}/* genmon_add_menu_item() */
 
 /**************************************************************/
 
@@ -1462,6 +1484,9 @@ static void genmon_construct (XfcePanelPlugin *plugin)
         G_CALLBACK (genmon_create_options), genmon);
 
     g_signal_connect (plugin, "remote-event", G_CALLBACK (genmon_remote_event), genmon);
+
+    genmon_add_menu_item(plugin, _("Update Now"),
+                            G_CALLBACK(genmon_update_now_clicked_cb), genmon);
 
     g_signal_connect (G_OBJECT (genmon->oMonitor.wButton), "clicked",
         G_CALLBACK (ExecOnClickCmd), genmon);
