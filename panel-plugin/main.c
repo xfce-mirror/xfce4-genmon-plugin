@@ -99,64 +99,6 @@ typedef struct genmon_t
     } genmon_t;
 
 /**************************************************************/
-static void ExecOnClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
-/* Execute the onClick Command */
-{
-    DBG("MEH\n");
-    GdkEvent * currentevent = gtk_get_current_event();
-    GdkEventButton * eventButton = (GdkEventButton*)currentevent;
-    guint modifiers;
-    modifiers = eventButton->state & gtk_accelerator_get_default_mod_mask ();
-    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    if (modifiers == GDK_SHIFT_MASK)
-        {
-            TRACE("RUN DisplayCmdOutput");
-            DisplayCmdOutput (poPlugin);
-        }
-    else
-        {
-            struct monitor_t *poMonitor = &(poPlugin->oMonitor);
-            GError *error = NULL;
-
-            DBG("\n");
-
-            xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onClickCmd, 0, 0, &error );
-            if (error) 
-                {
-                    char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onClickCmd);
-                    xfce_message_dialog (NULL, _("Xfce Panel"),
-                                         "dialog-error", first, error->message,
-                                         "gtk-close", GTK_RESPONSE_OK, NULL);
-                    g_error_free (error);
-                    g_free (first);
-                }
-        }
-}
-
-/**************************************************************/
-static void ExecOnValClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
-/* Execute the onClick Command */
-{    
-    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
-    struct monitor_t *poMonitor = &(poPlugin->oMonitor);
-    GError *error = NULL;
-
-    DBG("\n");
-
-    xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onValClickCmd, 0, 0, &error );
-    if (error) 
-    {
-        char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onValClickCmd);
-        xfce_message_dialog (NULL, _("Xfce Panel"),
-                             "dialog-error", first, error->message,
-                             "gtk-close", GTK_RESPONSE_OK, NULL);
-        g_error_free (error);
-        g_free (first);
-    }
-
-}
-
-/**************************************************************/
 static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
  /* Launch the command, get its output and display it in the panel-docked
     text field */
@@ -493,6 +435,71 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
 }/* DisplayCmdOutput() */
 
+/**************************************************************/
+static void ExecOnClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
+/* Execute the onClick Command */
+{
+    GdkEvent * currentevent = gtk_get_current_event();
+    GdkEventButton * eventButton = (GdkEventButton*)currentevent;
+    guint modifiers;
+    modifiers = eventButton->state & gtk_accelerator_get_default_mod_mask ();
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
+    if (modifiers == GDK_SHIFT_MASK)
+        {
+            DisplayCmdOutput (poPlugin);
+        }
+    else
+        {
+            struct monitor_t *poMonitor = &(poPlugin->oMonitor);
+            GError *error = NULL;
+
+            DBG("\n");
+
+            xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onClickCmd, 0, 0, &error );
+            if (error) 
+                {
+                    char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onClickCmd);
+                    xfce_message_dialog (NULL, _("Xfce Panel"),
+                                         "dialog-error", first, error->message,
+                                         "gtk-close", GTK_RESPONSE_OK, NULL);
+                    g_error_free (error);
+                    g_free (first);
+                }
+        }
+}
+
+/**************************************************************/
+static void ExecOnValClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
+/* Execute the onClick Command */
+{    
+    GdkEvent * currentevent = gtk_get_current_event();
+    GdkEventButton * eventButton = (GdkEventButton*)currentevent;
+    guint modifiers;
+    modifiers = eventButton->state & gtk_accelerator_get_default_mod_mask ();
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
+    if (modifiers == GDK_SHIFT_MASK)
+        {
+            DisplayCmdOutput (poPlugin);
+        }
+    else
+        {
+            struct monitor_t *poMonitor = &(poPlugin->oMonitor);
+            GError *error = NULL;
+        
+            DBG("\n");
+        
+            xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onValClickCmd, 0, 0, &error );
+            if (error) 
+            {
+                char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onValClickCmd);
+                xfce_message_dialog (NULL, _("Xfce Panel"),
+                                     "dialog-error", first, error->message,
+                                     "gtk-close", GTK_RESPONSE_OK, NULL);
+                g_error_free (error);
+                g_free (first);
+        }
+    }
+}
 /**************************************************************/
 
 static gboolean Timer (gpointer user_data)
