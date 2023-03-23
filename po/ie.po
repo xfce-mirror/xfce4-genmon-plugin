@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-03-13 23:47+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"POT-Creation-Date: 2023-03-23 12:53+0100\n"
+"PO-Revision-Date: 2013-07-03 19:01+0000\n"
+"Last-Translator: Caarmi, 2019\n"
 "Language-Team: Interlingue (http://www.transifex.com/xfce/xfce-panel-plugins/language/ie/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Language: ie\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:171
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Errore in li comande «%s»"
 
-#: ../panel-plugin/cmdspawn.c:176 ../panel-plugin/main.c:111
-#: ../panel-plugin/main.c:133
+#: ../panel-plugin/cmdspawn.c:173 ../panel-plugin/main.c:115
+#: ../panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Panel Xfce"
 
@@ -81,61 +81,65 @@ msgstr "Selecter un fonde..."
 msgid "Press to change font..."
 msgstr "Modificar li fonde..."
 
-#: ../panel-plugin/main.c:110 ../panel-plugin/main.c:132
+#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Ne successat lansar «%s»"
 
-#: ../panel-plugin/main.c:953
+#: ../panel-plugin/main.c:1056
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Lansa un programma o un scripte iterativmen, e monstra su production in li panel"
 
-#: ../panel-plugin/main.c:955
+#: ../panel-plugin/main.c:1058
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:976
+#: ../panel-plugin/main.c:1076
 msgid "Font Selection"
 msgstr "Selection del fonde"
 
-#: ../panel-plugin/main.c:1013
+#: ../panel-plugin/main.c:1113
 msgid "File Selection"
 msgstr ""
 
-#: ../panel-plugin/main.c:1015
+#: ../panel-plugin/main.c:1115
 msgid "_Cancel"
 msgstr ""
 
-#: ../panel-plugin/main.c:1016
+#: ../panel-plugin/main.c:1116
 msgid "_Open"
 msgstr ""
 
-#: ../panel-plugin/main.c:1051
+#: ../panel-plugin/main.c:1151
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Ne successat aperter li sequent URL: %s"
 
-#: ../panel-plugin/main.c:1121 ../panel-plugin/main.c:1128
+#: ../panel-plugin/main.c:1221 ../panel-plugin/main.c:1228
 #: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor generic"
 
-#: ../panel-plugin/main.c:1124
+#: ../panel-plugin/main.c:1224
 msgid "_Help"
 msgstr "Au_xilie"
 
-#: ../panel-plugin/main.c:1125
+#: ../panel-plugin/main.c:1225
 msgid "Save"
 msgstr "Gardar"
 
-#: ../panel-plugin/main.c:1141
+#: ../panel-plugin/main.c:1241
 msgid "Configuration"
 msgstr "Configuration"
+
+#: ../panel-plugin/main.c:1505
+msgid "Update Now"
+msgstr "Actualisar nu"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
