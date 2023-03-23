@@ -108,7 +108,7 @@ static void ExecOnClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
 
     DBG("\n");
 
-    xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onClickCmd, 0, 0, &error );
+    xfce_spawn_command_line( gdk_screen_get_default(), poMonitor->onClickCmd, 0, 0, 1, &error );
     if (error) 
         {
             char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onClickCmd);
@@ -130,7 +130,7 @@ static void ExecOnValClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
 
     DBG("\n");
 
-    xfce_spawn_command_line_on_screen( gdk_screen_get_default(), poMonitor->onValClickCmd, 0, 0, &error );
+    xfce_spawn_command_line( gdk_screen_get_default(), poMonitor->onValClickCmd, 0, 0, 1, &error );
     if (error) 
         {
             char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onValClickCmd);
