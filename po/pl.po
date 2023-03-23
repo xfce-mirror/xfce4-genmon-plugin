@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Marcin Mikołajczak <me@mkljczk.pl>, 2016
-# No Ne, 2020
-# No Ne, 2019-2021
+# marcin mikołajczak <me@mkljczk.pl>, 2016
+# Marek Adamski, 2020
+# Marek Adamski, 2019-2021
 # Piotr Sokół <psokol.l10n@gmail.com>, 2012
 # Piotr Strębski <strebski@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 00:47+0100\n"
-"PO-Revision-Date: 2021-03-14 16:22+0000\n"
-"Last-Translator: No Ne\n"
+"POT-Creation-Date: 2023-03-23 12:53+0100\n"
+"PO-Revision-Date: 2013-07-03 19:01+0000\n"
+"Last-Translator: Marek Adamski, 2019-2021\n"
 "Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,13 +22,13 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: ../panel-plugin/cmdspawn.c:174
+#: ../panel-plugin/cmdspawn.c:171
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Błąd w poleceniu „%s”"
 
-#: ../panel-plugin/cmdspawn.c:176 ../panel-plugin/main.c:111
-#: ../panel-plugin/main.c:133
+#: ../panel-plugin/cmdspawn.c:173 ../panel-plugin/main.c:115
+#: ../panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Panel Xfce"
 
@@ -84,61 +84,65 @@ msgstr "Wybór czcionki wyświetlania..."
 msgid "Press to change font..."
 msgstr "Naciśnij, aby zmienić czcionkę..."
 
-#: ../panel-plugin/main.c:110 ../panel-plugin/main.c:132
+#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Nie można uruchomić „%s”"
 
-#: ../panel-plugin/main.c:953
+#: ../panel-plugin/main.c:1056
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Wykonuje polecenie skryptu/programu w sposób cykliczny i jego wynik wyświetla na panelu"
 
-#: ../panel-plugin/main.c:955
+#: ../panel-plugin/main.c:1058
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
 msgstr "Prawa autorskie © 2004 Roger Seguin\nPrawa autorskie © 2006 Julien Devemy\nPrawa autorskie © 2016 Tony Paulic\n"
 
-#: ../panel-plugin/main.c:976
+#: ../panel-plugin/main.c:1076
 msgid "Font Selection"
 msgstr "Wybór czcionki"
 
-#: ../panel-plugin/main.c:1013
+#: ../panel-plugin/main.c:1113
 msgid "File Selection"
 msgstr "Wybór pliku"
 
-#: ../panel-plugin/main.c:1015
+#: ../panel-plugin/main.c:1115
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: ../panel-plugin/main.c:1016
+#: ../panel-plugin/main.c:1116
 msgid "_Open"
 msgstr "_Otwórz"
 
-#: ../panel-plugin/main.c:1051
+#: ../panel-plugin/main.c:1151
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Nie można otworzyć następującego adresu url: %s"
 
-#: ../panel-plugin/main.c:1121 ../panel-plugin/main.c:1128
+#: ../panel-plugin/main.c:1221 ../panel-plugin/main.c:1228
 #: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor poleceń"
 
-#: ../panel-plugin/main.c:1124
+#: ../panel-plugin/main.c:1224
 msgid "_Help"
 msgstr "_Pomoc"
 
-#: ../panel-plugin/main.c:1125
+#: ../panel-plugin/main.c:1225
 msgid "Save"
 msgstr "Zapisz"
 
-#: ../panel-plugin/main.c:1141
+#: ../panel-plugin/main.c:1241
 msgid "Configuration"
 msgstr "Konfiguracja"
+
+#: ../panel-plugin/main.c:1505
+msgid "Update Now"
+msgstr "Odśwież"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
