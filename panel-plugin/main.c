@@ -612,8 +612,6 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     #if GTK_CHECK_VERSION (3, 16, 0)
         context = gtk_widget_get_style_context(poMonitor->wButton);
         gtk_style_context_add_class(context,"genmon_imagebutton");
-        context = gtk_widget_get_style_context(poMonitor->wImgButton);
-        gtk_style_context_add_class(context,"genmon_imagebutton");
     #endif
 
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wButton);
