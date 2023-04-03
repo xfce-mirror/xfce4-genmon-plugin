@@ -6,7 +6,7 @@
 # Cristian Marchi <cri.penta@gmail.com>, 2009,2013
 # Dmytro Tokayev, 2021
 # Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2018
-# Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2019-2020
+# Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2019-2020,2023
 # Enrico B. <enricobe@hotmail.com>, 2016
 msgid ""
 msgstr ""
@@ -14,8 +14,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 12:53+0100\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Dmytro Tokayev, 2021\n"
-"Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
+"Last-Translator: Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2019-2020,2023\n"
+"Language-Team: Italian (http://app.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,7 +70,7 @@ msgstr "Intervallo tra due avvii consecutivi"
 
 #: ../panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
-msgstr "Mettere una spunta per forzare l'estensione ad usare una sola riga"
+msgstr "Mettere una spunta per forzare l'estensione a usare una sola riga"
 
 #: ../panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
