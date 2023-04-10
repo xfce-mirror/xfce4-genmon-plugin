@@ -8,6 +8,7 @@
 # jc1 <jc1.quebecos@gmail.com>, 2013,2020-2021
 # Julien Devemy <jujucece@gmail.com>, 2006
 # roxfr <roxfr@outlook.fr>, 2020
+# Wallon Wallon, 2023
 # Yannick Le Guen <leguen.yannick@gmail.com>, 2014,2016,2019
 msgid ""
 msgstr ""
@@ -15,8 +16,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 12:53+0100\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: jc1 <jc1.quebecos@gmail.com>, 2013,2020-2021\n"
-"Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
+"Last-Translator: Wallon Wallon, 2023\n"
+"Language-Team: French (http://app.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,7 +56,7 @@ msgstr "Cocher pour afficher l’étiquette"
 
 #: ../panel-plugin/config_gui.c:107
 msgid "Input the plugin label, then press <Enter>"
-msgstr "Entrer l'étiquette du greffon et appuyer sur <Entrée>"
+msgstr "Saisissez l’étiquette du greffon, puis appuyez sur <Enter>"
 
 #: ../panel-plugin/config_gui.c:109
 msgid "(genmon)"
@@ -71,7 +72,7 @@ msgstr "Intervalle entre 2 exécutions consécutives"
 
 #: ../panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
-msgstr "Cochez pour forcer le greffon à n'utiliser qu'une seule ligne"
+msgstr "Cochez pour forcer le greffon à n’utiliser qu’une seule ligne"
 
 #: ../panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
