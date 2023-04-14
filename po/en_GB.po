@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andi Chandler <andi@gowling.com>, 2023
 # Jeff Bailes <thepizzaking@gmail.com>, 2007
 msgid ""
 msgstr ""
@@ -10,8 +11,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 12:53+0100\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Jeff Bailes <thepizzaking@gmail.com>, 2007\n"
-"Language-Team: English (United Kingdom) (http://www.transifex.com/xfce/xfce-panel-plugins/language/en_GB/)\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2023\n"
+"Language-Team: English (United Kingdom) (http://app.transifex.com/xfce/xfce-panel-plugins/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +39,7 @@ msgstr "Input the shell command to spawn, then press <Enter>"
 
 #: ../panel-plugin/config_gui.c:96
 msgid "Press to select file..."
-msgstr ""
+msgstr "Press to select file..."
 
 #: ../panel-plugin/config_gui.c:98
 msgid "Label"
@@ -58,7 +59,7 @@ msgstr "(genmon)"
 
 #: ../panel-plugin/config_gui.c:111
 msgid "Period (s)"
-msgstr ""
+msgstr "Period (s)"
 
 #: ../panel-plugin/config_gui.c:129
 msgid "Interval between 2 consecutive spawns"
@@ -66,19 +67,19 @@ msgstr "Interval between 2 consecutive spawns"
 
 #: ../panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
-msgstr ""
+msgstr "Tick to force plugin to use only one row"
 
 #: ../panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
-msgstr ""
+msgstr "Use a single panel row"
 
 #: ../panel-plugin/config_gui.c:144
 msgid "Select the display font..."
-msgstr ""
+msgstr "Select the display font..."
 
 #: ../panel-plugin/config_gui.c:148
 msgid "Press to change font..."
-msgstr ""
+msgstr "Press to change font..."
 
 #: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
 #, c-format
@@ -89,14 +90,14 @@ msgstr "Could not run \"%s\""
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr ""
+msgstr "Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"
 
 #: ../panel-plugin/main.c:1058
 msgid ""
 "Copyright © 2004 Roger Seguin\n"
 "Copyright © 2006 Julien Devemy\n"
 "Copyright © 2016 Tony Paulic\n"
-msgstr ""
+msgstr "Copyright © 2004 Roger Seguin\nCopyright © 2006 Julien Devemy\nCopyright © 2016 Tony Paulic\n"
 
 #: ../panel-plugin/main.c:1076
 msgid "Font Selection"
@@ -104,15 +105,15 @@ msgstr "Font Selection"
 
 #: ../panel-plugin/main.c:1113
 msgid "File Selection"
-msgstr ""
+msgstr "File Selection"
 
 #: ../panel-plugin/main.c:1115
 msgid "_Cancel"
-msgstr ""
+msgstr "_Cancel"
 
 #: ../panel-plugin/main.c:1116
 msgid "_Open"
-msgstr ""
+msgstr "_Open"
 
 #: ../panel-plugin/main.c:1151
 #, c-format
@@ -130,7 +131,7 @@ msgstr "_Help"
 
 #: ../panel-plugin/main.c:1225
 msgid "Save"
-msgstr ""
+msgstr "Save"
 
 #: ../panel-plugin/main.c:1241
 msgid "Configuration"
