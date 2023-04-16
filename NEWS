@@ -1,3 +1,29 @@
+4.2.0 (2023/04/16)
+==================
+- Add shell script to migrate settings to xfconf
+- Fix GDK_Critical
+- Fixed deskbar support. Issue #8
+- Add Update Now menu option to right-click menu
+- build: Add GLib requirement
+- build: Fix autotools warnings
+- Use "logo-icon-name" instead of "logo" in about dialog
+- ***Migrate settings to xfconf
+- Remove unused variable
+- Fix intltool lock file bug in make distcheck
+- Remove closing of standard file descriptors in the child process
+- Update COPYING
+- Add <css> tag support
+- fixed .genmon_label and -gtk-icon transform bugs
+- Fix code indentation and readalility
+- Add support for single and multi-row panel layout options
+- Added support for <css></css> XML tag. Changed default progressbar width to 4px
+- automake: Modernize following other projects
+- autoconf: Some updates
+- Update `.gitignore`
+- Add missing comments to code functions
+- Fix indentation
+- Translation updates
+
 4.1.1 (2021/01/23)
 ==================
 - Update configure.ac.in syntax

@@ -57,6 +57,9 @@ your disk temperature.
 5 -	New Features
 	-----------
 
+Genmon settings are now stored in the xfconf database. This wil lalso allow for 
+saving and restoring of genmon settings using the xfce4-panel-profiles tool.
+
 The new version of genmon plugin can also display an icon (which can be a
 clickable icon), a tooltip, a text and a bar.
 
