@@ -46,7 +46,7 @@ do
     FONT=$(grep Font $f | awk -F'=' '{print $2}')
     TEXT=$(grep Text $f | awk -F'=' '{print $2}')
     UPDATEPERIOD=$(grep UpdatePeriod $f | awk -F'=' '{print $2}')
-    USELABEL=$(grep Uselabel $f | awk -F'=' '{print $2}')
+    USELABEL=$(grep UseLabel $f | awk -F'=' '{print $2}')
 
     # additional int to bool processing
     [[ $ENABLESINGLEROW = "0" ]] && ENABLESINGLEROW=false || ENABLESINGLEROW=true
