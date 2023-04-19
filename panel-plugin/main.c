@@ -1053,7 +1053,7 @@ static void About (XfcePanelPlugin *plugin)
                          "program-name",   PACKAGE,
                          "comments",       _("Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"),
                          "website",        "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin",
-                         "copyright",      _("Copyright \xc2\xa9 2004 Roger Seguin\nCopyright \xc2\xa9 2006 Julien Devemy\nCopyright \xc2\xa9 2016 Tony Paulic\n"),
+                         "copyright",      _("Copyright \302\251 2005-2023 The Xfce development team"),
                          "authors",        auth,
                          NULL);
 }

@@ -9,6 +9,7 @@ dnl
 
 m4_define([genmon_version],[4.2.0])
 
+AC_COPYRIGHT([Copyright (c) 2005-2023 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-genmon-plugin], [genmon_version],
 	[xfce-dev@xfce.org])
 
