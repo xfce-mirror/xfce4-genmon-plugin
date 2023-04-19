@@ -25,11 +25,7 @@ po/.intltool-merge-cache*
 po/Makefile.in.in
 po/POTFILES
 stamp-*
-config.guess
-config.h
-config.h.in
-config.log
-config.status
-config.sub
+config.*
 configure
 configure.ac
+configure~
