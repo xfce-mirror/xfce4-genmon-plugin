@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Priit Jõerüüt <transifex@joeruut.com>, 2020-2021
+# Priit Jõerüüt <transifex@joeruut.com>, 2020-2021,2023
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 12:56+0200\n"
+"POT-Creation-Date: 2023-05-30 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2020-2021\n"
+"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2020-2021,2023\n"
 "Language-Team: Estonian (http://app.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: ../panel-plugin/cmdspawn.c:171
 #, c-format
 msgid "Error in command \"%s\""
-msgstr "Käsu \"%s\" viga"
+msgstr "„%s“ käsu viga"
 
 #: ../panel-plugin/cmdspawn.c:173 ../panel-plugin/main.c:115
 #: ../panel-plugin/main.c:137
@@ -83,7 +83,7 @@ msgstr "Kirjatüübi muutmiseks vajuta nuppu..."
 #: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
-msgstr " \"%s\" ei käivitunud"
+msgstr "„%s“ käivitamine ei õnnestunud"
 
 #: ../panel-plugin/main.c:1054
 msgid ""
@@ -131,7 +131,7 @@ msgstr "Seadistused"
 
 #: ../panel-plugin/main.c:1503
 msgid "Update Now"
-msgstr ""
+msgstr "Värskenda nüüd"
 
 #: ../panel-plugin/genmon.desktop.in.h:2
 msgid "Show output of a command."
