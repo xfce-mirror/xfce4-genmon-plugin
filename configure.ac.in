@@ -52,6 +52,7 @@ data/icons/16x16/Makefile
 data/icons/48x48/Makefile
 data/icons/128x128/Makefile
 data/icons/scalable/Makefile
+scripts/Makefile
 po/Makefile.in
 ])
 AC_OUTPUT

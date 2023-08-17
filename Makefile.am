@@ -2,7 +2,7 @@
 
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = panel-plugin po data
+SUBDIRS = panel-plugin po data scripts
 
 AUTOMAKE_OPTIONS =							\
 	1.8								\
