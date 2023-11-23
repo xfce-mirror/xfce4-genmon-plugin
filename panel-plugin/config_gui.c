@@ -66,6 +66,16 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *wTF_Title;
     GtkWidget	   *wTB_SingleRow;
     GtkWidget	   *label3;
+    GtkWidget	   *label4;
+    GtkWidget      *wRB_Align;
+    GtkWidget      *wRB_AlignLeft;
+    GtkWidget      *wRB_AlignCenter;
+    GtkWidget      *wRB_AlignRight;
+    GtkWidget      *wRB_AlignFill;
+    GtkWidget      *wRB_AlignLeftIcon;
+    GtkWidget      *wRB_AlignCenterIcon;
+    GtkWidget      *wRB_AlignRightIcon;
+    GtkWidget      *wRB_AlignFillIcon;
     GtkWidget      *hseparator10;
     GtkWidget      *wPB_Font;
 
@@ -141,17 +151,70 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_label_set_xalign (GTK_LABEL (label3), 0.0f);
     gtk_widget_set_valign (label3, GTK_ALIGN_CENTER);
 
+    label4 = gtk_label_new (_("Alignment"));
+    gtk_widget_show (label4);
+    gtk_grid_attach (GTK_GRID (table1), label4, 0, 4, 1, 1);
+    gtk_label_set_justify (GTK_LABEL (label4), GTK_JUSTIFY_LEFT);
+    gtk_label_set_xalign (GTK_LABEL (label4), 0.0f);
+    gtk_widget_set_valign (label4, GTK_ALIGN_CENTER);
+    gtk_widget_set_tooltip_text (label4, _("Choose the text alignment"));
+
+    wRB_Align = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
+    gtk_button_box_set_layout(wRB_Align, GTK_BUTTONBOX_EXPAND);
+    gtk_widget_show (wRB_Align);
+    gtk_grid_attach (GTK_GRID (table1), wRB_Align, 1, 4, 2, 1);
+
+    wRB_AlignLeft = gtk_radio_button_new (NULL);
+    gtk_toggle_button_set_mode(wRB_AlignLeft, FALSE);
+    gtk_container_add (GTK_CONTAINER (wRB_Align), wRB_AlignLeft);
+    gtk_widget_set_tooltip_text (wRB_AlignLeft, _("Left"));
+    gtk_widget_show (wRB_AlignLeft);
+
+    wRB_AlignLeftIcon = gtk_image_new_from_icon_name ("gtk-justify-left", GTK_ICON_SIZE_BUTTON);
+    gtk_button_set_image (wRB_AlignLeft, wRB_AlignLeftIcon);
+    gtk_button_set_always_show_image (wRB_AlignLeft, TRUE);
+
+    wRB_AlignCenter = gtk_radio_button_new_from_widget (wRB_AlignLeft);
+    gtk_toggle_button_set_mode(wRB_AlignCenter, FALSE);
+    gtk_container_add (GTK_CONTAINER (wRB_Align), wRB_AlignCenter);
+    gtk_widget_set_tooltip_text (wRB_AlignCenter, _("Center"));
+    gtk_widget_show (wRB_AlignCenter);
+
+    wRB_AlignCenterIcon = gtk_image_new_from_icon_name ("gtk-justify-center", GTK_ICON_SIZE_BUTTON);
+    gtk_button_set_image (wRB_AlignCenter, wRB_AlignCenterIcon);
+    gtk_button_set_always_show_image (wRB_AlignCenter, TRUE);
+
+    wRB_AlignRight = gtk_radio_button_new_from_widget (wRB_AlignLeft);
+    gtk_toggle_button_set_mode(wRB_AlignRight, FALSE);
+    gtk_container_add (GTK_CONTAINER (wRB_Align), wRB_AlignRight);
+    gtk_widget_set_tooltip_text (wRB_AlignRight, _("Right"));
+    gtk_widget_show (wRB_AlignRight);
+
+    wRB_AlignRightIcon = gtk_image_new_from_icon_name ("gtk-justify-right", GTK_ICON_SIZE_BUTTON);
+    gtk_button_set_image (wRB_AlignRight, wRB_AlignRightIcon);
+    gtk_button_set_always_show_image (wRB_AlignRight, TRUE);
+
+    wRB_AlignFill = gtk_radio_button_new_from_widget (wRB_AlignLeft);
+    gtk_toggle_button_set_mode(wRB_AlignFill, FALSE);
+    gtk_container_add (GTK_CONTAINER (wRB_Align), wRB_AlignFill);
+    gtk_widget_set_tooltip_text (wRB_AlignFill, _("Fill"));
+    gtk_widget_show (wRB_AlignFill);
+
+    wRB_AlignFillIcon = gtk_image_new_from_icon_name ("gtk-justify-fill", GTK_ICON_SIZE_BUTTON);
+    gtk_button_set_image (wRB_AlignFill, wRB_AlignFillIcon);
+    gtk_button_set_always_show_image (wRB_AlignFill, TRUE);
+
     wPB_Font = gtk_button_new_with_label (_("Select the display font..."));
     gtk_widget_set_margin_top (GTK_WIDGET (wPB_Font), 6);
     gtk_widget_show (wPB_Font);
-    gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 4, 3, 1);
+    gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 5, 3, 1);
     gtk_widget_set_tooltip_text (wPB_Font, _("Press to change font..."));
     
     hseparator10 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_widget_set_margin_top (GTK_WIDGET (hseparator10), 6);
     gtk_widget_set_margin_bottom (GTK_WIDGET (hseparator10), 0);
     gtk_widget_show (hseparator10);
-    gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 4, 3, 1);
+    gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 5, 3, 1);
             
     if (p_poGUI) 
     {
@@ -161,6 +224,10 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
         COPYVAL (p_poGUI, wTF_Title);
         COPYVAL (p_poGUI, wSc_Period);
         COPYVAL (p_poGUI, wTB_SingleRow);
+        COPYVAL (p_poGUI, wRB_AlignLeft);
+        COPYVAL (p_poGUI, wRB_AlignCenter);
+        COPYVAL (p_poGUI, wRB_AlignRight);
+        COPYVAL (p_poGUI, wRB_AlignFill);
         COPYVAL (p_poGUI, wPB_Font);
     }
     return (0);
