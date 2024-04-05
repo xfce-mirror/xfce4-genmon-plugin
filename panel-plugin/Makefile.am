@@ -27,11 +27,13 @@ libgenmon_la_SOURCES =		\
 	cmdspawn.c
 
 desktopdir = $(datadir)/xfce4/panel/plugins
-desktop_DATA = genmon.desktop
-@INTLTOOL_DESKTOP_RULE@
+desktop_in_files = genmon.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+$(desktop_DATA): $(desktop_DATA).in Makefile
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = 								\
-	genmon.desktop.in
+	$(desktop_in_files)
 
 DISTCLEANFILES =							\
 	$(desktop_DATA)
