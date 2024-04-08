@@ -160,49 +160,49 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_set_tooltip_text (label4, _("Choose the text alignment"));
 
     wRB_Align = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
-    gtk_button_box_set_layout(wRB_Align, GTK_BUTTONBOX_EXPAND);
+    gtk_button_box_set_layout(GTK_BUTTON_BOX (wRB_Align), GTK_BUTTONBOX_EXPAND);
     gtk_widget_show (wRB_Align);
     gtk_grid_attach (GTK_GRID (table1), wRB_Align, 1, 4, 2, 1);
 
     wRB_AlignLeft = gtk_radio_button_new (NULL);
-    gtk_toggle_button_set_mode(wRB_AlignLeft, FALSE);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (wRB_AlignLeft), FALSE);
     gtk_container_add (GTK_CONTAINER (wRB_Align), wRB_AlignLeft);
     gtk_widget_set_tooltip_text (wRB_AlignLeft, _("Left"));
     gtk_widget_show (wRB_AlignLeft);
 
     wRB_AlignLeftIcon = gtk_image_new_from_icon_name ("gtk-justify-left", GTK_ICON_SIZE_BUTTON);
-    gtk_button_set_image (wRB_AlignLeft, wRB_AlignLeftIcon);
-    gtk_button_set_always_show_image (wRB_AlignLeft, TRUE);
+    gtk_button_set_image (GTK_BUTTON (wRB_AlignLeft), wRB_AlignLeftIcon);
+    gtk_button_set_always_show_image (GTK_BUTTON (wRB_AlignLeft), TRUE);
 
-    wRB_AlignCenter = gtk_radio_button_new_from_widget (wRB_AlignLeft);
-    gtk_toggle_button_set_mode(wRB_AlignCenter, FALSE);
+    wRB_AlignCenter = gtk_radio_button_new_from_widget (GTK_RADIO_BUTTON (wRB_AlignLeft));
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (wRB_AlignCenter), FALSE);
     gtk_container_add (GTK_CONTAINER (wRB_Align), wRB_AlignCenter);
     gtk_widget_set_tooltip_text (wRB_AlignCenter, _("Center"));
     gtk_widget_show (wRB_AlignCenter);
 
     wRB_AlignCenterIcon = gtk_image_new_from_icon_name ("gtk-justify-center", GTK_ICON_SIZE_BUTTON);
-    gtk_button_set_image (wRB_AlignCenter, wRB_AlignCenterIcon);
-    gtk_button_set_always_show_image (wRB_AlignCenter, TRUE);
+    gtk_button_set_image (GTK_BUTTON (wRB_AlignCenter), wRB_AlignCenterIcon);
+    gtk_button_set_always_show_image (GTK_BUTTON (wRB_AlignCenter), TRUE);
 
-    wRB_AlignRight = gtk_radio_button_new_from_widget (wRB_AlignLeft);
-    gtk_toggle_button_set_mode(wRB_AlignRight, FALSE);
+    wRB_AlignRight = gtk_radio_button_new_from_widget (GTK_RADIO_BUTTON (wRB_AlignLeft));
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (wRB_AlignRight), FALSE);
     gtk_container_add (GTK_CONTAINER (wRB_Align), wRB_AlignRight);
     gtk_widget_set_tooltip_text (wRB_AlignRight, _("Right"));
     gtk_widget_show (wRB_AlignRight);
 
     wRB_AlignRightIcon = gtk_image_new_from_icon_name ("gtk-justify-right", GTK_ICON_SIZE_BUTTON);
-    gtk_button_set_image (wRB_AlignRight, wRB_AlignRightIcon);
-    gtk_button_set_always_show_image (wRB_AlignRight, TRUE);
+    gtk_button_set_image (GTK_BUTTON (wRB_AlignRight), wRB_AlignRightIcon);
+    gtk_button_set_always_show_image (GTK_BUTTON (wRB_AlignRight), TRUE);
 
-    wRB_AlignFill = gtk_radio_button_new_from_widget (wRB_AlignLeft);
-    gtk_toggle_button_set_mode(wRB_AlignFill, FALSE);
+    wRB_AlignFill = gtk_radio_button_new_from_widget (GTK_RADIO_BUTTON (wRB_AlignLeft));
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (wRB_AlignFill), FALSE);
     gtk_container_add (GTK_CONTAINER (wRB_Align), wRB_AlignFill);
     gtk_widget_set_tooltip_text (wRB_AlignFill, _("Fill"));
     gtk_widget_show (wRB_AlignFill);
 
     wRB_AlignFillIcon = gtk_image_new_from_icon_name ("gtk-justify-fill", GTK_ICON_SIZE_BUTTON);
-    gtk_button_set_image (wRB_AlignFill, wRB_AlignFillIcon);
-    gtk_button_set_always_show_image (wRB_AlignFill, TRUE);
+    gtk_button_set_image (GTK_BUTTON (wRB_AlignFill), wRB_AlignFillIcon);
+    gtk_button_set_always_show_image (GTK_BUTTON (wRB_AlignFill), TRUE);
 
     wPB_Font = gtk_button_new_with_label (_("Select the display font..."));
     gtk_widget_set_margin_top (GTK_WIDGET (wPB_Font), 6);
