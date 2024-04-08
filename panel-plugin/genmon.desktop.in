@@ -1,8 +1,8 @@
 [Xfce Panel]
 Type=X-XFCE-PanelPlugin
 Encoding=UTF-8
-_Name=Generic Monitor
-_Comment=Show output of a command.
+Name=Generic Monitor
+Comment=Show output of a command.
 Icon=org.xfce.genmon
 X-XFCE-Module=genmon
 X-XFCE-Internal=false
