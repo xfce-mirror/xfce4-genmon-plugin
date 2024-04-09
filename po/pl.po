@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 12:56+0200\n"
+"POT-Creation-Date: 2024-04-09 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Marek Adamski, 2023\n"
 "Language-Team: Polish (http://app.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
@@ -118,7 +118,6 @@ msgid "Unable to open the following url: %s"
 msgstr "Nie można otworzyć następującego adresu URL: %s"
 
 #: ../panel-plugin/main.c:1219 ../panel-plugin/main.c:1226
-#: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor poleceń"
 
@@ -137,7 +136,3 @@ msgstr "Konfiguracja"
 #: ../panel-plugin/main.c:1503
 msgid "Update Now"
 msgstr "Odśwież"
-
-#: ../panel-plugin/genmon.desktop.in.h:2
-msgid "Show output of a command."
-msgstr "Śledzi i wyświetla wyniki wprowadzonego polecenia"
