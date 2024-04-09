@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:53+0200\n"
+"POT-Creation-Date: 2024-04-09 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Oscar Perez <oscarpc@gmail.com>, 2023\n"
 "Language-Team: Catalan (http://app.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
@@ -117,7 +117,6 @@ msgid "Unable to open the following url: %s"
 msgstr "No es pot obrir l'url següent: %s"
 
 #: ../panel-plugin/main.c:1219 ../panel-plugin/main.c:1226
-#: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor genèric"
 
@@ -136,7 +135,3 @@ msgstr "Configuració"
 #: ../panel-plugin/main.c:1503
 msgid "Update Now"
 msgstr "Actualitza ara"
-
-#: ../panel-plugin/genmon.desktop.in.h:2
-msgid "Show output of a command."
-msgstr "Mostra la sortida d'una ordre."
