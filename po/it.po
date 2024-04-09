@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:53+0200\n"
+"POT-Creation-Date: 2024-04-09 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2019-2020,2023-2024\n"
 "Language-Team: Italian (http://app.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
@@ -117,7 +117,6 @@ msgid "Unable to open the following url: %s"
 msgstr "Impossibile aprire il seguente URL: %s"
 
 #: ../panel-plugin/main.c:1219 ../panel-plugin/main.c:1226
-#: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Monitor generico"
 
@@ -136,7 +135,3 @@ msgstr "Configurazione"
 #: ../panel-plugin/main.c:1503
 msgid "Update Now"
 msgstr "Aggiorna ora"
-
-#: ../panel-plugin/genmon.desktop.in.h:2
-msgid "Show output of a command."
-msgstr "Mostra l'output di un comando."
