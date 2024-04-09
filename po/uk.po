@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
 # Andrii Protsun <minamotosoft@gmail.com>, 2020
@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-09 00:53+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-09 12:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>, 2016,2019,2022\n"
 "Language-Team: Ukrainian (http://app.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
@@ -22,116 +22,120 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: ../panel-plugin/cmdspawn.c:171
+#: panel-plugin/cmdspawn.c:171
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Помилка в команді \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:173 ../panel-plugin/main.c:115
-#: ../panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:173 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Панель Xfce"
 
-#: ../panel-plugin/config_gui.c:79
+#: panel-plugin/config_gui.c:79
 msgid "Command"
 msgstr "Команда"
 
-#: ../panel-plugin/config_gui.c:89
+#: panel-plugin/config_gui.c:89
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Уведіть команду shell для запиту даних і натисніть <Enter>"
 
-#: ../panel-plugin/config_gui.c:96
+#: panel-plugin/config_gui.c:96
 msgid "Press to select file..."
 msgstr "Натисніть, щоб вибрати файл..."
 
-#: ../panel-plugin/config_gui.c:98
+#: panel-plugin/config_gui.c:98
 msgid "Label"
 msgstr "Мітка"
 
-#: ../panel-plugin/config_gui.c:101
+#: panel-plugin/config_gui.c:101
 msgid "Tick to display label"
 msgstr "Відмітьте, щоб відображати мітку"
 
-#: ../panel-plugin/config_gui.c:107
+#: panel-plugin/config_gui.c:107
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Уведіть мітку втулки і натисніть <Enter>"
 
-#: ../panel-plugin/config_gui.c:109
+#: panel-plugin/config_gui.c:109
 msgid "(genmon)"
 msgstr "(спостереження)"
 
-#: ../panel-plugin/config_gui.c:111
+#: panel-plugin/config_gui.c:111
 msgid "Period (s)"
 msgstr "Період (и)"
 
-#: ../panel-plugin/config_gui.c:129
+#: panel-plugin/config_gui.c:129
 msgid "Interval between 2 consecutive spawns"
 msgstr "Проміжок часу між 2-ма послідовними запитами"
 
-#: ../panel-plugin/config_gui.c:135
+#: panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
 msgstr "Поставте галочку, щоб змусити додаток використовувати лише один рядок"
 
-#: ../panel-plugin/config_gui.c:137
+#: panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
 msgstr "Використовувати однопанельний рядок"
 
-#: ../panel-plugin/config_gui.c:144
+#: panel-plugin/config_gui.c:144
 msgid "Select the display font..."
 msgstr "Вибрати шрифт відображення..."
 
-#: ../panel-plugin/config_gui.c:148
+#: panel-plugin/config_gui.c:148
 msgid "Press to change font..."
 msgstr "Натисніть, щоб змінити шрифт..."
 
-#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Не можу запустити \"%s\""
 
-#: ../panel-plugin/main.c:1054
+#: panel-plugin/main.c:1054
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Періодично виконує вказаний скрипт/програму і відображає вивід у рядку на панелі."
 
-#: ../panel-plugin/main.c:1074
+#: panel-plugin/main.c:1074
 msgid "Font Selection"
 msgstr "Вибір шрифту"
 
-#: ../panel-plugin/main.c:1111
+#: panel-plugin/main.c:1111
 msgid "File Selection"
 msgstr "Вибір файлу"
 
-#: ../panel-plugin/main.c:1113
+#: panel-plugin/main.c:1113
 msgid "_Cancel"
 msgstr "_Скасувати"
 
-#: ../panel-plugin/main.c:1114
+#: panel-plugin/main.c:1114
 msgid "_Open"
 msgstr "_Відкрити"
 
-#: ../panel-plugin/main.c:1149
+#: panel-plugin/main.c:1149
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Не вдалося відкрити таке посилання: %s"
 
-#: ../panel-plugin/main.c:1219 ../panel-plugin/main.c:1226
+#: panel-plugin/main.c:1219 panel-plugin/main.c:1226
+#: panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "Загальне спостереження"
 
-#: ../panel-plugin/main.c:1222
+#: panel-plugin/main.c:1222
 msgid "_Help"
 msgstr "_Допомога"
 
-#: ../panel-plugin/main.c:1223
+#: panel-plugin/main.c:1223
 msgid "Save"
 msgstr "Зберегти"
 
-#: ../panel-plugin/main.c:1239
+#: panel-plugin/main.c:1239
 msgid "Configuration"
 msgstr "Налаштування"
 
-#: ../panel-plugin/main.c:1503
+#: panel-plugin/main.c:1503
 msgid "Update Now"
 msgstr "Оновити зараз"
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "Показує вивід команди."
