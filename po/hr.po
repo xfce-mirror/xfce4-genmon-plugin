@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 12:56+0200\n"
+"POT-Creation-Date: 2024-04-09 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>, 2013,2021\n"
 "Language-Team: Croatian (http://app.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
@@ -117,7 +117,6 @@ msgid "Unable to open the following url: %s"
 msgstr "Nije moguće otvoriti slijedeći url: %s"
 
 #: ../panel-plugin/main.c:1219 ../panel-plugin/main.c:1226
-#: ../panel-plugin/genmon.desktop.in.h:1
 msgid "Generic Monitor"
 msgstr "Generički monitor"
 
@@ -136,7 +135,3 @@ msgstr "Konfiguracija"
 #: ../panel-plugin/main.c:1503
 msgid "Update Now"
 msgstr "Ažuriraj sada"
-
-#: ../panel-plugin/genmon.desktop.in.h:2
-msgid "Show output of a command."
-msgstr "Prikaži spis naredbe."
