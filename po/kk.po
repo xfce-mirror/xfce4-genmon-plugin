@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-09 00:53+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-09 12:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010\n"
 "Language-Team: Kazakh (http://app.transifex.com/xfce/xfce-panel-plugins/language/kk/)\n"
@@ -18,116 +18,120 @@ msgstr ""
 "Language: kk\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../panel-plugin/cmdspawn.c:171
+#: panel-plugin/cmdspawn.c:171
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "\"%s\" командасында қате"
 
-#: ../panel-plugin/cmdspawn.c:173 ../panel-plugin/main.c:115
-#: ../panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:173 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Xfce панелі"
 
-#: ../panel-plugin/config_gui.c:79
+#: panel-plugin/config_gui.c:79
 msgid "Command"
 msgstr "Команда"
 
-#: ../panel-plugin/config_gui.c:89
+#: panel-plugin/config_gui.c:89
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Бақылау үшін қоршам командасын енгізіңіз, одан кейін <Enter> басыңыз"
 
-#: ../panel-plugin/config_gui.c:96
+#: panel-plugin/config_gui.c:96
 msgid "Press to select file..."
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:98
+#: panel-plugin/config_gui.c:98
 msgid "Label"
 msgstr "Белгі"
 
-#: ../panel-plugin/config_gui.c:101
+#: panel-plugin/config_gui.c:101
 msgid "Tick to display label"
 msgstr "Белгіні көрсету үшін шертіңіз"
 
-#: ../panel-plugin/config_gui.c:107
+#: panel-plugin/config_gui.c:107
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Плагин белгісін көрсетіңіз, одан кейін <Enter> басыңыз"
 
-#: ../panel-plugin/config_gui.c:109
+#: panel-plugin/config_gui.c:109
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:111
+#: panel-plugin/config_gui.c:111
 msgid "Period (s)"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:129
+#: panel-plugin/config_gui.c:129
 msgid "Interval between 2 consecutive spawns"
 msgstr "2 қатар тексеру арасындағы мерзімі"
 
-#: ../panel-plugin/config_gui.c:135
+#: panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:137
+#: panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:144
+#: panel-plugin/config_gui.c:144
 msgid "Select the display font..."
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:148
+#: panel-plugin/config_gui.c:148
 msgid "Press to change font..."
 msgstr ""
 
-#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "\"%s\" жөнелту мүмкін емес"
 
-#: ../panel-plugin/main.c:1054
+#: panel-plugin/main.c:1054
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr ""
 
-#: ../panel-plugin/main.c:1074
+#: panel-plugin/main.c:1074
 msgid "Font Selection"
 msgstr "Қаріпті таңдау"
 
-#: ../panel-plugin/main.c:1111
+#: panel-plugin/main.c:1111
 msgid "File Selection"
 msgstr ""
 
-#: ../panel-plugin/main.c:1113
+#: panel-plugin/main.c:1113
 msgid "_Cancel"
 msgstr ""
 
-#: ../panel-plugin/main.c:1114
+#: panel-plugin/main.c:1114
 msgid "_Open"
 msgstr ""
 
-#: ../panel-plugin/main.c:1149
+#: panel-plugin/main.c:1149
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Келесі url-ды ашу мүмкін емес: %s"
 
-#: ../panel-plugin/main.c:1219 ../panel-plugin/main.c:1226
+#: panel-plugin/main.c:1219 panel-plugin/main.c:1226
+#: panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "Жалпы бақылаушы"
 
-#: ../panel-plugin/main.c:1222
+#: panel-plugin/main.c:1222
 msgid "_Help"
 msgstr "Кө_мек"
 
-#: ../panel-plugin/main.c:1223
+#: panel-plugin/main.c:1223
 msgid "Save"
 msgstr ""
 
-#: ../panel-plugin/main.c:1239
+#: panel-plugin/main.c:1239
 msgid "Configuration"
 msgstr "Баптаулары"
 
-#: ../panel-plugin/main.c:1503
+#: panel-plugin/main.c:1503
 msgid "Update Now"
 msgstr ""
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "Команда шығысын көрсету."
