@@ -516,7 +516,6 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     struct monitor_t *poMonitor;
     GtkOrientation orientation = xfce_panel_plugin_get_orientation (plugin);
     GtkSettings *settings;
-    gchar *default_font;
 
     #if GTK_CHECK_VERSION (3, 16, 0)
         GtkStyleContext *context;
@@ -547,8 +546,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     settings = gtk_settings_get_default();
     if (g_object_class_find_property(G_OBJECT_GET_CLASS(settings), "gtk-font-name"))
         {
-            g_object_get(settings, "gtk-font-name", &default_font, NULL);
-            poConf->acFont = g_strdup (default_font); 
+            g_object_get(settings, "gtk-font-name", &poConf->acFont, NULL);
         }
     else
         poConf->acFont = g_strdup ("Sans 10");
@@ -723,8 +721,6 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
         g_free(css);
     #endif
-
-    g_free(default_font);
 
     return poPlugin;
 }/* genmon_create_control() */
