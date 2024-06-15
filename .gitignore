@@ -1,4 +1,5 @@
 .vscode
+*~
 *.gmo
 *.la
 *.lo
@@ -25,8 +26,6 @@ po/POTFILES
 stamp-*
 config.*
 configure
-configure.ac
-configure~
 ABOUT-NLS
 po/Makevars.template
 po/Rules-quot
@@ -35,5 +34,6 @@ po/en@boldquot.header
 po/en@quot.header
 po/insert-header.sin
 po/quot.sed
+po/remove-potcdate.sed
 po/remove-potcdate.sin
 po/xfce4-genmon-plugin.pot
