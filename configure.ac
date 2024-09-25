@@ -7,11 +7,12 @@ dnl 2006 Julien Devemy <jujucece@gmail.com>
 dnl 2016 Tony Paulic <tony.paulic@gmail.com>
 dnl
 
-m4_define([genmon_version],[4.2.0])
+XDT_VERSION_INIT([4.2.0], [git])
 
 AC_COPYRIGHT([Copyright (c) 2005-2023 The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-genmon-plugin], [genmon_version],
-	[xfce-dev@xfce.org])
+AC_INIT([xfce4-genmon-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-genmon-plugin])
+AC_REVISION([xdt_version_build])
+AC_PREREQ([2.69])
 
 AM_INIT_AUTOMAKE([1.8 no-dist-gzip dist-bzip2 tar-ustar foreign])
 AC_CONFIG_HEADERS([config.h])
@@ -44,7 +45,7 @@ AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION([0.19.8])
 
 dnl Check for debugging support
-XDT_FEATURE_DEBUG()
+XDT_FEATURE_DEBUG([xdt_debug_default])
 
 AC_CONFIG_FILES([
 Makefile
