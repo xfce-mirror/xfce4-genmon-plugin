@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Daniel Muñiz Fontoira <dani@damufo.eu>, 2019-2021
+# Daniel Muñiz Fontoira <dani@damufo.eu>, 2024
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
 # Xosé, 2018
 msgid ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-09 12:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2019-2021\n"
+"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2024\n"
 "Language-Team: Galician (http://app.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,7 +91,7 @@ msgstr "Non se puido executar «%s»"
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr "Inicia ciclicamente un script/programa, captura a súa saída e amosa a cadea resultante no panel"
+msgstr "Inicia ciclicamente un código/programa, captura a súa saída e amosa a cadea resultante no panel"
 
 #: panel-plugin/main.c:1074
 msgid "Font Selection"
