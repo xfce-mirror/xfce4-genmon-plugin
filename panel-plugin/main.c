@@ -55,6 +55,8 @@ typedef struct param_t
         guint32      iPeriod_mstmp;
         gboolean     fSingleRowEnabled;
         gboolean     fSingleRowEnabledtmp;
+        gboolean     fDontRenderIfHidden;
+        gboolean     fDontRenderIfHiddentmp;
         gchar       *acFont;
         gchar       *acFonttmp;
     } param_t;
@@ -96,6 +98,7 @@ typedef struct genmon_t
         struct conf_t       oConf;
         struct monitor_t    oMonitor;
         char               *acValue; /* Commandline resulting string */
+        gboolean            hidden;
     } genmon_t;
 
 /**************************************************************/
@@ -489,6 +492,12 @@ static gboolean Timer (gpointer user_data)
 
     DBG("\n");
 
+    if (poPlugin->oConf.oParam.fDontRenderIfHidden && poPlugin->hidden)
+    {
+        DBG("Currently hidden: skipping.");
+        return TRUE;
+    }
+
     DisplayCmdOutput (poPlugin);
 
     return TRUE;
@@ -524,6 +533,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     poPlugin = g_new (genmon_t, 1);
     memset (poPlugin, 0, sizeof (genmon_t));
+    poPlugin->hidden = FALSE;
     poConf = &(poPlugin->oConf.oParam);
     poMonitor = &(poPlugin->oMonitor);
 
@@ -536,6 +546,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed = TRUE;
     poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled = TRUE;
+    poConf->fDontRenderIfHiddentmp = poConf->fDontRenderIfHidden = FALSE;
 
     poConf->iPeriod_ms = 30 * 1000;
     poConf->iPeriod_mstmp = 30 * 1000;
@@ -823,12 +834,13 @@ return (0);
 /**************************************************************/
 
 /* Configuration Keywords */
-#define CONF_USE_LABEL          "/use-label"
-#define CONF_LABEL_TEXT         "/text"
-#define CONF_CMD                "/command"
-#define CONF_UPDATE_PERIOD      "/update-period"
-#define CONF_ENABLE_SINGLEROW   "/enable-single-row"
-#define CONF_FONT               "/font"
+#define CONF_USE_LABEL               "/use-label"
+#define CONF_LABEL_TEXT              "/text"
+#define CONF_CMD                     "/command"
+#define CONF_UPDATE_PERIOD           "/update-period"
+#define CONF_ENABLE_SINGLEROW        "/enable-single-row"
+#define CONF_DONT_RENDER_IF_HIDDEN   "/dont-render-if-hidden"
+#define CONF_FONT                    "/font"
 
 
 /**************************************************************/
@@ -878,6 +890,10 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     poConf->fSingleRowEnabled = xfconf_channel_get_bool (poPlugin->channel, property, TRUE);
     g_free (property);
 
+    property = g_strconcat (poPlugin->property_base, CONF_DONT_RENDER_IF_HIDDEN, NULL);
+    poConf->fDontRenderIfHidden = xfconf_channel_get_bool (poPlugin->channel, property, FALSE);
+    g_free (property);
+
     if (poConf->fSingleRowEnabled)
 		xfce_panel_plugin_set_small (plugin, FALSE);
 	else
@@ -921,6 +937,10 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     property = g_strconcat (poPlugin->property_base, CONF_ENABLE_SINGLEROW, NULL);
     xfconf_channel_set_bool (poPlugin->channel, property, poConf->fSingleRowEnabled);
+    g_free (property);
+
+    property = g_strconcat (poPlugin->property_base, CONF_DONT_RENDER_IF_HIDDEN, NULL);
+    xfconf_channel_set_bool (poPlugin->channel, property, poConf->fDontRenderIfHidden);
     g_free (property);
 
     property = g_strconcat (poPlugin->property_base, CONF_FONT, NULL);
@@ -976,6 +996,21 @@ static void ToggleSingleRow (GtkWidget *p_w, void *p_pvPlugin)
         gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
 
 }/* ToggleSingleRow() */
+
+/**************************************************************/
+
+static void ToggleDontRenderIfHidden (GtkWidget *p_w, void *p_pvPlugin)
+/* GUI callback turning on/off single-row support */
+{
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
+    struct param_t  *poConf = &(poPlugin->oConf.oParam);
+
+    DBG("\n");
+
+    poConf->fDontRenderIfHiddentmp =
+        gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
+
+}/* ToggleDontRenderIfHidden() */
 
 /**************************************************************/
 
@@ -1174,6 +1209,8 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 		else
 			xfce_panel_plugin_set_small (genmon->plugin, TRUE);
 
+		poConf->fDontRenderIfHidden = poConf->fDontRenderIfHiddentmp;
+
 		UpdateConf (genmon);
 		genmon_write_config (genmon->plugin, genmon);
 		/* Do not wait the next timer to update display */
@@ -1186,6 +1223,7 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 		poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
 		poConf->iPeriod_mstmp = poConf->iPeriod_ms;
 		poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
+		poConf->fDontRenderIfHiddentmp = poConf->fDontRenderIfHidden;
 	}
 
 	gtk_widget_destroy (dlg);
@@ -1210,6 +1248,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
     poConf->iPeriod_mstmp = poConf->iPeriod_ms;
 	poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
+	poConf->fDontRenderIfHiddentmp = poConf->fDontRenderIfHidden;
 
 #if LIBXFCE4UI_CHECK_VERSION (4, 15, 1)
     dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Generic Monitor"),
@@ -1271,6 +1310,11 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
                                   poConf->fSingleRowEnabled);
     g_signal_connect (GTK_WIDGET (poGUI->wTB_SingleRow), "toggled",
         G_CALLBACK (ToggleSingleRow), poPlugin);
+
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (poGUI->wTB_DontRenderIfHidden),
+                                  poConf->fDontRenderIfHidden);
+    g_signal_connect (GTK_WIDGET (poGUI->wTB_DontRenderIfHidden), "toggled",
+        G_CALLBACK (ToggleDontRenderIfHidden), poPlugin);
 
     if (strcmp (poConf->acFont, "(default)")) /* Default font */
         gtk_button_set_label (GTK_BUTTON (poGUI->wPB_Font), poConf->acFont);
@@ -1399,6 +1443,22 @@ static gboolean genmon_set_size (XfcePanelPlugin *plugin, int size, genmon_t *po
 }/* genmon_set_size() */
 
 /**************************************************************/
+
+static void genmon_hidden_event (XfcePanelPlugin *plugin, const gboolean hidden, genmon_t *genmon)
+{
+    DBG("Received event: hidden=%d", hidden);
+
+    // Force render now if it was off to ensure we display fresh data
+    if (genmon->oConf.oParam.fDontRenderIfHidden && genmon->hidden && !hidden)
+    {
+        DBG("Force refresh\n");
+        DisplayCmdOutput (genmon);
+    }
+
+    genmon->hidden = hidden;
+}/* genmon_hidden_event() */
+
+/**************************************************************/
 // call: xfce4-panel --plugin-event=genmon-X:refresh:bool:true
 //    where genmon-X is the genmon widget id (e.g. genmon-7)
 
@@ -1494,6 +1554,7 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "configure-plugin",
         G_CALLBACK (genmon_create_options), genmon);
 
+    g_signal_connect (plugin, "hidden-event", G_CALLBACK (genmon_hidden_event), genmon);
     g_signal_connect (plugin, "remote-event", G_CALLBACK (genmon_remote_event), genmon);
 
     genmon_add_menu_item(plugin, _("Update Now"),
