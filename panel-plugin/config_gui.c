@@ -58,7 +58,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *label1;
     GtkWidget      *wTF_Cmd;
     GtkWidget      *wPB_File;
-    GtkWidget      *eventbox1;    
+    GtkWidget      *eventbox1;
     GtkAdjustment  *wSc_Period_adj;
     GtkWidget      *wSc_Period;
     GtkWidget      *label2;
@@ -103,7 +103,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     wTF_Title = gtk_entry_new ();
     gtk_widget_show (wTF_Title);
     gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 1, 2, 1);
- 
+
     gtk_widget_set_tooltip_text (wTF_Title, _("Input the plugin label, then press <Enter>"));
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Title), 16);
     gtk_entry_set_text (GTK_ENTRY (wTF_Title), _("(genmon)"));
@@ -146,14 +146,14 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (wPB_Font);
     gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 4, 3, 1);
     gtk_widget_set_tooltip_text (wPB_Font, _("Press to change font..."));
-    
+
     hseparator10 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_widget_set_margin_top (GTK_WIDGET (hseparator10), 6);
     gtk_widget_set_margin_bottom (GTK_WIDGET (hseparator10), 0);
     gtk_widget_show (hseparator10);
     gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 4, 3, 1);
-            
-    if (p_poGUI) 
+
+    if (p_poGUI)
     {
         COPYVAL (p_poGUI, wTF_Cmd);
         COPYVAL (p_poGUI, wPB_File);

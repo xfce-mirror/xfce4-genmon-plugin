@@ -43,7 +43,7 @@
 #define PLUGIN_NAME "GenMon"
 #define BORDER      2
 
-typedef struct param_t 
+typedef struct param_t
     {
         /* Configurable parameters */
         gchar       *acCmd; /* Commandline to spawn */
@@ -59,14 +59,14 @@ typedef struct param_t
         gchar       *acFonttmp;
     } param_t;
 
-typedef struct conf_t 
+typedef struct conf_t
     {
         GtkWidget      *wTopLevel;
         struct gui_t    oGUI; /* Configuration/option dialog */
         struct param_t  oParam;
     } conf_t;
 
-typedef struct monitor_t 
+typedef struct monitor_t
     {
         /* Plugin monitor */
         GtkWidget      *wEventBox;
@@ -87,7 +87,7 @@ typedef struct monitor_t
         char           *iconName;
     } monitor_t;
 
-typedef struct genmon_t 
+typedef struct genmon_t
     {
         XfcePanelPlugin    *plugin;
         XfconfChannel      *channel;
@@ -109,7 +109,7 @@ static void ExecOnClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
     DBG("\n");
 
     xfce_spawn_command_line( gdk_screen_get_default(), poMonitor->onClickCmd, 0, 0, 1, &error );
-    if (error) 
+    if (error)
         {
             char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onClickCmd);
             xfce_message_dialog (NULL, _("Xfce Panel"),
@@ -131,7 +131,7 @@ static void ExecOnValClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
     DBG("\n");
 
     xfce_spawn_command_line( gdk_screen_get_default(), poMonitor->onValClickCmd, 0, 0, 1, &error );
-    if (error) 
+    if (error)
         {
             char *first = g_strdup_printf (_("Could not run \"%s\""), poMonitor->onValClickCmd);
             xfce_message_dialog (NULL, _("Xfce Panel"),
@@ -154,7 +154,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     char  *begin;
     char  *end;
     int    newVersion=0;
-    
+
     #if GTK_CHECK_VERSION (3, 16, 0)
         gchar *css;
     #endif
@@ -262,9 +262,9 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             #endif
 
             gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImage), poMonitor->iconName, icon_size);
-            gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImage), icon_size);  
+            gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImage), icon_size);
             gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImgButton), poMonitor->iconName, icon_size);
-            gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImgButton), icon_size); 
+            gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImgButton), icon_size);
 
             /* Test if the result has a clickable Icon (button) */
             begin=strstr(p_poPlugin->acValue, "<iconclick>");
@@ -298,7 +298,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             char *buf = g_strndup (begin + 5, end - begin - 5);
             gtk_label_set_markup (GTK_LABEL (poMonitor->wValue), buf);
             gtk_label_set_justify (GTK_LABEL (poMonitor->wValue), GTK_JUSTIFY_CENTER);
-            
+
             /* Test if the result has a clickable Value (button) */
             begin=strstr(p_poPlugin->acValue, "<txtclick>");
             end=strstr(p_poPlugin->acValue, "</txtclick>");
@@ -311,11 +311,11 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
                     /* Get the command path */
                     g_free (poMonitor->onValClickCmd);
                     poMonitor->onValClickCmd = g_strndup (begin + 10, end - begin - 10);
-                    
+
                     gtk_widget_show (poMonitor->wValButton);
                     gtk_widget_show (poMonitor->wValButtonLabel);
                     gtk_widget_hide (poMonitor->wValue);
-                    
+
                 }
             else
                 {
@@ -378,7 +378,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
     gtk_widget_set_tooltip_markup (GTK_WIDGET (poMonitor->wEventBox),acToolTips);
     g_free (acToolTips);
-    
+
     /* Test if CSS is given */
     begin=strstr(p_poPlugin->acValue, "<css>");
     end=strstr(p_poPlugin->acValue, "</css>");
@@ -387,7 +387,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
         #if GTK_CHECK_VERSION (3, 16, 0)
             css = g_strndup (begin + 5, end - begin - 5);
             gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
-		
+
             gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
@@ -436,9 +436,9 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
                 .progressbar.vertical trough { min-width: 4px; }\
                 .progressbar.vertical progress { min-width: 4px; }");
             #endif
-    
+
             gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
-        
+
             gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
@@ -446,7 +446,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
             gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
@@ -458,15 +458,15 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);    
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
             gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);                
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
             gtk_style_context_add_provider (
             GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
             GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
             g_free(css);
         #endif
     }
@@ -521,7 +521,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GtkStyleContext *context;
         gchar * css;
     #endif
-    
+
     poPlugin = g_new (genmon_t, 1);
     memset (poPlugin, 0, sizeof (genmon_t));
     poConf = &(poPlugin->oConf.oParam);
@@ -640,7 +640,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         context = gtk_widget_get_style_context(poMonitor->wValButton);
         gtk_style_context_add_class(context,"genmon_valuebutton");
     #endif
-    
+
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wValButton);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
                         GTK_WIDGET (poMonitor->wValButton), TRUE, FALSE, 0);
@@ -660,18 +660,18 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
                         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
-    if (orientation == GTK_ORIENTATION_HORIZONTAL) 
+    if (orientation == GTK_ORIENTATION_HORIZONTAL)
     {
         gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_VERTICAL);
         gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), TRUE);
     }
-    else 
+    else
     {
         gtk_orientable_set_orientation(GTK_ORIENTABLE(poMonitor->wBar), GTK_ORIENTATION_HORIZONTAL);
         gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(poMonitor->wBar), FALSE);
     }
 
-    /* make widget padding consistent */  
+    /* make widget padding consistent */
     #if GTK_CHECK_VERSION (3, 16, 0)
      #if GTK_CHECK_VERSION (3, 20, 0)
         css = g_strdup_printf("\
@@ -686,10 +686,10 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
             .progressbar.vertical trough { min-width: 4px; }\
             .progressbar.vertical progress { min-width: 4px; }");
      #endif
-    
+
     poMonitor->cssProvider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
-    
+
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
         GTK_STYLE_PROVIDER (poMonitor->cssProvider),
@@ -697,7 +697,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
         GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
         GTK_STYLE_PROVIDER (poMonitor->cssProvider),
@@ -709,15 +709,15 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
         GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);    
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
         GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);                
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     gtk_style_context_add_provider (
         GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
         GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         g_free(css);
     #endif
@@ -733,7 +733,7 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     TRACE ("genmon_free()\n");
     DBG("\n");
 
-    if (poPlugin->iTimerId) 
+    if (poPlugin->iTimerId)
     {
         g_source_remove (poPlugin->iTimerId);
         poPlugin->iTimerId = 0;
@@ -758,7 +758,7 @@ static int SetMonitorFont (void *p_pvPlugin)
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     struct param_t *poConf = &(poPlugin->oConf.oParam);
-    
+
 #if GTK_CHECK_VERSION (3, 16, 0)
     GtkCssProvider *css_provider;
     gchar * css;
@@ -776,14 +776,14 @@ static int SetMonitorFont (void *p_pvPlugin)
         pango_font_description_free (font);
     }
     else
-        css = g_strdup_printf("label { font: %s; }", 
+        css = g_strdup_printf("label { font: %s; }",
 #else
-        css = g_strdup_printf(".label { font: %s; }", 
+        css = g_strdup_printf(".label { font: %s; }",
 #endif
-                                    poConf->acFont);                        
+                                    poConf->acFont);
 
     DBG("\n");
-    
+
     css_provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (css_provider, css, strlen(css), NULL);
     gtk_style_context_add_provider (
@@ -800,7 +800,7 @@ static int SetMonitorFont (void *p_pvPlugin)
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     g_free(css);
 #else
-    
+
     PangoFontDescription *poFont;
 
     if (!strcmp (poConf->acFont, "(default)")) /* Default font */
@@ -808,13 +808,13 @@ static int SetMonitorFont (void *p_pvPlugin)
     poFont = pango_font_description_from_string (poConf->acFont);
     if (!poFont)
         return (-1);
-        
+
     gtk_widget_override_font (poMonitor->wTitle, poFont);
     gtk_widget_override_font (poMonitor->wValue, poFont);
     gtk_widget_override_font (poMonitor->wValButton, poFont);
-    
+
     pango_font_description_free (poFont);
-    
+
 #endif
 
 return (0);
@@ -954,7 +954,7 @@ static void ToggleTitle (GtkWidget *p_w, void *p_pvPlugin)
     struct gui_t    *poGUI = &(poPlugin->oConf.oGUI);
 
     DBG("\n");
-    
+
     poConf->fTitleDisplayedtmp =
         gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
     gtk_widget_set_sensitive (GTK_WIDGET (poGUI->wTF_Title),
@@ -969,9 +969,9 @@ static void ToggleSingleRow (GtkWidget *p_w, void *p_pvPlugin)
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t  *poConf = &(poPlugin->oConf.oParam);
-    
+
     DBG("\n");
-    
+
     poConf->fSingleRowEnabledtmp =
         gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
 
@@ -988,7 +988,7 @@ static void SetLabel (GtkWidget *p_wTF, void *p_pvPlugin)
     const char       *acTitle = gtk_entry_get_text (GTK_ENTRY (p_wTF));
 
     DBG("\n");
-    
+
     g_free (poConf->acTitle);
     poConf->acTitle = g_strdup (acTitle);
     gtk_label_set_text (GTK_LABEL (poMonitor->wTitle), poConf->acTitle);
@@ -1031,7 +1031,7 @@ static void UpdateConf (struct genmon_t *poPlugin)
 
 static void About (XfcePanelPlugin *plugin)
 /* GUI callback to create about dialog */
-{ 
+{
     const gchar *auth[] =
     {
         "Roger Seguin <roger_seguin@msn.com>",
@@ -1074,10 +1074,10 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
     if (strcmp (poConf->acFont, "(default)")) /* Default font */
         gtk_font_chooser_set_font (GTK_FONT_CHOOSER (wDialog), poConf->acFont);
     iResponse = gtk_dialog_run (GTK_DIALOG (wDialog));
-    if (iResponse == GTK_RESPONSE_OK) 
+    if (iResponse == GTK_RESPONSE_OK)
     {
         pcFont = gtk_font_chooser_get_font (GTK_FONT_CHOOSER (wDialog));
-        if (pcFont) 
+        if (pcFont)
         {
             g_free (poConf->acFonttmp);
             poConf->acFonttmp = g_strdup (pcFont);
@@ -1105,21 +1105,21 @@ static void ChooseFile (GtkWidget *p_wPB, void *p_pvPlugin)
     DBG("\n");
 
     wDialog = gtk_file_chooser_dialog_new (_("File Selection"),
-        GTK_WINDOW(gtk_widget_get_toplevel(p_wPB)), action, 
+        GTK_WINDOW(gtk_widget_get_toplevel(p_wPB)), action,
 		           _("_Cancel"), GTK_RESPONSE_CANCEL,
                    _("_Open"), GTK_RESPONSE_ACCEPT,
                    NULL);
     gtk_window_set_transient_for (GTK_WINDOW (wDialog),
                                   GTK_WINDOW (poPlugin->oConf.wTopLevel));
     iResponse = gtk_dialog_run (GTK_DIALOG (wDialog));
-    if (iResponse == GTK_RESPONSE_ACCEPT) 
+    if (iResponse == GTK_RESPONSE_ACCEPT)
     {
         pcFile = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (wDialog));
-        if (pcFile) 
+        if (pcFile)
         {
             g_free (poConf->acFiletmp);
             poConf->acFiletmp = g_strdup (pcFile);
-			gtk_entry_set_text (GTK_ENTRY (poGUI->wTF_Cmd), poConf->acFiletmp); 
+			gtk_entry_set_text (GTK_ENTRY (poGUI->wTF_Cmd), poConf->acFiletmp);
 		  	g_free (pcFile);
         }
     }
@@ -1137,16 +1137,16 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
     gboolean result;
 
     DBG("\n");
-	
-    if (response == GTK_RESPONSE_HELP) 
+
+    if (response == GTK_RESPONSE_HELP)
     {
         result = g_spawn_command_line_async ("exo-open --launch WebBrowser " "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin", NULL);
         if (G_UNLIKELY (result == FALSE))
             g_warning (_("Unable to open the following url: %s"), "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin");
-        
+
         return;
     }
-	else if (response == GTK_RESPONSE_OK) 
+	else if (response == GTK_RESPONSE_OK)
     {
 		if (poConf->acFonttmp)
 		{
@@ -1159,13 +1159,13 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 			g_free (poConf->acCmd);
 		 	poConf->acCmd = g_strdup (poConf->acFiletmp);
 		}
-		
+
 	 	poConf->fTitleDisplayed = poConf->fTitleDisplayedtmp;
 	 	if (poConf->fTitleDisplayed)
 			gtk_widget_show (GTK_WIDGET (poMonitor->wTitle));
 		else
 			gtk_widget_hide (GTK_WIDGET (poMonitor->wTitle));
-			
+
 		poConf->iPeriod_ms = poConf->iPeriod_mstmp;
 
 	 	poConf->fSingleRowEnabled = poConf->fSingleRowEnabledtmp;
@@ -1173,13 +1173,13 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 			xfce_panel_plugin_set_small (genmon->plugin, FALSE);
 		else
 			xfce_panel_plugin_set_small (genmon->plugin, TRUE);
-						
+
 		UpdateConf (genmon);
 		genmon_write_config (genmon->plugin, genmon);
 		/* Do not wait the next timer to update display */
 		DisplayCmdOutput (genmon);
 	}
-	else 
+	else
     {
 		poConf->acFonttmp = g_strdup (poConf->acFont);
 		poConf->acFiletmp = g_strdup (poConf->acCmd);
@@ -1187,7 +1187,7 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 		poConf->iPeriod_mstmp = poConf->iPeriod_ms;
 		poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
 	}
-	
+
 	gtk_widget_destroy (dlg);
 	xfce_panel_plugin_unblock_menu (genmon->plugin);
 }
@@ -1237,7 +1237,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
     gtk_widget_show(vbox);
-    gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), vbox, 
+    gtk_box_pack_start(GTK_BOX (gtk_dialog_get_content_area(GTK_DIALOG(dlg))), vbox,
                        TRUE, TRUE, 0);
 
     poPlugin->oConf.wTopLevel = dlg;
@@ -1376,7 +1376,7 @@ static gboolean genmon_set_size (XfcePanelPlugin *plugin, int size, genmon_t *po
     DBG("\n");
 
         gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImage), poMonitor->iconName, icon_size);
-        gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImage), icon_size);  
+        gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImage), icon_size);
         gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImgButton), poMonitor->iconName, icon_size);
         gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImgButton), icon_size);
 
@@ -1487,9 +1487,9 @@ static void genmon_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "size-changed", G_CALLBACK (genmon_set_size), genmon);
 
     xfce_panel_plugin_menu_show_about (plugin);
-    
+
     g_signal_connect (plugin, "about", G_CALLBACK (About), plugin);
-    
+
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin",
         G_CALLBACK (genmon_create_options), genmon);
@@ -1503,7 +1503,7 @@ static void genmon_construct (XfcePanelPlugin *plugin)
         G_CALLBACK (ExecOnClickCmd), genmon);
 
     g_signal_connect (G_OBJECT (genmon->oMonitor.wValButton), "clicked",
-        G_CALLBACK (ExecOnValClickCmd), genmon);        
+        G_CALLBACK (ExecOnValClickCmd), genmon);
 
     DisplayCmdOutput (genmon);
     SetTimer (genmon);
