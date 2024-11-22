@@ -4,7 +4,7 @@
 # 
 # Translators:
 # marcin mikołajczak <me@mkljczk.pl>, 2016
-# Marek Adamski, 2023
+# Marek Adamski, 2023-2024
 # Marek Adamski, 2020
 # Marek Adamski, 2019-2021
 # Piotr Sokół <psokol.l10n@gmail.com>, 2012
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-09 12:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Marek Adamski, 2023\n"
+"Last-Translator: Marek Adamski, 2023-2024\n"
 "Language-Team: Polish (http://app.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +70,7 @@ msgstr "Interwał między 2 kolejnymi wywołaniami spawn"
 
 #: panel-plugin/config_gui.c:135
 msgid "Tick to force plugin to use only one row"
-msgstr "Zaznaczenie wymusi na wtyczce zajęcie tylko jednego wiersza"
+msgstr "Zaznaczenie wymusi zajęcie przez wtyczkę tylko jednego wiersza"
 
 #: panel-plugin/config_gui.c:137
 msgid "Use a single panel row"
@@ -93,7 +93,7 @@ msgstr "Nie można uruchomić „%s”"
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr "Wykonuje polecenie skryptu/programu w sposób cykliczny i jego wynik wyświetla na panelu"
+msgstr "Wykonuje polecenie skryptu/programu w sposób cykliczny i jego wynik wyświetla na panelu"
 
 #: panel-plugin/main.c:1074
 msgid "Font Selection"
