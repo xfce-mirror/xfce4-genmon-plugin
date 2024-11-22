@@ -58,7 +58,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *label1;
     GtkWidget      *wTF_Cmd;
     GtkWidget      *wPB_File;
-    GtkWidget      *eventbox1;    
+    GtkWidget      *eventbox1;
     GtkAdjustment  *wSc_Period_adj;
     GtkWidget      *wSc_Period;
     GtkWidget      *label2;
@@ -66,6 +66,8 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     GtkWidget      *wTF_Title;
     GtkWidget	   *wTB_SingleRow;
     GtkWidget	   *label3;
+    GtkWidget      *wTB_DontRenderIfHidden;
+    GtkWidget      *label4;
     GtkWidget      *hseparator10;
     GtkWidget      *wPB_Font;
 
@@ -103,7 +105,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     wTF_Title = gtk_entry_new ();
     gtk_widget_show (wTF_Title);
     gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 1, 2, 1);
- 
+
     gtk_widget_set_tooltip_text (wTF_Title, _("Input the plugin label, then press <Enter>"));
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Title), 16);
     gtk_entry_set_text (GTK_ENTRY (wTF_Title), _("(genmon)"));
@@ -141,19 +143,31 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_label_set_xalign (GTK_LABEL (label3), 0.0f);
     gtk_widget_set_valign (label3, GTK_ALIGN_CENTER);
 
+    wTB_DontRenderIfHidden = gtk_check_button_new ();
+    gtk_widget_show (wTB_DontRenderIfHidden);
+    gtk_grid_attach (GTK_GRID (table1), wTB_DontRenderIfHidden, 0, 4, 1, 1);
+    gtk_widget_set_tooltip_text (wTB_DontRenderIfHidden, _("Tick to prevent running the command when the panel is hidden"));
+
+    label4 = gtk_label_new (_("Don't render if hidden"));
+    gtk_widget_show (label4);
+    gtk_grid_attach (GTK_GRID (table1), label4, 1, 4, 2, 1);
+    gtk_label_set_justify (GTK_LABEL (label4), GTK_JUSTIFY_LEFT);
+    gtk_label_set_xalign (GTK_LABEL (label4), 0.0f);
+    gtk_widget_set_valign (label4, GTK_ALIGN_CENTER);
+
     wPB_Font = gtk_button_new_with_label (_("Select the display font..."));
     gtk_widget_set_margin_top (GTK_WIDGET (wPB_Font), 6);
     gtk_widget_show (wPB_Font);
-    gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 4, 3, 1);
+    gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 5, 3, 1);
     gtk_widget_set_tooltip_text (wPB_Font, _("Press to change font..."));
-    
+
     hseparator10 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     gtk_widget_set_margin_top (GTK_WIDGET (hseparator10), 6);
     gtk_widget_set_margin_bottom (GTK_WIDGET (hseparator10), 0);
     gtk_widget_show (hseparator10);
-    gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 4, 3, 1);
-            
-    if (p_poGUI) 
+    gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 5, 3, 1);
+
+    if (p_poGUI)
     {
         COPYVAL (p_poGUI, wTF_Cmd);
         COPYVAL (p_poGUI, wPB_File);
@@ -161,6 +175,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
         COPYVAL (p_poGUI, wTF_Title);
         COPYVAL (p_poGUI, wSc_Period);
         COPYVAL (p_poGUI, wTB_SingleRow);
+        COPYVAL (p_poGUI, wTB_DontRenderIfHidden);
         COPYVAL (p_poGUI, wPB_Font);
     }
     return (0);
