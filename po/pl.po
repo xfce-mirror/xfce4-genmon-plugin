@@ -139,4 +139,4 @@ msgstr "Odśwież"
 
 #: panel-plugin/genmon.desktop.in:6
 msgid "Show output of a command."
-msgstr "Śledzi i wyświetla wyniki wprowadzonego polecenia"
+msgstr "Śledzi i wyświetla wyniki wprowadzonego polecenia"
