@@ -102,7 +102,7 @@ msgstr ""
 
 #: panel-plugin/main.c:1113
 msgid "_Cancel"
-msgstr ""
+msgstr "_Mégsem"
 
 #: panel-plugin/main.c:1114
 msgid "_Open"
