@@ -155,9 +155,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     char  *end;
     int    newVersion=0;
     
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        gchar *css;
-    #endif
+    gchar *css;
 
     poMonitor->iconused=0;
 
@@ -225,41 +223,10 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             /* Get the icon name */
             poMonitor->iconName = g_strndup (begin + 6, end - begin - 6);
 
-            #if !LIBXFCE4PANEL_CHECK_VERSION (4, 13, 0)
-                GtkStyleContext *context;
-                GtkBorder padding, border;
-                gint width;
-                gint xthickness;
-                gint ythickness;
-            #endif
-
             size = xfce_panel_plugin_get_size (p_poPlugin->plugin) / xfce_panel_plugin_get_nrows (p_poPlugin->plugin);
             gtk_widget_set_size_request (GTK_WIDGET (poMonitor->wButton), size, size);
 
-            #if LIBXFCE4PANEL_CHECK_VERSION (4,13,0)
-                icon_size = xfce_panel_plugin_get_icon_size (XFCE_PANEL_PLUGIN (p_poPlugin->plugin));
-            #else
-                /* Calculate the size of the widget because the theme can override it */
-                context = gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton));
-                gtk_style_context_get_padding (context, gtk_widget_get_state_flags (GTK_WIDGET (poMonitor->wButton)), &padding);
-                gtk_style_context_get_border (context, gtk_widget_get_state_flags (GTK_WIDGET (poMonitor->wButton)), &border);
-                xthickness = padding.left + padding.right + border.left + border.right;
-                ythickness = padding.top + padding.bottom + border.top + border.bottom;
-
-                /* Calculate the size of the space left for the icon */
-                width = size - 2 * MAX (xthickness, ythickness);
-
-                /* Since symbolic icons are usually only provided in 16px we
-                * try to be clever and use size steps */
-                if (width <= 21)
-                    icon_size = 16;
-                else if (width >=22 && width <= 29)
-                    icon_size = 24;
-                else if (width >= 30 && width <= 40)
-                    icon_size = 32;
-                else
-                    icon_size = width;
-            #endif
+            icon_size = xfce_panel_plugin_get_icon_size (XFCE_PANEL_PLUGIN (p_poPlugin->plugin));
 
             gtk_image_set_from_icon_name (GTK_IMAGE (poMonitor->wImage), poMonitor->iconName, icon_size);
             gtk_image_set_pixel_size (GTK_IMAGE (poMonitor->wImage), icon_size);  
@@ -384,91 +351,79 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     end=strstr(p_poPlugin->acValue, "</css>");
     if (begin && end && begin < end)
     {
-        #if GTK_CHECK_VERSION (3, 16, 0)
-            css = g_strndup (begin + 5, end - begin - 5);
-            gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
-		
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImgButton))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            g_free(css);
-        #endif
+        css = g_strndup (begin + 5, end - begin - 5);
+        gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
+
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImgButton))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        g_free(css);
         newVersion=1;
 	}
 	else
     {
-        #if GTK_CHECK_VERSION (3, 16, 0)
-            #if GTK_CHECK_VERSION (3, 20, 0)
-                css = g_strdup_printf("\
-                progressbar.horizontal trough { min-height: 4px; }\
-                progressbar.horizontal progress { min-height: 4px; }\
-                progressbar.vertical trough { min-width: 4px; }\
-                progressbar.vertical progress { min-width: 4px; }");
-            #else
-                css = g_strdup_printf("\
-                .progressbar.horizontal trough { min-height: 4px; }\
-                .progressbar.horizontal progress { min-height: 4px; }\
-                .progressbar.vertical trough { min-width: 4px; }\
-                .progressbar.vertical progress { min-width: 4px; }");
-            #endif
+        css = g_strdup_printf("\
+        progressbar.horizontal trough { min-height: 4px; }\
+        progressbar.horizontal progress { min-height: 4px; }\
+        progressbar.vertical trough { min-width: 4px; }\
+        progressbar.vertical progress { min-width: 4px; }");
+
+        gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
     
-            gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
-        
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImgButton))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);    
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);                
-            gtk_style_context_add_provider (
-            GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
-            GTK_STYLE_PROVIDER (poMonitor->cssProvider),
-            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
-            g_free(css);
-        #endif
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wTitle))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImage))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wImgButton))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValue))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);    
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wValButton))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);                
+        gtk_style_context_add_provider (
+        GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wBar))),
+        GTK_STYLE_PROVIDER (poMonitor->cssProvider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
+        g_free(css);
     }
 
     if (newVersion == 0)
@@ -517,10 +472,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     GtkOrientation orientation = xfce_panel_plugin_get_orientation (plugin);
     GtkSettings *settings;
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        GtkStyleContext *context;
-        gchar * css;
-    #endif
+    GtkStyleContext *context;
+    gchar * css;
     
     poPlugin = g_new (genmon_t, 1);
     memset (poPlugin, 0, sizeof (genmon_t));
@@ -559,10 +512,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     poMonitor->wBox = gtk_box_new (orientation, 0);
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        context = gtk_widget_get_style_context(poMonitor->wBox);
-        gtk_style_context_add_class(context,"genmon_plugin");
-    #endif
+    context = gtk_widget_get_style_context(poMonitor->wBox);
+    gtk_style_context_add_class(context,"genmon_plugin");
 
     gtk_widget_show (poMonitor->wBox);
     gtk_container_set_border_width (GTK_CONTAINER (poMonitor->wBox), 0);
@@ -570,10 +521,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
 
     poMonitor->wTitle = gtk_label_new (poConf->acTitle);
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        context = gtk_widget_get_style_context(poMonitor->wTitle);
-        gtk_style_context_add_class(context,"genmon_label");
-    #endif
+    context = gtk_widget_get_style_context(poMonitor->wTitle);
+    gtk_style_context_add_class(context,"genmon_label");
 
     if (poConf->fTitleDisplayed)
         gtk_widget_show (poMonitor->wTitle);
@@ -584,10 +533,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     /* Create a Box to put image and text */
     poMonitor->wImgBox = gtk_box_new (orientation, 0);
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        context = gtk_widget_get_style_context(poMonitor->wImgBox);
-        gtk_style_context_add_class(context,"genmon_imagebox");
-    #endif
+    context = gtk_widget_get_style_context(poMonitor->wImgBox);
+    gtk_style_context_add_class(context,"genmon_imagebox");
 
     gtk_widget_show (poMonitor->wImgBox);
     gtk_container_set_border_width (GTK_CONTAINER (poMonitor->wImgBox), 0);
@@ -596,10 +543,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     /* Add Image */
     poMonitor->wImage = gtk_image_new ();
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        context = gtk_widget_get_style_context(poMonitor->wImage);
-        gtk_style_context_add_class(context,"genmon_image");
-    #endif
+    context = gtk_widget_get_style_context(poMonitor->wImage);
+    gtk_style_context_add_class(context,"genmon_image");
 
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
                         GTK_WIDGET (poMonitor->wImage), TRUE, FALSE, 0);
@@ -607,10 +552,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     /* Add Button */
     poMonitor->wButton = xfce_panel_create_button ();
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        context = gtk_widget_get_style_context(poMonitor->wButton);
-        gtk_style_context_add_class(context,"genmon_imagebutton");
-    #endif
+    context = gtk_widget_get_style_context(poMonitor->wButton);
+    gtk_style_context_add_class(context,"genmon_imagebutton");
 
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wButton);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
@@ -624,10 +567,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     /* Add Value */
     poMonitor->wValue = gtk_label_new ("");
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        context = gtk_widget_get_style_context(poMonitor->wValue);
-        gtk_style_context_add_class(context,"genmon_value");
-    #endif
+    context = gtk_widget_get_style_context(poMonitor->wValue);
+    gtk_style_context_add_class(context,"genmon_value");
 
     gtk_widget_show (poMonitor->wValue);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
@@ -636,10 +577,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     /* Add Value Button */
     poMonitor->wValButton = xfce_panel_create_button ();
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        context = gtk_widget_get_style_context(poMonitor->wValButton);
-        gtk_style_context_add_class(context,"genmon_valuebutton");
-    #endif
+    context = gtk_widget_get_style_context(poMonitor->wValButton);
+    gtk_style_context_add_class(context,"genmon_valuebutton");
     
     xfce_panel_plugin_add_action_widget (plugin, poMonitor->wValButton);
     gtk_box_pack_start (GTK_BOX (poMonitor->wImgBox),
@@ -653,10 +592,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     /* Add Bar */
     poMonitor->wBar = gtk_progress_bar_new();
 
-    #if GTK_CHECK_VERSION (3, 16, 0)
-        context = gtk_widget_get_style_context(poMonitor->wBar);
-        gtk_style_context_add_class(context,"genmon_progressbar");
-    #endif
+    context = gtk_widget_get_style_context(poMonitor->wBar);
+    gtk_style_context_add_class(context,"genmon_progressbar");
 
     gtk_box_pack_start (GTK_BOX (poMonitor->wBox),
                         GTK_WIDGET (poMonitor->wBar), FALSE, FALSE, 0);
@@ -672,20 +609,11 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     }
 
     /* make widget padding consistent */  
-    #if GTK_CHECK_VERSION (3, 16, 0)
-     #if GTK_CHECK_VERSION (3, 20, 0)
-        css = g_strdup_printf("\
-            progressbar.horizontal trough { min-height: 4px; }\
-            progressbar.horizontal progress { min-height: 4px; }\
-            progressbar.vertical trough { min-width: 4px; }\
-            progressbar.vertical progress { min-width: 4px; }");
-     #else
-        css = g_strdup_printf("\
-            .progressbar.horizontal trough { min-height: 4px; }\
-            .progressbar.horizontal progress { min-height: 4px; }\
-            .progressbar.vertical trough { min-width: 4px; }\
-            .progressbar.vertical progress { min-width: 4px; }");
-     #endif
+    css = g_strdup_printf("\
+        progressbar.horizontal trough { min-height: 4px; }\
+        progressbar.horizontal progress { min-height: 4px; }\
+        progressbar.vertical trough { min-width: 4px; }\
+        progressbar.vertical progress { min-width: 4px; }");
     
     poMonitor->cssProvider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (poMonitor->cssProvider, css, strlen(css), NULL);
@@ -719,8 +647,7 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
         GTK_STYLE_PROVIDER (poMonitor->cssProvider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);  
 
-        g_free(css);
-    #endif
+    g_free(css);
 
     return poPlugin;
 }/* genmon_create_control() */
@@ -759,10 +686,8 @@ static int SetMonitorFont (void *p_pvPlugin)
     struct monitor_t *poMonitor = &(poPlugin->oMonitor);
     struct param_t *poConf = &(poPlugin->oConf.oParam);
     
-#if GTK_CHECK_VERSION (3, 16, 0)
     GtkCssProvider *css_provider;
     gchar * css;
-#if GTK_CHECK_VERSION (3, 20, 0)
     PangoFontDescription *font;
     font = pango_font_description_from_string(poConf->acFont);
     if (G_LIKELY (font))
@@ -776,11 +701,7 @@ static int SetMonitorFont (void *p_pvPlugin)
         pango_font_description_free (font);
     }
     else
-        css = g_strdup_printf("label { font: %s; }", 
-#else
-        css = g_strdup_printf(".label { font: %s; }", 
-#endif
-                                    poConf->acFont);                        
+        css = g_strdup_printf("label { font: %s; }", poConf->acFont);
 
     DBG("\n");
     
@@ -799,23 +720,6 @@ static int SetMonitorFont (void *p_pvPlugin)
         GTK_STYLE_PROVIDER (css_provider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     g_free(css);
-#else
-    
-    PangoFontDescription *poFont;
-
-    if (!strcmp (poConf->acFont, "(default)")) /* Default font */
-        return (1);
-    poFont = pango_font_description_from_string (poConf->acFont);
-    if (!poFont)
-        return (-1);
-        
-    gtk_widget_override_font (poMonitor->wTitle, poFont);
-    gtk_widget_override_font (poMonitor->wValue, poFont);
-    gtk_widget_override_font (poMonitor->wValButton, poFont);
-    
-    pango_font_description_free (poFont);
-    
-#endif
 
 return (0);
 }/* SetMonitorFont() */
@@ -1211,21 +1115,12 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     poConf->iPeriod_mstmp = poConf->iPeriod_ms;
 	poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
 
-#if LIBXFCE4UI_CHECK_VERSION (4, 15, 1)
     dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Generic Monitor"),
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
         GTK_DIALOG_DESTROY_WITH_PARENT,
         "help-browser", _("_Help"), GTK_RESPONSE_HELP,
         "gtk-save", _("Save"), GTK_RESPONSE_OK,
         NULL);
-#else
-    dlg = xfce_titled_dialog_new_with_buttons (_("Generic Monitor"),
-        GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-        GTK_DIALOG_DESTROY_WITH_PARENT,
-        "help-browser", GTK_RESPONSE_HELP,
-        "gtk-save", GTK_RESPONSE_OK,
-        NULL);
-#endif
 
     gtk_window_set_resizable (GTK_WINDOW (dlg), FALSE);
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "org.xfce.genmon");
@@ -1337,41 +1232,11 @@ static gboolean genmon_set_size (XfcePanelPlugin *plugin, int size, genmon_t *po
     if (poMonitor->iconused)
     {
 
-    #if !LIBXFCE4PANEL_CHECK_VERSION (4, 13, 0)
-        GtkStyleContext *context;
-        GtkBorder padding, border;
-        gint width;
-        gint xthickness;
-        gint ythickness;
-    #endif
         gint icon_size;
         size /= xfce_panel_plugin_get_nrows (plugin);
         gtk_widget_set_size_request (GTK_WIDGET (poMonitor->wButton), size, size);
 
-    #if LIBXFCE4PANEL_CHECK_VERSION (4,13,0)
         icon_size = xfce_panel_plugin_get_icon_size (XFCE_PANEL_PLUGIN (plugin));
-    #else
-        /* Calculate the size of the widget because the theme can override it */
-        context = gtk_widget_get_style_context (GTK_WIDGET (poMonitor->wButton));
-        gtk_style_context_get_padding (context, gtk_widget_get_state_flags (GTK_WIDGET (poMonitor->wButton)), &padding);
-        gtk_style_context_get_border (context, gtk_widget_get_state_flags (GTK_WIDGET (poMonitor->wButton)), &border);
-        xthickness = padding.left + padding.right + border.left + border.right;
-        ythickness = padding.top + padding.bottom + border.top + border.bottom;
-
-        /* Calculate the size of the space left for the icon */
-        width = size - 2 * MAX (xthickness, ythickness);
-
-        /* Since symbolic icons are usually only provided in 16px we
-        * try to be clever and use size steps */
-        if (width <= 21)
-            icon_size = 16;
-        else if (width >=22 && width <= 29)
-            icon_size = 24;
-        else if (width >= 30 && width <= 40)
-            icon_size = 32;
-        else
-            icon_size = width;
-    #endif
 
     DBG("\n");
 
