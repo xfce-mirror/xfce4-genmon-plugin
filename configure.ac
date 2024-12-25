@@ -7,7 +7,7 @@ dnl 2006 Julien Devemy <jujucece@gmail.com>
 dnl 2016 Tony Paulic <tony.paulic@gmail.com>
 dnl
 
-XDT_VERSION_INIT([4.2.1])
+XDT_VERSION_INIT([4.2.1], [git])
 
 AC_COPYRIGHT([Copyright (c) 2005-2024 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-genmon-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-genmon-plugin])
