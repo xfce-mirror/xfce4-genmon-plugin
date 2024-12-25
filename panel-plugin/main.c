@@ -953,7 +953,7 @@ static void About (XfcePanelPlugin *plugin)
                          "program-name",   PACKAGE,
                          "comments",       _("Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"),
                          "website",        "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin",
-                         "copyright",      "Copyright \302\251 2005-2023 The Xfce development team",
+                         "copyright",      "Copyright \302\251 2005-2024 The Xfce development team",
                          "authors",        auth,
                          NULL);
 }
