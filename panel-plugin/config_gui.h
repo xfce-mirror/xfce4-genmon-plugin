@@ -36,6 +36,10 @@ typedef struct gui_t {
     GtkWidget      *wTF_Title;
     GtkWidget      *wSc_Period;
     GtkWidget      *wTB_SingleRow;
+    GtkWidget      *wRB_AlignLeft;
+    GtkWidget      *wRB_AlignCenter;
+    GtkWidget      *wRB_AlignRight;
+    GtkWidget      *wRB_AlignFill;
     GtkWidget      *wPB_Font;
 } gui_t;
 
