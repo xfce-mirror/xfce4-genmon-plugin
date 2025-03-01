@@ -5,6 +5,7 @@ libgenmon_la_CFLAGS =						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"			\
 	@LIBXFCE4PANEL_CFLAGS@					\
 	@LIBXFCE4UI_CFLAGS@					\
+	@LIBXFCE4UTIL_CFLAGS@					\
 	@XFCONF_CFLAGS@
 
 libgenmon_la_LDFLAGS = 						\
@@ -16,6 +17,7 @@ libgenmon_la_LDFLAGS = 						\
 libgenmon_la_LIBADD =						\
 	@LIBXFCE4PANEL_LIBS@					\
 	@LIBXFCE4UI_LIBS@					\
+	@LIBXFCE4UTIL_LIBS@					\
 	@XFCONF_LIBS@
 
 
