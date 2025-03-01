@@ -24,6 +24,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #include "config_gui.h"
 #include "cmdspawn.h"
@@ -948,7 +951,7 @@ static void About (XfcePanelPlugin *plugin)
   gtk_show_about_dialog (NULL,
                          "logo-icon-name", "org.xfce.genmon",
                          "license",        xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
-                         "version",        VERSION,
+                         "version",        VERSION_FULL,
                          "program-name",   PACKAGE,
                          "comments",       _("Cyclically spawns a script/program, captures its output and displays the resulting string in the panel"),
                          "website",        "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin",

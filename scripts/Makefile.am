@@ -14,5 +14,7 @@ scripts_DATA = datetime			\
 	monWIFI				\
 	sysstat
 
-EXTRA_DIST = $(scripts_DATA)
-
+EXTRA_DIST =				\
+	$(scripts_DATA)			\
+	meson.build			\
+	$(NULL)
