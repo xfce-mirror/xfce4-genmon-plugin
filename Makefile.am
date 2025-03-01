@@ -28,6 +28,9 @@ dist-hook: ChangeLog
 
 EXTRA_DIST = 								\
 	README								\
+	meson.build							\
+	po/meson.build							\
+	xfce-revision.h.in						\
 	$(NULL)
 
 DISTCLEANFILES =							\
