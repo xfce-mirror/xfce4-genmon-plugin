@@ -14,7 +14,15 @@ scripts_DATA = datetime			\
 	monWIFI				\
 	sysstat
 
+googcal: googcal.in Makefile
+	$(AM_V_GEN) $(SED) -e "s,\@OPEN_CMD\@,exo-open,g" $< >$@
+
 EXTRA_DIST =				\
 	$(scripts_DATA)			\
+	googcal.in			\
 	meson.build			\
+	$(NULL)
+
+DISTCLEANFILES = \
+	googcal \
 	$(NULL)
