@@ -3,7 +3,6 @@ scripts = [
   'disktemp',
   'dkspuse',
   'gmail',
-  'googcal',
   'migrate_to_xfconf.sh',
   'monBandwidth',
   'monBat',
@@ -13,6 +12,15 @@ scripts = [
   'monWIFI',
   'sysstat',
 ]
+
+scripts += configure_file(
+  configuration: configuration_data({
+    'OPEN_CMD': open_cmd,
+  }),
+  input: 'googcal.in',
+  output: 'googcal',
+  install: false,
+)
 
 foreach script : scripts
   install_data(

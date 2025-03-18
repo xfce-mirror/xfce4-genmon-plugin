@@ -33,5 +33,5 @@ else
     ICON=$NO_APPTS_ICON
     RESULT="No pending appointments"
 fi
-echo "<img>$ICON</img><tool>$RESULT</tool><click>exo-open "http://calendar.google.com"</click>"
+echo "<img>$ICON</img><tool>$RESULT</tool><click>@OPEN_CMD@ "http://calendar.google.com"</click>"
 exit 0

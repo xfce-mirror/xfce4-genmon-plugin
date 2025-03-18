@@ -30,6 +30,7 @@ AC_USE_SYSTEM_EXTENSIONS
 dnl Check for basic programs
 AC_PROG_CC
 AC_PROG_INSTALL
+AC_PROG_SED
 
 dnl Initialize libtool
 LT_PREREQ([2.2.6])
