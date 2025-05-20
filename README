@@ -10,11 +10,10 @@ The GenMon plugin cyclically spawns the indicated script/program, captures its o
 2 -	Installation
 	------------
 Do the usual stuff:
-	- gunzip
 	- tar xf
-	- ./configure --prefix=<XFce4InstallationDir>	(e.g. /usr/local)
-	- make
-	- make install  (as root)
+	- meson setup --prefix=<XFce4InstallationDir>	(e.g. /usr/local) build
+	- meson compile -C build
+	- meson install -C build (as root)
 	
 You should then end up with:
         libgenmon.so
