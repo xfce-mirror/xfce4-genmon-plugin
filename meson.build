@@ -1,14 +1,10 @@
 project(
   'xfce4-genmon-plugin',
   'c',
-  version: '4.2.1-dev',
-  license: 'LGPL-2.1-or-later',
-  meson_version: '>= 0.54.0',
-  default_options: [
-    'c_std=gnu11',
-    'buildtype=debugoptimized',
-    'warning_level=2',
-  ]
+version : '4.3.0',
+  license : 'LGPL-2.1-or-later',
+  meson_version : '>= 0.54.0',
+  default_options : ['c_std=gnu11', 'buildtype=debugoptimized', 'warning_level=2']
 )
 
 project_namespace = 'panel-plugins'
