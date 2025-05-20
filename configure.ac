@@ -8,7 +8,7 @@ dnl 2016 Tony Paulic <tony.paulic@gmail.com>
 dnl
 
 m4_define([copyright_year], [2025])
-XDT_VERSION_INIT([4.3.0])
+XDT_VERSION_INIT([4.3.0], [git])
 
 AC_COPYRIGHT([Copyright (c) 2005-copyright_year() The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-genmon-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-genmon-plugin])
