@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Steve Harris <steve@jbs.ca>, 2020
-# Steve Harris <steve@jbs.ca>, 2023
+# Steve Harris <steve@jbs.ca>, 2023,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-09 12:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Steve Harris <steve@jbs.ca>, 2023\n"
+"Last-Translator: Steve Harris <steve@jbs.ca>, 2023,2025\n"
 "Language-Team: English (Canada) (http://app.transifex.com/xfce/xfce-panel-plugins/language/en_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -131,7 +131,7 @@ msgstr "Configuration"
 
 #: panel-plugin/main.c:1503
 msgid "Update Now"
-msgstr ""
+msgstr "Update Now"
 
 #: panel-plugin/genmon.desktop.in:6
 msgid "Show output of a command."
