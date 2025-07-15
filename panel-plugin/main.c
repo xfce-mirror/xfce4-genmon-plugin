@@ -89,6 +89,7 @@ typedef struct monitor_t
 typedef struct genmon_t 
     {
         XfcePanelPlugin    *plugin;
+        GtkWidget          *settings_dialog;
         XfconfChannel      *channel;
         const gchar        *property_base;
         guint               iTimerId; /* Cyclic update */
@@ -1096,7 +1097,6 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 	}
 	
 	gtk_widget_destroy (dlg);
-	xfce_panel_plugin_unblock_menu (genmon->plugin);
 }
 
 /**************************************************************/
@@ -1113,17 +1113,22 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     TRACE ("genmon_create_options()\n");
     DBG("\n");
 
-    xfce_panel_plugin_block_menu (plugin);
+    if (poPlugin->settings_dialog != NULL) {
+        gtk_window_present (GTK_WINDOW (poPlugin->settings_dialog));
+        return;
+    }
+
     poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
     poConf->iPeriod_mstmp = poConf->iPeriod_ms;
-	poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
+    poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
 
-    dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Generic Monitor"),
+    poPlugin->settings_dialog = dlg = xfce_titled_dialog_new_with_mixed_buttons (_("Generic Monitor"),
         GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
         GTK_DIALOG_DESTROY_WITH_PARENT,
         "help-browser", _("_Help"), GTK_RESPONSE_HELP,
         "gtk-save", _("Save"), GTK_RESPONSE_OK,
         NULL);
+    g_object_add_weak_pointer (G_OBJECT (dlg), (gpointer *) &poPlugin->settings_dialog);
 
     gtk_window_set_resizable (GTK_WINDOW (dlg), FALSE);
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "org.xfce.genmon");
