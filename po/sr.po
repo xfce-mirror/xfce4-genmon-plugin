@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Саша Петровић <salepetronije@gmail.com>, 2013,2016-2017,2019
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-09 12:51+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-16 12:51+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>, 2013,2016-2017,2019\n"
 "Language-Team: Serbian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
@@ -19,120 +19,116 @@ msgstr ""
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: panel-plugin/cmdspawn.c:171
+#: ../panel-plugin/cmdspawn.c:167
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Грешка у наредби „%s“"
 
-#: panel-plugin/cmdspawn.c:173 panel-plugin/main.c:115 panel-plugin/main.c:137
+#: ../panel-plugin/cmdspawn.c:169 ../panel-plugin/main.c:115
+#: ../panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Полица ИксФЦЕ-a"
 
-#: panel-plugin/config_gui.c:79
+#: ../panel-plugin/config_gui.c:75
 msgid "Command"
 msgstr "Наредба"
 
-#: panel-plugin/config_gui.c:89
+#: ../panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Унесите наредбу љуске за извршавање, затим притисните <Врати>"
 
-#: panel-plugin/config_gui.c:96
+#: ../panel-plugin/config_gui.c:92
 msgid "Press to select file..."
 msgstr "Притисните ради избора датотеке..."
 
-#: panel-plugin/config_gui.c:98
+#: ../panel-plugin/config_gui.c:94
 msgid "Label"
 msgstr "Натпис"
 
-#: panel-plugin/config_gui.c:101
+#: ../panel-plugin/config_gui.c:97
 msgid "Tick to display label"
 msgstr "Означи за приказ натписа"
 
-#: panel-plugin/config_gui.c:107
+#: ../panel-plugin/config_gui.c:103
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Унесите натпис прикључка, затим притисните <Врати>"
 
-#: panel-plugin/config_gui.c:109
+#: ../panel-plugin/config_gui.c:105
 msgid "(genmon)"
 msgstr "(надзорник)"
 
-#: panel-plugin/config_gui.c:111
+#: ../panel-plugin/config_gui.c:107
 msgid "Period (s)"
 msgstr "Раздобље (s)"
 
-#: panel-plugin/config_gui.c:129
+#: ../panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns"
 msgstr "Раздобље између 2 узастопна извршавања"
 
-#: panel-plugin/config_gui.c:135
+#: ../panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
 msgstr "Означите за приморавање прикључка да користи један ред"
 
-#: panel-plugin/config_gui.c:137
+#: ../panel-plugin/config_gui.c:133
 msgid "Use a single panel row"
 msgstr "Користи један ред полице"
 
-#: panel-plugin/config_gui.c:144
+#: ../panel-plugin/config_gui.c:140
 msgid "Select the display font..."
 msgstr "Изаберите словолик приказа..."
 
-#: panel-plugin/config_gui.c:148
+#: ../panel-plugin/config_gui.c:144
 msgid "Press to change font..."
 msgstr "Притисните за измену словолика..."
 
-#: panel-plugin/main.c:114 panel-plugin/main.c:136
+#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Нисам успео да покренем „%s“"
 
-#: panel-plugin/main.c:1054
+#: ../panel-plugin/main.c:954
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Повремено покреће скрипта/програм, захвата њихов излаз и приказује излазну ниску на полици"
 
-#: panel-plugin/main.c:1074
+#: ../panel-plugin/main.c:974
 msgid "Font Selection"
 msgstr "Избор словног лика"
 
-#: panel-plugin/main.c:1111
+#: ../panel-plugin/main.c:1011
 msgid "File Selection"
 msgstr "Избор датотека"
 
-#: panel-plugin/main.c:1113
+#: ../panel-plugin/main.c:1013
 msgid "_Cancel"
 msgstr "_Откажи"
 
-#: panel-plugin/main.c:1114
+#: ../panel-plugin/main.c:1014
 msgid "_Open"
 msgstr "_Отвори"
 
-#: panel-plugin/main.c:1149
+#: ../panel-plugin/main.c:1053
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Нисам успео да отворим следећу адресу: %s"
 
-#: panel-plugin/main.c:1219 panel-plugin/main.c:1226
-#: panel-plugin/genmon.desktop.in:5
+#: ../panel-plugin/main.c:1125
 msgid "Generic Monitor"
 msgstr "Општи надзорник"
 
-#: panel-plugin/main.c:1222
+#: ../panel-plugin/main.c:1128
 msgid "_Help"
 msgstr "_Помоћ"
 
-#: panel-plugin/main.c:1223
+#: ../panel-plugin/main.c:1129
 msgid "Save"
 msgstr "Сачувај"
 
-#: panel-plugin/main.c:1239
+#: ../panel-plugin/main.c:1138
 msgid "Configuration"
 msgstr "Поставке"
 
-#: panel-plugin/main.c:1503
+#: ../panel-plugin/main.c:1372
 msgid "Update Now"
 msgstr "Освежи сада"
-
-#: panel-plugin/genmon.desktop.in:6
-msgid "Show output of a command."
-msgstr "Прикажи излаз извршене наредбе."
