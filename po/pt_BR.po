@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
 # Andre Miranda <andre@andreldm.com>, 2016
@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 12:51+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:06+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Michael Martins, 2019-2021\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
@@ -21,116 +21,119 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: ../panel-plugin/cmdspawn.c:167
+#: panel-plugin/cmdspawn.c:167
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Erro no comando \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:169 ../panel-plugin/main.c:115
-#: ../panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Painel do Xfce"
 
-#: ../panel-plugin/config_gui.c:75
+#: panel-plugin/config_gui.c:75
 msgid "Command"
 msgstr "Comando"
 
-#: ../panel-plugin/config_gui.c:85
+#: panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Entre o comando de shell a ser processado, e pressione <Enter>"
 
-#: ../panel-plugin/config_gui.c:92
+#: panel-plugin/config_gui.c:92
 msgid "Press to select file..."
 msgstr "Pressione para selecionar o arquivo..."
 
-#: ../panel-plugin/config_gui.c:94
+#: panel-plugin/config_gui.c:94
 msgid "Label"
 msgstr "Rótulo"
 
-#: ../panel-plugin/config_gui.c:97
+#: panel-plugin/config_gui.c:97
 msgid "Tick to display label"
 msgstr "Selecione para mostrar o rótulo"
 
-#: ../panel-plugin/config_gui.c:103
+#: panel-plugin/config_gui.c:103
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Entre com o rótulo do plug-in, e pressione <Enter>"
 
-#: ../panel-plugin/config_gui.c:105
+#: panel-plugin/config_gui.c:105
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:107
+#: panel-plugin/config_gui.c:107
 msgid "Period (s)"
 msgstr "Período (s)"
 
-#: ../panel-plugin/config_gui.c:125
+#: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns"
 msgstr "Intervalo entre 2 processamentos consecutivos"
 
-#: ../panel-plugin/config_gui.c:131
+#: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
 msgstr "Assinale para forçar o plugin a usar apenas uma linha"
 
-#: ../panel-plugin/config_gui.c:133
+#: panel-plugin/config_gui.c:133
 msgid "Use a single panel row"
 msgstr "Use uma única linha de painel"
 
-#: ../panel-plugin/config_gui.c:140
+#: panel-plugin/config_gui.c:140
 msgid "Select the display font..."
 msgstr "Selecionar fonte de exibição..."
 
-#: ../panel-plugin/config_gui.c:144
+#: panel-plugin/config_gui.c:144
 msgid "Press to change font..."
 msgstr "Pressione para alterar a fonte..."
 
-#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Não foi possível executar \"%s\""
 
-#: ../panel-plugin/main.c:954
+#: panel-plugin/main.c:954
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Processa ciclicamente um script/programa, captura sua saída e exibe a sequência resultante no painel"
 
-#: ../panel-plugin/main.c:974
+#: panel-plugin/main.c:974
 msgid "Font Selection"
 msgstr "Seleção de fonte"
 
-#: ../panel-plugin/main.c:1011
+#: panel-plugin/main.c:1011
 msgid "File Selection"
 msgstr "Seleção de arquivos"
 
-#: ../panel-plugin/main.c:1013
+#: panel-plugin/main.c:1013
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: ../panel-plugin/main.c:1014
+#: panel-plugin/main.c:1014
 msgid "_Open"
 msgstr "_Abrir"
 
-#: ../panel-plugin/main.c:1053
+#: panel-plugin/main.c:1053
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Não foi possível abrir a seguinte url: %s"
 
-#: ../panel-plugin/main.c:1125
+#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "Monitor genérico"
 
-#: ../panel-plugin/main.c:1128
+#: panel-plugin/main.c:1128
 msgid "_Help"
 msgstr "A_juda"
 
-#: ../panel-plugin/main.c:1129
+#: panel-plugin/main.c:1129
 msgid "Save"
 msgstr "Salvar"
 
-#: ../panel-plugin/main.c:1138
+#: panel-plugin/main.c:1138
 msgid "Configuration"
 msgstr "Configuração"
 
-#: ../panel-plugin/main.c:1372
+#: panel-plugin/main.c:1372
 msgid "Update Now"
 msgstr "Atualizar agora"
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "Mostrar saída de um comando."
