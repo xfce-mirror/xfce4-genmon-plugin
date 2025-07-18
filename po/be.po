@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
 # Sergey Shlyapugin <shlyapugin@gmail.com>, 2013
@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 12:51+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:06+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Zmicer Turok <zmicerturok@gmail.com >, 2018\n"
 "Language-Team: Belarusian (http://app.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
@@ -21,116 +21,119 @@ msgstr ""
 "Language: be\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: ../panel-plugin/cmdspawn.c:167
+#: panel-plugin/cmdspawn.c:167
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Памылка ў загадзе \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:169 ../panel-plugin/main.c:115
-#: ../panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Панэль Xfce"
 
-#: ../panel-plugin/config_gui.c:75
+#: panel-plugin/config_gui.c:75
 msgid "Command"
 msgstr "Загад"
 
-#: ../panel-plugin/config_gui.c:85
+#: panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Увядзіце загад абалонкі, пасля націсніце <Enter>"
 
-#: ../panel-plugin/config_gui.c:92
+#: panel-plugin/config_gui.c:92
 msgid "Press to select file..."
 msgstr "Націсніце, каб абраць файл..."
 
-#: ../panel-plugin/config_gui.c:94
+#: panel-plugin/config_gui.c:94
 msgid "Label"
 msgstr "Адмеціна"
 
-#: ../panel-plugin/config_gui.c:97
+#: panel-plugin/config_gui.c:97
 msgid "Tick to display label"
 msgstr "Націсніце, каб праглядзець адмеціну"
 
-#: ../panel-plugin/config_gui.c:103
+#: panel-plugin/config_gui.c:103
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Увядзіце адмеціну ўбудовы і націсніце <Enter>"
 
-#: ../panel-plugin/config_gui.c:105
+#: panel-plugin/config_gui.c:105
 msgid "(genmon)"
 msgstr "(манітор)"
 
-#: ../panel-plugin/config_gui.c:107
+#: panel-plugin/config_gui.c:107
 msgid "Period (s)"
 msgstr "Перыяд (сек)"
 
-#: ../panel-plugin/config_gui.c:125
+#: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns"
 msgstr "Інтэрвал паміж двума паслядоўнымі выклікамі"
 
-#: ../panel-plugin/config_gui.c:131
+#: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:133
+#: panel-plugin/config_gui.c:133
 msgid "Use a single panel row"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:140
+#: panel-plugin/config_gui.c:140
 msgid "Select the display font..."
 msgstr "Абраць шрыфт адлюстравання..."
 
-#: ../panel-plugin/config_gui.c:144
+#: panel-plugin/config_gui.c:144
 msgid "Press to change font..."
 msgstr "Націсніце, каб змяніць шрыфт..."
 
-#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Не атрымалася запусціць \"%s\""
 
-#: ../panel-plugin/main.c:954
+#: panel-plugin/main.c:954
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Цыклічна выконвае праграму/скрыпт, захоплівае вывад і адлюстроўвае выніковы радок на панэлі"
 
-#: ../panel-plugin/main.c:974
+#: panel-plugin/main.c:974
 msgid "Font Selection"
 msgstr "Абраць шрыфт"
 
-#: ../panel-plugin/main.c:1011
+#: panel-plugin/main.c:1011
 msgid "File Selection"
 msgstr "Выбар файла"
 
-#: ../panel-plugin/main.c:1013
+#: panel-plugin/main.c:1013
 msgid "_Cancel"
 msgstr "_Скасаваць"
 
-#: ../panel-plugin/main.c:1014
+#: panel-plugin/main.c:1014
 msgid "_Open"
 msgstr "_Адкрыць"
 
-#: ../panel-plugin/main.c:1053
+#: panel-plugin/main.c:1053
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Не атрымалася адкрыць наступны адрас: %s"
 
-#: ../panel-plugin/main.c:1125
+#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "Агульны манітор"
 
-#: ../panel-plugin/main.c:1128
+#: panel-plugin/main.c:1128
 msgid "_Help"
 msgstr "_Даведка"
 
-#: ../panel-plugin/main.c:1129
+#: panel-plugin/main.c:1129
 msgid "Save"
 msgstr "Захаваць"
 
-#: ../panel-plugin/main.c:1138
+#: panel-plugin/main.c:1138
 msgid "Configuration"
 msgstr "Канфігурацыя"
 
-#: ../panel-plugin/main.c:1372
+#: panel-plugin/main.c:1372
 msgid "Update Now"
 msgstr "Абнавіць"
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "Адлюстроўвае вывад загаду."
