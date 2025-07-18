@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
 # Ammuu5, 2018-2019,2023
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 12:51+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:06+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Ammuu5, 2018-2019,2023\n"
 "Language-Team: Finnish (http://app.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
@@ -19,116 +19,119 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:167
+#: panel-plugin/cmdspawn.c:167
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Virhe komennossa \"%s\""
 
-#: ../panel-plugin/cmdspawn.c:169 ../panel-plugin/main.c:115
-#: ../panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Xfce-paneeli"
 
-#: ../panel-plugin/config_gui.c:75
+#: panel-plugin/config_gui.c:75
 msgid "Command"
 msgstr "Komento"
 
-#: ../panel-plugin/config_gui.c:85
+#: panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:92
+#: panel-plugin/config_gui.c:92
 msgid "Press to select file..."
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:94
+#: panel-plugin/config_gui.c:94
 msgid "Label"
 msgstr "Nimike:"
 
-#: ../panel-plugin/config_gui.c:97
+#: panel-plugin/config_gui.c:97
 msgid "Tick to display label"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:103
+#: panel-plugin/config_gui.c:103
 msgid "Input the plugin label, then press <Enter>"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:105
+#: panel-plugin/config_gui.c:105
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:107
+#: panel-plugin/config_gui.c:107
 msgid "Period (s)"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:125
+#: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:131
+#: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:133
+#: panel-plugin/config_gui.c:133
 msgid "Use a single panel row"
 msgstr ""
 
-#: ../panel-plugin/config_gui.c:140
+#: panel-plugin/config_gui.c:140
 msgid "Select the display font..."
 msgstr "Valitse fontti..."
 
-#: ../panel-plugin/config_gui.c:144
+#: panel-plugin/config_gui.c:144
 msgid "Press to change font..."
 msgstr "Paina vaihtaaksesi fonttia..."
 
-#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Komentoa \"%s\" ei voi suorittaa"
 
-#: ../panel-plugin/main.c:954
+#: panel-plugin/main.c:954
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr ""
 
-#: ../panel-plugin/main.c:974
+#: panel-plugin/main.c:974
 msgid "Font Selection"
 msgstr "Fonttivalinta"
 
-#: ../panel-plugin/main.c:1011
+#: panel-plugin/main.c:1011
 msgid "File Selection"
 msgstr ""
 
-#: ../panel-plugin/main.c:1013
+#: panel-plugin/main.c:1013
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: ../panel-plugin/main.c:1014
+#: panel-plugin/main.c:1014
 msgid "_Open"
 msgstr "_Avaa"
 
-#: ../panel-plugin/main.c:1053
+#: panel-plugin/main.c:1053
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "URL: %s ei avattavissa"
 
-#: ../panel-plugin/main.c:1125
+#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr ""
 
-#: ../panel-plugin/main.c:1128
+#: panel-plugin/main.c:1128
 msgid "_Help"
 msgstr "_Ohje"
 
-#: ../panel-plugin/main.c:1129
+#: panel-plugin/main.c:1129
 msgid "Save"
 msgstr "Tallenna"
 
-#: ../panel-plugin/main.c:1138
+#: panel-plugin/main.c:1138
 msgid "Configuration"
 msgstr "Asetukset"
 
-#: ../panel-plugin/main.c:1372
+#: panel-plugin/main.c:1372
 msgid "Update Now"
 msgstr "Päivitä nyt"
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "Näytä komennon tuloste."
