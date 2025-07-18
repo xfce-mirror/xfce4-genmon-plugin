@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
 # Michal Várady <miko.vaji@gmail.com>, 2016,2020-2021
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 12:51+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:06+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2016,2020-2021\n"
 "Language-Team: Czech (http://app.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
@@ -19,116 +19,119 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: ../panel-plugin/cmdspawn.c:167
+#: panel-plugin/cmdspawn.c:167
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Chyba v příkazu %s"
 
-#: ../panel-plugin/cmdspawn.c:169 ../panel-plugin/main.c:115
-#: ../panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Panel Xfce"
 
-#: ../panel-plugin/config_gui.c:75
+#: panel-plugin/config_gui.c:75
 msgid "Command"
 msgstr "Příkaz"
 
-#: ../panel-plugin/config_gui.c:85
+#: panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Zadejte příkaz pro vygenerování a stiskněte <Enter>"
 
-#: ../panel-plugin/config_gui.c:92
+#: panel-plugin/config_gui.c:92
 msgid "Press to select file..."
 msgstr "Stiskněte pro zobrazení souboru..."
 
-#: ../panel-plugin/config_gui.c:94
+#: panel-plugin/config_gui.c:94
 msgid "Label"
 msgstr "Popisek"
 
-#: ../panel-plugin/config_gui.c:97
+#: panel-plugin/config_gui.c:97
 msgid "Tick to display label"
 msgstr "Klikněte pro zobrazení popisku"
 
-#: ../panel-plugin/config_gui.c:103
+#: panel-plugin/config_gui.c:103
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Zadejte popisek zásuvného modulu a stiskněte <Enter>"
 
-#: ../panel-plugin/config_gui.c:105
+#: panel-plugin/config_gui.c:105
 msgid "(genmon)"
 msgstr "(obecné_sledování)"
 
-#: ../panel-plugin/config_gui.c:107
+#: panel-plugin/config_gui.c:107
 msgid "Period (s)"
 msgstr "Opakovat po (s)"
 
-#: ../panel-plugin/config_gui.c:125
+#: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns"
 msgstr "Interval mezi dvěma voláními"
 
-#: ../panel-plugin/config_gui.c:131
+#: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
 msgstr "Zaškrtnutím vynutíte použití pouze jednoho řádku zásuvným modulem"
 
-#: ../panel-plugin/config_gui.c:133
+#: panel-plugin/config_gui.c:133
 msgid "Use a single panel row"
 msgstr "Použít na panelu jediný řádek"
 
-#: ../panel-plugin/config_gui.c:140
+#: panel-plugin/config_gui.c:140
 msgid "Select the display font..."
 msgstr "Vybrat písmo pro zobrazení..."
 
-#: ../panel-plugin/config_gui.c:144
+#: panel-plugin/config_gui.c:144
 msgid "Press to change font..."
 msgstr "Stiskněte pro změnu písma..."
 
-#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Nelze spustit %s"
 
-#: ../panel-plugin/main.c:954
+#: panel-plugin/main.c:954
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Opakovaně spouští skript nebo program, zachytává jeho výstup a zobrazuje výsledný výstup na panelu"
 
-#: ../panel-plugin/main.c:974
+#: panel-plugin/main.c:974
 msgid "Font Selection"
 msgstr "Výběr písma"
 
-#: ../panel-plugin/main.c:1011
+#: panel-plugin/main.c:1011
 msgid "File Selection"
 msgstr "Výběr souboru"
 
-#: ../panel-plugin/main.c:1013
+#: panel-plugin/main.c:1013
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: ../panel-plugin/main.c:1014
+#: panel-plugin/main.c:1014
 msgid "_Open"
 msgstr "_Otevřít"
 
-#: ../panel-plugin/main.c:1053
+#: panel-plugin/main.c:1053
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Nelze otevřít následující umístění URL: %s"
 
-#: ../panel-plugin/main.c:1125
+#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "Obecné sledování"
 
-#: ../panel-plugin/main.c:1128
+#: panel-plugin/main.c:1128
 msgid "_Help"
 msgstr "_Nápověda"
 
-#: ../panel-plugin/main.c:1129
+#: panel-plugin/main.c:1129
 msgid "Save"
 msgstr "Uložit"
 
-#: ../panel-plugin/main.c:1138
+#: panel-plugin/main.c:1138
 msgid "Configuration"
 msgstr "Konfigurace"
 
-#: ../panel-plugin/main.c:1372
+#: panel-plugin/main.c:1372
 msgid "Update Now"
 msgstr "Aktualizovat nyní"
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "Zobrazit výstup příkazu."
