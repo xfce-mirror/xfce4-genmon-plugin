@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
 # beriain, 2019
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 12:51+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:06+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: beriain, 2021\n"
 "Language-Team: Basque (http://app.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
@@ -19,116 +19,119 @@ msgstr ""
 "Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/cmdspawn.c:167
+#: panel-plugin/cmdspawn.c:167
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Errorea  \"%s\" komandoan"
 
-#: ../panel-plugin/cmdspawn.c:169 ../panel-plugin/main.c:115
-#: ../panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Xfce panela"
 
-#: ../panel-plugin/config_gui.c:75
+#: panel-plugin/config_gui.c:75
 msgid "Command"
 msgstr "Komandoa"
 
-#: ../panel-plugin/config_gui.c:85
+#: panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
 msgstr "Abiarazteko shell komandoa idatzi eta <Enter> sakatu"
 
-#: ../panel-plugin/config_gui.c:92
+#: panel-plugin/config_gui.c:92
 msgid "Press to select file..."
 msgstr "Sakatu fitxategia hautatzeko..."
 
-#: ../panel-plugin/config_gui.c:94
+#: panel-plugin/config_gui.c:94
 msgid "Label"
 msgstr "Etiketa"
 
-#: ../panel-plugin/config_gui.c:97
+#: panel-plugin/config_gui.c:97
 msgid "Tick to display label"
 msgstr "Bistarazteko etiketa kontrola"
 
-#: ../panel-plugin/config_gui.c:103
+#: panel-plugin/config_gui.c:103
 msgid "Input the plugin label, then press <Enter>"
 msgstr "Plugin etiketa idatzi eta <Enter> sakatu"
 
-#: ../panel-plugin/config_gui.c:105
+#: panel-plugin/config_gui.c:105
 msgid "(genmon)"
 msgstr "(genmon)"
 
-#: ../panel-plugin/config_gui.c:107
+#: panel-plugin/config_gui.c:107
 msgid "Period (s)"
 msgstr "Tartea (s) "
 
-#: ../panel-plugin/config_gui.c:125
+#: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns"
 msgstr "Jarraian 2 abiarazte arteko tartea"
 
-#: ../panel-plugin/config_gui.c:131
+#: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
 msgstr "Markatu plugina lerro bakarra erabiltzera behartzeko"
 
-#: ../panel-plugin/config_gui.c:133
+#: panel-plugin/config_gui.c:133
 msgid "Use a single panel row"
 msgstr "Panel lerro bakarra erabili"
 
-#: ../panel-plugin/config_gui.c:140
+#: panel-plugin/config_gui.c:140
 msgid "Select the display font..."
 msgstr "Letra-tipoa hautatu..."
 
-#: ../panel-plugin/config_gui.c:144
+#: panel-plugin/config_gui.c:144
 msgid "Press to change font..."
 msgstr "Sakatu letra-tipoa aldatzeko..."
 
-#: ../panel-plugin/main.c:114 ../panel-plugin/main.c:136
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Ezin da \"%s\" exekutatu"
 
-#: ../panel-plugin/main.c:954
+#: panel-plugin/main.c:954
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Script/programa bat ziklikoki exekutatzen du, bere irteera hartzen du eta emaitza panelean erakusten du"
 
-#: ../panel-plugin/main.c:974
+#: panel-plugin/main.c:974
 msgid "Font Selection"
 msgstr "Letra-tipo hautapena"
 
-#: ../panel-plugin/main.c:1011
+#: panel-plugin/main.c:1011
 msgid "File Selection"
 msgstr "Fitxategi hautapena"
 
-#: ../panel-plugin/main.c:1013
+#: panel-plugin/main.c:1013
 msgid "_Cancel"
 msgstr "_Utzi"
 
-#: ../panel-plugin/main.c:1014
+#: panel-plugin/main.c:1014
 msgid "_Open"
 msgstr "Ireki"
 
-#: ../panel-plugin/main.c:1053
+#: panel-plugin/main.c:1053
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Ezin da hurrengo urla ireki: %s"
 
-#: ../panel-plugin/main.c:1125
+#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "Monitore arrunta"
 
-#: ../panel-plugin/main.c:1128
+#: panel-plugin/main.c:1128
 msgid "_Help"
 msgstr "_Laguntza"
 
-#: ../panel-plugin/main.c:1129
+#: panel-plugin/main.c:1129
 msgid "Save"
 msgstr "Gorde"
 
-#: ../panel-plugin/main.c:1138
+#: panel-plugin/main.c:1138
 msgid "Configuration"
 msgstr "Konfigurazioa"
 
-#: ../panel-plugin/main.c:1372
+#: panel-plugin/main.c:1372
 msgid "Update Now"
 msgstr "Eguneratu orain"
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "Ikusi komando baten irteera."
