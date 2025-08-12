@@ -29,7 +29,11 @@ where XX represents the languages supported by genmon plugin
 
 You are encouraged to delete the installed libgenmon.la
 
-3 -	Testing
+3 -	Uninstallation
+	------------
+	- ninja uninstall -C build (as root)
+
+4 -	Testing
 	-------
 
 Use GenMon for invoking the provided "datetime" shell script.
@@ -37,7 +41,7 @@ Then the current date/time should be continuously updated in your panel.
 
 If the plugin displays XXX it means that the spawn of the command has failed.
 
-4 -	Extra
+5 -	Extra
 	-----
 
 A simple Perl script, disktemp, that retrieves the temperature of a disk
@@ -53,7 +57,7 @@ Then run (you need to have smartd/smarctl installed on your system)
 If this works, you should be able to use GenMon for continually monitoring
 your disk temperature.
 
-5 -	New Features
+6 -	New Features
 	-----------
 
 Genmon settings are now stored in the xfconf database. This wil lalso allow for 
@@ -128,7 +132,7 @@ In addition, it supports the following functionality:
 To change the color of the progress bar you can use the CSS tag like so:
 echo "<css>progressbar.genmon_progressbar progress { background-color: #fc9b0a }</css>"
 
-6 -	Bugs
+7 -	Bugs
 	----
 If you find a bug, fix it, then tell me how you did it :-)
 
