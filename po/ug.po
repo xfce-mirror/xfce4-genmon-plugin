@@ -99,7 +99,7 @@ msgstr ""
 
 #: panel-plugin/main.c:1013
 msgid "_Cancel"
-msgstr ""
+msgstr "ۋاز كەچ(_C)"
 
 #: panel-plugin/main.c:1014
 msgid "_Open"
@@ -116,7 +116,7 @@ msgstr "ئادەتتىكى كۆزەتكۈ"
 
 #: panel-plugin/main.c:1128
 msgid "_Help"
-msgstr ""
+msgstr "ياردەم(_H)"
 
 #: panel-plugin/main.c:1129
 msgid "Save"
