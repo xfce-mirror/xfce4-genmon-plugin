@@ -54,6 +54,8 @@ typedef struct param_t
         guint32      iPeriod_mstmp;
         gboolean     fSingleRowEnabled;
         gboolean     fSingleRowEnabledtmp;
+        gint         iAlign;
+        gint         iAligntmp;
         gchar       *acFont;
         gchar       *acFonttmp;
     } param_t;
@@ -264,7 +266,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
             /* Get the text */
             char *buf = g_strndup (begin + 5, end - begin - 5);
             gtk_label_set_markup (GTK_LABEL (poMonitor->wValue), buf);
-            gtk_label_set_justify (GTK_LABEL (poMonitor->wValue), GTK_JUSTIFY_CENTER);
+            gtk_label_set_justify (GTK_LABEL (poMonitor->wValue), poConf->iAlign);
             
             /* Test if the result has a clickable Value (button) */
             begin=strstr(p_poPlugin->acValue, "<txtclick>");
@@ -273,7 +275,7 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
                 {
                     /* Add the text to the button label too*/
                     gtk_label_set_markup (GTK_LABEL (poMonitor->wValButtonLabel), buf);
-                    gtk_label_set_justify (GTK_LABEL (poMonitor->wValButtonLabel), GTK_JUSTIFY_CENTER);
+                    gtk_label_set_justify (GTK_LABEL (poMonitor->wValButtonLabel), poConf->iAlign);
 
                     /* Get the command path */
                     g_free (poMonitor->onValClickCmd);
@@ -493,6 +495,8 @@ static genmon_t *genmon_create_control (XfcePanelPlugin *plugin)
     poConf->iPeriod_ms = 30 * 1000;
     poConf->iPeriod_mstmp = 30 * 1000;
     poPlugin->iTimerId = 0;
+
+    poConf->iAligntmp = poConf->iAlign = GTK_JUSTIFY_CENTER;
 
     // PangoFontDescription needs a font and we can't use "(Default)" anymore.
     // Use GtkSettings to get the current default font and use that, or set default to "Sans 10"
@@ -732,6 +736,7 @@ return (0);
 #define CONF_CMD                "/command"
 #define CONF_UPDATE_PERIOD      "/update-period"
 #define CONF_ENABLE_SINGLEROW   "/enable-single-row"
+#define CONF_ALIGN              "/align"
 #define CONF_FONT               "/font"
 
 
@@ -782,6 +787,10 @@ static void genmon_read_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     poConf->fSingleRowEnabled = xfconf_channel_get_bool (poPlugin->channel, property, TRUE);
     g_free (property);
 
+    property = g_strconcat (poPlugin->property_base, CONF_ALIGN, NULL);
+    poConf->iAlign = xfconf_channel_get_int (poPlugin->channel, property, GTK_JUSTIFY_CENTER);
+    g_free (property);
+
     if (poConf->fSingleRowEnabled)
 		xfce_panel_plugin_set_small (plugin, FALSE);
 	else
@@ -825,6 +834,10 @@ static void genmon_write_config (XfcePanelPlugin *plugin, genmon_t *poPlugin)
 
     property = g_strconcat (poPlugin->property_base, CONF_ENABLE_SINGLEROW, NULL);
     xfconf_channel_set_bool (poPlugin->channel, property, poConf->fSingleRowEnabled);
+    g_free (property);
+
+    property = g_strconcat (poPlugin->property_base, CONF_ALIGN, NULL);
+    xfconf_channel_set_int (poPlugin->channel, property, poConf->iAlign);
     g_free (property);
 
     property = g_strconcat (poPlugin->property_base, CONF_FONT, NULL);
@@ -880,6 +893,34 @@ static void ToggleSingleRow (GtkWidget *p_w, void *p_pvPlugin)
         gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (p_w));
 
 }/* ToggleSingleRow() */
+
+/**************************************************************/
+
+static void ToggleAlign (GtkWidget *p_w, void *p_pvPlugin)
+/* GUI callback switching the text alignment */
+{
+    struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
+    struct param_t  *poConf = &(poPlugin->oConf.oParam);
+    struct gui_t    *poGUI = &(poPlugin->oConf.oGUI);
+
+    DBG("\n");
+
+    int align = GTK_JUSTIFY_CENTER;
+    if (p_w == poGUI->wRB_AlignLeft) {
+        align = GTK_JUSTIFY_LEFT;
+    }
+    else if (p_w == poGUI->wRB_AlignCenter) {
+        align = GTK_JUSTIFY_CENTER;
+    }
+    else if (p_w == poGUI->wRB_AlignRight) {
+        align = GTK_JUSTIFY_RIGHT;
+    }
+    else if (p_w == poGUI->wRB_AlignFill) {
+        align = GTK_JUSTIFY_FILL;
+    }
+    poConf->iAligntmp = align;
+
+}/* ToggleAlign() */
 
 /**************************************************************/
 
@@ -1081,6 +1122,10 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 			xfce_panel_plugin_set_small (genmon->plugin, FALSE);
 		else
 			xfce_panel_plugin_set_small (genmon->plugin, TRUE);
+
+                poConf->iAlign = poConf->iAligntmp;
+                gtk_label_set_justify (GTK_LABEL (poMonitor->wValue), poConf->iAlign);
+                gtk_label_set_justify (GTK_LABEL (poMonitor->wValButtonLabel), poConf->iAlign);
 						
 		UpdateConf (genmon);
 		genmon_write_config (genmon->plugin, genmon);
@@ -1094,6 +1139,7 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 		poConf->fTitleDisplayedtmp = poConf->fTitleDisplayed;
 		poConf->iPeriod_mstmp = poConf->iPeriod_ms;
 		poConf->fSingleRowEnabledtmp = poConf->fSingleRowEnabled;
+		poConf->iAligntmp = poConf->iAlign;
 	}
 	
 	gtk_widget_destroy (dlg);
@@ -1174,6 +1220,23 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
                                   poConf->fSingleRowEnabled);
     g_signal_connect (GTK_WIDGET (poGUI->wTB_SingleRow), "toggled",
         G_CALLBACK (ToggleSingleRow), poPlugin);
+
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (poGUI->wRB_AlignLeft),
+                                  poConf->iAlign == GTK_JUSTIFY_LEFT);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (poGUI->wRB_AlignCenter),
+                                  poConf->iAlign == GTK_JUSTIFY_CENTER);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (poGUI->wRB_AlignRight),
+                                  poConf->iAlign == GTK_JUSTIFY_RIGHT);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (poGUI->wRB_AlignFill),
+                                  poConf->iAlign == GTK_JUSTIFY_FILL);
+    g_signal_connect (GTK_WIDGET (poGUI->wRB_AlignLeft), "toggled",
+        G_CALLBACK (ToggleAlign), poPlugin);
+    g_signal_connect (GTK_WIDGET (poGUI->wRB_AlignCenter), "toggled",
+        G_CALLBACK (ToggleAlign), poPlugin);
+    g_signal_connect (GTK_WIDGET (poGUI->wRB_AlignRight), "toggled",
+        G_CALLBACK (ToggleAlign), poPlugin);
+    g_signal_connect (GTK_WIDGET (poGUI->wRB_AlignFill), "toggled",
+        G_CALLBACK (ToggleAlign), poPlugin);
 
     if (strcmp (poConf->acFont, "(default)")) /* Default font */
         gtk_button_set_label (GTK_BUTTON (poGUI->wPB_Font), poConf->acFont);
