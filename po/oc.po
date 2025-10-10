@@ -3,8 +3,9 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
-# Cédric Valmary <cvalmary@yahoo.fr>, 2016
+# Cédric Valmary <cvalmary@yahoo.fr>, 2013,2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
+# Quentin PAGÈS, 2022,2024
 # Quentin PAGÈS, 2022,2024
 msgid ""
 msgstr ""
@@ -35,7 +36,7 @@ msgstr "Comanda"
 
 #: panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "Entrar la comanda shell de reprodusir e quichar sus <Entrada>"
+msgstr "Entrar la comanda shell de reproduire e quichar sus <Entrada>"
 
 #: panel-plugin/config_gui.c:92
 msgid "Press to select file..."
@@ -59,7 +60,7 @@ msgstr "(genmon)"
 
 #: panel-plugin/config_gui.c:107
 msgid "Period (s)"
-msgstr ""
+msgstr "Periòde (s)"
 
 #: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns"
@@ -67,11 +68,11 @@ msgstr "Interval entre 2 execucions consecutivas"
 
 #: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
-msgstr ""
+msgstr "Marcar per forçar l’empeuton a utilizar sonque una sola linha"
 
 #: panel-plugin/config_gui.c:133
 msgid "Use a single panel row"
-msgstr ""
+msgstr "Utilizar una sola linha de panèl"
 
 #: panel-plugin/config_gui.c:140
 msgid "Select the display font..."
