@@ -76,7 +76,7 @@ msgstr "Utilizar una sola linha de panèl"
 
 #: panel-plugin/config_gui.c:140
 msgid "Select the display font..."
-msgstr "Seleccionar la poliça d'afichatge..."
+msgstr "Seleccionar la polissa d'afichatge..."
 
 #: panel-plugin/config_gui.c:144
 msgid "Press to change font..."
@@ -95,7 +95,7 @@ msgstr "Executa de faiçon ciclica un escript o un programa, captura sa sortida 
 
 #: panel-plugin/main.c:974
 msgid "Font Selection"
-msgstr "Seleccion de la poliça"
+msgstr "Seleccion de la polissa"
 
 #: panel-plugin/main.c:1011
 msgid "File Selection"
@@ -136,4 +136,4 @@ msgstr "Metre a jorn ara"
 
 #: panel-plugin/genmon.desktop.in:6
 msgid "Show output of a command."
-msgstr "Afichar la sortida d'una comanda"
+msgstr "Afichar la sortida d'una comanda."
