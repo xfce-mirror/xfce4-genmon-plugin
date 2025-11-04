@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2006
-# Davidmp <medipas@gmail.com>, 2019
+# Davidmp <medipas@gmail.com>, 2019,2025
 # Oscar Perez <oscarpc@gmail.com>, 2023
 # Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2017-2020
 # Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-07-18 11:06+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Oscar Perez <oscarpc@gmail.com>, 2023\n"
+"Last-Translator: Davidmp <medipas@gmail.com>, 2019,2025\n"
 "Language-Team: Catalan (http://app.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr "Error a l'ordre «%s»"
 
 #: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
-msgstr "Tauler de Xfce"
+msgstr "Panell de l'Xfce"
 
 #: panel-plugin/config_gui.c:75
 msgid "Command"
@@ -73,7 +73,7 @@ msgstr "Marqueu per forçar el complement a usar només una fila"
 
 #: panel-plugin/config_gui.c:133
 msgid "Use a single panel row"
-msgstr "Utilitza només una sola fila del tauler"
+msgstr "Utilitza només una sola fila del panell"
 
 #: panel-plugin/config_gui.c:140
 msgid "Select the display font..."
@@ -92,7 +92,7 @@ msgstr "No s'ha pogut executar «%s»"
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
-msgstr "Genera cíclicament un script/programa, captura la seva sortida i mostra la cadena resultant al tauler"
+msgstr "Genera cíclicament un script/programa, captura la seva sortida i mostra la cadena resultant al panell"
 
 #: panel-plugin/main.c:974
 msgid "Font Selection"
