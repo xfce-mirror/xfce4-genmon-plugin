@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
+# 
+# Translators:
+# Loc Huynh <https://github.com/hthienloc>, 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:06+0200\n"
+"PO-Revision-Date: 2013-07-03 19:01+0000\n"
+"Last-Translator: Loc Huynh <https://github.com/hthienloc>, 2025\n"
+"Language-Team: Vietnamese (http://app.transifex.com/xfce/xfce-panel-plugins/language/vi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: panel-plugin/cmdspawn.c:167
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "Lỗi trong lệnh \"%s\""
+
+#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
+msgid "Xfce Panel"
+msgstr "Thanh panel Xfce"
+
+#: panel-plugin/config_gui.c:75
+msgid "Command"
+msgstr "Lệnh"
+
+#: panel-plugin/config_gui.c:85
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "Nhập lệnh shell để sinh sản, sau đó nhấn <Enter>"
+
+#: panel-plugin/config_gui.c:92
+msgid "Press to select file..."
+msgstr "Nhấn để chọn tệp..."
+
+#: panel-plugin/config_gui.c:94
+msgid "Label"
+msgstr "Nhãn"
+
+#: panel-plugin/config_gui.c:97
+msgid "Tick to display label"
+msgstr "Bật để hiển thị nhãn"
+
+#: panel-plugin/config_gui.c:103
+msgid "Input the plugin label, then press <Enter>"
+msgstr "Nhập nhãn plugin rồi nhấn <Enter>"
+
+#: panel-plugin/config_gui.c:105
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: panel-plugin/config_gui.c:107
+msgid "Period (s)"
+msgstr "(Các) khoảng thời gian"
+
+#: panel-plugin/config_gui.c:125
+msgid "Interval between 2 consecutive spawns"
+msgstr "Khoảng thời gian giữa 2 lần sinh sản liên tiếp"
+
+#: panel-plugin/config_gui.c:131
+msgid "Tick to force plugin to use only one row"
+msgstr "Chọn để buộc plugin chỉ sử dụng một hàng"
+
+#: panel-plugin/config_gui.c:133
+msgid "Use a single panel row"
+msgstr "Sử dụng một hàng bảng điều khiển điều khiển duy nhất"
+
+#: panel-plugin/config_gui.c:140
+msgid "Select the display font..."
+msgstr "Chọn phông chữ màn hình..."
+
+#: panel-plugin/config_gui.c:144
+msgid "Press to change font..."
+msgstr "Nhấn để thay đổi phông chữ..."
+
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "Không chạy được \"%s\""
+
+#: panel-plugin/main.c:954
+msgid ""
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr "Tạo ra một tập lệnh/chương trình theo chu kỳ, ghi lại đầu ra của nó và hiển thị chuỗi kết quả trong bảng điều khiển điều khiển"
+
+#: panel-plugin/main.c:974
+msgid "Font Selection"
+msgstr "Lựa chọn phông chữ"
+
+#: panel-plugin/main.c:1011
+msgid "File Selection"
+msgstr "Lựa chọn Tệp"
+
+#: panel-plugin/main.c:1013
+msgid "_Cancel"
+msgstr "_Huỷ"
+
+#: panel-plugin/main.c:1014
+msgid "_Open"
+msgstr "_Mở"
+
+#: panel-plugin/main.c:1053
+#, c-format
+msgid "Unable to open the following url: %s"
+msgstr "Không thể mở url sau: %s"
+
+#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
+msgid "Generic Monitor"
+msgstr "Màn hình chung"
+
+#: panel-plugin/main.c:1128
+msgid "_Help"
+msgstr "_Trợ giúp"
+
+#: panel-plugin/main.c:1129
+msgid "Save"
+msgstr "Lưu"
+
+#: panel-plugin/main.c:1138
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#: panel-plugin/main.c:1372
+msgid "Update Now"
+msgstr "Cập nhật ngay"
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "Hiển thị đầu ra của một lệnh."
