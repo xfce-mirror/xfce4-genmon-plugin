@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:06+0200\n"
+"PO-Revision-Date: 2013-07-03 19:01+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lao (http://app.transifex.com/xfce/xfce-panel-plugins/language/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: panel-plugin/cmdspawn.c:167
+#, c-format
+msgid "Error in command \"%s\""
+msgstr "ເກີດຂໍ້ຜິດພາດໃນຄຳສັ່ງ \"%s\""
+
+#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
+msgid "Xfce Panel"
+msgstr "ແຜງຄວບຄຸມ Xfce"
+
+#: panel-plugin/config_gui.c:75
+msgid "Command"
+msgstr "ຄຳສັ່ງ"
+
+#: panel-plugin/config_gui.c:85
+msgid "Input the shell command to spawn, then press <Enter>"
+msgstr "ປ້ອນຄຳສັ່ງ shell ທີ່ຈະຮຽກໃຊ້, ແລ້ວກົດ <Enter>"
+
+#: panel-plugin/config_gui.c:92
+msgid "Press to select file..."
+msgstr "ກົດເພື່ອເລືອກໄຟລ໌..."
+
+#: panel-plugin/config_gui.c:94
+msgid "Label"
+msgstr "ປ້າຍຊື່"
+
+#: panel-plugin/config_gui.c:97
+msgid "Tick to display label"
+msgstr "ໝາຍຕິກເພື່ອສະແດງປ້າຍຊື່"
+
+#: panel-plugin/config_gui.c:103
+msgid "Input the plugin label, then press <Enter>"
+msgstr "ປ້ອນປ້າຍຊື່ຂອງປລັກອິນ, ແລ້ວກົດ <Enter>"
+
+#: panel-plugin/config_gui.c:105
+msgid "(genmon)"
+msgstr "(genmon)"
+
+#: panel-plugin/config_gui.c:107
+msgid "Period (s)"
+msgstr "ໄລຍະເວລາ (ວິນາທີ)"
+
+#: panel-plugin/config_gui.c:125
+msgid "Interval between 2 consecutive spawns"
+msgstr "ໄລຍະຫ່າງລະຫວ່າງການຮຽກໃຊ້ 2 ຄັ້ງຕິດຕໍ່ກັນ"
+
+#: panel-plugin/config_gui.c:131
+msgid "Tick to force plugin to use only one row"
+msgstr "ໝາຍຕິກເພື່ອບັງຄັບໃຫ້ປລັກອິນໃຊ້ພຽງແຖວດຽວ"
+
+#: panel-plugin/config_gui.c:133
+msgid "Use a single panel row"
+msgstr "ໃຊ້ແຖວແຜງຄວບຄຸມແຖວດຽວ"
+
+#: panel-plugin/config_gui.c:140
+msgid "Select the display font..."
+msgstr "ເລືອກຟອນທ໌ທີ່ຈະສະແດງ..."
+
+#: panel-plugin/config_gui.c:144
+msgid "Press to change font..."
+msgstr "ກົດເພື່ອປ່ຽນຟອນທ໌..."
+
+#: panel-plugin/main.c:114 panel-plugin/main.c:136
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "ບໍ່ສາມາດລັນ \"%s\" ໄດ້"
+
+#: panel-plugin/main.c:954
+msgid ""
+"Cyclically spawns a script/program, captures its output and displays the "
+"resulting string in the panel"
+msgstr "ຮຽກໃຊ້ສະຄຣິບ/ໂປຣແກຣມເປັນຮອບວຽນ, ຈັບເອົາຜົນການເຮັດວຽກ ແລະ ສະແດງຂໍ້ຄວາມທີ່ໄດ້ໃນແຜງຄວບຄຸມ"
+
+#: panel-plugin/main.c:974
+msgid "Font Selection"
+msgstr "ການເລືອກຟອນທ໌"
+
+#: panel-plugin/main.c:1011
+msgid "File Selection"
+msgstr "ການເລືອກໄຟລ໌"
+
+#: panel-plugin/main.c:1013
+msgid "_Cancel"
+msgstr "_ຍົກເລີກ"
+
+#: panel-plugin/main.c:1014
+msgid "_Open"
+msgstr "_ເປີດ"
+
+#: panel-plugin/main.c:1053
+#, c-format
+msgid "Unable to open the following url: %s"
+msgstr "ບໍ່ສາມາດເປີດ URL ຕໍ່ໄປນີ້ໄດ້: %s"
+
+#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
+msgid "Generic Monitor"
+msgstr "ຕົວຕິດຕາມທົ່ວໄປ"
+
+#: panel-plugin/main.c:1128
+msgid "_Help"
+msgstr "_ຊ່ວຍເຫຼືອ"
+
+#: panel-plugin/main.c:1129
+msgid "Save"
+msgstr "ບັນທຶກ"
+
+#: panel-plugin/main.c:1138
+msgid "Configuration"
+msgstr "ການຕັ້ງຄ່າ"
+
+#: panel-plugin/main.c:1372
+msgid "Update Now"
+msgstr "ອັບເດດຕອນນີ້"
+
+#: panel-plugin/genmon.desktop.in:6
+msgid "Show output of a command."
+msgstr "ສະແດງຜົນການເຮັດວຽກຂອງຄຳສັ່ງ."
