@@ -1167,7 +1167,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
 
     gtk_spin_button_set_value (GTK_SPIN_BUTTON (poGUI->wSc_Period),
         ((double) poConf->iPeriod_ms / 1000));
-    g_signal_connect (GTK_WIDGET (poGUI->wSc_Period), "value_changed",
+    g_signal_connect (GTK_WIDGET (poGUI->wSc_Period), "value-changed",
         G_CALLBACK (SetPeriod), poPlugin);
 
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (poGUI->wTB_SingleRow),
