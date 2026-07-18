@@ -1,0 +1,3 @@
+# Looks like it doesn't see the return statement in `case -1`
+cmdspawn.c:[0-9]+:[0-9]+: warning: leak of file descriptor .+aaiPipe\[1\]\[0\].+ \[CWE-775\] \[-Wanalyzer-fd-leak\]
+cmdspawn.c:[0-9]+:[0-9]+: warning: leak of file descriptor .+aaiPipe\[1\]\[1\].+ \[CWE-775\] \[-Wanalyzer-fd-leak\]
