@@ -1049,7 +1049,7 @@ static void genmon_dialog_response (GtkWidget *dlg, int response,
 #else
         result = g_spawn_command_line_async ("exo-open --launch WebBrowser " "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin", NULL);
 #endif
-        if (G_UNLIKELY (result == FALSE))
+        if (G_UNLIKELY (!result))
             g_warning (_("Unable to open the following url: %s"), "https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin");
         
         return;
