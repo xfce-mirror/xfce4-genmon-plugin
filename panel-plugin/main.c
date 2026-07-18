@@ -660,12 +660,7 @@ static void genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     TRACE ("genmon_free()\n");
     DBG("\n");
 
-    if (poPlugin->iTimerId) 
-    {
-        g_source_remove (poPlugin->iTimerId);
-        poPlugin->iTimerId = 0;
-    }
-
+    g_clear_handle_id (&poPlugin->iTimerId, g_source_remove);
     g_free (poPlugin->oConf.oParam.acCmd);
     g_free (poPlugin->oConf.oParam.acFiletmp);
     g_free (poPlugin->oConf.oParam.acTitle);
