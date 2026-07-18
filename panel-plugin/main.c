@@ -1321,21 +1321,23 @@ genmon_update_now_clicked_cb(GtkMenuItem *mi,
 static void genmon_construct (XfcePanelPlugin *plugin)
 /* Plugin API: construct the plugin */
 {
+    GError *error = NULL;
     genmon_t *genmon;
 
     DBG("\n");
 
     xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-    genmon = genmon_create_control (plugin);
-
-    if (xfconf_init (NULL))
-        genmon->channel = xfconf_channel_get ("xfce4-panel");
-    else
+    if (!xfconf_init (&error))
     {
-        g_warning ("Could not initialize xfconf.");
+        g_critical ("Could not initialize xfconf: %s", error->message);
+        g_error_free (error);
         return;
     }
+
+    genmon = genmon_create_control (plugin);
+
+    genmon->channel = xfconf_channel_get ("xfce4-panel");
 
     genmon->property_base = xfce_panel_plugin_get_property_base (plugin);
 
