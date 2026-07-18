@@ -70,7 +70,15 @@ char *genmon_Spawn (char **argv, int wait)
         return (NULL);
     }
     for (i = 0; i < OUT_ERR; i++)
-        pipe (aaiPipe[i]);
+    {
+        if (pipe (aaiPipe[i]) == -1)
+        {
+          perror ("pipe()");
+          for (j = 0; j < i; j++)
+              close (aaiPipe[j][WR]); /* close write end of pipes in parent */
+          goto End;
+        }
+    }
 
     switch (pid = fork ()) 
     {
