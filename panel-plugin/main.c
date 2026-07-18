@@ -975,7 +975,7 @@ static void ChooseFont (GtkWidget *p_wPB, void *p_pvPlugin)
         GTK_WINDOW(gtk_widget_get_toplevel(p_wPB)));
     gtk_window_set_transient_for (GTK_WINDOW (wDialog),
         GTK_WINDOW (poPlugin->oConf.wTopLevel));
-    if (strcmp (poConf->acFont, "(default)")) /* Default font */
+    if (strcmp (poConf->acFont, "(default)") != 0) /* Default font */
         gtk_font_chooser_set_font (GTK_FONT_CHOOSER (wDialog), poConf->acFont);
     iResponse = gtk_dialog_run (GTK_DIALOG (wDialog));
     if (iResponse == GTK_RESPONSE_OK) 
@@ -1175,7 +1175,7 @@ static void genmon_create_options (XfcePanelPlugin *plugin,
     g_signal_connect (GTK_WIDGET (poGUI->wTB_SingleRow), "toggled",
         G_CALLBACK (ToggleSingleRow), poPlugin);
 
-    if (strcmp (poConf->acFont, "(default)")) /* Default font */
+    if (strcmp (poConf->acFont, "(default)") != 0) /* Default font */
         gtk_button_set_label (GTK_BUTTON (poGUI->wPB_Font), poConf->acFont);
     g_signal_connect (G_OBJECT (poGUI->wPB_Font), "clicked",
         G_CALLBACK (ChooseFont), poPlugin);
