@@ -41,23 +41,7 @@ Then the current date/time should be continuously updated in your panel.
 
 If the plugin displays XXX it means that the spawn of the command has failed.
 
-5 -	Extra
-	-----
-
-A simple Perl script, disktemp, that retrieves the temperature of a disk
-using the smartmontools is provided.
-To install it, as root you may do:
-	- cp disktemp /usr/local/bin
-	- cd /usr/local/bin
-	- chown root:root	disktemp
-	- chmod a+rx		disktemp
-	- chmod u+s 		disktemp
-Then run (you need to have smartd/smarctl installed on your system)
-	- disktemp <disk>	(e.g. /dev/hda)
-If this works, you should be able to use GenMon for continually monitoring
-your disk temperature.
-
-6 -	New Features
+5 -	New Features
 	-----------
 
 Genmon settings are now stored in the xfconf database. This wil lalso allow for 
@@ -132,7 +116,7 @@ In addition, it supports the following functionality:
 To change the color of the progress bar you can use the CSS tag like so:
 echo "<css>progressbar.genmon_progressbar progress { background-color: #fc9b0a }</css>"
 
-7 -	Bugs
+6 -	Bugs
 	----
 If you find a bug, fix it, then tell me how you did it :-)
 
