@@ -1,6 +1,5 @@
 scripts = [
   'datetime',
-  'disktemp',
   'dkspuse',
   'gmail',
   'migrate_to_xfconf.sh',
