@@ -144,6 +144,30 @@ static void ExecOnValClickCmd (GtkWidget *p_wSc, void *p_pvPlugin)
 }
 
 /**************************************************************/
+static char *escape_ampersand(const char *s)
+/* function to escape '&' for tooltips */
+{
+    static const char *ent[] = { "&amp;", "&lt;", "&gt;", "&quot;", "&apos;", "&#" };
+    GString *out = g_string_new(NULL);
+    size_t i;
+
+    for (; *s; s++)
+    {
+        gboolean keep = FALSE;
+
+        if (*s == '&')
+            for (i = 0; i < G_N_ELEMENTS(ent) && !keep; i++)
+                keep = g_str_has_prefix(s, ent[i]);
+
+        if (*s == '&' && !keep)
+            g_string_append(out, "&amp;");
+        else
+            g_string_append_c(out, *s);
+    }
+    return g_string_free(out, FALSE);
+}
+
+/**************************************************************/
 static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
  /* Launch the command, get its output and display it in the panel-docked
     text field */
@@ -262,7 +286,9 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     if (begin && end && begin < end)
         {
             /* Get the text */
-            char *buf = g_strndup (begin + 5, end - begin - 5);
+            char *raw = g_strndup (begin + 5, end - begin - 5);
+				char *buf = escape_ampersand(raw);
+				g_free(raw);
             gtk_label_set_markup (GTK_LABEL (poMonitor->wValue), buf);
             gtk_label_set_justify (GTK_LABEL (poMonitor->wValue), GTK_JUSTIFY_CENTER);
             
@@ -333,7 +359,9 @@ static int DisplayCmdOutput (struct genmon_t *p_poPlugin)
     end=strstr(p_poPlugin->acValue, "</tool>");
     if (begin && end && begin < end)
     {
-        acToolTips = g_strndup (begin + 6, end - begin - 6);
+		  char *acRaw = g_strndup(begin + 6, end - begin - 6);
+		  acToolTips = escape_ampersand(acRaw);
+		  g_free(acRaw);
         newVersion=1;
     }
     else
