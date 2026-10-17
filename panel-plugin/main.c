@@ -479,13 +479,16 @@ static gboolean Timer (gpointer user_data)
 
 static void SetTimer (struct genmon_t *poPlugin)
 /* create timer, set function to run */
+/* a period of 0 disables the cycle and plugin must be refreshed manually
+	by either remote-event or Update Now */
 {
     struct param_t *poConf = &poPlugin->oConf.oParam;
 
-    if (poPlugin->iTimerId)
-        g_source_remove (poPlugin->iTimerId);
+    g_clear_handle_id (&poPlugin->iTimerId, g_source_remove);
 
-    poPlugin->iTimerId = g_timeout_add (poConf->iPeriod_ms, Timer, poPlugin);
+    if (poConf->iPeriod_ms > 0)
+        poPlugin->iTimerId = g_timeout_add (poConf->iPeriod_ms, Timer, poPlugin);
+
 }
 
 /**************************************************************/

@@ -118,11 +118,11 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_set_halign(GTK_WIDGET(eventbox1), GTK_ALIGN_START);
     gtk_widget_set_hexpand(GTK_WIDGET(eventbox1), TRUE);
 
-    wSc_Period_adj = gtk_adjustment_new (15, .25, 60*60*24, .25, 1, 0);
+    wSc_Period_adj = gtk_adjustment_new (15, 0, 60*60*24, .25, 1, 0);
     wSc_Period = gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), .25, 2);
     gtk_widget_show (wSc_Period);
     gtk_container_add (GTK_CONTAINER (eventbox1), wSc_Period);
-    gtk_widget_set_tooltip_text (wSc_Period, _("Interval between 2 consecutive spawns"));
+    gtk_widget_set_tooltip_text (wSc_Period, _("Interval between 2 consecutive spawns. Set to 0.00 for no cycling"));
     gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (wSc_Period), TRUE);
 
     wTB_SingleRow = gtk_check_button_new ();
