@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:06+0200\n"
+"POT-Creation-Date: 2026-10-18 13:01+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Loc Huynh <https://github.com/hthienloc>, 2025\n"
 "Language-Team: Vietnamese (http://app.transifex.com/xfce/xfce-panel-plugins/language/vi/)\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: panel-plugin/cmdspawn.c:167
+#: panel-plugin/cmdspawn.c:180
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "Lỗi trong lệnh \"%s\""
 
-#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:182 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Thanh panel Xfce"
 
@@ -60,8 +60,8 @@ msgid "Period (s)"
 msgstr "(Các) khoảng thời gian"
 
 #: panel-plugin/config_gui.c:125
-msgid "Interval between 2 consecutive spawns"
-msgstr "Khoảng thời gian giữa 2 lần sinh sản liên tiếp"
+msgid "Interval between 2 consecutive spawns. Set to 0.00 for no cycling"
+msgstr ""
 
 #: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
@@ -84,50 +84,50 @@ msgstr "Nhấn để thay đổi phông chữ..."
 msgid "Could not run \"%s\""
 msgstr "Không chạy được \"%s\""
 
-#: panel-plugin/main.c:954
+#: panel-plugin/main.c:980
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "Tạo ra một tập lệnh/chương trình theo chu kỳ, ghi lại đầu ra của nó và hiển thị chuỗi kết quả trong bảng điều khiển điều khiển"
 
-#: panel-plugin/main.c:974
+#: panel-plugin/main.c:1000
 msgid "Font Selection"
 msgstr "Lựa chọn phông chữ"
 
-#: panel-plugin/main.c:1011
+#: panel-plugin/main.c:1037
 msgid "File Selection"
 msgstr "Lựa chọn Tệp"
 
-#: panel-plugin/main.c:1013
+#: panel-plugin/main.c:1039
 msgid "_Cancel"
 msgstr "_Huỷ"
 
-#: panel-plugin/main.c:1014
+#: panel-plugin/main.c:1040
 msgid "_Open"
 msgstr "_Mở"
 
-#: panel-plugin/main.c:1053
+#: panel-plugin/main.c:1079
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "Không thể mở url sau: %s"
 
-#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
+#: panel-plugin/main.c:1151 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "Màn hình chung"
 
-#: panel-plugin/main.c:1128
+#: panel-plugin/main.c:1154
 msgid "_Help"
 msgstr "_Trợ giúp"
 
-#: panel-plugin/main.c:1129
+#: panel-plugin/main.c:1155
 msgid "Save"
 msgstr "Lưu"
 
-#: panel-plugin/main.c:1138
+#: panel-plugin/main.c:1164
 msgid "Configuration"
 msgstr "Cấu hình"
 
-#: panel-plugin/main.c:1372
+#: panel-plugin/main.c:1400
 msgid "Update Now"
 msgstr "Cập nhật ngay"
 
