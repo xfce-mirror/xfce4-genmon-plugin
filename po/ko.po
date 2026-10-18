@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:06+0200\n"
+"POT-Creation-Date: 2026-10-18 13:01+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2016,2020-2021\n"
 "Language-Team: Korean (http://app.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: panel-plugin/cmdspawn.c:167
+#: panel-plugin/cmdspawn.c:180
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "\"%s\" 명령 오류"
 
-#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:182 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Xfce 패널"
 
@@ -61,8 +61,8 @@ msgid "Period (s)"
 msgstr "주기 (초)"
 
 #: panel-plugin/config_gui.c:125
-msgid "Interval between 2 consecutive spawns"
-msgstr "2개의 연속 실행간 시간 간격"
+msgid "Interval between 2 consecutive spawns. Set to 0.00 for no cycling"
+msgstr ""
 
 #: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
@@ -85,50 +85,50 @@ msgstr "글꼴을 바꾸려면 누르십시오..."
 msgid "Could not run \"%s\""
 msgstr "\"%s\"을(를) 실행할 수 없습니다"
 
-#: panel-plugin/main.c:954
+#: panel-plugin/main.c:980
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "스크립트/프로그램을 돌아가면서 실행합니다. 출력을 잡아서 패널에 문자열로 보여줍니다 "
 
-#: panel-plugin/main.c:974
+#: panel-plugin/main.c:1000
 msgid "Font Selection"
 msgstr "글꼴 선택"
 
-#: panel-plugin/main.c:1011
+#: panel-plugin/main.c:1037
 msgid "File Selection"
 msgstr "파일 선택"
 
-#: panel-plugin/main.c:1013
+#: panel-plugin/main.c:1039
 msgid "_Cancel"
 msgstr "취소(_C)"
 
-#: panel-plugin/main.c:1014
+#: panel-plugin/main.c:1040
 msgid "_Open"
 msgstr "열기(_O)"
 
-#: panel-plugin/main.c:1053
+#: panel-plugin/main.c:1079
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "다음 URL을 열 수 없습니다: %s"
 
-#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
+#: panel-plugin/main.c:1151 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "일반 감시기"
 
-#: panel-plugin/main.c:1128
+#: panel-plugin/main.c:1154
 msgid "_Help"
 msgstr "도움말(_H)"
 
-#: panel-plugin/main.c:1129
+#: panel-plugin/main.c:1155
 msgid "Save"
 msgstr "저장"
 
-#: panel-plugin/main.c:1138
+#: panel-plugin/main.c:1164
 msgid "Configuration"
 msgstr "설정"
 
-#: panel-plugin/main.c:1372
+#: panel-plugin/main.c:1400
 msgid "Update Now"
 msgstr "지금 업데이트"
 
