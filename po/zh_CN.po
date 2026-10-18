@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:06+0200\n"
+"POT-Creation-Date: 2026-10-18 13:01+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2019-2021\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
@@ -21,12 +21,12 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: panel-plugin/cmdspawn.c:167
+#: panel-plugin/cmdspawn.c:180
 #, c-format
 msgid "Error in command \"%s\""
 msgstr "在命令 “%s” 中出错"
 
-#: panel-plugin/cmdspawn.c:169 panel-plugin/main.c:115 panel-plugin/main.c:137
+#: panel-plugin/cmdspawn.c:182 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
 msgstr "Xfce 面板"
 
@@ -63,8 +63,8 @@ msgid "Period (s)"
 msgstr "周期 (s)"
 
 #: panel-plugin/config_gui.c:125
-msgid "Interval between 2 consecutive spawns"
-msgstr "两次循环间的间隔"
+msgid "Interval between 2 consecutive spawns. Set to 0.00 for no cycling"
+msgstr ""
 
 #: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
@@ -87,50 +87,50 @@ msgstr "按下更改字体..."
 msgid "Could not run \"%s\""
 msgstr "“%s” 未能运行"
 
-#: panel-plugin/main.c:954
+#: panel-plugin/main.c:980
 msgid ""
 "Cyclically spawns a script/program, captures its output and displays the "
 "resulting string in the panel"
 msgstr "循环反复地执行脚本/程序，捕获它的输出结果并在面板上显示结果字符串"
 
-#: panel-plugin/main.c:974
+#: panel-plugin/main.c:1000
 msgid "Font Selection"
 msgstr "字体选择"
 
-#: panel-plugin/main.c:1011
+#: panel-plugin/main.c:1037
 msgid "File Selection"
 msgstr "文件选择"
 
-#: panel-plugin/main.c:1013
+#: panel-plugin/main.c:1039
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: panel-plugin/main.c:1014
+#: panel-plugin/main.c:1040
 msgid "_Open"
 msgstr "打开(_O)"
 
-#: panel-plugin/main.c:1053
+#: panel-plugin/main.c:1079
 #, c-format
 msgid "Unable to open the following url: %s"
 msgstr "未能打开以下 url：%s"
 
-#: panel-plugin/main.c:1125 panel-plugin/genmon.desktop.in:5
+#: panel-plugin/main.c:1151 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
 msgstr "一般监视器"
 
-#: panel-plugin/main.c:1128
+#: panel-plugin/main.c:1154
 msgid "_Help"
 msgstr "帮助(_H)"
 
-#: panel-plugin/main.c:1129
+#: panel-plugin/main.c:1155
 msgid "Save"
 msgstr "保存"
 
-#: panel-plugin/main.c:1138
+#: panel-plugin/main.c:1164
 msgid "Configuration"
 msgstr "配置"
 
-#: panel-plugin/main.c:1372
+#: panel-plugin/main.c:1400
 msgid "Update Now"
 msgstr "现在更新"
 
