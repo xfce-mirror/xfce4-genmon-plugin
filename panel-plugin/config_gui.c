@@ -83,7 +83,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (wTF_Cmd);
     gtk_grid_attach (GTK_GRID (table1), wTF_Cmd, 1, 0, 1, 1);
     gtk_widget_set_tooltip_text (wTF_Cmd, _("Input the shell command to spawn, then press <Enter>"));
-    gtk_entry_set_max_length (GTK_ENTRY (wTF_Cmd), 128);
+    gtk_entry_set_max_length (GTK_ENTRY (wTF_Cmd), 256);
 
     wPB_File = gtk_button_new_with_label ("...");
     gtk_widget_set_margin_top (GTK_WIDGET (wPB_File), 6);
