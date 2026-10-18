@@ -102,6 +102,8 @@ char *genmon_Spawn (char **argv, int wait)
                     perror ("dup2()");
                     exit (-1);
                 }
+					 /* Don't leak the open descriptor to potential long-lived grandchildren. */
+					 close (aaiPipe[i][WR]);
             }
         /* Execute the given command */
         execvp (argv[0], argv);
