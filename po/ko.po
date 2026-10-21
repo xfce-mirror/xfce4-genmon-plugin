@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2016,2020-2021
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2016,2020-2021,2026
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2012
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2026-10-18 13:01+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2016,2020-2021\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2016,2020-2021,2026\n"
 "Language-Team: Korean (http://app.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +34,7 @@ msgstr "명령"
 
 #: panel-plugin/config_gui.c:85
 msgid "Input the shell command to spawn, then press <Enter>"
-msgstr "실행할 쉘 명령을 입력하고, <Enter>를 누릅니다"
+msgstr "실행할 셸 명령을 입력하고, <Enter>를 누릅니다"
 
 #: panel-plugin/config_gui.c:92
 msgid "Press to select file..."
@@ -62,7 +62,7 @@ msgstr "주기 (초)"
 
 #: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns. Set to 0.00 for no cycling"
-msgstr ""
+msgstr "2회 연속 실행간 시간 간격입니다. 0.00으로 설정하면 반복하지 않습니다"
 
 #: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
