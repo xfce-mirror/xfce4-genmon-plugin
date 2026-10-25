@@ -22,13 +22,12 @@
 #include "config_gui.h"
 
 #include <gtk/gtk.h>
-
-#include <libxfce4util/libxfce4util.h>
-#include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/libxfce4panel.h>
+#include <libxfce4ui/libxfce4ui.h>
+#include <libxfce4util/libxfce4util.h>
 
 
-#define COPYVAL(var, field)    ((var)->field = field)
+#define COPYVAL(var, field) ((var)->field = field)
 
 
 /**** GUI initially created using glade-2 ****/
@@ -38,37 +37,38 @@
 /* Use "#define gtk_button_new_with_mnemonic(x) gtk_button_new()"
    for color-filled buttons */
 
-#define gtk_button_new_with_mnemonic(x) gtk_button_new()
+#define gtk_button_new_with_mnemonic(x) gtk_button_new ()
 
-#define GLADE_HOOKUP_OBJECT(component,widget,name) \
-  g_object_set_data_full (G_OBJECT (component), name, \
-  gtk_widget_ref (widget), (GDestroyNotify) gtk_widget_unref)
+#define GLADE_HOOKUP_OBJECT(component, widget, name) \
+    g_object_set_data_full (G_OBJECT (component), name, \
+                            gtk_widget_ref (widget), (GDestroyNotify) gtk_widget_unref)
 
-#define GLADE_HOOKUP_OBJECT_NO_REF(component,widget,name) \
-  g_object_set_data (G_OBJECT (component), name, widget)
+#define GLADE_HOOKUP_OBJECT_NO_REF(component, widget, name) \
+    g_object_set_data (G_OBJECT (component), name, widget)
 
-int genmon_CreateConfigGUI (GtkWidget *vbox1,
-    struct gui_t *p_poGUI)
+int
+genmon_CreateConfigGUI (GtkWidget *vbox1,
+                        struct gui_t *p_poGUI)
 {
-    GtkWidget      *table1;
-    GtkWidget      *label1;
-    GtkWidget      *wTF_Cmd;
-    GtkWidget      *wPB_File;
-    GtkWidget      *eventbox1;    
-    GtkAdjustment  *wSc_Period_adj;
-    GtkWidget      *wSc_Period;
-    GtkWidget      *label2;
-    GtkWidget      *wTB_Title;
-    GtkWidget      *wTF_Title;
-    GtkWidget	   *wTB_SingleRow;
-    GtkWidget	   *label3;
-    GtkWidget      *hseparator10;
-    GtkWidget      *wPB_Font;
+    GtkWidget *table1;
+    GtkWidget *label1;
+    GtkWidget *wTF_Cmd;
+    GtkWidget *wPB_File;
+    GtkWidget *eventbox1;
+    GtkAdjustment *wSc_Period_adj;
+    GtkWidget *wSc_Period;
+    GtkWidget *label2;
+    GtkWidget *wTB_Title;
+    GtkWidget *wTF_Title;
+    GtkWidget *wTB_SingleRow;
+    GtkWidget *label3;
+    GtkWidget *hseparator10;
+    GtkWidget *wPB_Font;
 
     table1 = gtk_grid_new ();
-    gtk_grid_set_column_spacing(GTK_GRID (table1), 12);
-    gtk_grid_set_row_spacing(GTK_GRID (table1), 6);
-    gtk_grid_set_row_homogeneous(GTK_GRID (table1), TRUE);
+    gtk_grid_set_column_spacing (GTK_GRID (table1), 12);
+    gtk_grid_set_row_spacing (GTK_GRID (table1), 6);
+    gtk_grid_set_row_homogeneous (GTK_GRID (table1), TRUE);
     gtk_widget_show (table1);
     gtk_box_pack_start (GTK_BOX (vbox1), table1, FALSE, TRUE, 0);
 
@@ -99,7 +99,7 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     wTF_Title = gtk_entry_new ();
     gtk_widget_show (wTF_Title);
     gtk_grid_attach (GTK_GRID (table1), wTF_Title, 1, 1, 2, 1);
- 
+
     gtk_widget_set_tooltip_text (wTF_Title, _("Input the plugin label, then press <Enter>"));
     gtk_entry_set_max_length (GTK_ENTRY (wTF_Title), 16);
     gtk_entry_set_text (GTK_ENTRY (wTF_Title), _("(genmon)"));
@@ -114,11 +114,11 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     eventbox1 = gtk_event_box_new ();
     gtk_widget_show (eventbox1);
     gtk_grid_attach (GTK_GRID (table1), eventbox1, 1, 2, 2, 1);
-    gtk_widget_set_valign(GTK_WIDGET(eventbox1), GTK_ALIGN_CENTER);
-    gtk_widget_set_halign(GTK_WIDGET(eventbox1), GTK_ALIGN_START);
-    gtk_widget_set_hexpand(GTK_WIDGET(eventbox1), TRUE);
+    gtk_widget_set_valign (GTK_WIDGET (eventbox1), GTK_ALIGN_CENTER);
+    gtk_widget_set_halign (GTK_WIDGET (eventbox1), GTK_ALIGN_START);
+    gtk_widget_set_hexpand (GTK_WIDGET (eventbox1), TRUE);
 
-    wSc_Period_adj = gtk_adjustment_new (15, 0, 60*60*24, .25, 1, 0);
+    wSc_Period_adj = gtk_adjustment_new (15, 0, 60 * 60 * 24, .25, 1, 0);
     wSc_Period = gtk_spin_button_new (GTK_ADJUSTMENT (wSc_Period_adj), .25, 2);
     gtk_widget_show (wSc_Period);
     gtk_container_add (GTK_CONTAINER (eventbox1), wSc_Period);
@@ -142,14 +142,14 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
     gtk_widget_show (wPB_Font);
     gtk_grid_attach (GTK_GRID (table1), wPB_Font, 0, 4, 3, 1);
     gtk_widget_set_tooltip_text (wPB_Font, _("Press to change font..."));
-    
-    hseparator10 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
+
+    hseparator10 = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
     gtk_widget_set_margin_top (GTK_WIDGET (hseparator10), 6);
     gtk_widget_set_margin_bottom (GTK_WIDGET (hseparator10), 0);
     gtk_widget_show (hseparator10);
     gtk_grid_attach (GTK_GRID (table1), hseparator10, 0, 4, 3, 1);
-            
-    if (p_poGUI) 
+
+    if (p_poGUI)
     {
         COPYVAL (p_poGUI, wTF_Cmd);
         COPYVAL (p_poGUI, wPB_File);
@@ -160,4 +160,4 @@ int genmon_CreateConfigGUI (GtkWidget *vbox1,
         COPYVAL (p_poGUI, wPB_Font);
     }
     return (0);
-}/* CreateConfigGUI() */
+} /* CreateConfigGUI() */

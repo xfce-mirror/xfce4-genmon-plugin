@@ -24,7 +24,9 @@
 #ifndef _cmdspawn_h
 #define _cmdspawn_h
 
-char *genmon_Spawn (char **argv, int wait);
-char *genmon_SpawnCmd (const char *cmdline, int wait);
+char *
+genmon_Spawn (char **argv, int wait);
+char *
+genmon_SpawnCmd (const char *cmdline, int wait);
 
 #endif /* _cmdspawn_h */
