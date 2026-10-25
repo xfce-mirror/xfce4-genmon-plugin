@@ -23,34 +23,36 @@
 #define _config_gui_h
 
 #include <gtk/gtk.h>
-
-#include <libxfce4util/libxfce4util.h>
 #include <libxfce4panel/libxfce4panel.h>
+#include <libxfce4util/libxfce4util.h>
 
 
-typedef struct gui_t {
+typedef struct gui_t
+{
     /* Configuration GUI widgets */
-    GtkWidget      *wTF_Cmd;
-    GtkWidget      *wPB_File;
-    GtkWidget      *wTB_Title;
-    GtkWidget      *wTF_Title;
-    GtkWidget      *wSc_Period;
-    GtkWidget      *wTB_SingleRow;
-    GtkWidget      *wPB_Font;
+    GtkWidget *wTF_Cmd;
+    GtkWidget *wPB_File;
+    GtkWidget *wTB_Title;
+    GtkWidget *wTF_Title;
+    GtkWidget *wSc_Period;
+    GtkWidget *wTB_SingleRow;
+    GtkWidget *wPB_Font;
 } gui_t;
 
 
 #ifdef __cplusplus
-extern          "C" {
+extern "C"
+{
 #endif
 
-    int genmon_CreateConfigGUI (GtkWidget * ParentWindow,
-        struct gui_t *gui);
+    int
+    genmon_CreateConfigGUI (GtkWidget *ParentWindow,
+                            struct gui_t *gui);
     /* Create configuration/Option GUI */
     /* Return 0 on success, -1 otherwise */
 
 #ifdef __cplusplus
-}/* extern "C" */
+} /* extern "C" */
 #endif
 
-#endif/* _config_gui_h */
+#endif /* _config_gui_h */
