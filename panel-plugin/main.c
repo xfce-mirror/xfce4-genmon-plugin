@@ -365,12 +365,14 @@ DisplayCmdOutput (struct genmon_t *p_poPlugin)
         newVersion = 1;
     }
     else
-        acToolTips = g_strdup_printf ("%s\n"
-                                      "----------------\n"
-                                      "%s\n"
-                                      "Period (s): %.2f",
-                                      poConf->acTitle, poConf->acCmd,
-                                      (float) poConf->iPeriod_ms / 1000);
+    {
+        acToolTips = g_markup_printf_escaped ("%s\n"
+                                              "----------------\n"
+                                              "%s\n"
+                                              "Period (s): %.2f",
+                                              poConf->acTitle, poConf->acCmd,
+                                              (float) poConf->iPeriod_ms / 1000);
+    }
 
     gtk_widget_set_tooltip_markup (GTK_WIDGET (poMonitor->wEventBox), acToolTips);
     g_free (acToolTips);
