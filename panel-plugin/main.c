@@ -178,6 +178,8 @@ DisplayCmdOutput (struct genmon_t *p_poPlugin)
     char *acToolTips;
     char *begin;
     char *end;
+    GError *failure = NULL;
+    int status;
     int newVersion = 0;
 
     gchar *css;
@@ -188,9 +190,15 @@ DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
     g_free (p_poPlugin->acValue);
     if (poConf->acCmd[0])
-        p_poPlugin->acValue = genmon_SpawnCmd (poConf->acCmd, 1);
+    {
+        p_poPlugin->acValue = genmon_SpawnCmd (poConf->acCmd, &status, &failure);
+        if (!failure)
+            g_spawn_check_exit_status (status, &failure);
+    }
     else
+    {
         p_poPlugin->acValue = NULL;
+    }
 
     /* If the command fails, display XXX */
     if (!p_poPlugin->acValue)
@@ -462,6 +470,8 @@ DisplayCmdOutput (struct genmon_t *p_poPlugin)
         gtk_widget_show (poMonitor->wValue);
         gtk_label_set_text (GTK_LABEL (poMonitor->wValue), p_poPlugin->acValue);
     }
+
+    g_clear_error (&failure);
     return (0);
 
 } /* DisplayCmdOutput() */
