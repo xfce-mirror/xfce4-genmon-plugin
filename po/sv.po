@@ -5,6 +5,7 @@
 # Translators:
 # Daniel Nylander <po@danielnylander.se>, 2008
 # Luna Jernberg <droidbittin@gmail.com>, 2020-2021
+# Luna Jernberg <droidbittin@gmail.com>, 2026
 # Påvel Nicklasson<pavel@frimix.se>, 2015
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2026-10-18 13:01+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2020-2021\n"
+"Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2026\n"
 "Language-Team: Swedish (http://app.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +64,7 @@ msgstr "Period (er)"
 
 #: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns. Set to 0.00 for no cycling"
-msgstr ""
+msgstr "Intervall mellan 2 på varandra följande spawns. Sätt till 0,00 för att inaktivera cykling"
 
 #: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
