@@ -82,7 +82,17 @@ typedef struct monitor_t
     char *onValClickCmd;
     int iconused;
     char *iconName;
+    gchar *tooltipMarkup; /* The output's tooltip, or NULL */
 } monitor_t;
+
+typedef struct run_t
+{
+    /* Last run of the command */
+    GDateTime *started; /* NULL if no command was set */
+    gchar *cmd; /* The command run, or NULL if none was set */
+    GError *failure; /* NULL on success */
+    gboolean printed; /* The output is not empty */
+} run_t;
 
 typedef struct genmon_t
 {
@@ -94,6 +104,7 @@ typedef struct genmon_t
     struct conf_t oConf;
     struct monitor_t oMonitor;
     char *acValue; /* Commandline resulting string */
+    struct run_t oRun;
 } genmon_t;
 
 /**************************************************************/
@@ -156,8 +167,10 @@ escape_ampersand (const char *s)
         gboolean keep = FALSE;
 
         if (*s == '&')
+        {
             for (i = 0; i < G_N_ELEMENTS (ent) && !keep; i++)
                 keep = g_str_has_prefix (s, ent[i]);
+        }
 
         if (*s == '&' && !keep)
             g_string_append (out, "&amp;");
@@ -168,6 +181,41 @@ escape_ampersand (const char *s)
 }
 
 /**************************************************************/
+static void
+run_clear (run_t *run)
+{
+    g_clear_pointer (&run->started, g_date_time_unref);
+    g_clear_pointer (&run->cmd, g_free);
+    g_clear_error (&run->failure);
+    run->printed = FALSE;
+}
+
+/**************************************************************/
+static gchar *
+describe_run (const param_t *conf, const run_t *run)
+{
+    GString *text = g_string_new (NULL);
+    gchar *time;
+
+    if (run->failure)
+        g_string_append_printf (text, "%s\n", run->failure->message);
+    else if (!run->printed)
+        g_string_append_printf (text, "%s\n", _("No output"));
+
+    time = g_date_time_format (run->started, "%X");
+    g_string_append_printf (text, _("Last run at %s"), time);
+    g_free (time);
+
+    g_string_append_c (text, '\n');
+    if (conf->iPeriod_ms > 0)
+        g_string_append_printf (text, _("Runs every %.9g s"), conf->iPeriod_ms / 1000.0);
+    else
+        g_string_append (text, _("No automatic updates"));
+
+    return g_string_free (text, FALSE);
+}
+
+/**************************************************************/
 static int
 DisplayCmdOutput (struct genmon_t *p_poPlugin)
 /* Launch the command, get its output and display it in the panel-docked
@@ -175,9 +223,10 @@ DisplayCmdOutput (struct genmon_t *p_poPlugin)
 {
     struct param_t *poConf = &(p_poPlugin->oConf.oParam);
     struct monitor_t *poMonitor = &(p_poPlugin->oMonitor);
-    char *acToolTips;
+    struct run_t *poRun = &(p_poPlugin->oRun);
     char *begin;
     char *end;
+    int status;
     int newVersion = 0;
 
     gchar *css;
@@ -186,11 +235,33 @@ DisplayCmdOutput (struct genmon_t *p_poPlugin)
 
     DBG ("\n");
 
+    run_clear (poRun);
     g_free (p_poPlugin->acValue);
     if (poConf->acCmd[0])
-        p_poPlugin->acValue = genmon_SpawnCmd (poConf->acCmd, 1);
+    {
+        poRun->started = g_date_time_new_now_local ();
+        poRun->cmd = g_strdup (poConf->acCmd);
+        p_poPlugin->acValue = genmon_SpawnCmd (poConf->acCmd, &status, &poRun->failure);
+        if (!poRun->failure)
+            g_spawn_check_exit_status (status, &poRun->failure);
+    }
     else
+    {
         p_poPlugin->acValue = NULL;
+    }
+
+    poRun->printed = p_poPlugin->acValue && p_poPlugin->acValue[0];
+
+    if (poRun->failure)
+    {
+        gtk_style_context_add_class (gtk_widget_get_style_context (poMonitor->wBox),
+                                     "genmon_failed");
+    }
+    else
+    {
+        gtk_style_context_remove_class (gtk_widget_get_style_context (poMonitor->wBox),
+                                        "genmon_failed");
+    }
 
     /* If the command fails, display XXX */
     if (!p_poPlugin->acValue)
@@ -351,29 +422,24 @@ DisplayCmdOutput (struct genmon_t *p_poPlugin)
         newVersion = 1;
     }
     else
+    {
         gtk_widget_hide (poMonitor->wBar);
+    }
 
 
     /* Test if a ToolTip is given */
+    g_clear_pointer (&poMonitor->tooltipMarkup, g_free);
     begin = strstr (p_poPlugin->acValue, "<tool>");
     end = strstr (p_poPlugin->acValue, "</tool>");
     if (begin && end && begin < end)
     {
         char *acRaw = g_strndup (begin + 6, end - begin - 6);
-        acToolTips = escape_ampersand (acRaw);
+        poMonitor->tooltipMarkup = escape_ampersand (acRaw);
         g_free (acRaw);
         newVersion = 1;
     }
-    else
-        acToolTips = g_strdup_printf ("%s\n"
-                                      "----------------\n"
-                                      "%s\n"
-                                      "Period (s): %.2f",
-                                      poConf->acTitle, poConf->acCmd,
-                                      (float) poConf->iPeriod_ms / 1000);
 
-    gtk_widget_set_tooltip_markup (GTK_WIDGET (poMonitor->wEventBox), acToolTips);
-    g_free (acToolTips);
+    gtk_widget_trigger_tooltip_query (poMonitor->wEventBox);
 
     /* Test if CSS is given */
     begin = strstr (p_poPlugin->acValue, "<css>");
@@ -460,6 +526,7 @@ DisplayCmdOutput (struct genmon_t *p_poPlugin)
         gtk_widget_show (poMonitor->wValue);
         gtk_label_set_text (GTK_LABEL (poMonitor->wValue), p_poPlugin->acValue);
     }
+
     return (0);
 
 } /* DisplayCmdOutput() */
@@ -702,7 +769,9 @@ genmon_free (XfcePanelPlugin *plugin, genmon_t *poPlugin)
     g_free (poPlugin->oConf.oParam.acFont);
     g_free (poPlugin->oConf.oParam.acFonttmp);
     g_free (poPlugin->oMonitor.onClickCmd);
+    g_free (poPlugin->oMonitor.tooltipMarkup);
     g_free (poPlugin->acValue);
+    run_clear (&poPlugin->oRun);
     g_free (poPlugin);
     xfconf_shutdown ();
 } /* genmon_free() */
@@ -942,13 +1011,12 @@ SetPeriod (GtkWidget *p_wSc, void *p_pvPlugin)
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
-    float r;
 
     TRACE ("SetPeriod()\n");
     DBG ("\n");
 
-    r = gtk_spin_button_get_value (GTK_SPIN_BUTTON (p_wSc));
-    poConf->iPeriod_mstmp = (r * 1000);
+    /* Round, not truncate since 8.03 s is not exact in binary and would give 8029 ms */
+    poConf->iPeriod_mstmp = (guint32) (gtk_spin_button_get_value (GTK_SPIN_BUTTON (p_wSc)) * 1000 + 0.5);
 } /* SetPeriod() */
 
 /**************************************************************/
@@ -1369,6 +1437,52 @@ genmon_update_now_clicked_cb (GtkMenuItem *mi,
 } /* genmon_add_menu_item() */
 
 /**************************************************************/
+static gboolean
+genmon_query_tooltip_cb (GtkWidget *widget,
+                         gint x,
+                         gint y,
+                         gboolean keyboard_mode,
+                         GtkTooltip *tooltip,
+                         genmon_t *genmon)
+{
+    struct param_t *poConf = &(genmon->oConf.oParam);
+    struct monitor_t *poMonitor = &(genmon->oMonitor);
+    struct run_t *poRun = &(genmon->oRun);
+    gchar *text;
+    gchar *markup;
+
+    if (poMonitor->tooltipMarkup)
+    {
+        gtk_tooltip_set_markup (tooltip, poMonitor->tooltipMarkup);
+        return poMonitor->tooltipMarkup[0] != '\0';
+    }
+
+    if (!poRun->started)
+    {
+        gtk_tooltip_set_text (tooltip, _("No command set"));
+        return TRUE;
+    }
+
+    /* A bold heading over unindented lines, as the Sensors plugin heads each chip.  The label, when
+       set, heads the tooltip with the command below it; otherwise the command does */
+    text = describe_run (poConf, poRun);
+    if (poConf->acTitle[0])
+        markup = g_markup_printf_escaped ("<b>%s</b>\n<tt>%s</tt>\n%s", poConf->acTitle, poRun->cmd, text);
+    else
+        markup = g_markup_printf_escaped ("<b><tt>%s</tt></b>\n%s", poRun->cmd, text);
+    gtk_tooltip_set_markup (tooltip, markup);
+    if (poRun->failure)
+    {
+        gtk_tooltip_set_icon_from_icon_name (tooltip, "dialog-warning",
+                                             GTK_ICON_SIZE_LARGE_TOOLBAR);
+    }
+
+    g_free (markup);
+    g_free (text);
+    return TRUE;
+} /* genmon_query_tooltip_cb() */
+
+/**************************************************************/
 
 static void
 genmon_construct (XfcePanelPlugin *plugin)
@@ -1427,6 +1541,10 @@ genmon_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (G_OBJECT (genmon->oMonitor.wValButton), "clicked",
                       G_CALLBACK (ExecOnValClickCmd), genmon);
+
+    gtk_widget_set_has_tooltip (genmon->oMonitor.wEventBox, TRUE);
+    g_signal_connect (G_OBJECT (genmon->oMonitor.wEventBox), "query-tooltip",
+                      G_CALLBACK (genmon_query_tooltip_cb), genmon);
 
     DisplayCmdOutput (genmon);
     SetTimer (genmon);

@@ -105,6 +105,15 @@ properties screen and on the Items tab, hover your mouse over the genmon plugin 
 
 GTK3 CSS styling capabilites have been enhanced. Please refer to the 'CSS Styling.txt' document for more information.
 
+While the last run failed, the main container has the genmon_failed CSS class. A run fails if the command
+cannot be parsed or run, exits with a non-zero status, or is terminated by a signal. The class is removed
+after a successful run or when no command is set, and applies even with a script's <tool> tooltip. As an
+example, add this to ~/.config/gtk-3.0/gtk.css for a red background on failure:
+
+    .genmon_failed { background-color: red; }
+
+A script's <css> reaches the class only through a descendant selector, such as .genmon_failed .genmon_value.
+
 To close the configuration dialog without saving any changes (and not firing off the timer) click on the X in the titlebar window
 
 The <icon></icon> and <iconclick></iconclick> elements are useful for displaying an icon from the current icon theme.

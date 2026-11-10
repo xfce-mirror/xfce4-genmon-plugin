@@ -24,9 +24,11 @@
 #ifndef _cmdspawn_h
 #define _cmdspawn_h
 
+#include <glib.h>
+
 char *
-genmon_Spawn (char **argv, int wait);
+genmon_Spawn (char **argv, int *wait_status, GError **error);
 char *
-genmon_SpawnCmd (const char *cmdline, int wait);
+genmon_SpawnCmd (const char *cmdline, int *wait_status, GError **error);
 
 #endif /* _cmdspawn_h */
