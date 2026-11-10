@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
-# Andrei Stepanov, 2022
+# Andrei Stepanov, 2022,2026
 # AlexanderFilev, 2021
 # Igor <f2404@yandex.ru>, 2019-2020
 # Sergey Shlyapugin <shlyapugin@gmail.com>, 2013
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2026-10-18 13:01+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Andrei Stepanov, 2022\n"
+"Last-Translator: Andrei Stepanov, 2022,2026\n"
 "Language-Team: Russian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +25,7 @@ msgstr ""
 #: panel-plugin/cmdspawn.c:180
 #, c-format
 msgid "Error in command \"%s\""
-msgstr "Ошибка в команде \"%s\""
+msgstr "Ошибка в команде «%s»"
 
 #: panel-plugin/cmdspawn.c:182 panel-plugin/main.c:115 panel-plugin/main.c:137
 msgid "Xfce Panel"
@@ -41,7 +41,7 @@ msgstr "Введите команду оболочки, затем нажмит�
 
 #: panel-plugin/config_gui.c:92
 msgid "Press to select file..."
-msgstr "Нажмите для выбора файла..."
+msgstr "Нажмите для выбора файла…"
 
 #: panel-plugin/config_gui.c:94
 msgid "Label"
@@ -65,7 +65,7 @@ msgstr "Период (с)"
 
 #: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns. Set to 0.00 for no cycling"
-msgstr ""
+msgstr "Интервал между двумя последовательными появлениями. Установите 0,00 для отключения циклической смены"
 
 #: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
@@ -86,7 +86,7 @@ msgstr "Нажмите для изменения шрифта..."
 #: panel-plugin/main.c:114 panel-plugin/main.c:136
 #, c-format
 msgid "Could not run \"%s\""
-msgstr "Не удалось запустить \"%s\""
+msgstr "Не удалось запустить «%s»"
 
 #: panel-plugin/main.c:980
 msgid ""
@@ -104,7 +104,7 @@ msgstr "Выбор файла"
 
 #: panel-plugin/main.c:1039
 msgid "_Cancel"
-msgstr "О_тменить"
+msgstr "О_тмена"
 
 #: panel-plugin/main.c:1040
 msgid "_Open"
@@ -113,7 +113,7 @@ msgstr "_Открыть"
 #: panel-plugin/main.c:1079
 #, c-format
 msgid "Unable to open the following url: %s"
-msgstr "Невозможно открыть ссылку: %s"
+msgstr "Невозможно открыть следующую ссылку: %s"
 
 #: panel-plugin/main.c:1151 panel-plugin/genmon.desktop.in:5
 msgid "Generic Monitor"
@@ -137,4 +137,4 @@ msgstr "Обновить"
 
 #: panel-plugin/genmon.desktop.in:6
 msgid "Show output of a command."
-msgstr "Отображает результат команды"
+msgstr "Показать вывод команды."
