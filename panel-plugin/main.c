@@ -942,13 +942,12 @@ SetPeriod (GtkWidget *p_wSc, void *p_pvPlugin)
 {
     struct genmon_t *poPlugin = (genmon_t *) p_pvPlugin;
     struct param_t *poConf = &(poPlugin->oConf.oParam);
-    float r;
 
     TRACE ("SetPeriod()\n");
     DBG ("\n");
 
-    r = gtk_spin_button_get_value (GTK_SPIN_BUTTON (p_wSc));
-    poConf->iPeriod_mstmp = (r * 1000);
+    /* Round, not truncate since 8.03 s is not exact in binary and would give 8029 ms */
+    poConf->iPeriod_mstmp = (guint32) (gtk_spin_button_get_value (GTK_SPIN_BUTTON (p_wSc)) * 1000 + 0.5);
 } /* SetPeriod() */
 
 /**************************************************************/
