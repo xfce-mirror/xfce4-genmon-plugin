@@ -46,6 +46,27 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+/**********************************************************************/
+static gboolean
+ReadChunk (int fd, GString *buf)
+/**********************************************************************/
+/* Append whatever is available on fd to buf */
+/* Return FALSE on end-of-file or error */
+{
+    char chunk[4096];
+    ssize_t n;
+
+    do
+        n = read (fd, chunk, sizeof (chunk));
+    while (n == -1 && errno == EINTR);
+
+    if (n <= 0)
+        return FALSE;
+
+    g_string_append_len (buf, chunk, n);
+    return TRUE;
+} // ReadChunk()
+
 
 /**********************************************************************/
 char *
@@ -70,8 +91,10 @@ genmon_Spawn (char **argv, int wait)
     int aaiPipe[OUT_ERR][RD_WR];
     pid_t pid;
     struct pollfd aoPoll[OUT_ERR];
-    int status;
-    int i, j, k;
+    GString *aoBuf[OUT_ERR];
+    int nOpen;
+    int i, j;
+    size_t len;
     char *str = NULL;
 
     if (!(*argv))
@@ -106,19 +129,22 @@ genmon_Spawn (char **argv, int wait)
             for (i = 0; i < OUT_ERR; i++)
             {
                 j = i + 1; // stdout/stderr file descriptor
-                k = dup2 (aaiPipe[i][WR], j);
-                if (k != j)
+                if (dup2 (aaiPipe[i][WR], j) != j)
                 {
                     perror ("dup2()");
-                    exit (-1);
+                    _exit (127);
                 }
-                /* Don't leak the open descriptor to potential long-lived grandchildren. */
-                close (aaiPipe[i][WR]);
+            /* Don't leak the pipe descriptors to the command or to
+               potential long-lived grandchildren. */
+            for (i = 0; i < OUT_ERR; i++)
+                for (j = 0; j < RD_WR; j++)
+                    if (aaiPipe[i][j] > STDERR_FILENO)
+                        close (aaiPipe[i][j]);
             }
             /* Execute the given command */
             execvp (argv[0], argv);
             perror (argv[0]);
-            exit (-1);
+            _exit (127);
     }
 
     for (i = 0; i < OUT_ERR; i++)
@@ -127,45 +153,57 @@ genmon_Spawn (char **argv, int wait)
     /* Wait for child completion */
     if (wait == 1)
     {
-        status = waitpid (pid, 0, 0);
-        if (status == -1)
-        {
-            perror ("waitpid()");
-            goto End;
-        }
-
-        /* Read stdout/stderr pipes' read-ends */
+        /* Drain both pipes until EOF *before* reaping the child: a child
+           writing more than a pipe buffer would otherwise block forever
+           while we block in waitpid() */
         for (i = 0; i < OUT_ERR; i++)
         {
+            aoBuf[i] = g_string_new (NULL);
             aoPoll[i].fd = aaiPipe[i][RD];
             aoPoll[i].events = POLLIN;
-            aoPoll[i].revents = 0;
         }
-        poll (aoPoll, OUT_ERR, ~0);
-        for (i = 0; i < OUT_ERR; i++)
-            if (aoPoll[i].revents & POLLIN)
-                break;
-        if (i == OUT_ERR)
-            goto End;
-
-        j = 0;
-        while (1)
+        nOpen = OUT_ERR;
+        while (nOpen > 0)
         {
-            str = g_realloc (str, j + 256);
-            if ((k = read (aaiPipe[i][RD], str + j, 255)) > 0)
-                j += k;
-            else
+            if (poll (aoPoll, OUT_ERR, -1) == -1)
+            {
+                if (errno == EINTR)
+                    continue;
+                perror ("poll()");
                 break;
+            }
+            for (i = 0; i < OUT_ERR; i++)
+            {
+                if (aoPoll[i].fd < 0 || aoPoll[i].revents == 0)
+                    continue;
+                if (!ReadChunk (aoPoll[i].fd, aoBuf[i]))
+                {
+                    aoPoll[i].fd = -1; /* ignored by poll() from now on */
+                    nOpen--;
+                }
+            }
         }
-        str[j] = 0;
+        while (waitpid (pid, NULL, 0) == -1 && errno == EINTR)
+            ;
 
-        /* Remove trailing carriage return if any */
-        i = strlen (str) - 1;
-        if (i >= 0 && str[i] == '\n')
-            str[i] = 0;
+        /* Prefer stdout; fall back to stderr; NULL if both are empty */
+        for (i = 0; i < OUT_ERR; i++)
+            if (aoBuf[i]->len > 0)
+                break;
+        if (i < OUT_ERR)
+        {
+            /* Remove trailing carriage return if any */
+            len = aoBuf[i]->len;
+            if (aoBuf[i]->str[len - 1] == '\n')
+                g_string_truncate (aoBuf[i], len - 1);
+            str = g_string_free (aoBuf[i], FALSE);
+            aoBuf[i] = NULL;
+        }
+        for (i = 0; i < OUT_ERR; i++)
+            if (aoBuf[i])
+                g_string_free (aoBuf[i], TRUE);
     }
 
-End:
     /* Close read end of pipes */
     for (i = 0; i < OUT_ERR; i++)
         close (aaiPipe[i][RD]);
