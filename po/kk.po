@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-genmon-plugin package.
 # 
 # Translators:
-# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010,2026
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2026-10-18 13:01+0200\n"
 "PO-Revision-Date: 2013-07-03 19:01+0000\n"
-"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010,2026\n"
 "Language-Team: Kazakh (http://app.transifex.com/xfce/xfce-panel-plugins/language/kk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr "Период (с)"
 
 #: panel-plugin/config_gui.c:125
 msgid "Interval between 2 consecutive spawns. Set to 0.00 for no cycling"
-msgstr ""
+msgstr "Қатарынан 2 қосылу арасындағы уақыт аралығы. Циклсіз ету үшін оны 0.00 етіп орнатыңыз"
 
 #: panel-plugin/config_gui.c:131
 msgid "Tick to force plugin to use only one row"
