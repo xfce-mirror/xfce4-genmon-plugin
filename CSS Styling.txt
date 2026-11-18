@@ -6,7 +6,7 @@ The genmon plugin layout is as such:
 
 +-wEventbox (GtkEventBox) n/a (the main widget to manage events)
 |
-|--wBox (GtkBox) genmon_plugin (the main widget container box - all other widgets within this box)
+|--wBox (GtkBox) genmon_plugin, genmon_failed (the main widget container box - all other widgets within this box; genmon_failed applies while the last run failed)
 |
 |---wTitle (GtkLabel) genmon_label (the optional label from the configuration dialog)
 |

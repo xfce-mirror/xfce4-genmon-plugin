@@ -49,7 +49,7 @@
 
 /**********************************************************************/
 char *
-genmon_Spawn (char **argv, int wait)
+genmon_Spawn (char **argv, int *wait_status, GError **error)
 /**********************************************************************/
 /* Spawn a command and capture its output from stdout or stderr */
 /* Return allocated string on success, otherwise NULL */
@@ -70,12 +70,12 @@ genmon_Spawn (char **argv, int wait)
     int aaiPipe[OUT_ERR][RD_WR];
     pid_t pid;
     struct pollfd aoPoll[OUT_ERR];
-    int status;
     int i, j, k;
     char *str = NULL;
 
     if (!(*argv))
     {
+        g_set_error_literal (error, G_SPAWN_ERROR, G_SPAWN_ERROR_FAILED, g_strerror (EINVAL));
         fprintf (stderr, "Spawn() error: No parameters passed!\n");
         return (NULL);
     }
@@ -83,6 +83,9 @@ genmon_Spawn (char **argv, int wait)
     {
         if (pipe (aaiPipe[i]) == -1)
         {
+            g_set_error (error, G_SPAWN_ERROR, G_SPAWN_ERROR_FAILED,
+                         _("Failed to create pipe for communicating with child process (%s)"),
+                         g_strerror (errno));
             perror ("pipe()");
             for (j = 0; j < i; j++)
             {
@@ -96,6 +99,8 @@ genmon_Spawn (char **argv, int wait)
     switch (pid = fork ())
     {
         case -1:
+            g_set_error (error, G_SPAWN_ERROR, G_SPAWN_ERROR_FORK,
+                         _("Failed to fork (%s)"), g_strerror (errno));
             perror ("fork()");
             for (i = 0; i < OUT_ERR; i++)
                 for (j = 0; j < RD_WR; j++)
@@ -125,45 +130,45 @@ genmon_Spawn (char **argv, int wait)
         close (aaiPipe[i][WR]); /* close write end of pipes in parent */
 
     /* Wait for child completion */
-    if (wait == 1)
+    if (waitpid (pid, wait_status, 0) == -1)
     {
-        status = waitpid (pid, 0, 0);
-        if (status == -1)
-        {
-            perror ("waitpid()");
-            goto End;
-        }
-
-        /* Read stdout/stderr pipes' read-ends */
-        for (i = 0; i < OUT_ERR; i++)
-        {
-            aoPoll[i].fd = aaiPipe[i][RD];
-            aoPoll[i].events = POLLIN;
-            aoPoll[i].revents = 0;
-        }
-        poll (aoPoll, OUT_ERR, ~0);
-        for (i = 0; i < OUT_ERR; i++)
-            if (aoPoll[i].revents & POLLIN)
-                break;
-        if (i == OUT_ERR)
-            goto End;
-
-        j = 0;
-        while (1)
-        {
-            str = g_realloc (str, j + 256);
-            if ((k = read (aaiPipe[i][RD], str + j, 255)) > 0)
-                j += k;
-            else
-                break;
-        }
-        str[j] = 0;
-
-        /* Remove trailing carriage return if any */
-        i = strlen (str) - 1;
-        if (i >= 0 && str[i] == '\n')
-            str[i] = 0;
+        g_set_error (error, G_SPAWN_ERROR, G_SPAWN_ERROR_FAILED,
+                     _("Unexpected error in waitpid() (%s)"), g_strerror (errno));
+        perror ("waitpid()");
+        goto End;
     }
+
+    /* Read stdout/stderr pipes' read-ends */
+    for (i = 0; i < OUT_ERR; i++)
+    {
+        aoPoll[i].fd = aaiPipe[i][RD];
+        aoPoll[i].events = POLLIN;
+        aoPoll[i].revents = 0;
+    }
+    poll (aoPoll, OUT_ERR, ~0);
+    for (i = 0; i < OUT_ERR; i++)
+    {
+        if (aoPoll[i].revents & POLLIN)
+            break;
+    }
+    if (i == OUT_ERR)
+        goto End;
+
+    j = 0;
+    while (1)
+    {
+        str = g_realloc (str, j + 256);
+        if ((k = read (aaiPipe[i][RD], str + j, 255)) > 0)
+            j += k;
+        else
+            break;
+    }
+    str[j] = 0;
+
+    /* Remove trailing carriage return if any */
+    i = strlen (str) - 1;
+    if (i >= 0 && str[i] == '\n')
+        str[i] = 0;
 
 End:
     /* Close read end of pipes */
@@ -176,32 +181,32 @@ End:
 
 /**********************************************************************/
 char *
-genmon_SpawnCmd (const char *p_pcCmdLine, int wait)
+genmon_SpawnCmd (const char *p_pcCmdLine, int *wait_status, GError **error)
 /**********************************************************************/
 /* Parse a command line, spawn the command, and capture its output from stdout or stderr */
 /* Return allocated string on success, otherwise NULL */
 {
     char **argv;
     int argc;
-    GError *error = NULL;
+    GError *parse_error = NULL;
     char *str;
 
     /* Split the commandline into an argv array */
-    if (!g_shell_parse_argv (p_pcCmdLine, &argc, &argv, &error))
+    if (!g_shell_parse_argv (p_pcCmdLine, &argc, &argv, &parse_error))
     {
         char *first = g_strdup_printf (_("Error in command \"%s\""), p_pcCmdLine);
 
         xfce_message_dialog (NULL, _("Xfce Panel"),
-                             "dialog-error", first, error->message,
+                             "dialog-error", first, parse_error->message,
                              "gtk-close", GTK_RESPONSE_OK, NULL);
 
-        g_error_free (error);
+        g_propagate_error (error, parse_error);
         g_free (first);
         return (NULL);
     }
 
     /* Spawn the command and free allocated memory */
-    str = genmon_Spawn (argv, wait);
+    str = genmon_Spawn (argv, wait_status, error);
     g_strfreev (argv);
 
     return (str);
